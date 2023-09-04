@@ -14,6 +14,7 @@
 		459585E12AA610A30039C908 /* MythosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585E02AA610A30039C908 /* MythosTests.swift */; };
 		459585EB2AA610A30039C908 /* MythosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585EA2AA610A30039C908 /* MythosUITests.swift */; };
 		459585ED2AA610A30039C908 /* MythosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585EC2AA610A30039C908 /* MythosUITestsLaunchTests.swift */; };
+		459585FA2AA6143C0039C908 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585F92AA6143C0039C908 /* GameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		459585E62AA610A30039C908 /* MythosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MythosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		459585EA2AA610A30039C908 /* MythosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythosUITests.swift; sourceTree = "<group>"; };
 		459585EC2AA610A30039C908 /* MythosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		459585F92AA6143C0039C908 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				459585CF2AA610A20039C908 /* MythosApp.swift */,
 				459585D12AA610A20039C908 /* ContentView.swift */,
+				459585F92AA6143C0039C908 /* GameView.swift */,
 				459585D32AA610A30039C908 /* Assets.xcassets */,
 				459585D52AA610A30039C908 /* Preview Content */,
 			);
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				459585D22AA610A20039C908 /* ContentView.swift in Sources */,
+				459585FA2AA6143C0039C908 /* GameView.swift in Sources */,
 				459585D02AA610A20039C908 /* MythosApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

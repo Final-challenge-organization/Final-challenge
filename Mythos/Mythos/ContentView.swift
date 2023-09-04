@@ -9,13 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack{
+            buttonInitial
         }
-        .padding()
+
+    }
+
+    var buttonInitial: some View {
+        NavigationLink {
+            GameView()
+        } label: {
+            ZStack {
+                Rectangle()
+                    .frame(width: 100, height: 50)
+                    .foregroundColor(.black)
+                Text("Iniciar")
+                    .foregroundColor(.white)
+            }
+        }
+
     }
 }
 
