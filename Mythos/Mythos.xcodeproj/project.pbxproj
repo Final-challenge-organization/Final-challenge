@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		458D46EF2AA76634006BE43C /* ModelGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458D46EE2AA76634006BE43C /* ModelGame.swift */; };
+		458D46F12AA7664D006BE43C /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458D46F02AA7664D006BE43C /* GameLogic.swift */; };
 		459585D02AA610A20039C908 /* MythosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585CF2AA610A20039C908 /* MythosApp.swift */; };
 		459585D22AA610A20039C908 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585D12AA610A20039C908 /* ContentView.swift */; };
 		459585D42AA610A30039C908 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459585D32AA610A30039C908 /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		458D46EE2AA76634006BE43C /* ModelGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelGame.swift; sourceTree = "<group>"; };
+		458D46F02AA7664D006BE43C /* GameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 		459585CC2AA610A20039C908 /* Mythos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mythos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		459585CF2AA610A20039C908 /* MythosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythosApp.swift; sourceTree = "<group>"; };
 		459585D12AA610A20039C908 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 				459585CF2AA610A20039C908 /* MythosApp.swift */,
 				459585D12AA610A20039C908 /* ContentView.swift */,
 				459585F92AA6143C0039C908 /* GameView.swift */,
+				458D46EE2AA76634006BE43C /* ModelGame.swift */,
+				458D46F02AA7664D006BE43C /* GameLogic.swift */,
 				459585D32AA610A30039C908 /* Assets.xcassets */,
 				459585D52AA610A30039C908 /* Preview Content */,
 			);
@@ -261,7 +267,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				459585D22AA610A20039C908 /* ContentView.swift in Sources */,
+				458D46EF2AA76634006BE43C /* ModelGame.swift in Sources */,
 				459585FA2AA6143C0039C908 /* GameView.swift in Sources */,
+				458D46F12AA7664D006BE43C /* GameLogic.swift in Sources */,
 				459585D02AA610A20039C908 /* MythosApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

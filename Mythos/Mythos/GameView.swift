@@ -24,8 +24,7 @@ class GameScene: SKScene {
     }
 }
 
-// A sample SwiftUI creating a GameScene and sizing it
-// at 300x400 point
+
 
 struct GameView: View {
 
