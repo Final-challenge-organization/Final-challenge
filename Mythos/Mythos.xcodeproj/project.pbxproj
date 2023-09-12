@@ -15,6 +15,10 @@
 		459585EB2AA610A30039C908 /* MythosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585EA2AA610A30039C908 /* MythosUITests.swift */; };
 		459585ED2AA610A30039C908 /* MythosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585EC2AA610A30039C908 /* MythosUITestsLaunchTests.swift */; };
 		459585FA2AA6143C0039C908 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585F92AA6143C0039C908 /* GameView.swift */; };
+		64FFCE722AA74C5F0090566B /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE712AA74C5F0090566B /* WebSocket.swift */; };
+		64FFCE742AA7500E0090566B /* ClientSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE732AA7500E0090566B /* ClientSideView.swift */; };
+		64FFCE762AA76B010090566B /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE752AA76B010090566B /* Card.swift */; };
+		64FFCE782AA8B0A80090566B /* DataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE772AA8B0A80090566B /* DataWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,10 @@
 		459585EA2AA610A30039C908 /* MythosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythosUITests.swift; sourceTree = "<group>"; };
 		459585EC2AA610A30039C908 /* MythosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythosUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		459585F92AA6143C0039C908 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		64FFCE712AA74C5F0090566B /* WebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
+		64FFCE732AA7500E0090566B /* ClientSideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSideView.swift; sourceTree = "<group>"; };
+		64FFCE752AA76B010090566B /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		64FFCE772AA8B0A80090566B /* DataWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,9 +104,8 @@
 		459585CE2AA610A20039C908 /* Mythos */ = {
 			isa = PBXGroup;
 			children = (
-				459585CF2AA610A20039C908 /* MythosApp.swift */,
-				459585D12AA610A20039C908 /* ContentView.swift */,
-				459585F92AA6143C0039C908 /* GameView.swift */,
+				64FFCE792AA8B45F0090566B /* View */,
+				64FFCE7A2AA8B4750090566B /* Model */,
 				459585D32AA610A30039C908 /* Assets.xcassets */,
 				459585D52AA610A30039C908 /* Preview Content */,
 			);
@@ -128,6 +135,27 @@
 				459585EC2AA610A30039C908 /* MythosUITestsLaunchTests.swift */,
 			);
 			path = MythosUITests;
+			sourceTree = "<group>";
+		};
+		64FFCE792AA8B45F0090566B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				459585CF2AA610A20039C908 /* MythosApp.swift */,
+				459585D12AA610A20039C908 /* ContentView.swift */,
+				64FFCE732AA7500E0090566B /* ClientSideView.swift */,
+				459585F92AA6143C0039C908 /* GameView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		64FFCE7A2AA8B4750090566B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				64FFCE712AA74C5F0090566B /* WebSocket.swift */,
+				64FFCE752AA76B010090566B /* Card.swift */,
+				64FFCE772AA8B0A80090566B /* DataWrapper.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +289,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				459585D22AA610A20039C908 /* ContentView.swift in Sources */,
+				64FFCE762AA76B010090566B /* Card.swift in Sources */,
+				64FFCE782AA8B0A80090566B /* DataWrapper.swift in Sources */,
+				64FFCE742AA7500E0090566B /* ClientSideView.swift in Sources */,
+				64FFCE722AA74C5F0090566B /* WebSocket.swift in Sources */,
 				459585FA2AA6143C0039C908 /* GameView.swift in Sources */,
 				459585D02AA610A20039C908 /* MythosApp.swift in Sources */,
 			);
