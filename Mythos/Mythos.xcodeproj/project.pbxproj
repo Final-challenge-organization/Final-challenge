@@ -15,6 +15,8 @@
 		459585EB2AA610A30039C908 /* MythosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585EA2AA610A30039C908 /* MythosUITests.swift */; };
 		459585ED2AA610A30039C908 /* MythosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585EC2AA610A30039C908 /* MythosUITestsLaunchTests.swift */; };
 		459585FA2AA6143C0039C908 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585F92AA6143C0039C908 /* GameView.swift */; };
+		4FBE72A12AB1DEC3002165FB /* DeckMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE72A02AB1DEC3002165FB /* DeckMock.swift */; };
+		4FBE72A32AB1DF25002165FB /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE72A22AB1DF25002165FB /* Protocols.swift */; };
 		64FFCE722AA74C5F0090566B /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE712AA74C5F0090566B /* WebSocket.swift */; };
 		64FFCE742AA7500E0090566B /* ClientSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE732AA7500E0090566B /* ClientSideView.swift */; };
 		64FFCE762AA76B010090566B /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE752AA76B010090566B /* Card.swift */; };
@@ -50,6 +52,8 @@
 		459585EA2AA610A30039C908 /* MythosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythosUITests.swift; sourceTree = "<group>"; };
 		459585EC2AA610A30039C908 /* MythosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythosUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		459585F92AA6143C0039C908 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		4FBE72A02AB1DEC3002165FB /* DeckMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckMock.swift; sourceTree = "<group>"; };
+		4FBE72A22AB1DF25002165FB /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		64FFCE712AA74C5F0090566B /* WebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
 		64FFCE732AA7500E0090566B /* ClientSideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSideView.swift; sourceTree = "<group>"; };
 		64FFCE752AA76B010090566B /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 			children = (
 				64FFCE712AA74C5F0090566B /* WebSocket.swift */,
 				64FFCE752AA76B010090566B /* Card.swift */,
+				4FBE72A22AB1DF25002165FB /* Protocols.swift */,
+				4FBE72A02AB1DEC3002165FB /* DeckMock.swift */,
 				64FFCE772AA8B0A80090566B /* DataWrapper.swift */,
 			);
 			path = Model;
@@ -290,6 +296,8 @@
 			files = (
 				459585D22AA610A20039C908 /* ContentView.swift in Sources */,
 				64FFCE762AA76B010090566B /* Card.swift in Sources */,
+				4FBE72A12AB1DEC3002165FB /* DeckMock.swift in Sources */,
+				4FBE72A32AB1DF25002165FB /* Protocols.swift in Sources */,
 				64FFCE782AA8B0A80090566B /* DataWrapper.swift in Sources */,
 				64FFCE742AA7500E0090566B /* ClientSideView.swift in Sources */,
 				64FFCE722AA74C5F0090566B /* WebSocket.swift in Sources */,
@@ -453,13 +461,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mythos/Preview Content\"";
-				DEVELOPMENT_TEAM = U2M84KZ35U;
+				DEVELOPMENT_TEAM = PPSYB39C6H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -482,13 +490,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mythos/Preview Content\"";
-				DEVELOPMENT_TEAM = U2M84KZ35U;
+				DEVELOPMENT_TEAM = PPSYB39C6H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

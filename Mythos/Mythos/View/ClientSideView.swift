@@ -9,23 +9,28 @@ import SwiftUI
 
 struct ClientSideView: View {
 
-    @ObservedObject var webSocket = WebSocket()
+    @ObservedObject var websocket = WebSocket() // ViewModel temporaria
+    @State var selectedCard: Card? = nil
 
     var body: some View {
-        HStack {
-            Image(webSocket.deck?[0].name ?? "Floresta Mortal")
-                .resizable()
-                .onTapGesture {
-                    let card = webSocket.deck?[0]
-                    var dataWrapper = DataWrapper(contentType: .card, content: Data())
-                    dataWrapper.encodeContent(card)
-                    webSocket.sendData(dataWrapper)
+        VStack{
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(websocket.cardsPlayed, id: \.self) {
+                        Image($0.name)
+                            .resizable()
+                    }
                 }
-            Image(webSocket.deck?[1].name ?? "Floresta Mortal")
-                .resizable()
-            Image(webSocket.deck?[2].name ?? "Floresta Mortal")
-                .resizable()
-            Text("Quanto de vida eu tenho?")
+            }
+            Spacer()
+            Button {
+                let card = Card(id: 1, name: "Aremesso de Hercules", type: .action, damage: 0)
+                let toSend = DataWrapper(playerID: websocket.playerID, contentType: .cardToServer, content: card.toData())
+                websocket.sendData(toSend)
+                websocket.cardsPlayed.append(card)
+            } label: {
+                Text("Mande Hello")
+            }.disabled(!websocket.isYourTurn)
         }
     }
 }
