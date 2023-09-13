@@ -8,39 +8,16 @@
 import Foundation
 
 struct DataWrapper: Codable {
+    let playerID: UUID
     let contentType: ContentType
-    var content: Data
-
-    func decodeContent<T: Decodable>() -> T? {
-        do {
-            let decodedData = try JSONDecoder().decode(T.self, from: content)
-            return decodedData
-        } catch {
-            print(error)
-            return nil
-        }
-    }
-
-    mutating func encodeContent<T: Encodable>(_ object: T) {
-        switch contentType {
-            case .card:
-                do {
-                    self.content = try JSONEncoder().encode(object)
-                } catch {
-                    print(error)
-                }
-            case .deck:
-                do {
-                    self.content = try JSONEncoder().encode(object)
-                } catch {
-                    print(error)
-                }
-        }
-        print("Nao entrou no switch|case")
-    }
+    let content: Data
 }
 
 enum ContentType: Codable {
-    case card
-    case deck
+    case cardToServer
+    case cardToClient
+    case turnToClient
+    case idToClient
+    case deckToClient
 }
+

@@ -8,44 +8,72 @@
 import Foundation
 
 class WebSocket: ObservableObject {
-    @Published var deck: [Card]? =  nil
+    @Published var isYourTurn: Bool = false
+    @Published var playerID: UUID = UUID()
+    @Published var cardsPlayed: [Card] = []
+    @Published var deckOfCards: [Card] = []
+
     private var webSocketTask: URLSessionWebSocketTask?
 
-    init(){
+    init() {
         self.connect()
     }
 
     private func connect() {
-        guard let url = URL(string: "ws://luiz.local:8100/match/1") else {return}
+        guard let url = URL(string: "ws://127.0.0.1:8111/websocket/1") else { return } // ajeitar a porta
         let request = URLRequest(url: url)
         webSocketTask = URLSession.shared.webSocketTask(with: request)
         webSocketTask?.resume()
-        reciveMessage()
+        receiveMessage()
     }
 
-    private func reciveMessage() {
+    private func receiveMessage() {
         webSocketTask?.receive { result in
             switch result {
-                case .failure(let error):
-                    print(error.localizedDescription)
-                case .success(let message):
-                    switch message {
-                        case .string(let text):
-                            print(text)
-                        case .data(let data):
-                            print(data)
-                            let decoded = self.decodeData([Card].self, data: data)
-                            self.deck = decoded
-                        @unknown default:
-                            break
+            case .failure(let error):
+                print(error.localizedDescription)
+            case .success(let message):
+                switch message {
+                case .string(let text):
+                    print(text)
+                case .data(let data):
+
+                    let decodedData = try! JSONDecoder().decode(DataWrapper.self, from: data)
+
+                    switch decodedData.contentType {
+                    case .turnToClient:
+                        let decodedContent = try! JSONDecoder().decode(Bool.self, from: decodedData.content)
+                        DispatchQueue.main.async {
+                            self.isYourTurn = decodedContent
+                        }
+                    case .cardToClient:
+
+                        let decodedContent = try! JSONDecoder().decode(Card.self, from: decodedData.content)
+                        DispatchQueue.main.async {
+                            self.cardsPlayed.append(decodedContent)
+                        }
+                    case .cardToServer:
+                        print()
+                    case .idToClient:
+                        DispatchQueue.main.async {
+                            self.playerID = decodedData.playerID
+                        }
+                    case .deckToClient:
+                        let decodedContent = try! JSONDecoder().decode([Card].self, from: decodedData.content)
+                        DispatchQueue.main.async {
+                            self.deckOfCards = decodedContent
+                        }
                     }
+                @unknown default:
+                    break
+                }
             }
-            self.reciveMessage()
+            self.receiveMessage()
         }
     }
 
     func sendMessage(_ message: String) {
-        guard let _ = message.data(using: .utf8) else {return}
+        guard let _ = message.data(using: .utf8) else { return } // Data
         webSocketTask?.send(.string(message)) { error in
             if let error = error {
                 print(error.localizedDescription)
@@ -53,16 +81,14 @@ class WebSocket: ObservableObject {
         }
     }
 
-    func sendData(_ data: DataWrapper){
+    func sendData(_ data: DataWrapper) {
         let encoded = try! JSONEncoder().encode(data)
-
         webSocketTask?.send(.data(encoded)) { error in
             if let error = error {
                 print(error.localizedDescription)
             }
         }
     }
-
     private func decodeData<T: Codable>(_ type: T.Type, data: Data) -> T? {
         do{
             let decodeData = try JSONDecoder().decode(type.self, from: data)
