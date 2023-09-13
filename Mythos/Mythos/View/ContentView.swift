@@ -18,6 +18,7 @@ struct ContentView: View {
     var buttonInitial: some View {
         NavigationLink {
             GameView()
+            .ignoresSafeArea()
         } label: {
             ZStack {
                 Rectangle()
