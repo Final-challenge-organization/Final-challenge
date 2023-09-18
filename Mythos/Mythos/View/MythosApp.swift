@@ -11,7 +11,8 @@ import SwiftUI
 struct MythosApp: App {
     var body: some Scene {
         WindowGroup {
-            ClientSideView()
+//            ClientSideView()
+            HomeView()
         }
     }
 }
