@@ -14,13 +14,13 @@ class WebSocket: ObservableObject {
     @Published var deckOfCards: [Card] = []
 
     private var webSocketTask: URLSessionWebSocketTask?
-
-    init() {
-        self.connect()
-    }
+//
+//    init() {
+//        self.connect()
+//    }
 
     private func connect() {
-        guard let url = URL(string: "ws://127.0.0.1:8111/websocket/1") else { return } // ajeitar a porta
+        guard let url = URL(string: "ws://luiz.local:8111/websocket/1") else { return } // ajeitar a porta
         let request = URLRequest(url: url)
         webSocketTask = URLSession.shared.webSocketTask(with: request)
         webSocketTask?.resume()

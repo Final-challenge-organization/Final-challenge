@@ -21,6 +21,18 @@
 		64FFCE742AA7500E0090566B /* ClientSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE732AA7500E0090566B /* ClientSideView.swift */; };
 		64FFCE762AA76B010090566B /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE752AA76B010090566B /* Card.swift */; };
 		64FFCE782AA8B0A80090566B /* DataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE772AA8B0A80090566B /* DataWrapper.swift */; };
+		DD6D18662AB8784F004B02AA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18652AB8784F004B02AA /* HomeView.swift */; };
+		DD6D18682AB87872004B02AA /* WaitingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18672AB87872004B02AA /* WaitingRoomView.swift */; };
+		DD6D186B2AB88352004B02AA /* PlayButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D186A2AB88352004B02AA /* PlayButtonView.swift */; };
+		DD6D186F2AB88506004B02AA /* InventoryButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D186E2AB88506004B02AA /* InventoryButtonView.swift */; };
+		DD6D18712AB8857A004B02AA /* UserButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18702AB8857A004B02AA /* UserButtonView.swift */; };
+		DD6D18742AB8898E004B02AA /* CoinsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18732AB8898E004B02AA /* CoinsView.swift */; };
+		DD6D18762AB889F2004B02AA /* ConfigButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18752AB889F2004B02AA /* ConfigButtonView.swift */; };
+		DD6D18782AB88A8D004B02AA /* StoreButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18772AB88A8D004B02AA /* StoreButtonView.swift */; };
+		DD6D187A2AB88B26004B02AA /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18792AB88B26004B02AA /* StoreView.swift */; };
+		DD6D187C2AB88B33004B02AA /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D187B2AB88B33004B02AA /* ConfigurationView.swift */; };
+		DD6D187E2AB88B41004B02AA /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D187D2AB88B41004B02AA /* InventoryView.swift */; };
+		DD6D18802AB88DA3004B02AA /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D187F2AB88DA3004B02AA /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +70,18 @@
 		64FFCE732AA7500E0090566B /* ClientSideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSideView.swift; sourceTree = "<group>"; };
 		64FFCE752AA76B010090566B /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		64FFCE772AA8B0A80090566B /* DataWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataWrapper.swift; sourceTree = "<group>"; };
+		DD6D18652AB8784F004B02AA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		DD6D18672AB87872004B02AA /* WaitingRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoomView.swift; sourceTree = "<group>"; };
+		DD6D186A2AB88352004B02AA /* PlayButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButtonView.swift; sourceTree = "<group>"; };
+		DD6D186E2AB88506004B02AA /* InventoryButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryButtonView.swift; sourceTree = "<group>"; };
+		DD6D18702AB8857A004B02AA /* UserButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserButtonView.swift; sourceTree = "<group>"; };
+		DD6D18732AB8898E004B02AA /* CoinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsView.swift; sourceTree = "<group>"; };
+		DD6D18752AB889F2004B02AA /* ConfigButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigButtonView.swift; sourceTree = "<group>"; };
+		DD6D18772AB88A8D004B02AA /* StoreButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreButtonView.swift; sourceTree = "<group>"; };
+		DD6D18792AB88B26004B02AA /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
+		DD6D187B2AB88B33004B02AA /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
+		DD6D187D2AB88B41004B02AA /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
+		DD6D187F2AB88DA3004B02AA /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,10 +168,17 @@
 		64FFCE792AA8B45F0090566B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DD6D18692AB88221004B02AA /* Components */,
 				459585CF2AA610A20039C908 /* MythosApp.swift */,
 				459585D12AA610A20039C908 /* ContentView.swift */,
 				64FFCE732AA7500E0090566B /* ClientSideView.swift */,
 				459585F92AA6143C0039C908 /* GameView.swift */,
+				DD6D18652AB8784F004B02AA /* HomeView.swift */,
+				DD6D187F2AB88DA3004B02AA /* ProfileView.swift */,
+				DD6D18672AB87872004B02AA /* WaitingRoomView.swift */,
+				DD6D18792AB88B26004B02AA /* StoreView.swift */,
+				DD6D187B2AB88B33004B02AA /* ConfigurationView.swift */,
+				DD6D187D2AB88B41004B02AA /* InventoryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -162,6 +193,35 @@
 				64FFCE772AA8B0A80090566B /* DataWrapper.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DD6D18692AB88221004B02AA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DD6D18722AB88940004B02AA /* HUD */,
+				DD6D186C2AB883DE004B02AA /* Buttons */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DD6D186C2AB883DE004B02AA /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				DD6D186A2AB88352004B02AA /* PlayButtonView.swift */,
+				DD6D186E2AB88506004B02AA /* InventoryButtonView.swift */,
+				DD6D18702AB8857A004B02AA /* UserButtonView.swift */,
+				DD6D18752AB889F2004B02AA /* ConfigButtonView.swift */,
+				DD6D18772AB88A8D004B02AA /* StoreButtonView.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		DD6D18722AB88940004B02AA /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				DD6D18732AB8898E004B02AA /* CoinsView.swift */,
+			);
+			path = HUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,15 +354,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD6D186B2AB88352004B02AA /* PlayButtonView.swift in Sources */,
 				459585D22AA610A20039C908 /* ContentView.swift in Sources */,
+				DD6D18742AB8898E004B02AA /* CoinsView.swift in Sources */,
+				DD6D186F2AB88506004B02AA /* InventoryButtonView.swift in Sources */,
 				64FFCE762AA76B010090566B /* Card.swift in Sources */,
 				4FBE72A12AB1DEC3002165FB /* DeckMock.swift in Sources */,
+				DD6D18782AB88A8D004B02AA /* StoreButtonView.swift in Sources */,
+				DD6D18662AB8784F004B02AA /* HomeView.swift in Sources */,
 				4FBE72A32AB1DF25002165FB /* Protocols.swift in Sources */,
 				64FFCE782AA8B0A80090566B /* DataWrapper.swift in Sources */,
+				DD6D18682AB87872004B02AA /* WaitingRoomView.swift in Sources */,
+				DD6D187E2AB88B41004B02AA /* InventoryView.swift in Sources */,
 				64FFCE742AA7500E0090566B /* ClientSideView.swift in Sources */,
 				64FFCE722AA74C5F0090566B /* WebSocket.swift in Sources */,
+				DD6D18762AB889F2004B02AA /* ConfigButtonView.swift in Sources */,
 				459585FA2AA6143C0039C908 /* GameView.swift in Sources */,
 				459585D02AA610A20039C908 /* MythosApp.swift in Sources */,
+				DD6D187C2AB88B33004B02AA /* ConfigurationView.swift in Sources */,
+				DD6D187A2AB88B26004B02AA /* StoreView.swift in Sources */,
+				DD6D18802AB88DA3004B02AA /* ProfileView.swift in Sources */,
+				DD6D18712AB8857A004B02AA /* UserButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +539,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -496,7 +568,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
