@@ -10,37 +10,57 @@ import SpriteKit
 
 struct GameView: View {
 
-    var scene: SKScene {
-        let scene = GameScene()
-        scene.scaleMode = .fill
-        return scene
+    @EnvironmentObject var webSocket: WebSocket
 
-    }
+//    var scene: GameSceneTeste {
+//        let scene = GameSceneTeste()
+//        scene.scaleMode = .fill
+//        return scene
+//    }
+    var scene = GameSceneTeste(size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
 
     var body: some View {
         SpriteView(scene: scene)
             .ignoresSafeArea()
+            .onChange(of: webSocket.playerID, perform: { newValue in // mudar para avatar pessoa
+                scene.addPlayerNode(player: SKSpriteNode(imageNamed: "carol"))
+            })
+            .onChange(of: webSocket.cardsPlayed) { newValue in
+                scene.makeHandCards(from: newValue)
+            }
     }
 
 }
 
- class GameScene: SKScene {
+ class GameSceneTeste: SKScene {
 
-     let card = SKSpriteNode(imageNamed: "demeter")
+     var handCards: [CardNode] = []
      let background = SKSpriteNode(imageNamed: "back")
-     let player1 = SKSpriteNode(imageNamed: "carol")
+     var player1 = SKSpriteNode(imageNamed: "luiz")
      let player2 = SKSpriteNode(imageNamed: "luiz")
      let player3 = SKSpriteNode(imageNamed: "cicero")
      let player4 = SKSpriteNode(imageNamed: "sara")
      let killDeck = SKSpriteNode(imageNamed: "killDeck")
      let deck = SKSpriteNode(imageNamed: "deck")
+     let life = SKLabelNode(text: "AODKAOSKOADSK")
 
-     override func didMove(to view: SKView) {
-
+     fileprivate func placeHandCard(card: CardNode) {
          addChild(card)
          card.size = CGSize(width: size.width/10 , height: size.height/4)
          card.position = CGPoint(x: size.width/2, y: size.height/7)
-         card.zPosition = 1
+         card.zPosition = 2
+     }
+
+     override func didMove(to view: SKView) {
+
+
+         if handCards.isEmpty {
+             print("ta vazio")
+         } else {
+             for card in handCards {
+                 placeHandCard(card: card)
+             }
+         }
 
          addChild(background)
          background.zPosition = 0
@@ -72,16 +92,30 @@ struct GameView: View {
          killDeck.position = CGPoint(x: size.width/4.5, y: size.height/7)
          killDeck.zPosition = 2
 
+
          addChild(deck)
          deck.size = CGSize(width: size.width/10 , height: size.height/4)
          deck.position = CGPoint(x: size.width/1.3, y: size.height/7.5)
          deck.zPosition = 2
 
+         addChild(life)
+         life.fontSize = 50
+         life.position = CGPoint(x: frame.midX, y: frame.midY)
+
+
      }
-//     override func sceneDidLoad() {
-//         super.sceneDidLoad()
-//
-//     }
+
+     func makeHandCards(from cards: [Card]) {
+         handCards = cards.map { _ in CardNode(cardTexture: SKTexture(imageNamed: "demeter")) }
+         handCards.forEach { placeHandCard(card: $0) }
+     }
+
+     func addPlayerNode(player: SKSpriteNode) {
+         addChild(player)
+         player.size = CGSize(width: size.width/8 , height: size.height/4)
+         player.position = CGPoint(x: size.width/2, y: size.height/3)
+         player.zPosition = 2
+     }
 
 }
 
