@@ -168,17 +168,16 @@
 		64FFCE792AA8B45F0090566B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DD6D18692AB88221004B02AA /* Components */,
+				DD6D18892AB8926C004B02AA /* ProfileView */,
+				DD6D18882AB89249004B02AA /* InventoryView */,
+				DD6D18872AB8923D004B02AA /* ConfigurationView */,
+				DD6D18852AB8919A004B02AA /* StoreView */,
+				DD6D18832AB8917B004B02AA /* WaitingRoomView */,
+				DD6D18812AB8913C004B02AA /* HomeView */,
 				459585CF2AA610A20039C908 /* MythosApp.swift */,
 				459585D12AA610A20039C908 /* ContentView.swift */,
 				64FFCE732AA7500E0090566B /* ClientSideView.swift */,
 				459585F92AA6143C0039C908 /* GameView.swift */,
-				DD6D18652AB8784F004B02AA /* HomeView.swift */,
-				DD6D187F2AB88DA3004B02AA /* ProfileView.swift */,
-				DD6D18672AB87872004B02AA /* WaitingRoomView.swift */,
-				DD6D18792AB88B26004B02AA /* StoreView.swift */,
-				DD6D187B2AB88B33004B02AA /* ConfigurationView.swift */,
-				DD6D187D2AB88B41004B02AA /* InventoryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -222,6 +221,95 @@
 				DD6D18732AB8898E004B02AA /* CoinsView.swift */,
 			);
 			path = HUD;
+			sourceTree = "<group>";
+		};
+		DD6D18812AB8913C004B02AA /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				DD6D18652AB8784F004B02AA /* HomeView.swift */,
+				DD6D18692AB88221004B02AA /* Components */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		DD6D18832AB8917B004B02AA /* WaitingRoomView */ = {
+			isa = PBXGroup;
+			children = (
+				DD6D18842AB8918C004B02AA /* Components */,
+				DD6D18672AB87872004B02AA /* WaitingRoomView.swift */,
+			);
+			path = WaitingRoomView;
+			sourceTree = "<group>";
+		};
+		DD6D18842AB8918C004B02AA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DD6D18852AB8919A004B02AA /* StoreView */ = {
+			isa = PBXGroup;
+			children = (
+				DD6D18792AB88B26004B02AA /* StoreView.swift */,
+				DD6D18862AB891A3004B02AA /* Components */,
+			);
+			path = StoreView;
+			sourceTree = "<group>";
+		};
+		DD6D18862AB891A3004B02AA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DD6D18872AB8923D004B02AA /* ConfigurationView */ = {
+			isa = PBXGroup;
+			children = (
+				DD6D188A2AB89280004B02AA /* Components */,
+				DD6D187B2AB88B33004B02AA /* ConfigurationView.swift */,
+			);
+			path = ConfigurationView;
+			sourceTree = "<group>";
+		};
+		DD6D18882AB89249004B02AA /* InventoryView */ = {
+			isa = PBXGroup;
+			children = (
+				DD6D188B2AB89288004B02AA /* Components */,
+				DD6D187D2AB88B41004B02AA /* InventoryView.swift */,
+			);
+			path = InventoryView;
+			sourceTree = "<group>";
+		};
+		DD6D18892AB8926C004B02AA /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				DD6D188C2AB89291004B02AA /* Components */,
+				DD6D187F2AB88DA3004B02AA /* ProfileView.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		DD6D188A2AB89280004B02AA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DD6D188B2AB89288004B02AA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DD6D188C2AB89291004B02AA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
