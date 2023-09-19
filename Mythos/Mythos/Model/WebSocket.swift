@@ -12,6 +12,7 @@ class WebSocket: ObservableObject {
     @Published var playerID: UUID = UUID() // uuid que veio apos conexao do socket
     @Published var cardsPlayed: [Card] = []
     @Published var deckOfCards: [Card] = []
+    @Published var life: Int = 30
 
     private var webSocketTask: URLSessionWebSocketTask?
 
@@ -57,7 +58,7 @@ class WebSocket: ObservableObject {
                     case .idToClient:
                         DispatchQueue.main.async {
                             self.playerID = decodedData.playerID
-                            
+
                         }
                     case .deckToClient:
                         let decodedContent = try! JSONDecoder().decode([Card].self, from: decodedData.content)

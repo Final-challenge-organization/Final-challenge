@@ -30,7 +30,7 @@ struct ClientSideView: View {
 //                }
 //                Spacer()
 //                Button {
-//                    let card = Card(id: 1, name: "Aremesso de Hercules", type: .action, damage: 0)
+//                    let card = Card(id: 1, name: "Arremesso de Hercules", type: .action, damage: 0)
 //                    let toSend = DataWrapper(playerID: websocket.playerID, contentType: .cardToServer, content: card.toData())
 //                    websocket.sendData(toSend)
 //                    websocket.cardsPlayed.append(card)

@@ -9,11 +9,13 @@ import Foundation
 import SpriteKit
 
 class CardNode: SKSpriteNode {
+
     let cardTexture: SKTexture
+
 
     init(cardTexture: SKTexture) {
         self.cardTexture = cardTexture
-        super.init()
+        super.init(texture: cardTexture, color: .clear, size: cardTexture.size())
     }
 
     required init?(coder aDecoder: NSCoder) {
