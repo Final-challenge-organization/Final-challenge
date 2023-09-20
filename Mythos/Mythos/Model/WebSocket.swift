@@ -15,13 +15,15 @@ class WebSocket: ObservableObject {
     @Published var life: Int = 30
 
     private var webSocketTask: URLSessionWebSocketTask?
-
-    init() {
-        self.connect()
-    }
+//
+//    init() {
+//        self.connect()
+//    }
 
     private func connect() {
+      
         guard let url = URL(string: "ws://10.45.48.89:8111/websocket/1") else { return } // ajeitar a porta
+
         let request = URLRequest(url: url)
         webSocketTask = URLSession.shared.webSocketTask(with: request)
         webSocketTask?.resume()
