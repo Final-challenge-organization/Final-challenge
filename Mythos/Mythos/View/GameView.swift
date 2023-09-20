@@ -32,6 +32,8 @@ struct GameView: View {
 
  class GameSceneTeste: SKScene {
 
+     var touchLocation: CGPoint = CGPoint()
+
      var deckWS: [CardNode] = []
      let background = SKSpriteNode(imageNamed: "back")
      var player1 = SKSpriteNode(imageNamed: "luiz")
@@ -98,6 +100,21 @@ struct GameView: View {
 
 
      }
+
+     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+          for touch in touches {
+
+              touchLocation = touch.location(in: self)
+
+              handCards[0].position.x = (touchLocation.x)
+              handCards[0].position.y = (touchLocation.y)
+
+              if touchLocation == handCards[0].position {
+                  print("tapeadoo")
+              }
+          }
+      }
 
      func makeHandCards(from cards: [Card]) {
          deckWS = cards.map { _ in CardNode(cardTexture: SKTexture(imageNamed: "athena")) }
