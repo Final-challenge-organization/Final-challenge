@@ -9,9 +9,10 @@ import Foundation
 
 class WebSocket: ObservableObject {
     @Published var isYourTurn: Bool = false
-    @Published var playerID: UUID = UUID()
+    @Published var playerID: UUID = UUID() // uuid que veio apos conexao do socket
     @Published var cardsPlayed: [Card] = []
     @Published var deckOfCards: [Card] = []
+    @Published var life: Int = 30
 
     private var webSocketTask: URLSessionWebSocketTask?
 //
@@ -20,7 +21,9 @@ class WebSocket: ObservableObject {
 //    }
 
     private func connect() {
-        guard let url = URL(string: "ws://luiz.local:8111/websocket/1") else { return } // ajeitar a porta
+      
+        guard let url = URL(string: "ws://10.45.48.89:8111/websocket/1") else { return } // ajeitar a porta
+
         let request = URLRequest(url: url)
         webSocketTask = URLSession.shared.webSocketTask(with: request)
         webSocketTask?.resume()
@@ -57,9 +60,11 @@ class WebSocket: ObservableObject {
                     case .idToClient:
                         DispatchQueue.main.async {
                             self.playerID = decodedData.playerID
+
                         }
                     case .deckToClient:
                         let decodedContent = try! JSONDecoder().decode([Card].self, from: decodedData.content)
+
                         DispatchQueue.main.async {
                             self.deckOfCards = decodedContent
                         }

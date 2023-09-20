@@ -17,7 +17,7 @@ struct ContentView: View {
 
     var buttonInitial: some View {
         NavigationLink {
-            GameView()
+            ClientSideView()
             .ignoresSafeArea()
         } label: {
             ZStack {
