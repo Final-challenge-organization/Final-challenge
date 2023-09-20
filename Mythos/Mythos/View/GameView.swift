@@ -20,45 +20,39 @@ struct GameView: View {
 
             .onChange(of: webSocket.playerID, perform: { newValue in // mudar para avatar pessoa
                 scene.addPlayerNode(player: SKSpriteNode(imageNamed: "carol"))
-                
             })
             .onChange(of: webSocket.deckOfCards) { newValue in
                 scene.makeHandCards(from: newValue)
-
-                let card = Card(id: 1, name: "Arremesso de Hercules", type: .action, damage: 0)
-                //                    let toSend = DataWrapper(playerID: websocket.playerID, contentType: .cardToServer, content: card.toData())
-                //                    websocket.sendData(toSend)
-                //                    websocket.cardsPlayed.append(card)
-                //                } label: {
-                //                    Text("Mande Hello")
-                //                }.disabled(!websocket.isYourTurn)
-                //            }
-
             }
             .onChange(of: webSocket.life) { newValue in
                 scene.addLifeNode(life: SKLabelNode(text: "30"))
-
             }
     }
 }
 
  class GameSceneTeste: SKScene {
 
-     var deck: [CardNode] = []
+     var deckWS: [CardNode] = []
      let background = SKSpriteNode(imageNamed: "back")
      var player1 = SKSpriteNode(imageNamed: "luiz")
      let player2 = SKSpriteNode(imageNamed: "luiz")
      let player3 = SKSpriteNode(imageNamed: "cicero")
      let player4 = SKSpriteNode(imageNamed: "sara")
      let killDeck = SKSpriteNode(imageNamed: "killDeck")
+     let deck = SKSpriteNode(imageNamed: "deck")
      let life = SKLabelNode(text: "30")
      var handCards: [CardNode] = []
 
-     fileprivate func placeHandCard(card: CardNode) {
+     fileprivate func placeHandCard(_ card: CardNode) {
          addChild(card)
          card.size = CGSize(width: size.width/10 , height: size.height/4)
-//         card.position = CGPoint(x: size.width/2, y: size.height/7)
          card.zPosition = 4
+     }
+     fileprivate func placeDeckCard(_ card: CardNode) {
+         addChild(card)
+         card.size = CGSize(width: size.width/10 , height: size.height/4)
+         card.position = CGPoint(x: size.width/1.3, y: size.height/7.5)
+         card.zPosition = 2
      }
 
      override func didMove(to view: SKView) {
@@ -93,11 +87,10 @@ struct GameView: View {
          killDeck.position = CGPoint(x: size.width/4.5, y: size.height/7)
          killDeck.zPosition = 2
 
-
-//         addChild(deck)
-//         deck.size = CGSize(width: size.width/10 , height: size.height/4)
-//         deck.position = CGPoint(x: size.width/1.3, y: size.height/7.5)
-//         deck.zPosition = 2
+         addChild(deck)
+         deck.size = CGSize(width: size.width/10 , height: size.height/4)
+         deck.position = CGPoint(x: size.width/1.3, y: size.height/7.5)
+         deck.zPosition = 3
 
          addChild(life)
          life.fontSize = 50
@@ -106,34 +99,25 @@ struct GameView: View {
 
      }
 
-//     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-//
-//         for touch in touches {
-//             let location = touch.location(in: self)
-//
-//             if deck.containsPoint(location) {
-//                 print("button touched")
-//
-//         }
-//             else {
-//                 //start the game here
-//         }
-
      func makeHandCards(from cards: [Card]) {
-         deck = cards.map { _ in CardNode(cardTexture: SKTexture(imageNamed: "athena")) }
-         print(deck)
-         deck.forEach { placeHandCard(card: $0) }
-
+         deckWS = cards.map { _ in CardNode(cardTexture: SKTexture(imageNamed: "athena")) }
+         print(deckWS)
+         // 3 cartas que estão na mao do jogador
          for i in 0..<3 {
-             handCards.append(deck[i])
-
+             handCards.append(deckWS[i])
          }
+         // excluir as cartas que estao na mao do jogador do deck
          for _ in 0..<3 {
-             deck.remove(at: 0)
+             deckWS.remove(at: 0)
          }
-//         deck[0].position = CGPoint(x: size.width/2, y: size.height/7)
-//         deck[1].position = CGPoint(x: size.width/1.7, y: size.height/7)
-//         deck[2].position = CGPoint(x: size.width/2.5, y: size.height/7)
+         // adicionar os nodes das cartas que estão no deck
+         deckWS.forEach { placeDeckCard($0) }
+         // adicionar os nodes das cartas que estão na mao
+         handCards.forEach { placeHandCard($0)}
+         // como as cartas da mao tem posições diferentes
+         handCards[0].position = CGPoint(x: size.width/2, y: size.height/7)
+         handCards[1].position = CGPoint(x: size.width/1.7, y: size.height/7)
+         handCards[2].position = CGPoint(x: size.width/2.5, y: size.height/7)
      }
 
      func addPlayerNode(player: SKSpriteNode) {
