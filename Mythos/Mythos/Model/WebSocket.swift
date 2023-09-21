@@ -15,10 +15,10 @@ class WebSocket: ObservableObject {
     @Published var life: Int = 30
 
     private var webSocketTask: URLSessionWebSocketTask?
-//
-//    init() {
-//        self.connect()
-//    }
+
+    init() {
+        self.connect()
+    }
 
     private func connect() {
       
