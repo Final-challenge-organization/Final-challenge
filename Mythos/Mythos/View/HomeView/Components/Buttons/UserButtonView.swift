@@ -9,8 +9,12 @@ import SwiftUI
 
 struct UserButtonView: View {
     var body: some View {
-        RoundedRectangle(cornerRadius: 4)
-            .foregroundColor(.gray)
+        ZStack {
+            RoundedRectangle(cornerRadius: 4)
+                .foregroundColor(.gray)
+            Text("Perfil")
+                .foregroundColor(.white)
+        }
     }
 }
 

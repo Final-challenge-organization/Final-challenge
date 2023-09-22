@@ -34,6 +34,9 @@
 		DD6D187C2AB88B33004B02AA /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D187B2AB88B33004B02AA /* ConfigurationView.swift */; };
 		DD6D187E2AB88B41004B02AA /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D187D2AB88B41004B02AA /* InventoryView.swift */; };
 		DD6D18802AB88DA3004B02AA /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D187F2AB88DA3004B02AA /* ProfileView.swift */; };
+		DD6D18AA2ABDBF0A004B02AA /* CustomToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18A92ABDBF0A004B02AA /* CustomToolbarView.swift */; };
+		DD6D18AC2ABDBF37004B02AA /* BackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18AB2ABDBF37004B02AA /* BackButtonView.swift */; };
+		DD6D18AE2ABDBF93004B02AA /* ConnectedPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18AD2ABDBF93004B02AA /* ConnectedPlayersView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +87,9 @@
 		DD6D187B2AB88B33004B02AA /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
 		DD6D187D2AB88B41004B02AA /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
 		DD6D187F2AB88DA3004B02AA /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		DD6D18A92ABDBF0A004B02AA /* CustomToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToolbarView.swift; sourceTree = "<group>"; };
+		DD6D18AB2ABDBF37004B02AA /* BackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonView.swift; sourceTree = "<group>"; };
+		DD6D18AD2ABDBF93004B02AA /* ConnectedPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConnectedPlayersView.swift; path = Mythos/View/HUD/ConnectedPlayersView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +176,7 @@
 		64FFCE792AA8B45F0090566B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DD6D18722AB88940004B02AA /* HUD */,
 				DD6D18892AB8926C004B02AA /* ProfileView */,
 				DD6D18882AB89249004B02AA /* InventoryView */,
 				DD6D18872AB8923D004B02AA /* ConfigurationView */,
@@ -200,7 +207,6 @@
 		DD6D18692AB88221004B02AA /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				DD6D18722AB88940004B02AA /* HUD */,
 				DD6D186C2AB883DE004B02AA /* Buttons */,
 			);
 			path = Components;
@@ -222,6 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				DD6D18732AB8898E004B02AA /* CoinsView.swift */,
+				DD6D18A92ABDBF0A004B02AA /* CustomToolbarView.swift */,
+				DD6D18AB2ABDBF37004B02AA /* BackButtonView.swift */,
 			);
 			path = HUD;
 			sourceTree = "<group>";
@@ -247,6 +255,7 @@
 		DD6D18842AB8918C004B02AA /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				DD6D18AD2ABDBF93004B02AA /* ConnectedPlayersView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -458,8 +467,10 @@
 				DD6D18682AB87872004B02AA /* WaitingRoomView.swift in Sources */,
 				DD6D187E2AB88B41004B02AA /* InventoryView.swift in Sources */,
 				64FFCE742AA7500E0090566B /* ClientSideView.swift in Sources */,
+				DD6D18AE2ABDBF93004B02AA /* ConnectedPlayersView.swift in Sources */,
 				64FFCE722AA74C5F0090566B /* WebSocket.swift in Sources */,
 				64D788FC2AB484CC00394078 /* CardNode.swift in Sources */,
+				DD6D18AA2ABDBF0A004B02AA /* CustomToolbarView.swift in Sources */,
 				DD6D18762AB889F2004B02AA /* ConfigButtonView.swift in Sources */,
 				459585FA2AA6143C0039C908 /* GameView.swift in Sources */,
 				459585D02AA610A20039C908 /* MythosApp.swift in Sources */,
@@ -467,6 +478,7 @@
 				DD6D187A2AB88B26004B02AA /* StoreView.swift in Sources */,
 				DD6D18802AB88DA3004B02AA /* ProfileView.swift in Sources */,
 				DD6D18712AB8857A004B02AA /* UserButtonView.swift in Sources */,
+				DD6D18AC2ABDBF37004B02AA /* BackButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

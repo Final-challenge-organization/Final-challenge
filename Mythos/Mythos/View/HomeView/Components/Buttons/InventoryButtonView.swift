@@ -9,8 +9,12 @@ import SwiftUI
 
 struct InventoryButtonView: View {
     var body: some View {
-        Rectangle()
-            .foregroundColor(.gray)
+        ZStack {
+            Rectangle()
+                .foregroundColor(.gray)
+            Text("Inventário")
+                .foregroundColor(.white)
+        }
     }
 }
 

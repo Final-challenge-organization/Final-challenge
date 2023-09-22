@@ -9,8 +9,12 @@ import SwiftUI
 
 struct ConfigButtonView: View {
     var body: some View {
-        Circle()
-            .foregroundColor(.gray)
+        ZStack {
+            Circle()
+                .foregroundColor(.gray)
+            Text("⚙️")
+
+        }
     }
 }
 

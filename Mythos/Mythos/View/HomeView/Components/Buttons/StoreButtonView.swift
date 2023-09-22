@@ -9,7 +9,12 @@ import SwiftUI
 
 struct StoreButtonView: View {
     var body: some View {
-        Circle().foregroundColor(.gray)
+        ZStack {
+            Circle()
+                .foregroundColor(.gray)
+            Text("💸")
+                .foregroundColor(.white)
+        }
     }
 }
 

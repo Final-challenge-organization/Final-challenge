@@ -9,8 +9,12 @@ import SwiftUI
 
 struct PlayButtonView: View {
     var body: some View {
-        Rectangle()
-            .foregroundColor(.gray)
+        ZStack {
+            Rectangle()
+                .foregroundColor(.gray)
+            Text("Iniciar batalha")
+                .foregroundColor(.white)
+        }
     }
 }
 
