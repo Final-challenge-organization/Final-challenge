@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Card: Datable, Codable, Hashable {
+struct Card: Codable, Datable {
+    var uuid: UUID = UUID()
     let id: Int
     let name: String
     let type: CardType
@@ -18,9 +19,11 @@ struct Card: Datable, Codable, Hashable {
     }
 }
 
-enum CardType: String, Codable {
-    case action = "action"
-    case reaction = "reaction"
+
+enum CardType: Codable {
+    case action
+    case reaction
 }
+
 
 

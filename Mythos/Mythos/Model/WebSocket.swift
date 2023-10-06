@@ -5,31 +5,63 @@
 //  Created by Ana Caroline Sampaio Nogueira on 05/09/23.
 //
 
-import Foundation
+import UIKit
 
 class WebSocket: ObservableObject {
-    @Published var isYourTurn: Bool = false
-    @Published var playerID: UUID = UUID() // uuid que veio apos conexao do socket
+    @Published var connectedPlayers: [PlayerClient] = []
     @Published var cardsPlayed: [Card] = []
-    @Published var deckOfCards: [Card] = []
-    @Published var life: Int = 30
-
-    private var webSocketTask: URLSessionWebSocketTask?
-
-    init() {
-        self.connect()
+    private var myID = UUID()
+    var myPlayerReference: PlayerClient {
+        return connectedPlayers.first { $0.id == self.myID} ?? PlayerClient(id: UUID(), name: "ANONIMO", deck: [], life: 2, isYourTurn: false, isReaction: false, handCards: [])
     }
+    private var contentTypeCardReference: ContentType {
+        if (self.myPlayerReference.isReaction && self.myPlayerReference.isYourTurn) {
+            return ContentType.reactionToServer
+        }
+        if (!self.myPlayerReference.isReaction && self.myPlayerReference.isYourTurn) {
+            return ContentType.cardToServer
+            
+        }
+        else {
+            print("INEXPECTED")
+            return .reactionToClient
+        }
+    }
+    
+    private var webSocketTask: URLSessionWebSocketTask?
+    private var httpTask: URLSessionDataTask?
 
-    private func connect() {
-      
-        guard let url = URL(string: "ws://10.45.48.89:8111/websocket/1") else { return } // ajeitar a porta
-
+    func serverConnect() {
+        self.verifyNumberOfRoom()
+    }
+    
+    private func verifyNumberOfRoom() {
+        guard let url = URL(string: "http://luiz.local:8080/verifyRoom") else {return}
+        let request = URLRequest(url: url)
+        httpTask = URLSession.shared.dataTask(with: request, completionHandler: { data , response, error in
+            guard let data = data else {
+                print("Nenhum dado recebido")
+                return
+            }
+            let unwrappedData = try! JSONDecoder().decode(Int.self, from: data)
+            print(unwrappedData)
+            DispatchQueue.main.async {
+                self.connect(unwrappedData)
+            }
+        })
+        httpTask?.resume()
+    }
+    
+    private func connect(_ roomNumber: Int) {
+        guard let url = URL(string: "ws://luiz.local:8080/websocket/\(roomNumber)") else { return } // ajeitar a porta
         let request = URLRequest(url: url)
         webSocketTask = URLSession.shared.webSocketTask(with: request)
         webSocketTask?.resume()
         receiveMessage()
+        self.sendData(DataWrapper(playerID: UUID(), contentType: .sendUserNameToServer, content: "Luiz\(Int.random(in: Range(0...10000)))".toData()))
     }
-
+    
+    // é preciso melhorar essa funcao a cargo de quando houver disconnect ele nao continuar de forma recursiva
     private func receiveMessage() {
         webSocketTask?.receive { result in
             switch result {
@@ -40,34 +72,69 @@ class WebSocket: ObservableObject {
                 case .string(let text):
                     print(text)
                 case .data(let data):
-
                     let decodedData = try! JSONDecoder().decode(DataWrapper.self, from: data)
-
                     switch decodedData.contentType {
-                    case .turnToClient:
-                        let decodedContent = try! JSONDecoder().decode(Bool.self, from: decodedData.content)
-                        DispatchQueue.main.async {
-                            self.isYourTurn = decodedContent
+                    case .nameToClient:
+                        if let decodedContent = self.decodeData([PlayerClient].self, data: decodedData.content) {
+                            DispatchQueue.main.async {
+                                self.connectedPlayers = decodedContent
+                                self.myID = decodedData.playerID
+                            }
                         }
-                    case .cardToClient:
-
-                        let decodedContent = try! JSONDecoder().decode(Card.self, from: decodedData.content)
-                        DispatchQueue.main.async {
-                            self.cardsPlayed.append(decodedContent)
-                        }
-                    case .cardToServer:
-                        print()
-                    case .idToClient:
-                        DispatchQueue.main.async {
-                            self.playerID = decodedData.playerID
-
-                        }
+                        print(decodedData.contentType)
                     case .deckToClient:
-                        let decodedContent = try! JSONDecoder().decode([Card].self, from: decodedData.content)
-
-                        DispatchQueue.main.async {
-                            self.deckOfCards = decodedContent
+                        if let decodedContent = self.decodeData([PlayerClient].self, data: decodedData.content) {
+                            DispatchQueue.main.async {
+                                self.connectedPlayers = decodedContent
+                            }
                         }
+                        print(decodedData.contentType)
+                        
+                    case .lifeToClient:
+                        if let decodedContent = self.decodeData([PlayerClient].self, data: decodedData.content) {
+                            DispatchQueue.main.async {
+                                self.connectedPlayers = decodedContent
+                            }
+                        }
+                        print(decodedData.contentType)
+                    case .turnToClient:
+                        if let decodedContent = self.decodeData([PlayerClient].self, data: decodedData.content) {
+                            
+                            DispatchQueue.main.async {
+                                self.connectedPlayers = decodedContent
+                            }
+                        }
+                        print(decodedData.contentType)
+                    case .reactionToClient:
+                        if let decodedContent = self.decodeData([PlayerClient].self, data: decodedData.content) {
+                            DispatchQueue.main.async {
+                                self.connectedPlayers = decodedContent
+                            }
+                        }
+                        print(decodedData.contentType)
+                    case .handCardsToClient:
+                        if let decodedContent = self.decodeData([PlayerClient].self, data: decodedData.content) {
+                            DispatchQueue.main.async {
+                                self.connectedPlayers = decodedContent
+                            }
+                        }
+                        print(decodedData.contentType)
+                    case .connectedPlayersToClient:
+                        if let decodedContent = self.decodeData([PlayerClient].self, data: decodedData.content) {
+                            DispatchQueue.main.async {
+                                self.connectedPlayers = decodedContent
+                            }
+                        }
+                        print(decodedData.contentType)
+                    case .cardsPlayedToClient:
+                        if let decodedContent = self.decodeData([Card].self, data: decodedData.content) {
+                            DispatchQueue.main.async {
+                                self.cardsPlayed = decodedContent
+                            }
+                        }
+                        print(decodedData.contentType)
+                    default:
+                        print("default")
                     }
                 @unknown default:
                     break
@@ -76,7 +143,7 @@ class WebSocket: ObservableObject {
             self.receiveMessage()
         }
     }
-
+    
     func sendMessage(_ message: String) {
         guard let _ = message.data(using: .utf8) else { return } // Data
         webSocketTask?.send(.string(message)) { error in
@@ -85,7 +152,7 @@ class WebSocket: ObservableObject {
             }
         }
     }
-
+    
     func sendData(_ data: DataWrapper) {
         let encoded = try! JSONEncoder().encode(data)
         webSocketTask?.send(.data(encoded)) { error in
@@ -94,6 +161,7 @@ class WebSocket: ObservableObject {
             }
         }
     }
+    
     private func decodeData<T: Codable>(_ type: T.Type, data: Data) -> T? {
         do{
             let decodeData = try JSONDecoder().decode(type.self, from: data)
@@ -102,5 +170,23 @@ class WebSocket: ObservableObject {
             print(error)
         }
         return nil
+    }
+
+    func sendCard(with card: Card?) {
+        let encoder = try! JSONEncoder().encode(card)
+        let dataWrapper = DataWrapper(playerID: self.myID, contentType: self.contentTypeCardReference, content: encoder)
+        self.sendData(dataWrapper)
+    }
+}
+
+extension Array: Datable where Element: Codable {
+    func toData() -> Data {
+        return try! JSONEncoder().encode(self)
+    }
+}
+
+extension String: Datable {
+    func toData() -> Data {
+        return try! JSONEncoder().encode(self)
     }
 }
