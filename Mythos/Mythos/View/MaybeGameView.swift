@@ -37,12 +37,13 @@ struct MaybeGameView: View {
                         isYourTurn: websocket.myPlayerReference.isYourTurn,
                         isReaction: websocket.myPlayerReference.isReaction,
                         card: card) {
-                            
                             websocket.sendCard(with: card)
-                            
                         }
+
                 }
+                .transition(.move(edge: .top))
             }
+            .animation(.easeInOut, value: websocket.myPlayerReference.handCards.count)
         }
         .onAppear {
             websocket.serverConnect()
