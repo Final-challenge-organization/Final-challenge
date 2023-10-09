@@ -17,6 +17,7 @@
 		459585FA2AA6143C0039C908 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585F92AA6143C0039C908 /* GameView.swift */; };
 		4FBE72A12AB1DEC3002165FB /* DeckMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE72A02AB1DEC3002165FB /* DeckMock.swift */; };
 		4FBE72A32AB1DF25002165FB /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE72A22AB1DF25002165FB /* Protocols.swift */; };
+		64D176772ACB312400A438BE /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D176762ACB312400A438BE /* PopUp.swift */; };
 		64D788FC2AB484CC00394078 /* CardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D788FB2AB484CC00394078 /* CardNode.swift */; };
 		64FFCE722AA74C5F0090566B /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE712AA74C5F0090566B /* WebSocket.swift */; };
 		64FFCE742AA7500E0090566B /* ClientSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE732AA7500E0090566B /* ClientSideView.swift */; };
@@ -70,6 +71,7 @@
 		459585F92AA6143C0039C908 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		4FBE72A02AB1DEC3002165FB /* DeckMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckMock.swift; sourceTree = "<group>"; };
 		4FBE72A22AB1DF25002165FB /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		64D176762ACB312400A438BE /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PopUp.swift; path = Mythos/View/PopUp.swift; sourceTree = SOURCE_ROOT; };
 		64D788FB2AB484CC00394078 /* CardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNode.swift; sourceTree = "<group>"; };
 		64FFCE712AA74C5F0090566B /* WebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
 		64FFCE732AA7500E0090566B /* ClientSideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSideView.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 		DD6D188C2AB89291004B02AA /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				64D176762ACB312400A438BE /* PopUp.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				DD6D187A2AB88B26004B02AA /* StoreView.swift in Sources */,
 				DD6D18802AB88DA3004B02AA /* ProfileView.swift in Sources */,
 				DD6D18712AB8857A004B02AA /* UserButtonView.swift in Sources */,
+				64D176772ACB312400A438BE /* PopUp.swift in Sources */,
 				DD6D18AC2ABDBF37004B02AA /* BackButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
