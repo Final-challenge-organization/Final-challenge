@@ -16,6 +16,8 @@
 		459585ED2AA610A30039C908 /* MythosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585EC2AA610A30039C908 /* MythosUITestsLaunchTests.swift */; };
 		459585FA2AA6143C0039C908 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585F92AA6143C0039C908 /* GameView.swift */; };
 		4F4269E62AD0511900A417E5 /* PlayerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4269E52AD0511900A417E5 /* PlayerClient.swift */; };
+		4F51B8BE2AD0B5D7007107B4 /* PopUpCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F51B8BD2AD0B5D7007107B4 /* PopUpCard.swift */; };
+		4F51B8C02AD0D2B8007107B4 /* ParallaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F51B8BF2AD0D2B8007107B4 /* ParallaxView.swift */; };
 		4FBE72A12AB1DEC3002165FB /* DeckMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE72A02AB1DEC3002165FB /* DeckMock.swift */; };
 		4FBE72A32AB1DF25002165FB /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE72A22AB1DF25002165FB /* Protocols.swift */; };
 		4FF895B62ACED14500F50DA4 /* MaybeGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */; };
@@ -72,6 +74,8 @@
 		459585EC2AA610A30039C908 /* MythosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythosUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		459585F92AA6143C0039C908 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		4F4269E52AD0511900A417E5 /* PlayerClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerClient.swift; sourceTree = "<group>"; };
+		4F51B8BD2AD0B5D7007107B4 /* PopUpCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCard.swift; sourceTree = "<group>"; };
+		4F51B8BF2AD0D2B8007107B4 /* ParallaxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxView.swift; sourceTree = "<group>"; };
 		4FBE72A02AB1DEC3002165FB /* DeckMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckMock.swift; sourceTree = "<group>"; };
 		4FBE72A22AB1DF25002165FB /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaybeGameView.swift; sourceTree = "<group>"; };
@@ -195,6 +199,8 @@
 				4FF895B72ACED16E00F50DA4 /* CardRepresentable.swift */,
 				459585F92AA6143C0039C908 /* GameView.swift */,
 				4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */,
+				4F51B8BF2AD0D2B8007107B4 /* ParallaxView.swift */,
+				4F51B8BD2AD0B5D7007107B4 /* PopUpCard.swift */,
 				64D788FB2AB484CC00394078 /* CardNode.swift */,
 			);
 			path = View;
@@ -475,7 +481,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# ./build4\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n # ./build4\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -485,6 +491,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD6D186B2AB88352004B02AA /* PlayButtonView.swift in Sources */,
+				4F51B8C02AD0D2B8007107B4 /* ParallaxView.swift in Sources */,
 				459585D22AA610A20039C908 /* ContentView.swift in Sources */,
 				DD6D18742AB8898E004B02AA /* CoinsView.swift in Sources */,
 				DD6D186F2AB88506004B02AA /* InventoryButtonView.swift in Sources */,
@@ -502,6 +509,7 @@
 				64D788FC2AB484CC00394078 /* CardNode.swift in Sources */,
 				DD6D18AA2ABDBF0A004B02AA /* CustomToolbarView.swift in Sources */,
 				4FF895B82ACED16E00F50DA4 /* CardRepresentable.swift in Sources */,
+				4F51B8BE2AD0B5D7007107B4 /* PopUpCard.swift in Sources */,
 				DD6D18762AB889F2004B02AA /* ConfigButtonView.swift in Sources */,
 				459585FA2AA6143C0039C908 /* GameView.swift in Sources */,
 				459585D02AA610A20039C908 /* MythosApp.swift in Sources */,
@@ -676,7 +684,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -706,7 +714,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
