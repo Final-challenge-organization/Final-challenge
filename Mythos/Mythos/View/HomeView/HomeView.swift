@@ -13,9 +13,10 @@ struct HomeView: View {
         UINavigationBar.setAnimationsEnabled(false)
     }
 
+    @State private var isShowingSheet = false
     var body: some View {
         GeometryReader { geo in
-            NavigationView {
+            NavigationStack {
                 VStack(alignment: .leading){
                     HStack(alignment: .top) {
                         NavigationLink(destination: ProfileView(),
@@ -32,8 +33,9 @@ struct HomeView: View {
                             .frame(width: geo.size.width/6 ,
                                    height: geo.size.height/8.4)
 
-                        ConfigButtonView()
-                            .frame(width: geo.size.height/8)
+                        Button(action: {isShowingSheet.toggle()}, label: {ConfigButtonView()})
+
+
 
                     }.padding(27)
 
@@ -64,6 +66,8 @@ struct HomeView: View {
                         Spacer()
                     }
                 }
+                .alert(isPresented: $isShowingSheet, content: {Alert(title: Text("VERSÃO BETA"))})
+
                 .ignoresSafeArea()
             }
         }

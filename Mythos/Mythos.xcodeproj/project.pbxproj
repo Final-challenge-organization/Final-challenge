@@ -27,6 +27,7 @@
 		64FFCE742AA7500E0090566B /* ClientSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE732AA7500E0090566B /* ClientSideView.swift */; };
 		64FFCE762AA76B010090566B /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE752AA76B010090566B /* Card.swift */; };
 		64FFCE782AA8B0A80090566B /* DataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE772AA8B0A80090566B /* DataWrapper.swift */; };
+		DD57DF862AD428D3009B9272 /* ButtonConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD57DF852AD428D3009B9272 /* ButtonConnect.swift */; };
 		DD6D18662AB8784F004B02AA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18652AB8784F004B02AA /* HomeView.swift */; };
 		DD6D18682AB87872004B02AA /* WaitingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18672AB87872004B02AA /* WaitingRoomView.swift */; };
 		DD6D186B2AB88352004B02AA /* PlayButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D186A2AB88352004B02AA /* PlayButtonView.swift */; };
@@ -85,6 +86,7 @@
 		64FFCE732AA7500E0090566B /* ClientSideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSideView.swift; sourceTree = "<group>"; };
 		64FFCE752AA76B010090566B /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		64FFCE772AA8B0A80090566B /* DataWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataWrapper.swift; sourceTree = "<group>"; };
+		DD57DF852AD428D3009B9272 /* ButtonConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonConnect.swift; sourceTree = "<group>"; };
 		DD6D18652AB8784F004B02AA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DD6D18672AB87872004B02AA /* WaitingRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoomView.swift; sourceTree = "<group>"; };
 		DD6D186A2AB88352004B02AA /* PlayButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButtonView.swift; sourceTree = "<group>"; };
@@ -99,7 +101,7 @@
 		DD6D187F2AB88DA3004B02AA /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		DD6D18A92ABDBF0A004B02AA /* CustomToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToolbarView.swift; sourceTree = "<group>"; };
 		DD6D18AB2ABDBF37004B02AA /* BackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonView.swift; sourceTree = "<group>"; };
-		DD6D18AD2ABDBF93004B02AA /* ConnectedPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConnectedPlayersView.swift; path = Mythos/View/HUD/ConnectedPlayersView.swift; sourceTree = SOURCE_ROOT; };
+		DD6D18AD2ABDBF93004B02AA /* ConnectedPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConnectedPlayersView.swift; path = Mythos/View/WaitingRoomView/ConnectedPlayersView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,8 +235,6 @@
 				DD6D186A2AB88352004B02AA /* PlayButtonView.swift */,
 				DD6D186E2AB88506004B02AA /* InventoryButtonView.swift */,
 				DD6D18702AB8857A004B02AA /* UserButtonView.swift */,
-				DD6D18752AB889F2004B02AA /* ConfigButtonView.swift */,
-				DD6D18772AB88A8D004B02AA /* StoreButtonView.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -243,7 +243,9 @@
 			isa = PBXGroup;
 			children = (
 				DD6D18732AB8898E004B02AA /* CoinsView.swift */,
+				DD6D18752AB889F2004B02AA /* ConfigButtonView.swift */,
 				DD6D18A92ABDBF0A004B02AA /* CustomToolbarView.swift */,
+				DD6D18772AB88A8D004B02AA /* StoreButtonView.swift */,
 				DD6D18AB2ABDBF37004B02AA /* BackButtonView.swift */,
 			);
 			path = HUD;
@@ -263,6 +265,8 @@
 			children = (
 				DD6D18842AB8918C004B02AA /* Components */,
 				DD6D18672AB87872004B02AA /* WaitingRoomView.swift */,
+				DD57DF852AD428D3009B9272 /* ButtonConnect.swift */,
+				DD6D18AD2ABDBF93004B02AA /* ConnectedPlayersView.swift */,
 			);
 			path = WaitingRoomView;
 			sourceTree = "<group>";
@@ -270,7 +274,6 @@
 		DD6D18842AB8918C004B02AA /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				DD6D18AD2ABDBF93004B02AA /* ConnectedPlayersView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				DD6D18802AB88DA3004B02AA /* ProfileView.swift in Sources */,
 				DD6D18712AB8857A004B02AA /* UserButtonView.swift in Sources */,
 				4F4269E62AD0511900A417E5 /* PlayerClient.swift in Sources */,
+				DD57DF862AD428D3009B9272 /* ButtonConnect.swift in Sources */,
 				DD6D18AC2ABDBF37004B02AA /* BackButtonView.swift in Sources */,
 				4FF895B62ACED14500F50DA4 /* MaybeGameView.swift in Sources */,
 			);
@@ -678,13 +682,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mythos/Preview Content\"";
-				DEVELOPMENT_TEAM = PPSYB39C6H;
+				DEVELOPMENT_TEAM = 2D837DJ3YC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -708,13 +712,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mythos/Preview Content\"";
-				DEVELOPMENT_TEAM = PPSYB39C6H;
+				DEVELOPMENT_TEAM = 2D837DJ3YC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (

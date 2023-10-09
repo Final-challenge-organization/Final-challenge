@@ -11,6 +11,9 @@ class WebSocket: ObservableObject {
     @Published var connectedPlayers: [PlayerClient] = []
     @Published var cardsPlayed: [Card] = []
     private var myID = UUID()
+    var isAllPlayersConnecteds: Bool {
+        return (connectedPlayers.count == 4) ? true : false
+    }
     var myPlayerReference: PlayerClient {
         return connectedPlayers.first { $0.id == self.myID} ?? PlayerClient(id: UUID(), name: "ANONIMO", deck: [], life: 2, isYourTurn: false, isReaction: false, handCards: [])
     }
@@ -58,7 +61,7 @@ class WebSocket: ObservableObject {
         webSocketTask = URLSession.shared.webSocketTask(with: request)
         webSocketTask?.resume()
         receiveMessage()
-        self.sendData(DataWrapper(playerID: UUID(), contentType: .sendUserNameToServer, content: "Luiz\(Int.random(in: Range(0...10000)))".toData()))
+        self.sendData(DataWrapper(playerID: UUID(), contentType: .sendUserNameToServer, content: "Player\(Int.random(in: Range(0...10000)))".toData()))
     }
     
     // é preciso melhorar essa funcao a cargo de quando houver disconnect ele nao continuar de forma recursiva
