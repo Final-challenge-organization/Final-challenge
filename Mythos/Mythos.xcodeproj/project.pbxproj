@@ -22,6 +22,7 @@
 		4FBE72A32AB1DF25002165FB /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE72A22AB1DF25002165FB /* Protocols.swift */; };
 		4FF895B62ACED14500F50DA4 /* MaybeGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */; };
 		4FF895B82ACED16E00F50DA4 /* CardRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF895B72ACED16E00F50DA4 /* CardRepresentable.swift */; };
+		64C04C102AD436BD00894EF9 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C04C0F2AD436BD00894EF9 /* PlayerView.swift */; };
 		64D788FC2AB484CC00394078 /* CardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D788FB2AB484CC00394078 /* CardNode.swift */; };
 		64FFCE722AA74C5F0090566B /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE712AA74C5F0090566B /* WebSocket.swift */; };
 		64FFCE742AA7500E0090566B /* ClientSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE732AA7500E0090566B /* ClientSideView.swift */; };
@@ -81,6 +82,7 @@
 		4FBE72A22AB1DF25002165FB /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaybeGameView.swift; sourceTree = "<group>"; };
 		4FF895B72ACED16E00F50DA4 /* CardRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepresentable.swift; sourceTree = "<group>"; };
+		64C04C0F2AD436BD00894EF9 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		64D788FB2AB484CC00394078 /* CardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNode.swift; sourceTree = "<group>"; };
 		64FFCE712AA74C5F0090566B /* WebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
 		64FFCE732AA7500E0090566B /* ClientSideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSideView.swift; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 			children = (
 				DD6D188A2AB89280004B02AA /* Components */,
 				DD6D187B2AB88B33004B02AA /* ConfigurationView.swift */,
+				64C04C0F2AD436BD00894EF9 /* PlayerView.swift */,
 			);
 			path = ConfigurationView;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD6D186B2AB88352004B02AA /* PlayButtonView.swift in Sources */,
+				64C04C102AD436BD00894EF9 /* PlayerView.swift in Sources */,
 				4F51B8C02AD0D2B8007107B4 /* ParallaxView.swift in Sources */,
 				459585D22AA610A20039C908 /* ContentView.swift in Sources */,
 				DD6D18742AB8898E004B02AA /* CoinsView.swift in Sources */,
