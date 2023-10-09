@@ -11,9 +11,10 @@ import SwiftUI
 struct MythosApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
 //            PopUpCard(card: Card(id: 0, name: "HADES", type: .action, damage: 10))
 //            ParallaxView()
+            HomeView()
         }
     }
 }
