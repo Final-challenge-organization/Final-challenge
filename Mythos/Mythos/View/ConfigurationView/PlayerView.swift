@@ -15,35 +15,6 @@ struct PlayerView: View {
         Image(playersImage)
             .resizable()
             .frame(width: 60,height: 60)
-
-//        ZStack{
-//            VStack {
-//                Image(playersImage.randomElement() ?? "")
-//                    .resizable()
-//                    .frame(width: 60,height: 60)
-//                    .rotationEffect(.degrees(90))
-//                    .padding(30)
-//                    Spacer()
-//                Image(playersImage.randomElement() ?? "")
-//                    .resizable()
-//                    .frame(width: 60,height: 60)
-//                    .rotationEffect(.degrees(90))
-//                    .padding(30)
-//            }
-//            HStack {
-//                Image(playersImage.randomElement() ?? "")
-//                    .resizable()
-//                    .frame(width: 60,height: 60)
-//                    .rotationEffect(.degrees(90))
-//                    .padding(90)
-//                Spacer()
-//                Image(playersImage.randomElement() ?? "")
-//                    .resizable()
-//                    .frame(width: 60,height: 60)
-//                    .rotationEffect(.degrees(90))
-//                    .padding(90)
-//            }
-//        }
     }
 }
 struct PlayerView_Previews: PreviewProvider {
