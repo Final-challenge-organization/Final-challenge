@@ -18,6 +18,10 @@
 		4F4269E62AD0511900A417E5 /* PlayerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4269E52AD0511900A417E5 /* PlayerClient.swift */; };
 		4F51B8BE2AD0B5D7007107B4 /* PopUpCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F51B8BD2AD0B5D7007107B4 /* PopUpCard.swift */; };
 		4F51B8C02AD0D2B8007107B4 /* ParallaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F51B8BF2AD0D2B8007107B4 /* ParallaxView.swift */; };
+		4FBC46F32AD43BC400BB1CE1 /* Convergence-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FBC46F22AD43BBC00BB1CE1 /* Convergence-Regular.ttf */; };
+		4FBC46F42AD43BC500BB1CE1 /* Convergence-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FBC46F22AD43BBC00BB1CE1 /* Convergence-Regular.ttf */; };
+		4FBC46F52AD43BC500BB1CE1 /* Convergence-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FBC46F22AD43BBC00BB1CE1 /* Convergence-Regular.ttf */; };
+		4FBC46F82AD43C4400BB1CE1 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBC46F72AD43C4400BB1CE1 /* Fonts.swift */; };
 		4FBE72A12AB1DEC3002165FB /* DeckMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE72A02AB1DEC3002165FB /* DeckMock.swift */; };
 		4FBE72A32AB1DF25002165FB /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE72A22AB1DF25002165FB /* Protocols.swift */; };
 		4FF895B62ACED14500F50DA4 /* MaybeGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */; };
@@ -78,6 +82,9 @@
 		4F4269E52AD0511900A417E5 /* PlayerClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerClient.swift; sourceTree = "<group>"; };
 		4F51B8BD2AD0B5D7007107B4 /* PopUpCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCard.swift; sourceTree = "<group>"; };
 		4F51B8BF2AD0D2B8007107B4 /* ParallaxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxView.swift; sourceTree = "<group>"; };
+		4FBC46F22AD43BBC00BB1CE1 /* Convergence-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Convergence-Regular.ttf"; sourceTree = "<group>"; };
+		4FBC46F62AD43BF000BB1CE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4FBC46F72AD43C4400BB1CE1 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		4FBE72A02AB1DEC3002165FB /* DeckMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckMock.swift; sourceTree = "<group>"; };
 		4FBE72A22AB1DF25002165FB /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaybeGameView.swift; sourceTree = "<group>"; };
@@ -154,6 +161,8 @@
 		459585CE2AA610A20039C908 /* Mythos */ = {
 			isa = PBXGroup;
 			children = (
+				4FBC46F62AD43BF000BB1CE1 /* Info.plist */,
+				4FBC46F12AD43BA900BB1CE1 /* ProjectFonts */,
 				64FFCE792AA8B45F0090566B /* View */,
 				64FFCE7A2AA8B4750090566B /* Model */,
 				459585D32AA610A30039C908 /* Assets.xcassets */,
@@ -187,9 +196,27 @@
 			path = MythosUITests;
 			sourceTree = "<group>";
 		};
+		4FBC46F02AD4226600BB1CE1 /* CardView */ = {
+			isa = PBXGroup;
+			children = (
+				4FF895B72ACED16E00F50DA4 /* CardRepresentable.swift */,
+			);
+			path = CardView;
+			sourceTree = "<group>";
+		};
+		4FBC46F12AD43BA900BB1CE1 /* ProjectFonts */ = {
+			isa = PBXGroup;
+			children = (
+				4FBC46F22AD43BBC00BB1CE1 /* Convergence-Regular.ttf */,
+				4FBC46F72AD43C4400BB1CE1 /* Fonts.swift */,
+			);
+			path = ProjectFonts;
+			sourceTree = "<group>";
+		};
 		64FFCE792AA8B45F0090566B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4FBC46F02AD4226600BB1CE1 /* CardView */,
 				DD6D18722AB88940004B02AA /* HUD */,
 				DD6D18892AB8926C004B02AA /* ProfileView */,
 				DD6D18882AB89249004B02AA /* InventoryView */,
@@ -200,7 +227,6 @@
 				459585CF2AA610A20039C908 /* MythosApp.swift */,
 				459585D12AA610A20039C908 /* ContentView.swift */,
 				64FFCE732AA7500E0090566B /* ClientSideView.swift */,
-				4FF895B72ACED16E00F50DA4 /* CardRepresentable.swift */,
 				459585F92AA6143C0039C908 /* GameView.swift */,
 				4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */,
 				4F51B8BF2AD0D2B8007107B4 /* ParallaxView.swift */,
@@ -451,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				459585D72AA610A30039C908 /* Preview Assets.xcassets in Resources */,
+				4FBC46F32AD43BC400BB1CE1 /* Convergence-Regular.ttf in Resources */,
 				459585D42AA610A30039C908 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,6 +486,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FBC46F42AD43BC500BB1CE1 /* Convergence-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +494,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FBC46F52AD43BC500BB1CE1 /* Convergence-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,7 +516,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n # ./build4\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# ./build4\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -521,6 +550,7 @@
 				459585FA2AA6143C0039C908 /* GameView.swift in Sources */,
 				459585D02AA610A20039C908 /* MythosApp.swift in Sources */,
 				DD6D187C2AB88B33004B02AA /* ConfigurationView.swift in Sources */,
+				4FBC46F82AD43C4400BB1CE1 /* Fonts.swift in Sources */,
 				DD6D187A2AB88B26004B02AA /* StoreView.swift in Sources */,
 				DD6D18802AB88DA3004B02AA /* ProfileView.swift in Sources */,
 				DD6D18712AB8857A004B02AA /* UserButtonView.swift in Sources */,
@@ -689,6 +719,7 @@
 				DEVELOPMENT_TEAM = 2D837DJ3YC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Mythos/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -719,6 +750,7 @@
 				DEVELOPMENT_TEAM = 2D837DJ3YC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Mythos/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
