@@ -10,13 +10,13 @@ import SpriteKit
 
 struct ClientSideView: View {
 
-    @StateObject var websocket = WebSocket() // ViewModel temporaria
+//    @StateObject var websocket = WebSocket() // ViewModel temporaria
     @State var selectedCard: Card? = nil
 
     var body: some View {
-        
-            GameView()
-                .environmentObject(websocket)
+        Text("asdas")
+//            GameView()
+//                .environmentObject(websocket)
 
 //            VStack{
 //                ScrollView(.horizontal) {

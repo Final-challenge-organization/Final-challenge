@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+IPHONE12_A_16=22783BD8-52DB-4F33-B013-28A79957222F
+IPHONE12_B_16=B81D4D9A-6A3E-4D28-A151-436032A3AD12
+IPHONE12_A_16_4=4972599F-D1B4-415B-BD81-B644094E39B3
+IPHONE12_B_16_4=B1ABF19E-6EC3-4245-A64C-5918426CC638
+
+xcrun simctl terminate $IPHONE12_A_16 Narely.Mythos &
+xcrun simctl terminate $IPHONE12_A_16_4 Narely.Mythos &
+xcrun simctl terminate $IPHONE12_B_16 Narely.Mythos
+# xcrun simctl terminate $IPHONE12_B_16_4 progamming.POC-websocketClientSide

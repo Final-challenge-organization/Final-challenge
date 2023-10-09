@@ -1,0 +1,25 @@
+#!/bin/zsh
+
+# VALIDATION
+if [ "$#" -eq 3 ]; then
+    ## ARGS
+    APPBUILD=$1
+    BUILD_IDENTIFIER=$2
+    IPHONE=$3
+
+    ## RUN
+    echo "Open simulator"
+    open -a Simulator
+    # open -a Simulator --args -CurrentDeviceUDID $IPHONE
+
+    echo "Start Device"
+    xcrun simctl boot $IPHONE
+
+    echo "Install App"
+    xcrun simctl install $IPHONE $APPBUILD 
+
+    echo "Launch App"
+    xcrun simctl launch $IPHONE $BUILD_IDENTIFIER
+else
+ echo "usage: ./build1 \".app directory\" \"build_identifier\" \"iphone\""
+fi

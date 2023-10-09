@@ -14,10 +14,17 @@ struct DataWrapper: Codable {
 }
 
 enum ContentType: Codable {
+    case sendUserNameToServer
     case cardToServer
-    case cardToClient
-    case turnToClient
-    case idToClient
+    case reactionToServer
+
+    case reactionToClient
+    case nameToClient
+    case connectedPlayersToClient
+    case lifeToClient
+    case handCardsToClient
     case deckToClient
+    case turnToClient
+    case cardsPlayedToClient
 }
 
