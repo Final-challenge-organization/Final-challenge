@@ -44,7 +44,7 @@ struct WaitingRoomView: View {
         .onChange(of: websocket.isAllPlayersConnecteds) { _ in
             isReady.toggle()
         }
-        .navigationDestination(isPresented: $isReady, destination: {Text("Tela de gameplay")})
+        .navigationDestination(isPresented: $isReady, destination: {MaybeGameView()})
     }
 
 }

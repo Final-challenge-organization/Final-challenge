@@ -23,51 +23,77 @@ struct MaybeGameView: View {
                 .resizable()
                 .ignoresSafeArea()
 
-        VStack {
-            PlayerView(playersImage: "sara")
-            Text(websocket.myPlayerReference.life.description)
-
-            HStack {
-
-                PlayerView(playersImage: "luiz")
-                Text(websocket.myPlayerReference.life.description)
-                Spacer()
-                //                Text(websocket.myPlayerReference.name)
-                //                    .padding(.trailing)
-                Text(websocket.myPlayerReference.life.description)
-                PlayerView(playersImage: "carol")
-            }
-            HStack {
-                Text(websocket.myPlayerReference.isReaction.description)
-                Text(websocket.myPlayerReference.isYourTurn.description)
-            }
-            HStack {
-                PlayerView(playersImage: "cicero")
-                    .rotationEffect(.degrees(90))
-                    .padding(10)
-                    .rotationEffect(.degrees(270))
-
-                Text(websocket.cardsPlayed.count.description)
-            }
-            Text(websocket.myPlayerReference.life.description)
-            HStack {
-                
-                ForEach(websocket.myPlayerReference.handCards, id: \.id) { card in
-                    CardRepresentable(
-                        isYourTurn: websocket.myPlayerReference.isYourTurn,
-                        isReaction: websocket.myPlayerReference.isReaction,
-                        card: card) {
-                            websocket.sendCard(with: card)
-                        }
+            VStack {
+                PlayerView(playersImage: "sara")
+                ZStack{
+                    Circle()
+                        .foregroundColor(.yellow)
+                        .frame(width: 30, height: 30)
+                    Text(websocket.myPlayerReference.life.description)
                 }
-                .transition(.move(edge: .top))
+                HStack {
+
+                    PlayerView(playersImage: "luiz")
+                        .padding(.leading, 60)
+
+                    ZStack{
+                        Circle()
+                            .foregroundColor(.yellow)
+                            .frame(width: 30, height: 30)
+                        Text(websocket.myPlayerReference.life.description)
+                    }
+                    Spacer()
+                    //                Text(websocket.myPlayerReference.name)
+                    //                    .padding(.trailing)
+                    ZStack{
+                        Circle()
+                            .foregroundColor(.yellow)
+                            .frame(width: 30, height: 30)
+                        Text(websocket.myPlayerReference.life.description)
+                    }
+                    PlayerView(playersImage: "carol")
+                        .padding(.trailing, 60)
+
+                }
+                HStack {
+                    Text(websocket.myPlayerReference.isReaction.description)
+                    Text(websocket.myPlayerReference.isYourTurn.description)
+                }
+                HStack {
+                    PlayerView(playersImage: "cicero")
+                        .rotationEffect(.degrees(90))
+                        .rotationEffect(.degrees(270))
+                        .overlay{
+                            ZStack{
+                                Circle()
+                                    .foregroundColor(.yellow)
+                                    .frame(width: 30, height: 30)
+                                Text(websocket.myPlayerReference.life.description)
+                            }.offset(x:25 ,y:20)
+                        }
+
+                    Text(websocket.cardsPlayed.count.description)
+                }
+
             }
-
-            .animation(.easeInOut, value: websocket.myPlayerReference.handCards.count)
-
-
+            VStack{
+                Spacer()
+                HStack {
+                    ForEach(websocket.myPlayerReference.handCards, id: \.id) { card in
+                        CardRepresentable(
+                            isYourTurn: websocket.myPlayerReference.isYourTurn,
+                            isReaction: websocket.myPlayerReference.isReaction,
+                            card: card) {
+                                websocket.sendCard(with: card)
+                            }
+                    }
+                    .transition(.move(edge: .top))
+                }
+                .animation(.easeInOut, value: websocket.myPlayerReference.handCards.count)
+            }
+            
         }
-    }
+        .ignoresSafeArea()
         .onAppear {
             websocket.serverConnect()
         }
@@ -77,6 +103,7 @@ struct MaybeGameView: View {
 struct MaybeGameView_Previews: PreviewProvider {
     static var previews: some View {
         MaybeGameView()
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }
 
