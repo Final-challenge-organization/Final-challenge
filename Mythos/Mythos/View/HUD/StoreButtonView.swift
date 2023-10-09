@@ -11,7 +11,7 @@ struct StoreButtonView: View {
     var body: some View {
         ZStack {
             Circle()
-                .foregroundColor(.gray)
+                .foregroundColor(.clear)
             Text("💸")
                 .foregroundColor(.white)
         }

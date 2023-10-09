@@ -39,7 +39,6 @@ struct MaybeGameView: View {
                         card: card) {
                             websocket.sendCard(with: card)
                         }
-
                 }
                 .transition(.move(edge: .top))
             }

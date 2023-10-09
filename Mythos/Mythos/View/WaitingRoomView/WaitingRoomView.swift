@@ -7,33 +7,46 @@
 
 import SwiftUI
 
-var players: [String] = ["player1", "player2", "player3"]
-//var code: String = "12345"
 
 struct WaitingRoomView: View {
+    @ObservedObject var websocket = WebSocket()
+    @State var isDisabled = false
+    @State private var showNewScreen = false
+    @State var isReady = false
+
     var body: some View {
         VStack {
             Spacer()
             HStack {
                 Text("Esperando jogadores")
-                Button(action: {}, label: {
-                    Image(systemName: "doc.on.doc")
-                })
                 Spacer()
             }
             Spacer()
             HStack(spacing: 90) {
-                ForEach(players, id: \.self) { item in
-                    ConnectedPlayersView()
+                ForEach(websocket.connectedPlayers, id: \.name) { player in
+                    ConnectedPlayersView(name: player.name)
                 }
             }
             Spacer()
+            HStack{
+                Spacer()
+                Button(action: {
+                    isDisabled = true
+                    websocket.serverConnect()
+                }, label: {ButtonConnect()}).disabled(isDisabled)
+                Spacer()
+            }
         }
         .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .principal,content: {CustomToolbarView()})
         }
+        .onChange(of: websocket.isAllPlayersConnecteds) { _ in
+            isReady.toggle()
+        }
+        .navigationDestination(isPresented: $isReady, destination: {Text("Tela de gameplay")})
     }
+
 }
 
 struct WaitingRoomView_Previews: PreviewProvider {

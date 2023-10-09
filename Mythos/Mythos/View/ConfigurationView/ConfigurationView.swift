@@ -9,7 +9,11 @@ import SwiftUI
 
 struct ConfigurationView: View {
     var body: some View {
-        Text("Configuration View")
+        List{
+            Section(header: Text("Informações")) {
+                Text("Versão: BETA")
+            }
+        }
     }
 }
 
