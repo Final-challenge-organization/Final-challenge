@@ -18,20 +18,40 @@ struct MaybeGameView: View {
     @ObservedObject var websocket = WebSocket()
 
     var body: some View {
+        ZStack{
+            Image("campo")
+                .resizable()
+                .ignoresSafeArea()
+
         VStack {
+            PlayerView(playersImage: "sara")
+            Text(websocket.myPlayerReference.life.description)
+
             HStack {
-                Text(websocket.myPlayerReference.name)
-                    .padding(.trailing)
+
+                PlayerView(playersImage: "luiz")
                 Text(websocket.myPlayerReference.life.description)
+                Spacer()
+                //                Text(websocket.myPlayerReference.name)
+                //                    .padding(.trailing)
+                Text(websocket.myPlayerReference.life.description)
+                PlayerView(playersImage: "carol")
             }
             HStack {
                 Text(websocket.myPlayerReference.isReaction.description)
                 Text(websocket.myPlayerReference.isYourTurn.description)
             }
             HStack {
+                PlayerView(playersImage: "cicero")
+                    .rotationEffect(.degrees(90))
+                    .padding(10)
+                    .rotationEffect(.degrees(270))
+
                 Text(websocket.cardsPlayed.count.description)
             }
+            Text(websocket.myPlayerReference.life.description)
             HStack {
+                
                 ForEach(websocket.myPlayerReference.handCards, id: \.id) { card in
                     CardRepresentable(
                         isYourTurn: websocket.myPlayerReference.isYourTurn,
@@ -43,8 +63,12 @@ struct MaybeGameView: View {
                 }
                 .transition(.move(edge: .top))
             }
+
             .animation(.easeInOut, value: websocket.myPlayerReference.handCards.count)
+
+
         }
+    }
         .onAppear {
             websocket.serverConnect()
         }
