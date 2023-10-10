@@ -29,6 +29,7 @@
 		64FFCE762AA76B010090566B /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE752AA76B010090566B /* Card.swift */; };
 		64FFCE782AA8B0A80090566B /* DataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE772AA8B0A80090566B /* DataWrapper.swift */; };
 		DD57DF862AD428D3009B9272 /* ButtonConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD57DF852AD428D3009B9272 /* ButtonConnect.swift */; };
+		DD57DF882AD49A04009B9272 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD57DF872AD49A04009B9272 /* DataStorage.swift */; };
 		DD6D18662AB8784F004B02AA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18652AB8784F004B02AA /* HomeView.swift */; };
 		DD6D18682AB87872004B02AA /* WaitingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18672AB87872004B02AA /* WaitingRoomView.swift */; };
 		DD6D186B2AB88352004B02AA /* PlayButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D186A2AB88352004B02AA /* PlayButtonView.swift */; };
@@ -89,6 +90,7 @@
 		64FFCE752AA76B010090566B /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		64FFCE772AA8B0A80090566B /* DataWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataWrapper.swift; sourceTree = "<group>"; };
 		DD57DF852AD428D3009B9272 /* ButtonConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonConnect.swift; sourceTree = "<group>"; };
+		DD57DF872AD49A04009B9272 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		DD6D18652AB8784F004B02AA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DD6D18672AB87872004B02AA /* WaitingRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoomView.swift; sourceTree = "<group>"; };
 		DD6D186A2AB88352004B02AA /* PlayButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButtonView.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 		DD6D18812AB8913C004B02AA /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				DD57DF872AD49A04009B9272 /* DataStorage.swift */,
 				DD6D18652AB8784F004B02AA /* HomeView.swift */,
 				DD6D18692AB88221004B02AA /* Components */,
 			);
@@ -520,6 +523,7 @@
 				DD6D18762AB889F2004B02AA /* ConfigButtonView.swift in Sources */,
 				459585FA2AA6143C0039C908 /* GameView.swift in Sources */,
 				459585D02AA610A20039C908 /* MythosApp.swift in Sources */,
+				DD57DF882AD49A04009B9272 /* DataStorage.swift in Sources */,
 				DD6D187C2AB88B33004B02AA /* ConfigurationView.swift in Sources */,
 				DD6D187A2AB88B26004B02AA /* StoreView.swift in Sources */,
 				DD6D18802AB88DA3004B02AA /* ProfileView.swift in Sources */,

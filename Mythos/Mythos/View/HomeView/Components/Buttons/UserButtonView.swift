@@ -8,12 +8,38 @@
 import SwiftUI
 
 struct UserButtonView: View {
+    @State var nameText: String = ""
+    @State var isSaved: Bool = true
+
+    private let dataStorage = DataStorage()
+
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 4)
-                .foregroundColor(.gray)
-            Text("Perfil")
-                .foregroundColor(.white)
+        HStack {
+            TextField("Digite seu nome", text: $nameText)
+                .textFieldStyle(.roundedBorder)
+                .disabled(isSaved)
+
+            Button(action: {
+                isSaved.toggle()
+                if !nameText.isEmpty {
+                    dataStorage.changeUserName(username: nameText)
+                    dataStorage.saveUserName()
+                }
+            }, label: {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 5)
+                        .frame(maxWidth: 30, maxHeight: 30)
+                        .scaledToFit()
+                        .foregroundColor(.white)
+                    Image(systemName: "square.and.pencil")
+                        .foregroundColor(.black)
+
+                }
+            })
+        }
+        .onAppear {
+            dataStorage.loadUserName()
+            nameText = dataStorage.getUserName()
         }
     }
 }
