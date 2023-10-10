@@ -24,10 +24,10 @@ struct ConnectedPlayersView: View {
         }
     }
 }
-//
-//struct ConnectedPlayersView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        var indice = 1
-//        ConnectedPlayersView(indice: 1).previewLayout(.device)
-//    }
-//}
+
+struct ConnectedPlayersView_Previews: PreviewProvider {
+    static var previews: some View {
+        var nameMock = "Teste"
+        ConnectedPlayersView(name: nameMock).previewLayout(.device)
+    }
+}

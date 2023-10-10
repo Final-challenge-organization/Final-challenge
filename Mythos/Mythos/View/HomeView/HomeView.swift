@@ -12,64 +12,47 @@ struct HomeView: View {
     init(){
         UINavigationBar.setAnimationsEnabled(false)
     }
-
-    @State private var isShowingSheet = false
+    @State private var isShowingAlert = false
     var body: some View {
         GeometryReader { geo in
             NavigationStack {
-                VStack(alignment: .leading){
-                    HStack(alignment: .top) {
-                        NavigationLink(destination: ProfileView(),
-                                       label: {
+                ZStack {
+                    Image("backgroundHome")
+                        .resizable()
+                        .scaledToFill()
+                        .ignoresSafeArea()
+                    VStack(alignment: .leading){
+                        HStack(alignment: .top) {
                             UserButtonView()
                                 .frame(width: geo.size.width/4,
                                        height: geo.size.height/6)
-                        })
-                        Spacer()
-                        CoinsView()
-                            .frame(width: geo.size.width/6 ,
-                                   height: geo.size.height/8.4)
-                        CoinsView()
-                            .frame(width: geo.size.width/6 ,
-                                   height: geo.size.height/8.4)
+                            Spacer()
+                            Button(action: {isShowingAlert.toggle()}, label: {ConfigButtonView()})
 
-                        Button(action: {isShowingSheet.toggle()}, label: {ConfigButtonView()})
+                        }.padding(27)
 
-
-
-                    }.padding(27)
-
-                    HStack(){
-                        Spacer()
-                        NavigationLink(destination: WaitingRoomView(),
-                                       label: {
-                            PlayButtonView()
-                                .frame(width: geo.size.width/5,
-                                       height: geo.size.height/1.9)
-                        })
-                        Spacer()
-                        NavigationLink(destination: InventoryView(),
-                                       label: {
-                            InventoryButtonView()
-                                .frame(width: geo.size.width/5,
-                                       height: geo.size.height/1.9)
-                        })
-                        Spacer()
+                        HStack(){
+                            Spacer()
+                            NavigationLink(destination: WaitingRoomView(),
+                                           label: {
+                                PlayButtonView()
+                                    .shadow(radius: 10)
+                                    .frame(width: geo.size.width/5,
+                                           height: geo.size.height/1.9)
+                            })
+                            Spacer()
+                        }
+                        //MARK: - BOTÃO STORE
+                        HStack(alignment: .top){
+                            Spacer()
+                        }
+                        .padding(.top, 80)
                     }
-                    HStack(alignment: .top){
-                        NavigationLink(destination: {StoreView()},
-                                       label: {
-                            StoreButtonView()
-                                .frame(width: geo.size.height/8)
-                                .padding(.leading, 32)
-                        })
-                        Spacer()
-                    }
+                    .alert(isPresented: $isShowingAlert, content: {Alert(title: Text("VERSÃO BETA"))})
+
                 }
-                .alert(isPresented: $isShowingSheet, content: {Alert(title: Text("VERSÃO BETA"))})
-
-                .ignoresSafeArea()
             }
+
         }
     }
 
