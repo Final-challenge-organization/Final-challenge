@@ -89,12 +89,14 @@ struct MaybeGameView: View {
                     if websocket.myPlayerReference.isYourTurn {
                         Button {
                             websocket.sendCard(with: cardSelected)
+                            self.isTapped = false
                         } label: {
                             Image("button_descarte")
-                                .frame(maxWidth: 5, maxHeight: 5)
+                                .frame(maxWidth: 40, maxHeight: 40)
                                 .scaledToFit()
                         }
                         .offset(x: 250, y: 10)
+                        .disabled(!isTapped)
                     }
                 }
             }
