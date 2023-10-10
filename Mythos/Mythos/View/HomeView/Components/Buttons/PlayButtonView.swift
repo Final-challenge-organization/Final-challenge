@@ -43,34 +43,3 @@ struct ButtonPlayView_Previews: PreviewProvider {
 }
 
 
-
-//
-//import SwiftUI
-//import CoreMotion
-//
-//struct ParallaxView: View {
-//    @State var motion: CMDeviceMotion? = nil
-//    let motionManager = CMMotionManager()
-//    var body: some View {
-//        ZStack {
-//            Image("emptyCard")
-//                .resizable()
-//                .aspectRatio(contentMode: .fill)
-//                .frame(width: 350, height: 450)
-//            Image("shield")
-//                .resizable()
-//                .aspectRatio(contentMode: .fill)
-//                .shadow(color: .red, radius: 8)
-//                .frame(width: 250, height: 250)
-//                .padding(.bottom, 170)
-//
-//        }
-//
-//    }
-//}
-//
-//struct ParallaxView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ParallaxView()
-//    }
-//}
