@@ -16,6 +16,8 @@ import SwiftUI
 
 struct MaybeGameView: View {
     @ObservedObject var websocket: WebSocket
+    @State var cardSelected: Card? = nil
+    @State var isTapped: Bool = false
 
     var body: some View {
         // ZStack{
@@ -68,26 +70,38 @@ struct MaybeGameView: View {
             }
             VStack{
                 Spacer()
-                HStack {
-                    ForEach(websocket.myPlayerReference.handCards, id: \.id) { card in
-                        CardRepresentable(
-                            isYourTurn: websocket.myPlayerReference.isYourTurn,
-                            isReaction: websocket.myPlayerReference.isReaction,
-                            card: card) {
-                                websocket.sendCard(with: card)
-                            }
-                            .frame(width: 150, height: 175)
+                ZStack {
+                    HStack(spacing: 30) {
+                        ForEach(websocket.myPlayerReference.handCards, id: \.id) { card in
+                            CardRepresentable(
+                                isYourTurn: websocket.myPlayerReference.isYourTurn,
+                                isReaction: websocket.myPlayerReference.isReaction,
+                                card: card) {
+                                    self.cardSelected = card
+                                    self.isTapped.toggle()
+                                }
+                                .frame(width: 100, height: 120)
+                                .scaleEffect((cardSelected == card) && isTapped ? 1.3 : 1.0)
+                        }
+                        .transition(.move(edge: .top))
                     }
-                    .transition(.move(edge: .top))
+                    .animation(.easeInOut, value: websocket.myPlayerReference.handCards.count)
+                    if websocket.myPlayerReference.isYourTurn {
+                        Button {
+                            websocket.sendCard(with: cardSelected)
+                            self.isTapped = false
+                        } label: {
+                            Image("button_descarte")
+                                .frame(maxWidth: 40, maxHeight: 40)
+                                .scaledToFit()
+                        }
+                        .offset(x: 250, y: 10)
+                        .disabled(!isTapped)
+                    }
                 }
-                .animation(.easeInOut, value: websocket.myPlayerReference.handCards.count)
             }
-            
+            .padding()
         }
-        .ignoresSafeArea()
-//        .onAppear {
-//            websocket.serverConnect()
-//        }
     }
 }
 
