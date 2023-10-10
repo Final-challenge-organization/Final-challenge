@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Card: Codable, Datable {
+struct Card: Codable, Datable, Equatable {
     var uuid: UUID = UUID()
     let id: Int
     let name: String
