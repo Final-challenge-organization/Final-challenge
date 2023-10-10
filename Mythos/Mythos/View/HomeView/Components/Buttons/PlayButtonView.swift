@@ -16,12 +16,10 @@ struct PlayButtonView: View {
             Image("playButtonBackground")
                 .resizable()
                 .scaledToFit()
-                .offset(
-                    x: motion != nil ? CGFloat(motion!.gravity.x * 50): 0,
-                    y: 0)
                 .rotation3DEffect(
-                    .degrees(motion != nil ? Double(motion!.gravity.x * 50) : 0),
+                    .degrees(motion != nil ? Double(motion!.gravity.y * 50) : 0),
                     axis: (x: 0, y: 1, z: 0))
+                .rotation3DEffect(.degrees(motion != nil ? -Double(motion!.gravity.x * 15) : 0), axis: (x: 1, y: 0, z: 0))
         }
         .onAppear {
             if motionManager.isDeviceMotionAvailable {
