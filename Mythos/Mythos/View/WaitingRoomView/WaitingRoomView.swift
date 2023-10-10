@@ -15,27 +15,41 @@ struct WaitingRoomView: View {
     @State var isReady = false
 
     var body: some View {
-        VStack {
-            Spacer()
-            HStack {
-                Text("Esperando jogadores")
+        ZStack {
+
+            VStack {
                 Spacer()
-            }
-            Spacer()
-            HStack(spacing: 90) {
-                ForEach(websocket.connectedPlayers, id: \.name) { player in
-                    ConnectedPlayersView(name: player.name)
+                HStack {
+//                    Spacer()
+                    Text("Esperando jogadores...")
+                        .bold()
+//                    Spacer()
                 }
-            }
-            Spacer()
-            HStack{
                 Spacer()
-                Button(action: {
-                    isDisabled = true
-                    websocket.serverConnect()
-                }, label: {ButtonConnect()}).disabled(isDisabled)
+                HStack(spacing: 90) {
+                    ForEach(websocket.connectedPlayers, id: \.name) { player in
+                        ConnectedPlayersView(name: player.name)
+                            .animation(.easeIn, value: true)
+                    }
+                }
                 Spacer()
+                HStack{
+                    Spacer()
+                    Button(action: {
+                        isDisabled = true
+                        websocket.serverConnect()
+                    }, label: {ButtonConnect()}).disabled(isDisabled)
+//                        .padding(.bottom, 240)
+                    Spacer()
+                }
+
             }
+        }
+        .background {
+            Image("backgroundWaitingRoom")
+                .resizable()
+                .ignoresSafeArea()
+                .scaledToFill()
         }
         .navigationBarBackButtonHidden()
         .toolbar {

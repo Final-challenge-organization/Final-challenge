@@ -13,9 +13,10 @@ struct ButtonConnect: View {
             RoundedRectangle(cornerRadius: 10)
                 .frame(width: 90, height: 40)
                 .scaledToFit()
-                .foregroundColor(.gray)
+                .foregroundColor(.init(red: 255/255, green: 190/255, blue: 64/255))
             Text("Conectar")
-                .foregroundColor(.white)
+                .foregroundColor(.init(red: 73/255, green: 40/255, blue: 16/255))
+                .bold()
         }
     }
 }

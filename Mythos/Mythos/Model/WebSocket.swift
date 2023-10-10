@@ -70,7 +70,11 @@ class WebSocket: ObservableObject {
         webSocketTask = URLSession.shared.webSocketTask(with: request)
         webSocketTask?.resume()
         receiveMessage()
-        self.sendData(DataWrapper(playerID: UUID(), contentType: .sendUserNameToServer, content: "Player\(Int.random(in: Range(0...10000)))".toData()))
+        let dataStorage = DataStorage()
+        dataStorage.loadUserName()
+        let playerName = dataStorage.getUserName()
+
+        self.sendData(DataWrapper(playerID: UUID(), contentType: .sendUserNameToServer, content: playerName.toData()))
     }
 
     // é preciso melhorar essa funcao a cargo de quando houver disconnect ele nao continuar de forma recursiva

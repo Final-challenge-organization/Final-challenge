@@ -11,13 +11,16 @@ struct ConnectedPlayersView: View {
     var name: String
     var body: some View {
         VStack {
-            RoundedRectangle(cornerRadius: 10)
+            //            RoundedRectangle(cornerRadius: 10)
+            Image("backgroundButtonPlayer")
+                .resizable()
+                .scaledToFit()
                 .frame(width: 115, height: 113)
                 .foregroundColor(.gray)
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
                     .frame(width: 115, height: 26)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.init(red: 73/255, green: 40/255, blue: 16/255))
                 Text(name)
                     .foregroundColor(.white)
             }
@@ -27,7 +30,7 @@ struct ConnectedPlayersView: View {
 
 struct ConnectedPlayersView_Previews: PreviewProvider {
     static var previews: some View {
-        var nameMock = "Teste"
+        let nameMock = "Teste"
         ConnectedPlayersView(name: nameMock).previewLayout(.device)
     }
 }

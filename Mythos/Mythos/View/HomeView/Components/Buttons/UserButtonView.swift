@@ -15,9 +15,16 @@ struct UserButtonView: View {
 
     var body: some View {
         HStack {
-            TextField("Digite seu nome", text: $nameText)
-                .textFieldStyle(.roundedBorder)
-                .disabled(isSaved)
+            if isSaved {
+
+                TextField("Digite seu nome", text: $nameText)
+                    .textFieldStyle(.plain)
+                    .disabled(isSaved)
+            } else {
+                TextField("Digite seu nome", text: $nameText)
+                    .textFieldStyle(.roundedBorder)
+                    .disabled(isSaved)
+            }
 
             Button(action: {
                 isSaved.toggle()
