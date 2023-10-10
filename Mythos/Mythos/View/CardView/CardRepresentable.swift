@@ -27,21 +27,13 @@ struct CardRepresentable: View {
                                 .padding(.top, geo.size.height/1.8)
                         }
                     })
-                    .onAppear {
-
-                        UIFont.familyNames.forEach({ familyName in
-                                    let fontNames = UIFont.fontNames(forFamilyName: familyName)
-                                    print(familyName, fontNames)
-                        })
-
+                    .overlay {
+                        (isYourTurn && !isReaction) ? Color.clear : Color.gray.opacity(0.5)
                     }
                     .onTapGesture {
                         if (isYourTurn && !isReaction) {
                             onTap()
                         }
-                    }
-                    .overlay {
-                        (isYourTurn && !isReaction) ? Color.gray.opacity(0.5) : Color.clear
                     }
             }
             if card.type == .reaction {
@@ -55,13 +47,13 @@ struct CardRepresentable: View {
                                 .padding(.top, geo.size.height/1.8)
                         }
                     })
+                    .overlay {
+                        (isYourTurn || isReaction) ? Color.clear : Color.gray.opacity(0.5)
+                    }
                     .onTapGesture {
                         if (isYourTurn || isReaction) {
                             onTap()
                         }
-                    }
-                    .overlay {
-                        (isYourTurn || isReaction) ? Color.gray.opacity(0.5) : Color.clear
                     }
             }
         }

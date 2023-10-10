@@ -26,5 +26,6 @@ enum ContentType: Codable {
     case deckToClient
     case turnToClient
     case cardsPlayedToClient
+    case gameplayStatusToClient
 }
 

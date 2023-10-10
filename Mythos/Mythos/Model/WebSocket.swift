@@ -8,9 +8,18 @@
 import UIKit
 
 class WebSocket: ObservableObject {
+    @Published var isGameOver: Bool? = nil
     @Published var connectedPlayers: [PlayerClient] = []
     @Published var cardsPlayed: [Card] = []
     private var myID = UUID()
+    var turnPlayer: String {
+        let player = self.connectedPlayers.first {$0.isYourTurn == true} ?? PlayerClient(id: UUID(), name: "ANONIMO", deck: [], life: 2, isYourTurn: false, isReaction: false, handCards: [])
+        if player.id == self.myID {
+            return "Seu Turno"
+        } else {
+            return "Turno de \(player.name)"
+        }
+    }
     var myPlayerReference: PlayerClient {
         return connectedPlayers.first { $0.id == self.myID} ?? PlayerClient(id: UUID(), name: "ANONIMO", deck: [], life: 2, isYourTurn: false, isReaction: false, handCards: [])
     }
@@ -67,6 +76,7 @@ class WebSocket: ObservableObject {
             switch result {
             case .failure(let error):
                 print(error.localizedDescription)
+                return
             case .success(let message):
                 switch message {
                 case .string(let text):
@@ -123,6 +133,7 @@ class WebSocket: ObservableObject {
                         if let decodedContent = self.decodeData([PlayerClient].self, data: decodedData.content) {
                             DispatchQueue.main.async {
                                 self.connectedPlayers = decodedContent
+                                print("Atualmente com: \(self.connectedPlayers.count) players")
                             }
                         }
                         print(decodedData.contentType)
@@ -130,6 +141,20 @@ class WebSocket: ObservableObject {
                         if let decodedContent = self.decodeData([Card].self, data: decodedData.content) {
                             DispatchQueue.main.async {
                                 self.cardsPlayed = decodedContent
+                            }
+                        }
+                        print(decodedData.contentType)
+                    case .gameplayStatusToClient:
+                        if let decodedContent = self.decodeData(Bool.self, data: decodedData.content) {
+                            DispatchQueue.main.async {
+                                if decodedContent {
+                                    print("Ganhou")
+                                    self.isGameOver = decodedContent
+                                } else {
+                                    print("Perdeu")
+                                    self.isGameOver = decodedContent
+                                }
+                                self.webSocketTask?.cancel()
                             }
                         }
                         print(decodedData.contentType)

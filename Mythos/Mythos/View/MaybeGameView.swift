@@ -26,7 +26,7 @@ struct MaybeGameView: View {
             }
             HStack {
                 Text(websocket.myPlayerReference.isReaction.description)
-                Text(websocket.myPlayerReference.isYourTurn.description)
+                Text(websocket.turnPlayer)
             }
             HStack {
                 Text(websocket.cardsPlayed.count.description)
