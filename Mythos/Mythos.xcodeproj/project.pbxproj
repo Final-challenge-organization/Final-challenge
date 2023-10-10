@@ -18,6 +18,7 @@
 		4F4269E62AD0511900A417E5 /* PlayerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4269E52AD0511900A417E5 /* PlayerClient.swift */; };
 		4F51B8BE2AD0B5D7007107B4 /* PopUpCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F51B8BD2AD0B5D7007107B4 /* PopUpCard.swift */; };
 		4F51B8C02AD0D2B8007107B4 /* ParallaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F51B8BF2AD0D2B8007107B4 /* ParallaxView.swift */; };
+		4F90E12C2AD58F8F00587A84 /* Win-LoseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F90E12B2AD58F8F00587A84 /* Win-LoseView.swift */; };
 		4FBC46F32AD43BC400BB1CE1 /* Convergence-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FBC46F22AD43BBC00BB1CE1 /* Convergence-Regular.ttf */; };
 		4FBC46F42AD43BC500BB1CE1 /* Convergence-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FBC46F22AD43BBC00BB1CE1 /* Convergence-Regular.ttf */; };
 		4FBC46F52AD43BC500BB1CE1 /* Convergence-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FBC46F22AD43BBC00BB1CE1 /* Convergence-Regular.ttf */; };
@@ -83,6 +84,7 @@
 		4F4269E52AD0511900A417E5 /* PlayerClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerClient.swift; sourceTree = "<group>"; };
 		4F51B8BD2AD0B5D7007107B4 /* PopUpCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCard.swift; sourceTree = "<group>"; };
 		4F51B8BF2AD0D2B8007107B4 /* ParallaxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxView.swift; sourceTree = "<group>"; };
+		4F90E12B2AD58F8F00587A84 /* Win-LoseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Win-LoseView.swift"; sourceTree = "<group>"; };
 		4FBC46F22AD43BBC00BB1CE1 /* Convergence-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Convergence-Regular.ttf"; sourceTree = "<group>"; };
 		4FBC46F62AD43BF000BB1CE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4FBC46F72AD43C4400BB1CE1 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				64FFCE732AA7500E0090566B /* ClientSideView.swift */,
 				459585F92AA6143C0039C908 /* GameView.swift */,
 				4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */,
+				4F90E12B2AD58F8F00587A84 /* Win-LoseView.swift */,
 				4F51B8BF2AD0D2B8007107B4 /* ParallaxView.swift */,
 				4F51B8BD2AD0B5D7007107B4 /* PopUpCard.swift */,
 				64D788FB2AB484CC00394078 /* CardNode.swift */,
@@ -559,6 +562,7 @@
 				DD6D18802AB88DA3004B02AA /* ProfileView.swift in Sources */,
 				DD6D18712AB8857A004B02AA /* UserButtonView.swift in Sources */,
 				4F4269E62AD0511900A417E5 /* PlayerClient.swift in Sources */,
+				4F90E12C2AD58F8F00587A84 /* Win-LoseView.swift in Sources */,
 				DD57DF862AD428D3009B9272 /* ButtonConnect.swift in Sources */,
 				DD6D18AC2ABDBF37004B02AA /* BackButtonView.swift in Sources */,
 				4FF895B62ACED14500F50DA4 /* MaybeGameView.swift in Sources */,

@@ -16,6 +16,7 @@ import SwiftUI
 
 struct MaybeGameView: View {
     @ObservedObject var websocket: WebSocket
+    @Environment(\.dismiss) var dismiss
 
     var body: some View {
         // ZStack{
@@ -84,10 +85,10 @@ struct MaybeGameView: View {
             }
             
         }
+        .onChange(of: websocket.isGameOver, perform: { newValue in
+            dismiss()
+        })
         .ignoresSafeArea()
-//        .onAppear {
-//            websocket.serverConnect()
-//        }
     }
 }
 
