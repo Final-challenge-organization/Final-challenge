@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		457F76682AD5BD9C001B95BB /* GameViewSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457F76672AD5BD9C001B95BB /* GameViewSwiftUI.swift */; };
 		459585D02AA610A20039C908 /* MythosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585CF2AA610A20039C908 /* MythosApp.swift */; };
 		459585D22AA610A20039C908 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585D12AA610A20039C908 /* ContentView.swift */; };
 		459585D42AA610A30039C908 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459585D32AA610A30039C908 /* Assets.xcassets */; };
@@ -71,7 +70,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		457F76672AD5BD9C001B95BB /* GameViewSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewSwiftUI.swift; sourceTree = "<group>"; };
 		459585CC2AA610A20039C908 /* Mythos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mythos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		459585CF2AA610A20039C908 /* MythosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythosApp.swift; sourceTree = "<group>"; };
 		459585D12AA610A20039C908 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -236,7 +234,6 @@
 				459585F92AA6143C0039C908 /* GameView.swift */,
 				4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */,
 				45BCB8072AD5DF2200A11F6E /* PersonasView.swift */,
-				457F76672AD5BD9C001B95BB /* GameViewSwiftUI.swift */,
 				4F51B8BF2AD0D2B8007107B4 /* ParallaxView.swift */,
 				4F51B8BD2AD0B5D7007107B4 /* PopUpCard.swift */,
 				64D788FB2AB484CC00394078 /* CardNode.swift */,
@@ -525,7 +522,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n./build4\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#/Users/luizsena/Desktop/build4\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -552,7 +549,6 @@
 				45BCB8082AD5DF2200A11F6E /* PersonasView.swift in Sources */,
 				DD6D18AE2ABDBF93004B02AA /* ConnectedPlayersView.swift in Sources */,
 				64FFCE722AA74C5F0090566B /* WebSocket.swift in Sources */,
-				457F76682AD5BD9C001B95BB /* GameViewSwiftUI.swift in Sources */,
 				64D788FC2AB484CC00394078 /* CardNode.swift in Sources */,
 				DD6D18AA2ABDBF0A004B02AA /* CustomToolbarView.swift in Sources */,
 				4FF895B82ACED16E00F50DA4 /* CardRepresentable.swift in Sources */,

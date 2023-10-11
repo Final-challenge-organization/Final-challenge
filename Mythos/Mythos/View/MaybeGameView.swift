@@ -25,58 +25,63 @@ struct MaybeGameView: View {
                 .resizable()
                 .ignoresSafeArea()
             ZStack {
-                PersonasView(namePerson: websocket.connectedPlayers[0].name.description, lifePerson: websocket.connectedPlayers[0].life.description)
-                    .offset(x: UIScreen.main.bounds.width/5, y: UIScreen.main.bounds.height/4) //lado esquerda
-//                PersonasView(namePerson: websocket.connectedPlayers[2].name.description, lifePerson: websocket.connectedPlayers[2].life.description)
-//                    .offset(x: UIScreen.main.bounds.width/8, y: UIScreen.main.bounds.height/2) //lado direito
-//                PersonasView(namePerson: websocket.connectedPlayers[1].name.description, lifePerson: websocket.connectedPlayers[1].life.description)
-//                    .offset(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height) // cima
-//                PersonasView(namePerson: websocket.myPlayerReference.name.description, lifePerson: websocket.myPlayerReference.life.description)
+               //lado esquerda
+                //                PersonasView(namePerson: websocket.connectedPlayers[2].name.description, lifePerson: websocket.connectedPlayers[2].life.description)
+                //                    .offset(x: UIScreen.main.bounds.width/8, y: UIScreen.main.bounds.height/2) //lado direito
+                //                PersonasView(namePerson: websocket.connectedPlayers[1].name.description, lifePerson: websocket.connectedPlayers[1].life.description)
+                //                    .offset(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height) // cima
+                //                PersonasView(namePerson: websocket.myPlayerReference.name.description, lifePerson: websocket.myPlayerReference.life.description)
 
 
-//                ZStack{
-//                    Circle()
-//                        .foregroundColor(.yellow)
-//                        .frame(width: 30, height: 30)
-//                    Text(websocket.myPlayerReference.life.description)
-//                    HStack {
-//
-//                        PlayerView(playersImage: "luiz")
-//                            .padding(.leading, 60)
-//                        ZStack{
-//                            Circle()
-//                                .foregroundColor(.yellow)
-//                                .frame(width: 30, height: 30)
-////                            Text(websocket.myPlayerReference.life.description)
-//                        }
-//                        Spacer()
-////                        Text(websocket.myPlayerReference.name)
-////                            .padding(.trailing)
-//                        ZStack{
-//                            Circle()
-//                                .foregroundColor(.yellow)
-//                                .frame(width: 30, height: 30)
-////                            Text(websocket.myPlayerReference.life.description)
-//                        }
-//                        PlayerView(playersImage: "carol")
-//                            .padding(.trailing, 60)
-//                    }
-//                }
-//                HStack {
-//                    Text(websocket.myPlayerReference.name)
-//                        .padding(.trailing)
-//                    Text(websocket.myPlayerReference.life.description)
-//                }
-//                HStack {
-//                    Text(websocket.myPlayerReference.isReaction.description)
-//                    Text(websocket.turnPlayer)
-//                }
-//                HStack {
-//                    Text(websocket.cardsPlayed.count.description)
-//                }
+                //                ZStack{
+                //                    Circle()
+                //                        .foregroundColor(.yellow)
+                //                        .frame(width: 30, height: 30)
+                //                    Text(websocket.myPlayerReference.life.description)
+                //                    HStack {
+                //
+                //                        PlayerView(playersImage: "luiz")
+                //                            .padding(.leading, 60)
+                //                        ZStack{
+                //                            Circle()
+                //                                .foregroundColor(.yellow)
+                //                                .frame(width: 30, height: 30)
+                ////                            Text(websocket.myPlayerReference.life.description)
+                //                        }
+                //                        Spacer()
+                ////                        Text(websocket.myPlayerReference.name)
+                ////                            .padding(.trailing)
+                //                        ZStack{
+                //                            Circle()
+                //                                .foregroundColor(.yellow)
+                //                                .frame(width: 30, height: 30)
+                ////                            Text(websocket.myPlayerReference.life.description)
+                //                        }
+                //                        PlayerView(playersImage: "carol")
+                //                            .padding(.trailing, 60)
+                //                    }
+                //                }
+                //                HStack {
+                //                    Text(websocket.myPlayerReference.name)
+                //                        .padding(.trailing)
+                //                    Text(websocket.myPlayerReference.life.description)
+                //                }
+                //                HStack {
+                //                    Text(websocket.myPlayerReference.isReaction.description)
+                //                    Text(websocket.turnPlayer)
+                //                }
+                //                HStack {
+                //                    Text(websocket.cardsPlayed.count.description)
+                //                }
                 VStack{
                     Spacer()
-                    PersonasView(namePerson: "Você", lifePerson: websocket.myPlayerReference.life.description)
+//                    PersonasView(namePerson: "Você", lifePerson: websocket.myPlayerReference.life.description)
+                    
+                    ProgressView("Sua Vida:", value: Double(websocket.myPlayerReference.life), total: 30)
+                        .progressViewStyle(GaugeProgressStyle())
+                        .frame(width: 90, height: 90)
+                        
+
                     ZStack {
                         Image("deck_comprar")
                             .offset(x: -250, y: 10)
@@ -95,15 +100,14 @@ struct MaybeGameView: View {
                                     }
                                     .frame(maxHeight: 150)
                                     .scaledToFit()
+                                    .offset(y: (index == 0 || index == 2) ? 0 : -15)
                                     .offset(y: cardSelected == card && isTapped ? -55 : 0)
                                     .rotationEffect(Angle(degrees: index == 0 ? -5 : (index == 2 ? 5 : 0)))
-                                        .zIndex(index == 1 ? 1 : 0) // Coloca a carta do meio na frente
+                                    .zIndex(index == 2 ? 1 : 0) // Coloca a carta do meio na frente
 
                             }
-
-                            Spacer()
                             .transition(.move(edge: .top))
-
+                            Spacer()
                         }
                         .animation(.easeInOut, value: websocket.myPlayerReference.handCards.count)
                         .offset(y: 90)
@@ -152,3 +156,30 @@ struct MaybeGameView_Previews: PreviewProvider {
 
 
 
+
+struct GaugeProgressStyle: ProgressViewStyle {
+    var strokeColor = Color.green.gradient
+    var strokeWidth = 8.0
+
+    func makeBody(configuration: Configuration) -> some View {
+        let fractionCompleted = configuration.fractionCompleted ?? 0
+        let number = (configuration.fractionCompleted ?? 0) * 30
+
+        return ZStack {
+            Circle()
+                .trim(from: 0, to: fractionCompleted)
+                .stroke(strokeColor, style: StrokeStyle(lineWidth: strokeWidth, lineCap: .round))
+                .rotationEffect(.degrees(-90))
+                .overlay {
+                    VStack {
+                        Text("Sua vida:")
+                            .font(Font.title3.bold())
+                            .foregroundColor(.white)
+                        Text(Int(number).description)
+                            .font(Font.title3.bold())
+                            .foregroundColor(.white)
+                    }
+                }
+        }
+    }
+}

@@ -12,6 +12,7 @@ struct PersonasView: View {
     @State var namePerson: String
     @State var lifePerson: String
     
+    
     var body: some View {
         VStack {
             Text(namePerson)
@@ -31,3 +32,7 @@ struct PersonasView: View {
 //            PersonasView()
 //        }
 //    }
+
+protocol MaybeGameViewPersonaViewDelegate {
+    func updatePersonaViewLife(with life: String)
+}
