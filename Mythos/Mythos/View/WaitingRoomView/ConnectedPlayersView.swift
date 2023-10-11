@@ -11,7 +11,6 @@ struct ConnectedPlayersView: View {
     var name: String
     var body: some View {
         VStack {
-            //            RoundedRectangle(cornerRadius: 10)
             Image("backgroundButtonPlayer")
                 .resizable()
                 .scaledToFit()
@@ -22,6 +21,8 @@ struct ConnectedPlayersView: View {
                     .frame(width: 115, height: 26)
                     .foregroundColor(.init(red: 73/255, green: 40/255, blue: 16/255))
                 Text(name)
+                    .frame(maxWidth: 115)
+                    .scaledToFit()
                     .foregroundColor(.white)
             }
         }

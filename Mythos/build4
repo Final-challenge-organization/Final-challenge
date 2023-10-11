@@ -17,14 +17,14 @@ BUILD_IDENTIFIER=Narely.Mythos
 ## BUILD
 #xcodebuild -project POC-websocketClientSide.xcodeproj -scheme POC-websocketClientSide -destination 'platform=iOS Simulator,name=iPhone 12 A 16.4,OS=16.4'
 
-APPBUILD=`find /Users/luizsena/Library/Developer/Xcode/DerivedData/Mythos-*/Build/Products/Debug-iphonesimulator -type d -name "Mythos.app" -print | head -n 1`
+APPBUILD=`find /Users/ciceronascimento/Library/Developer/Xcode/DerivedData/Mythos-*/Build/Products/Debug-iphonesimulator -type d -name "Mythos.app" -print | head -n 1`
 echo $APPBUILD
 
 ## OPEN SIMULATORS
-IPHONE12_A_16=22783BD8-52DB-4F33-B013-28A79957222F
-IPHONE12_B_16=B81D4D9A-6A3E-4D28-A151-436032A3AD12
-IPHONE12_A_16_4=4972599F-D1B4-415B-BD81-B644094E39B3
-IPHONE12_B_16_4=B1ABF19E-6EC3-4245-A64C-5918426CC638
+IPHONE12_A_16=7117430B-9BA1-4BBD-B452-C1C3D00DB6CA
+IPHONE12_B_16=5BF0C18D-4FA8-4812-BB05-52B26E749B70
+IPHONE12_A_16_4=9DC4D82F-40EB-4ACC-8190-1AA7DB410DE7
+IPHONE12_B_16_4=547DB4F7-CE79-43C3-ACED-4294AB5377D0
 
 echo "Start simulators"
 

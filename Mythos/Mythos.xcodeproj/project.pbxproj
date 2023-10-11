@@ -519,7 +519,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n./build4\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#./build4\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -720,7 +720,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mythos/Preview Content\"";
-				DEVELOPMENT_TEAM = PPSYB39C6H;
+				DEVELOPMENT_TEAM = 2D837DJ3YC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mythos/Info.plist;
@@ -751,7 +751,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mythos/Preview Content\"";
-				DEVELOPMENT_TEAM = PPSYB39C6H;
+				DEVELOPMENT_TEAM = 2D837DJ3YC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mythos/Info.plist;
