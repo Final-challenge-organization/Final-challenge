@@ -19,12 +19,15 @@ struct CardRepresentable: View {
             if card.type == .action {
                 Image("actionCard")
                     .resizable()
+                    .scaledToFit()
                     .overlay(content: {
                         VStack {
+                            Spacer()
                             Text("Cause: \(card.damage)")
                                 .font(MyCustomFonts.ConvergenceRegular.font)
                                 .foregroundColor(.white)
-                                .padding(.top, geo.size.height/1.8)
+                                .scaledToFill()
+                                .padding(.bottom, 25)
                         }
                     })
                     .overlay {
@@ -39,12 +42,15 @@ struct CardRepresentable: View {
             if card.type == .reaction {
                 Image("reactionCard")
                     .resizable()
+                    .scaledToFit()
                     .overlay(content: {
                         VStack {
+                            Spacer()
                             Text("Defenda: \(card.damage)")
                                 .font(MyCustomFonts.ConvergenceRegular.font)
                                 .foregroundColor(.white)
-                                .padding(.top, geo.size.height/1.8)
+                                .scaledToFill()
+                                .padding(.bottom, 25)
                         }
                     })
                     .overlay {
@@ -66,8 +72,8 @@ struct CardRepresentable_Previews: PreviewProvider {
         VStack {
             CardRepresentable(isYourTurn: true, isReaction: true, card: Card(id: 0, name: "", type: .action, damage: 10), onTap: {})
                 .frame(width: 200, height: 250)
-            CardRepresentable(isYourTurn: true, isReaction: true, card: Card(id: 0, name: "", type: .reaction, damage: 10), onTap: {})
-                .frame(width: 200, height: 250)
+//            CardRepresentable(isYourTurn: true, isReaction: true, card: Card(id: 0, name: "", type: .reaction, damage: 10), onTap: {})
+//                .frame(width: 200, height: 250)
         }
     }
 }
