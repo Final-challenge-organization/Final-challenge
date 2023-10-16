@@ -32,7 +32,7 @@ echo $APPBUILD
 echo $BUILD_IDENTIFIER
 echo $IPHONE12_A_16
 
-./build1 $APPBUILD $BUILD_IDENTIFIER $IPHONE12_A_16 &
-./build1 $APPBUILD $BUILD_IDENTIFIER $IPHONE12_B_16 &
-./build1 $APPBUILD $BUILD_IDENTIFIER $IPHONE12_A_16_4 
+/Users/narelylima/Documents/iOS/Final-challenge/Mythos/build1 $APPBUILD $BUILD_IDENTIFIER $IPHONE12_A_16 &
+/Users/narelylima/Documents/iOS/Final-challenge/Mythos/build1 $APPBUILD $BUILD_IDENTIFIER $IPHONE12_B_16 &
+/Users/narelylima/Documents/iOS/Final-challenge/Mythos/build1 $APPBUILD $BUILD_IDENTIFIER $IPHONE12_A_16_4
 # ./build1 $APPBUILD $BUILD_IDENTIFIER $IPHONE12_B_16_4

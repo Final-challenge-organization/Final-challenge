@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PlayerClient: Codable, Datable {
+struct PlayerClient: Codable, Datable, Equatable {
     var id: UUID
     let name: String
     var deck: [Card]

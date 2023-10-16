@@ -25,58 +25,13 @@ struct MaybeGameView: View {
                 .resizable()
                 .ignoresSafeArea()
             ZStack {
-               //lado esquerda
-                //                PersonasView(namePerson: websocket.connectedPlayers[2].name.description, lifePerson: websocket.connectedPlayers[2].life.description)
-                //                    .offset(x: UIScreen.main.bounds.width/8, y: UIScreen.main.bounds.height/2) //lado direito
-                //                PersonasView(namePerson: websocket.connectedPlayers[1].name.description, lifePerson: websocket.connectedPlayers[1].life.description)
-                //                    .offset(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height) // cima
-                //                PersonasView(namePerson: websocket.myPlayerReference.name.description, lifePerson: websocket.myPlayerReference.life.description)
-
-
-                //                ZStack{
-                //                    Circle()
-                //                        .foregroundColor(.yellow)
-                //                        .frame(width: 30, height: 30)
-                //                    Text(websocket.myPlayerReference.life.description)
-                //                    HStack {
-                //
-                //                        PlayerView(playersImage: "luiz")
-                //                            .padding(.leading, 60)
-                //                        ZStack{
-                //                            Circle()
-                //                                .foregroundColor(.yellow)
-                //                                .frame(width: 30, height: 30)
-                ////                            Text(websocket.myPlayerReference.life.description)
-                //                        }
-                //                        Spacer()
-                ////                        Text(websocket.myPlayerReference.name)
-                ////                            .padding(.trailing)
-                //                        ZStack{
-                //                            Circle()
-                //                                .foregroundColor(.yellow)
-                //                                .frame(width: 30, height: 30)
-                ////                            Text(websocket.myPlayerReference.life.description)
-                //                        }
-                //                        PlayerView(playersImage: "carol")
-                //                            .padding(.trailing, 60)
-                //                    }
-                //                }
-                //                HStack {
-                //                    Text(websocket.myPlayerReference.name)
-                //                        .padding(.trailing)
-                //                    Text(websocket.myPlayerReference.life.description)
-                //                }
-                //                HStack {
-                //                    Text(websocket.myPlayerReference.isReaction.description)
-                //                    Text(websocket.turnPlayer)
-                //                }
-                //                HStack {
-                //                    Text(websocket.cardsPlayed.count.description)
-                //                }
+                ForEach(Array(websocket.connectedPlayers.enumerated()), id: \.element.id) { index, player in
+                            if websocket.myPlayerReference == player {
+                                generatePlayerLayout(for: index, players: websocket.connectedPlayers)
+                            }
+                        }
                 VStack{
-                    Spacer()
-//                    PersonasView(namePerson: "Você", lifePerson: websocket.myPlayerReference.life.description)
-                    
+                    Spacer()                    
                     ProgressView("Sua Vida:", value: Double(websocket.myPlayerReference.life), total: 30)
                         .progressViewStyle(GaugeProgressStyle())
                         .frame(width: 90, height: 90)
@@ -132,6 +87,33 @@ struct MaybeGameView: View {
         }
         .navigationBarBackButtonHidden(true)
     }
+
+    func generatePlayerLayout(for index: Int, players: [PlayerClient]) -> some View {
+            let firstPlayerIndex = (index) % players.count
+            let secondPlayerIndex = (index + 1) % players.count
+            let thirdPlayerIndex = (index + 2) % players.count
+            let lastPlayerIndex = (index + 3) % players.count
+
+            let firstPlayer = players[firstPlayerIndex]
+            let secondPlayer = players[secondPlayerIndex]
+            let thirdPlayer = players[thirdPlayerIndex]
+            let lastPlayer = players[lastPlayerIndex]
+
+            var viewPersonas: some View {
+                VStack {
+                    PersonasView(namePerson: thirdPlayer.name.description, lifePerson: thirdPlayer.life.description)
+                    HStack {
+                        PersonasView(namePerson: secondPlayer.name.description, lifePerson: secondPlayer.life.description)
+                        Spacer()
+                        PersonasView(namePerson: lastPlayer.name.description, lifePerson: lastPlayer.life.description)
+                            .padding(.trailing, 60)
+                    }
+                    PersonasView(namePerson: firstPlayer.name.description, lifePerson: firstPlayer.life.description)
+                }
+            }
+
+            return viewPersonas
+        }
 
 }
 
