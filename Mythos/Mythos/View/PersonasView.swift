@@ -15,9 +15,12 @@ struct PersonasView: View {
     @State var cards: [Card]
     @State var isTapped: Bool = false
     
+    let namePerson: String
+    let lifePerson: Int
+
     var body: some View {
         VStack {
-            Text(namePerson)
+            Text(namePerson.description)
             Circle()
                 .foregroundColor(.yellow)
                 .frame(width: 30, height: 30)
