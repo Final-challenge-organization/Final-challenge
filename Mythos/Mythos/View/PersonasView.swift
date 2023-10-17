@@ -9,13 +9,12 @@ import SwiftUI
 
 struct PersonasView: View {
     
-    @State var namePerson: String
-    @State var lifePerson: String
-    
-    
+    let namePerson: String
+    let lifePerson: Int
+
     var body: some View {
         VStack {
-            Text(namePerson)
+            Text(namePerson.description)
             Circle()
                 .foregroundColor(.yellow)
                 .frame(width: 30, height: 30)
@@ -26,12 +25,6 @@ struct PersonasView: View {
         }
     }
 }
-
-//    struct PersonasView_Previews: PreviewProvider {
-//        static var previews: some View {
-//            PersonasView()
-//        }
-//    }
 
 protocol MaybeGameViewPersonaViewDelegate {
     func updatePersonaViewLife(with life: String)
