@@ -50,6 +50,7 @@
 		DD6D18AA2ABDBF0A004B02AA /* CustomToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18A92ABDBF0A004B02AA /* CustomToolbarView.swift */; };
 		DD6D18AC2ABDBF37004B02AA /* BackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18AB2ABDBF37004B02AA /* BackButtonView.swift */; };
 		DD6D18AE2ABDBF93004B02AA /* ConnectedPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18AD2ABDBF93004B02AA /* ConnectedPlayersView.swift */; };
+		DD84A4662ADEB7ED00BD0801 /* BackCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD84A4652ADEB7ED00BD0801 /* BackCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		DD6D18A92ABDBF0A004B02AA /* CustomToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToolbarView.swift; sourceTree = "<group>"; };
 		DD6D18AB2ABDBF37004B02AA /* BackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonView.swift; sourceTree = "<group>"; };
 		DD6D18AD2ABDBF93004B02AA /* ConnectedPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConnectedPlayersView.swift; path = Mythos/View/WaitingRoomView/ConnectedPlayersView.swift; sourceTree = SOURCE_ROOT; };
+		DD84A4652ADEB7ED00BD0801 /* BackCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				4FF895B72ACED16E00F50DA4 /* CardRepresentable.swift */,
+				DD84A4652ADEB7ED00BD0801 /* BackCardView.swift */,
 			);
 			path = CardView;
 			sourceTree = "<group>";
@@ -522,7 +525,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n./build4\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#./build4\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -550,6 +553,7 @@
 				DD6D18AE2ABDBF93004B02AA /* ConnectedPlayersView.swift in Sources */,
 				64FFCE722AA74C5F0090566B /* WebSocket.swift in Sources */,
 				64D788FC2AB484CC00394078 /* CardNode.swift in Sources */,
+				DD84A4662ADEB7ED00BD0801 /* BackCardView.swift in Sources */,
 				DD6D18AA2ABDBF0A004B02AA /* CustomToolbarView.swift in Sources */,
 				4FF895B82ACED16E00F50DA4 /* CardRepresentable.swift in Sources */,
 				4F51B8BE2AD0B5D7007107B4 /* PopUpCard.swift in Sources */,

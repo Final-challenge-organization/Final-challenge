@@ -11,7 +11,9 @@ struct PersonasView: View {
     
     @State var namePerson: String
     @State var lifePerson: String
-    
+
+    @State var cards: [Card]
+    @State var isTapped: Bool = false
     
     var body: some View {
         VStack {
@@ -21,17 +23,29 @@ struct PersonasView: View {
                 .frame(width: 30, height: 30)
                 .overlay {
                     Text("\(lifePerson)")
-                    
                 }
+            HStack(spacing: -50) {
+                Spacer()
+                ForEach(cards, id: \.id) {
+                    card in
+                    BackCardView()
+                        .frame(maxHeight: 150)
+                }
+                .transition(.move(edge: .top))
+                Spacer()
+            }
         }
     }
 }
 
-//    struct PersonasView_Previews: PreviewProvider {
-//        static var previews: some View {
-//            PersonasView()
-//        }
-//    }
+struct PersonasView_Previews: PreviewProvider {
+    static var previews: some View {
+        let namePerson: String = "Sarinha"
+        let lifePerson: String = "30"
+        @State var cards: [Card] = [Card(id: 1234, name: "Teste1", type: .action, damage: 5),Card(id: 34343, name: "Teste2", type: .action, damage: 2), Card(id: 243342, name: "Teste3", type: .reaction, damage: 1)]
+        PersonasView(namePerson: namePerson, lifePerson: lifePerson, cards: cards)
+    }
+}
 
 protocol MaybeGameViewPersonaViewDelegate {
     func updatePersonaViewLife(with life: String)
