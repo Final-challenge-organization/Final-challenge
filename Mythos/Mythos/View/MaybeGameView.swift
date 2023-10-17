@@ -25,10 +25,7 @@ struct MaybeGameView: View {
                 .resizable()
                 .ignoresSafeArea()
             ZStack {
-                ForEach(Array(websocket.connectedPlayers.enumerated()), id: \.element.id) { index, player in
-                    if websocket.myPlayerReference == player {
-                        generatePlayerLayout(for: index, players: websocket.connectedPlayers)
-                    }
+
                 }
                 VStack{
                     Spacer()
@@ -83,6 +80,12 @@ struct MaybeGameView: View {
                     }
                 }
 
+                .overlay{
+                    ForEach(Array(websocket.connectedPlayers.enumerated()), id: \.element.id) { index, player in
+                        if websocket.myPlayerReference == player {
+                            generatePlayerLayout(for: index, players: websocket.connectedPlayers)
+                        }
+                }
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -95,21 +98,25 @@ struct MaybeGameView: View {
         let thirdPlayerIndex = (index + 2) % players.count
         let lastPlayerIndex = (index + 3) % players.count
 
-        var firstPlayer = players[firstPlayerIndex]
-        var secondPlayer = players[secondPlayerIndex]
-        var thirdPlayer = players[thirdPlayerIndex]
-        var lastPlayer = players[lastPlayerIndex]
+        let firstPlayer = players[firstPlayerIndex]
+        let secondPlayer = players[secondPlayerIndex]
+        let thirdPlayer = players[thirdPlayerIndex]
+        let lastPlayer = players[lastPlayerIndex]
 
         var viewPersonas: some View {
             VStack {
-                (players.count < 3) ? nil : PersonasView(namePerson: thirdPlayer.name, lifePerson: (thirdPlayer.life <= 0) ? 0 : thirdPlayer.life)
+                (players.count < 3) ? nil : PersonasView(cards: thirdPlayer.handCards, namePerson: thirdPlayer.name, lifePerson: (thirdPlayer.life <= 0) ? 0 : thirdPlayer.life, index: thirdPlayerIndex)
+
                 HStack {
-                    (players.count < 2) ? nil : PersonasView(namePerson: secondPlayer.name, lifePerson: (secondPlayer.life <= 0) ? 0 : secondPlayer.life)
+                    (players.count < 2) ? nil : PersonasView(cards: secondPlayer.handCards, namePerson: secondPlayer.name, lifePerson: (secondPlayer.life <= 0) ? 0 : secondPlayer.life, index: secondPlayerIndex)
+
                     Spacer()
-                    (players.count < 4) ? nil : PersonasView(namePerson: lastPlayer.name, lifePerson: (lastPlayer.life <= 0) ? 0 : lastPlayer.life)
-                        .padding(.trailing, 60)
+                    (players.count < 4) ? nil : PersonasView(cards: lastPlayer.handCards, namePerson: lastPlayer.name, lifePerson: (lastPlayer.life <= 0) ? 0 : lastPlayer.life, index: lastPlayerIndex)
+
+                        .offset(y:35)
                 }
-                PersonasView(namePerson: firstPlayer.name, lifePerson: (firstPlayer.life <= 0) ? 0 : firstPlayer.life)
+                PersonasView(cards: firstPlayer.handCards, namePerson: firstPlayer.name, lifePerson: (firstPlayer.life <= 0) ? 0 : firstPlayer.life, index: firstPlayerIndex)
+
             }
         }
         return viewPersonas
@@ -117,12 +124,12 @@ struct MaybeGameView: View {
 
 }
 
-struct MaybeGameView_Previews: PreviewProvider {
-    static var previews: some View {
-        MaybeGameView(websocket: WebSocket())
-            .previewInterfaceOrientation(.landscapeLeft)
-    }
-}
+//struct MaybeGameView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MaybeGameView(websocket: WebSocket())
+//            .previewInterfaceOrientation(.landscapeLeft)
+//    }
+//}
 
 
 struct GaugeProgressStyle: ProgressViewStyle {
