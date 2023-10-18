@@ -27,6 +27,7 @@
 		4FBE72A32AB1DF25002165FB /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE72A22AB1DF25002165FB /* Protocols.swift */; };
 		4FF895B62ACED14500F50DA4 /* MaybeGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */; };
 		4FF895B82ACED16E00F50DA4 /* CardRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF895B72ACED16E00F50DA4 /* CardRepresentable.swift */; };
+		645319EC2ADD7639007FB0AC /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645319EB2ADD7639007FB0AC /* PopUpView.swift */; };
 		64C04C102AD436BD00894EF9 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C04C0F2AD436BD00894EF9 /* PlayerView.swift */; };
 		64D788FC2AB484CC00394078 /* CardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D788FB2AB484CC00394078 /* CardNode.swift */; };
 		64FFCE722AA74C5F0090566B /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE712AA74C5F0090566B /* WebSocket.swift */; };
@@ -92,6 +93,7 @@
 		4FBE72A22AB1DF25002165FB /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaybeGameView.swift; sourceTree = "<group>"; };
 		4FF895B72ACED16E00F50DA4 /* CardRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepresentable.swift; sourceTree = "<group>"; };
+		645319EB2ADD7639007FB0AC /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		64C04C0F2AD436BD00894EF9 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		64D788FB2AB484CC00394078 /* CardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNode.swift; sourceTree = "<group>"; };
 		64FFCE712AA74C5F0090566B /* WebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				4F51B8BF2AD0D2B8007107B4 /* ParallaxView.swift */,
 				4F51B8BD2AD0B5D7007107B4 /* PopUpCard.swift */,
 				64D788FB2AB484CC00394078 /* CardNode.swift */,
+				645319EB2ADD7639007FB0AC /* PopUpView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -522,7 +525,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n./build4\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#./build4\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -552,6 +555,7 @@
 				64D788FC2AB484CC00394078 /* CardNode.swift in Sources */,
 				DD6D18AA2ABDBF0A004B02AA /* CustomToolbarView.swift in Sources */,
 				4FF895B82ACED16E00F50DA4 /* CardRepresentable.swift in Sources */,
+				645319EC2ADD7639007FB0AC /* PopUpView.swift in Sources */,
 				4F51B8BE2AD0B5D7007107B4 /* PopUpCard.swift in Sources */,
 				DD6D18762AB889F2004B02AA /* ConfigButtonView.swift in Sources */,
 				459585FA2AA6143C0039C908 /* GameView.swift in Sources */,
@@ -724,7 +728,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mythos/Preview Content\"";
-				DEVELOPMENT_TEAM = U2M84KZ35U;
+				DEVELOPMENT_TEAM = D77WMSS6V2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mythos/Info.plist;
@@ -738,7 +742,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Narely.Mythos;
+				PRODUCT_BUNDLE_IDENTIFIER = Caroline.Mythos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -754,7 +758,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mythos/Preview Content\"";
-				DEVELOPMENT_TEAM = U2M84KZ35U;
+				DEVELOPMENT_TEAM = D77WMSS6V2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mythos/Info.plist;
@@ -768,7 +772,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Narely.Mythos;
+				PRODUCT_BUNDLE_IDENTIFIER = Caroline.Mythos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
