@@ -19,6 +19,9 @@ struct MaybeGameView: View {
     @State var cardSelected: Card? = nil
     @State var isTapped: Bool = false
     @State var isPresentedGame: Bool
+    @State private var showAlertWinner: Bool = false
+    @State private var showAlertLost: Bool = false
+    @State private var duoConditionalALert: Bool = false
 
     @Environment(\.dismiss) private var dismiss
 
@@ -84,14 +87,33 @@ struct MaybeGameView: View {
                             .disabled(!isTapped)
                         }
                     }
-                    !isPresentedGame ? buttonDismiss : nil
+//                    !isPresentedGame && !websocket.winner ? buttonDismiss : nil
                 }
                 .onChange(of: websocket.isGameOver) { newValue in
                     print("O jogador \(websocket.myPlayerReference.name) perdeu a partida")
                     isPresentedGame = false
+                    showAlertLost = true
+                    if showAlertLost && !showAlertWinner {
+                        duoConditionalALert = true
+                    }
                     UserDefaults.standard.set(isPresentedGame, forKey: "isPresentedGame")
                 }
+                .onChange(of: websocket.winner) { newValue in
+                    print("O jogador \(websocket.myPlayerReference.name) venceu a partida")
+                    showAlertWinner = true
+
+
+                }
+
             }
+            .alert(isPresented: $duoConditionalALert) {
+                Alert(title: Text((showAlertLost && showAlertWinner) ? "Venceu" : "Perdeu"),
+                      message: Text((showAlertLost && showAlertWinner) ? "Você venceu a partida" : "Você perdeu a partida!!" ),
+                      dismissButton: .default(Text("Tela Inicial"), action: {
+                    dismiss()
+                }))
+            }
+
         }
         .navigationBarBackButtonHidden(true)
     }
@@ -121,12 +143,6 @@ struct MaybeGameView: View {
             }
         }
         return viewPersonas
-    }
-
-    var buttonDismiss: some View {
-        Button("Tela Inicial") {
-            dismiss()
-        }
     }
 
 }
