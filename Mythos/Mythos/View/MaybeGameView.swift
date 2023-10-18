@@ -18,7 +18,10 @@ struct MaybeGameView: View {
     @ObservedObject var websocket: WebSocket
     @State var cardSelected: Card? = nil
     @State var isTapped: Bool = false
-    
+    @State var isPresentedGame: Bool
+
+    @Environment(\.dismiss) private var dismiss
+
     var body: some View {
         ZStack{
             Image("campo")
@@ -81,8 +84,13 @@ struct MaybeGameView: View {
                             .disabled(!isTapped)
                         }
                     }
+                    !isPresentedGame ? buttonDismiss : nil
                 }
-
+                .onChange(of: websocket.isGameOver) { newValue in
+                    print("O jogador \(websocket.myPlayerReference.name) perdeu a partida")
+                    isPresentedGame = false
+                    UserDefaults.standard.set(isPresentedGame, forKey: "isPresentedGame")
+                }
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -102,24 +110,30 @@ struct MaybeGameView: View {
 
         var viewPersonas: some View {
             VStack {
-                (players.count < 3) ? nil : PersonasView(namePerson: thirdPlayer.name, lifePerson: (thirdPlayer.life <= 0) ? 0 : thirdPlayer.life)
+                (players.count < 3) ? nil : PersonasView(namePerson: thirdPlayer.name, lifePerson: thirdPlayer.life)
                 HStack {
-                    (players.count < 2) ? nil : PersonasView(namePerson: secondPlayer.name, lifePerson: (secondPlayer.life <= 0) ? 0 : secondPlayer.life)
+                    (players.count < 2) ? nil : PersonasView(namePerson: secondPlayer.name, lifePerson: secondPlayer.life)
                     Spacer()
-                    (players.count < 4) ? nil : PersonasView(namePerson: lastPlayer.name, lifePerson: (lastPlayer.life <= 0) ? 0 : lastPlayer.life)
+                    (players.count < 4) ? nil : PersonasView(namePerson: lastPlayer.name, lifePerson: lastPlayer.life)
                         .padding(.trailing, 60)
                 }
-                PersonasView(namePerson: firstPlayer.name, lifePerson: (firstPlayer.life <= 0) ? 0 : firstPlayer.life)
+                PersonasView(namePerson: firstPlayer.name, lifePerson: firstPlayer.life)
             }
         }
         return viewPersonas
+    }
+
+    var buttonDismiss: some View {
+        Button("Tela Inicial") {
+            dismiss()
+        }
     }
 
 }
 
 struct MaybeGameView_Previews: PreviewProvider {
     static var previews: some View {
-        MaybeGameView(websocket: WebSocket())
+        MaybeGameView(websocket: WebSocket(), isPresentedGame: true)
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
