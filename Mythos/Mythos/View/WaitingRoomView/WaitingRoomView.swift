@@ -14,8 +14,12 @@ struct WaitingRoomView: View {
     @State var isReady = false
 
     @State private var opacity: Double  = 0
-    @State private var bool: Bool = false
+    @State private var bool: Bool = true
+    
+    @State var isPresentedWaiting: Bool
 
+
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         ZStack {
@@ -26,30 +30,7 @@ struct WaitingRoomView: View {
                         .bold()
                 }
                 Spacer()
-                HStack(spacing: 90) {
-                    withAnimation(.easeIn){
-                        ForEach(Array(websocket.connectedPlayers.enumerated()), id: \.element.name) { (index, player) in
-                            if index == websocket.connectedPlayers.count - 1 {
-                                ConnectedPlayersView(name: player.name)
-                                    .scaleEffect(bool ? 1 : 0)
-                                    .transition(.move(edge: .trailing))
-                                    .onAppear {
-                                        bool = false
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                                            withAnimation{
-                                                if !bool {
-                                                    bool.toggle()
-                                                }
-                                            }
-                                        }
-                                    }
-                            } else {
-                                ConnectedPlayersView(name: player.name)
-                            }
-                        }
-
-                    }
-                }
+                playersConnected
                 Spacer()
                 HStack{
                     Spacer()
@@ -73,17 +54,54 @@ struct WaitingRoomView: View {
         }
         .onChange(of: websocket.isAllPlayersConnecteds) { newValue in
             if newValue {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                     isReady.toggle()
                 }
             }
         }
-        .navigationDestination(isPresented: $isReady, destination: {MaybeGameView(websocket: self.websocket)})
+        .onDisappear {
+            isPresentedWaiting = false
+
+        }
+        .onAppear {
+            websocket.connectedPlayers = []
+            if isPresentedWaiting == UserDefaults.standard.bool(forKey: "isPresentedGame") {
+                dismiss()
+            }
+        }
+        .navigationDestination(isPresented: $isReady, destination: {MaybeGameView(websocket: self.websocket, isPresentedGame: true)})
+    }
+
+    var playersConnected: some View {
+        HStack(spacing: 90) {
+            withAnimation(.easeIn){
+                ForEach(Array(websocket.connectedPlayers.enumerated()), id: \.element.name) { (index, player) in
+                    if index == websocket.connectedPlayers.count - 1 {
+                        ConnectedPlayersView(name: player.name)
+                            .scaleEffect(bool ? 1 : 0)
+                            .transition(.move(edge: .trailing))
+                            .onAppear {
+                                bool = false
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                                    withAnimation{
+                                        if !bool {
+                                            bool = true
+                                        }
+                                    }
+                                }
+                            }
+                    } else {
+                        ConnectedPlayersView(name: player.name)
+                    }
+                }
+
+            }
+        }
     }
 }
 
 struct WaitingRoomView_Previews: PreviewProvider {
     static var previews: some View {
-        WaitingRoomView().previewInterfaceOrientation(.landscapeLeft)
+        WaitingRoomView(isPresentedWaiting: true).previewInterfaceOrientation(.landscapeLeft)
     }
 }

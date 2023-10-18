@@ -17,8 +17,8 @@ struct ContentView: View {
 
     var buttonInitial: some View {
         NavigationLink {
-            MaybeGameView(websocket: WebSocket())
-            .ignoresSafeArea()
+
+        
         } label: {
             ZStack {
                 Rectangle()

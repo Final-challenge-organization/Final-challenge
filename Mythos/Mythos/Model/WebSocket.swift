@@ -26,6 +26,7 @@ class WebSocket: ObservableObject {
     var myPlayerReference: PlayerClient {
         return connectedPlayers.first { $0.id == self.myID} ?? PlayerClient(id: UUID(), name: "ANONIMO", deck: [], life: 2, isYourTurn: false, isReaction: false, handCards: [])
     }
+
     private var contentTypeCardReference: ContentType {
         if (self.myPlayerReference.isReaction && self.myPlayerReference.isYourTurn) {
             return ContentType.reactionToServer

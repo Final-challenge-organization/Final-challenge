@@ -21,6 +21,10 @@ struct MaybeGameView: View {
     @State var isTapped: Bool = false
     @State private var engine: CHHapticEngine?
     
+    @State var isPresentedGame: Bool
+
+    @Environment(\.dismiss) private var dismiss
+
     var body: some View {
         ZStack{
             Image("campo")
@@ -28,16 +32,16 @@ struct MaybeGameView: View {
                 .ignoresSafeArea()
             ZStack {
                 ForEach(Array(websocket.connectedPlayers.enumerated()), id: \.element.id) { index, player in
-                            if websocket.myPlayerReference == player {
-                                generatePlayerLayout(for: index, players: websocket.connectedPlayers)
-                            }
-                        }
+                    if websocket.myPlayerReference == player {
+                        generatePlayerLayout(for: index, players: websocket.connectedPlayers)
+                    }
+                }
                 VStack{
-                    Spacer()                    
+                    Spacer()
                     ProgressView("Sua Vida:", value: Double(websocket.myPlayerReference.life), total: 30)
                         .progressViewStyle(GaugeProgressStyle())
                         .frame(width: 90, height: 90)
-                        
+
 
                     ZStack {
                         Image("deck_comprar")
@@ -85,8 +89,13 @@ struct MaybeGameView: View {
                             .disabled(!isTapped)
                         }
                     }
+                    !isPresentedGame ? buttonDismiss : nil
                 }
-
+                .onChange(of: websocket.isGameOver) { newValue in
+                    print("O jogador \(websocket.myPlayerReference.name) perdeu a partida")
+                    isPresentedGame = false
+                    UserDefaults.standard.set(isPresentedGame, forKey: "isPresentedGame")
+                }
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -130,54 +139,46 @@ struct MaybeGameView: View {
     }
 
     func generatePlayerLayout(for index: Int, players: [PlayerClient]) -> some View {
-            let firstPlayerIndex = (index) % players.count
-            let secondPlayerIndex = (index + 1) % players.count
-            let thirdPlayerIndex = (index + 2) % players.count
-            let lastPlayerIndex = (index + 3) % players.count
 
-            let firstPlayer = players[firstPlayerIndex]
-            let secondPlayer = players[secondPlayerIndex]
-            let thirdPlayer = players[thirdPlayerIndex]
-            let lastPlayer = players[lastPlayerIndex]
+        let firstPlayerIndex = (index) % players.count
+        let secondPlayerIndex = (index + 1) % players.count
+        let thirdPlayerIndex = (index + 2) % players.count
+        let lastPlayerIndex = (index + 3) % players.count
 
-            var viewPersonas: some View {
-                VStack {
-                    PersonasView(namePerson: thirdPlayer.name.description, lifePerson: thirdPlayer.life.description)
-                    HStack {
-                        PersonasView(namePerson: secondPlayer.name.description, lifePerson: secondPlayer.life.description)
-                        Spacer()
-                        PersonasView(namePerson: lastPlayer.name.description, lifePerson: lastPlayer.life.description)
-                            .padding(.trailing, 60)
-                    }
-                    PersonasView(namePerson: firstPlayer.name.description, lifePerson: firstPlayer.life.description)
+        var firstPlayer = players[firstPlayerIndex]
+        var secondPlayer = players[secondPlayerIndex]
+        var thirdPlayer = players[thirdPlayerIndex]
+        var lastPlayer = players[lastPlayerIndex]
+
+        var viewPersonas: some View {
+            VStack {
+                (players.count < 3) ? nil : PersonasView(namePerson: thirdPlayer.name, lifePerson: thirdPlayer.life)
+                HStack {
+                    (players.count < 2) ? nil : PersonasView(namePerson: secondPlayer.name, lifePerson: secondPlayer.life)
+                    Spacer()
+                    (players.count < 4) ? nil : PersonasView(namePerson: lastPlayer.name, lifePerson: lastPlayer.life)
+                        .padding(.trailing, 60)
                 }
+                PersonasView(namePerson: firstPlayer.name, lifePerson: firstPlayer.life)
             }
-
-            return viewPersonas
         }
+        return viewPersonas
+    }
+
+    var buttonDismiss: some View {
+        Button("Tela Inicial") {
+            dismiss()
+        }
+    }
 
 }
 
 struct MaybeGameView_Previews: PreviewProvider {
     static var previews: some View {
-        MaybeGameView(websocket: WebSocket())
+        MaybeGameView(websocket: WebSocket(), isPresentedGame: true)
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
-
-//struct HandCards: View {
-//    @Binding var cardHands: [Card]
-//
-//    var body: some View {
-//        ForEach(cardHands, id: \.id) { card in
-//            CardRepresentable(invertHeight: true, cardName: card.name) {
-//                print(card.name)
-//            }
-//        }
-//    }
-//}
-
-
 
 
 struct GaugeProgressStyle: ProgressViewStyle {
@@ -206,3 +207,4 @@ struct GaugeProgressStyle: ProgressViewStyle {
         }
     }
 }
+
