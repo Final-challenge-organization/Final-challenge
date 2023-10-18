@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		459585D02AA610A20039C908 /* MythosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585CF2AA610A20039C908 /* MythosApp.swift */; };
-		459585D22AA610A20039C908 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585D12AA610A20039C908 /* ContentView.swift */; };
 		459585D42AA610A30039C908 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459585D32AA610A30039C908 /* Assets.xcassets */; };
 		459585D72AA610A30039C908 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459585D62AA610A30039C908 /* Preview Assets.xcassets */; };
 		459585E12AA610A30039C908 /* MythosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585E02AA610A30039C908 /* MythosTests.swift */; };
@@ -75,7 +74,6 @@
 /* Begin PBXFileReference section */
 		459585CC2AA610A20039C908 /* Mythos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mythos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		459585CF2AA610A20039C908 /* MythosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythosApp.swift; sourceTree = "<group>"; };
-		459585D12AA610A20039C908 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		459585D32AA610A30039C908 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		459585D62AA610A30039C908 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		459585DC2AA610A30039C908 /* MythosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MythosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,7 +234,6 @@
 				DD6D18832AB8917B004B02AA /* WaitingRoomView */,
 				DD6D18812AB8913C004B02AA /* HomeView */,
 				459585CF2AA610A20039C908 /* MythosApp.swift */,
-				459585D12AA610A20039C908 /* ContentView.swift */,
 				64FFCE732AA7500E0090566B /* ClientSideView.swift */,
 				459585F92AA6143C0039C908 /* GameView.swift */,
 				4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */,
@@ -531,7 +528,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#/build4\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n./build4\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -545,7 +542,6 @@
 				64C04C102AD436BD00894EF9 /* PlayerView.swift in Sources */,
 				4F51B8C02AD0D2B8007107B4 /* ParallaxView.swift in Sources */,
 				DD84A46A2ADEC8A300BD0801 /* WebSocketProtocol.swift in Sources */,
-				459585D22AA610A20039C908 /* ContentView.swift in Sources */,
 				DD6D18742AB8898E004B02AA /* CoinsView.swift in Sources */,
 				DD6D186F2AB88506004B02AA /* InventoryButtonView.swift in Sources */,
 				64FFCE762AA76B010090566B /* Card.swift in Sources */,

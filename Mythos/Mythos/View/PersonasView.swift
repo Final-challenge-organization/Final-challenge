@@ -123,6 +123,34 @@ struct PersonasView: View {
                     .offset(y: 40)
             }
         }
+        if index == 5 {
+            VStack(spacing: 0) {
+                VStack {
+
+                    Text(namePerson.description)
+                    Circle()
+                        .foregroundColor(.yellow)
+                        .frame(width: 30, height: 30)
+                        .overlay {
+                            Text("\(lifePerson)")
+                        }
+                }
+                .offset(x: 0, y: -75)
+
+                HStack(spacing: -35) {
+                    Spacer()
+                    ForEach(cards, id: \.id) {
+                        card in
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .frame(width: 55, height: 115)
+                    }
+                    Spacer()
+                }
+
+            }
+            .foregroundColor(.clear)
+        }
     }
 }
 

@@ -69,7 +69,8 @@ struct WaitingRoomView: View {
                 dismiss()
             }
         }
-        .navigationDestination(isPresented: $isReady, destination: {MaybeGameView(websocket: self.websocket, isPresentedGame: true)})
+
+        .navigationDestination(isPresented: $isReady, destination: {MaybeGameView(isPresentedGame: true)})
     }
 
     var playersConnected: some View {
