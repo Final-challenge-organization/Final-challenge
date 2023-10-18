@@ -15,7 +15,7 @@
 import SwiftUI
 
 struct MaybeGameView: View {
-    @ObservedObject var websocket: WebSocket
+    @EnvironmentObject var websocket: WebSocket
     @State var cardSelected: Card? = nil
     @State var isTapped: Bool = false
     @State var isPresentedGame: Bool
@@ -23,21 +23,18 @@ struct MaybeGameView: View {
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
-        ZStack{
+        ZStack {
             Image("campo")
                 .resizable()
                 .ignoresSafeArea()
             ZStack {
-                ForEach(Array(websocket.connectedPlayers.enumerated()), id: \.element.id) { index, player in
-                    if websocket.myPlayerReference == player {
-                        generatePlayerLayout(for: index, players: websocket.connectedPlayers)
-                    }
+
                 }
                 VStack{
                     Spacer()
-                    ProgressView("Sua Vida:", value: Double(websocket.myPlayerReference.life), total: 30)
-                        .progressViewStyle(GaugeProgressStyle())
-                        .frame(width: 90, height: 90)
+//                    ProgressView("Sua Vida:", value: Double(websocket.myPlayerReference.life), total: 30)
+//                        .progressViewStyle(GaugeProgressStyle())
+//                        .frame(width: 90, height: 90)
 
 
                     ZStack {
@@ -86,6 +83,13 @@ struct MaybeGameView: View {
                     }
                     !isPresentedGame ? buttonDismiss : nil
                 }
+
+                .overlay{
+                    ForEach(Array(websocket.connectedPlayers.enumerated()), id: \.element.id) { index, player in
+                        if websocket.myPlayerReference == player {
+                            generatePlayerLayout(for: index, players: websocket.connectedPlayers)
+                        }
+                    }
                 .onChange(of: websocket.isGameOver) { newValue in
                     print("O jogador \(websocket.myPlayerReference.name) perdeu a partida")
                     isPresentedGame = false
@@ -103,21 +107,35 @@ struct MaybeGameView: View {
         let thirdPlayerIndex = (index + 2) % players.count
         let lastPlayerIndex = (index + 3) % players.count
 
-        var firstPlayer = players[firstPlayerIndex]
-        var secondPlayer = players[secondPlayerIndex]
-        var thirdPlayer = players[thirdPlayerIndex]
-        var lastPlayer = players[lastPlayerIndex]
+        let firstPlayer = players[firstPlayerIndex]
+        let secondPlayer = players[secondPlayerIndex]
+        let thirdPlayer = players[thirdPlayerIndex]
+        let lastPlayer = players[lastPlayerIndex]
 
         var viewPersonas: some View {
             VStack {
-                (players.count < 3) ? nil : PersonasView(namePerson: thirdPlayer.name, lifePerson: thirdPlayer.life)
+                PersonasView(cards: thirdPlayer.handCards,
+                                                         namePerson: thirdPlayer.name,
+                                                         lifePerson: (thirdPlayer.life <= 0) ? 0 : thirdPlayer.life,
+                                                         index: (players.count < 3) ? 5 : 2)
+
                 HStack {
-                    (players.count < 2) ? nil : PersonasView(namePerson: secondPlayer.name, lifePerson: secondPlayer.life)
+                    PersonasView(cards: secondPlayer.handCards,
+                                                             namePerson: secondPlayer.name,
+                                                             lifePerson: (secondPlayer.life <= 0) ? 0 : secondPlayer.life,
+                                                             index: (players.count < 2) ? 5 : 1)
+
                     Spacer()
-                    (players.count < 4) ? nil : PersonasView(namePerson: lastPlayer.name, lifePerson: lastPlayer.life)
-                        .padding(.trailing, 60)
+                    PersonasView(cards: lastPlayer.handCards, namePerson: lastPlayer.name,
+                                                             lifePerson: (lastPlayer.life <= 0) ? 0 : lastPlayer.life,
+                                                             index: (players.count < 4) ? 5 : 3)
+
+                        .offset(y:15)
                 }
-                PersonasView(namePerson: firstPlayer.name, lifePerson: firstPlayer.life)
+                PersonasView(cards: firstPlayer.handCards,
+                             namePerson: firstPlayer.name,
+                             lifePerson: (firstPlayer.life <= 0) ? 0 : firstPlayer.life,
+                             index: 0)
             }
         }
         return viewPersonas
@@ -131,13 +149,12 @@ struct MaybeGameView: View {
 
 }
 
-struct MaybeGameView_Previews: PreviewProvider {
-    static var previews: some View {
-        MaybeGameView(websocket: WebSocket(), isPresentedGame: true)
-            .previewInterfaceOrientation(.landscapeLeft)
-    }
-}
-
+//struct MaybeGameView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MaybeGameView(isPresentedGame: true)
+//            .previewInterfaceOrientation(.landscapeLeft)
+//    }
+//}
 
 struct GaugeProgressStyle: ProgressViewStyle {
     var strokeColor = Color.green.gradient

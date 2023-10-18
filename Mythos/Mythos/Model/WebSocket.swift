@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WebSocket: ObservableObject {
+class WebSocket: ObservableObject, WebSocketProtocol {
     @Published var isGameOver: Bool? = nil
     @Published var connectedPlayers: [PlayerClient] = []
     @Published var cardsPlayed: [Card] = []
@@ -48,7 +48,7 @@ class WebSocket: ObservableObject {
         self.verifyNumberOfRoom()
     }
 
-    private func verifyNumberOfRoom() {
+    internal func verifyNumberOfRoom() {
         guard let url = URL(string: "http://143.110.157.204:8080/verifyRoom") else {return}
         let request = URLRequest(url: url)
         httpTask = URLSession.shared.dataTask(with: request, completionHandler: { data , response, error in
@@ -65,7 +65,7 @@ class WebSocket: ObservableObject {
         httpTask?.resume()
     }
 
-    private func connect(_ roomNumber: Int) {
+    internal func connect(_ roomNumber: Int) {
         guard let url = URL(string: "ws://143.110.157.204:8080/websocket/\(roomNumber)") else { return } // ajeitar a porta
         let request = URLRequest(url: url)
         webSocketTask = URLSession.shared.webSocketTask(with: request)
@@ -79,7 +79,7 @@ class WebSocket: ObservableObject {
     }
 
     // é preciso melhorar essa funcao a cargo de quando houver disconnect ele nao continuar de forma recursiva
-    private func receiveMessage() {
+    internal func receiveMessage() {
         webSocketTask?.receive { result in
             switch result {
             case .failure(let error):
