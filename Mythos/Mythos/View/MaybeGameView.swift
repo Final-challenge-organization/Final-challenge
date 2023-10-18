@@ -18,7 +18,10 @@ struct MaybeGameView: View {
     @EnvironmentObject var websocket: WebSocket
     @State var cardSelected: Card? = nil
     @State var isTapped: Bool = false
-    
+    @State var isPresentedGame: Bool
+
+    @Environment(\.dismiss) private var dismiss
+
     var body: some View {
         ZStack {
             Image("campo")
@@ -78,6 +81,7 @@ struct MaybeGameView: View {
                             .disabled(!isTapped)
                         }
                     }
+                    !isPresentedGame ? buttonDismiss : nil
                 }
 
                 .overlay{
@@ -85,6 +89,10 @@ struct MaybeGameView: View {
                         if websocket.myPlayerReference == player {
                             generatePlayerLayout(for: index, players: websocket.connectedPlayers)
                         }
+                .onChange(of: websocket.isGameOver) { newValue in
+                    print("O jogador \(websocket.myPlayerReference.name) perdeu a partida")
+                    isPresentedGame = false
+                    UserDefaults.standard.set(isPresentedGame, forKey: "isPresentedGame")
                 }
             }
         }
@@ -133,14 +141,20 @@ struct MaybeGameView: View {
         return viewPersonas
     }
 
+    var buttonDismiss: some View {
+        Button("Tela Inicial") {
+            dismiss()
+        }
+    }
+
 }
 
-//struct MaybeGameView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MaybeGameView(websocket: WebSocket())
-//            .previewInterfaceOrientation(.landscapeLeft)
-//    }
-//}
+struct MaybeGameView_Previews: PreviewProvider {
+    static var previews: some View {
+        MaybeGameView(websocket: WebSocket(), isPresentedGame: true)
+            .previewInterfaceOrientation(.landscapeLeft)
+    }
+}
 
 
 struct GaugeProgressStyle: ProgressViewStyle {

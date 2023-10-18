@@ -35,7 +35,7 @@ struct HomeView: View {
 
                             HStack(){
                                 Spacer()
-                                NavigationLink(destination: WaitingRoomView(),
+                                NavigationLink(destination: WaitingRoomView(isPresentedWaiting: true),
                                                label: {
                                     PlayButtonView()
                                         .shadow(radius: 10)
