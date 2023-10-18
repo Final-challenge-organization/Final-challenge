@@ -15,12 +15,12 @@
 import SwiftUI
 
 struct MaybeGameView: View {
-    @ObservedObject var websocket: WebSocket
+    @EnvironmentObject var websocket: WebSocket
     @State var cardSelected: Card? = nil
     @State var isTapped: Bool = false
     
     var body: some View {
-        ZStack{
+        ZStack {
             Image("campo")
                 .resizable()
                 .ignoresSafeArea()
@@ -29,9 +29,9 @@ struct MaybeGameView: View {
                 }
                 VStack{
                     Spacer()
-                    ProgressView("Sua Vida:", value: Double(websocket.myPlayerReference.life), total: 30)
-                        .progressViewStyle(GaugeProgressStyle())
-                        .frame(width: 90, height: 90)
+//                    ProgressView("Sua Vida:", value: Double(websocket.myPlayerReference.life), total: 30)
+//                        .progressViewStyle(GaugeProgressStyle())
+//                        .frame(width: 90, height: 90)
 
 
                     ZStack {
@@ -105,17 +105,28 @@ struct MaybeGameView: View {
 
         var viewPersonas: some View {
             VStack {
-                (players.count < 3) ? nil : PersonasView(cards: thirdPlayer.handCards, namePerson: thirdPlayer.name, lifePerson: (thirdPlayer.life <= 0) ? 0 : thirdPlayer.life, index: thirdPlayerIndex)
+                (players.count < 3) ? nil : PersonasView(cards: thirdPlayer.handCards,
+                                                         namePerson: thirdPlayer.name,
+                                                         lifePerson: (thirdPlayer.life <= 0) ? 0 : thirdPlayer.life,
+                                                         index: 2)
 
                 HStack {
-                    (players.count < 2) ? nil : PersonasView(cards: secondPlayer.handCards, namePerson: secondPlayer.name, lifePerson: (secondPlayer.life <= 0) ? 0 : secondPlayer.life, index: secondPlayerIndex)
+                    (players.count < 2) ? nil : PersonasView(cards: secondPlayer.handCards,
+                                                             namePerson: secondPlayer.name,
+                                                             lifePerson: (secondPlayer.life <= 0) ? 0 : secondPlayer.life,
+                                                             index: 1)
 
                     Spacer()
-                    (players.count < 4) ? nil : PersonasView(cards: lastPlayer.handCards, namePerson: lastPlayer.name, lifePerson: (lastPlayer.life <= 0) ? 0 : lastPlayer.life, index: lastPlayerIndex)
+                    (players.count < 4) ? nil : PersonasView(cards: lastPlayer.handCards, namePerson: lastPlayer.name,
+                                                             lifePerson: (lastPlayer.life <= 0) ? 0 : lastPlayer.life,
+                                                             index: 3)
 
-                        .offset(y:35)
+                        .offset(y:15)
                 }
-                PersonasView(cards: firstPlayer.handCards, namePerson: firstPlayer.name, lifePerson: (firstPlayer.life <= 0) ? 0 : firstPlayer.life, index: firstPlayerIndex)
+                PersonasView(cards: firstPlayer.handCards,
+                             namePerson: firstPlayer.name,
+                             lifePerson: (firstPlayer.life <= 0) ? 0 : firstPlayer.life,
+                             index: 0)
 
             }
         }

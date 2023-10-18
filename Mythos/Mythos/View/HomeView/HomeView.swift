@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     //Desligar animações de navegação
+    @StateObject var websocket = WebSocket()
     init(){
         UINavigationBar.setAnimationsEnabled(false)
     }
@@ -55,11 +56,10 @@ struct HomeView: View {
                 }
                 .scrollDisabled(true)
             }
+            .environmentObject(websocket)
         }
         .ignoresSafeArea()
     }
-
-
 }
 
 struct HomeView_Previews: PreviewProvider {
