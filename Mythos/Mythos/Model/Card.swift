@@ -13,6 +13,8 @@ struct Card: Codable, Datable, Equatable {
     let name: String
     let type: CardType
     let damage: Int
+    let effect: String
+    let description: String
 
     func toData() -> Data {
         return try! JSONEncoder().encode(self)
@@ -20,9 +22,14 @@ struct Card: Codable, Datable, Equatable {
 }
 
 
-enum CardType: Codable {
-    case action
+enum CardType: Codable, Equatable {
+    case action(CardActionType)
     case reaction
+}
+
+enum CardActionType: Codable, Equatable {
+    case block
+    case damage
 }
 
 

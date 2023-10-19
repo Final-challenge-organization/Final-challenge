@@ -22,7 +22,6 @@
 		4FBC46F42AD43BC500BB1CE1 /* Convergence-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FBC46F22AD43BBC00BB1CE1 /* Convergence-Regular.ttf */; };
 		4FBC46F52AD43BC500BB1CE1 /* Convergence-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FBC46F22AD43BBC00BB1CE1 /* Convergence-Regular.ttf */; };
 		4FBC46F82AD43C4400BB1CE1 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBC46F72AD43C4400BB1CE1 /* Fonts.swift */; };
-		4FBE72A12AB1DEC3002165FB /* DeckMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE72A02AB1DEC3002165FB /* DeckMock.swift */; };
 		4FBE72A32AB1DF25002165FB /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE72A22AB1DF25002165FB /* Protocols.swift */; };
 		4FF895B62ACED14500F50DA4 /* MaybeGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */; };
 		4FF895B82ACED16E00F50DA4 /* CardRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF895B72ACED16E00F50DA4 /* CardRepresentable.swift */; };
@@ -90,7 +89,6 @@
 		4FBC46F22AD43BBC00BB1CE1 /* Convergence-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Convergence-Regular.ttf"; sourceTree = "<group>"; };
 		4FBC46F62AD43BF000BB1CE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4FBC46F72AD43C4400BB1CE1 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
-		4FBE72A02AB1DEC3002165FB /* DeckMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckMock.swift; sourceTree = "<group>"; };
 		4FBE72A22AB1DF25002165FB /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaybeGameView.swift; sourceTree = "<group>"; };
 		4FF895B72ACED16E00F50DA4 /* CardRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepresentable.swift; sourceTree = "<group>"; };
@@ -257,7 +255,6 @@
 				4F4269E52AD0511900A417E5 /* PlayerClient.swift */,
 				64FFCE752AA76B010090566B /* Card.swift */,
 				4FBE72A22AB1DF25002165FB /* Protocols.swift */,
-				4FBE72A02AB1DEC3002165FB /* DeckMock.swift */,
 				64FFCE772AA8B0A80090566B /* DataWrapper.swift */,
 			);
 			path = Model;
@@ -531,7 +528,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#./build4\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/Users/luizsena/Desktop/build4\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -548,7 +545,6 @@
 				DD6D18742AB8898E004B02AA /* CoinsView.swift in Sources */,
 				DD6D186F2AB88506004B02AA /* InventoryButtonView.swift in Sources */,
 				64FFCE762AA76B010090566B /* Card.swift in Sources */,
-				4FBE72A12AB1DEC3002165FB /* DeckMock.swift in Sources */,
 				DD6D18782AB88A8D004B02AA /* StoreButtonView.swift in Sources */,
 				DD6D18662AB8784F004B02AA /* HomeView.swift in Sources */,
 				4FBE72A32AB1DF25002165FB /* Protocols.swift in Sources */,
@@ -737,21 +733,21 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mythos/Preview Content\"";
-				DEVELOPMENT_TEAM = D77WMSS6V2;
+				DEVELOPMENT_TEAM = PPSYB39C6H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mythos/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeLeft;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Caroline.Mythos;
+				PRODUCT_BUNDLE_IDENTIFIER = MythosTeam.Mythos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -767,21 +763,21 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mythos/Preview Content\"";
-				DEVELOPMENT_TEAM = D77WMSS6V2;
+				DEVELOPMENT_TEAM = PPSYB39C6H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mythos/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeLeft;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Caroline.Mythos;
+				PRODUCT_BUNDLE_IDENTIFIER = MythosTeam.Mythos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

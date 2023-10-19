@@ -20,7 +20,7 @@ struct CardRepresentable: View {
     var body: some View {
 
         GeometryReader { geo in
-            if card.type == .action {
+            if (card.type == .action(.damage)) || (card.type == .action(.block)) {
                 Image("actionCard")
                     .resizable()
                     .scaledToFit()
@@ -124,7 +124,7 @@ struct CardRepresentable_Previews: PreviewProvider {
             CardRepresentable(
                 isYourTurn: true,
                 isReaction: false,
-                card: Card(id: 0, name: "", type: .action, damage: 10)
+                card: Card(id: 0, name: "", type: .reaction, damage: 0, effect: "", description: "")
             ) {
                 print("haptic...")
             }
