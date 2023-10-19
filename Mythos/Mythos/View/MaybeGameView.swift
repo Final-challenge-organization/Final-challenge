@@ -96,11 +96,6 @@ struct MaybeGameView: View {
         .navigationBarBackButtonHidden(true)
     }
 
-    func playHaptics() {
-        HapticsManager.shared.vibrate(for: .success)
-    }
-
-
     func generatePlayerLayout(for index: Int, players: [PlayerClient]) -> some View {
 
         let firstPlayerIndex = (index) % players.count
