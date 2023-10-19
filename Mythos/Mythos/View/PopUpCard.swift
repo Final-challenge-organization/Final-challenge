@@ -40,6 +40,6 @@ struct PopUpCard: View {
 
 struct PopUpCard_Previews: PreviewProvider {
     static var previews: some View {
-        PopUpCard(card: Card(id: 0, name: "HADES", type: .action, damage: 10))
+        PopUpCard(card: Card(id: 0, name: "HADES", type: .action(.damage), damage: 10, effect: "HADES", description: "OMG"))
     }
 }
