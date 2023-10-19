@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		459585D02AA610A20039C908 /* MythosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585CF2AA610A20039C908 /* MythosApp.swift */; };
-		459585D22AA610A20039C908 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585D12AA610A20039C908 /* ContentView.swift */; };
 		459585D42AA610A30039C908 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459585D32AA610A30039C908 /* Assets.xcassets */; };
 		459585D72AA610A30039C908 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459585D62AA610A30039C908 /* Preview Assets.xcassets */; };
 		459585E12AA610A30039C908 /* MythosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585E02AA610A30039C908 /* MythosTests.swift */; };
@@ -51,6 +50,9 @@
 		DD6D18AA2ABDBF0A004B02AA /* CustomToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18A92ABDBF0A004B02AA /* CustomToolbarView.swift */; };
 		DD6D18AC2ABDBF37004B02AA /* BackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18AB2ABDBF37004B02AA /* BackButtonView.swift */; };
 		DD6D18AE2ABDBF93004B02AA /* ConnectedPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18AD2ABDBF93004B02AA /* ConnectedPlayersView.swift */; };
+		DD84A4662ADEB7ED00BD0801 /* BackCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD84A4652ADEB7ED00BD0801 /* BackCardView.swift */; };
+		DD84A4682ADEC5DC00BD0801 /* WebSocketMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD84A4672ADEC5DC00BD0801 /* WebSocketMock.swift */; };
+		DD84A46A2ADEC8A300BD0801 /* WebSocketProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD84A4692ADEC8A300BD0801 /* WebSocketProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +75,6 @@
 /* Begin PBXFileReference section */
 		459585CC2AA610A20039C908 /* Mythos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mythos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		459585CF2AA610A20039C908 /* MythosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythosApp.swift; sourceTree = "<group>"; };
-		459585D12AA610A20039C908 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		459585D32AA610A30039C908 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		459585D62AA610A30039C908 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		459585DC2AA610A30039C908 /* MythosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MythosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +118,9 @@
 		DD6D18A92ABDBF0A004B02AA /* CustomToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToolbarView.swift; sourceTree = "<group>"; };
 		DD6D18AB2ABDBF37004B02AA /* BackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonView.swift; sourceTree = "<group>"; };
 		DD6D18AD2ABDBF93004B02AA /* ConnectedPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConnectedPlayersView.swift; path = Mythos/View/WaitingRoomView/ConnectedPlayersView.swift; sourceTree = SOURCE_ROOT; };
+		DD84A4652ADEB7ED00BD0801 /* BackCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackCardView.swift; sourceTree = "<group>"; };
+		DD84A4672ADEC5DC00BD0801 /* WebSocketMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketMock.swift; sourceTree = "<group>"; };
+		DD84A4692ADEC8A300BD0801 /* WebSocketProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				4FF895B72ACED16E00F50DA4 /* CardRepresentable.swift */,
+				DD84A4652ADEB7ED00BD0801 /* BackCardView.swift */,
 			);
 			path = CardView;
 			sourceTree = "<group>";
@@ -231,7 +236,6 @@
 				DD6D18832AB8917B004B02AA /* WaitingRoomView */,
 				DD6D18812AB8913C004B02AA /* HomeView */,
 				459585CF2AA610A20039C908 /* MythosApp.swift */,
-				459585D12AA610A20039C908 /* ContentView.swift */,
 				64FFCE732AA7500E0090566B /* ClientSideView.swift */,
 				459585F92AA6143C0039C908 /* GameView.swift */,
 				4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */,
@@ -247,7 +251,9 @@
 		64FFCE7A2AA8B4750090566B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DD84A4672ADEC5DC00BD0801 /* WebSocketMock.swift */,
 				64FFCE712AA74C5F0090566B /* WebSocket.swift */,
+				DD84A4692ADEC8A300BD0801 /* WebSocketProtocol.swift */,
 				4F4269E52AD0511900A417E5 /* PlayerClient.swift */,
 				64FFCE752AA76B010090566B /* Card.swift */,
 				4FBE72A22AB1DF25002165FB /* Protocols.swift */,
@@ -538,7 +544,7 @@
 				DD6D186B2AB88352004B02AA /* PlayButtonView.swift in Sources */,
 				64C04C102AD436BD00894EF9 /* PlayerView.swift in Sources */,
 				4F51B8C02AD0D2B8007107B4 /* ParallaxView.swift in Sources */,
-				459585D22AA610A20039C908 /* ContentView.swift in Sources */,
+				DD84A46A2ADEC8A300BD0801 /* WebSocketProtocol.swift in Sources */,
 				DD6D18742AB8898E004B02AA /* CoinsView.swift in Sources */,
 				DD6D186F2AB88506004B02AA /* InventoryButtonView.swift in Sources */,
 				64FFCE762AA76B010090566B /* Card.swift in Sources */,
@@ -554,6 +560,7 @@
 				DD6D18AE2ABDBF93004B02AA /* ConnectedPlayersView.swift in Sources */,
 				64FFCE722AA74C5F0090566B /* WebSocket.swift in Sources */,
 				64D788FC2AB484CC00394078 /* CardNode.swift in Sources */,
+				DD84A4662ADEB7ED00BD0801 /* BackCardView.swift in Sources */,
 				DD6D18AA2ABDBF0A004B02AA /* CustomToolbarView.swift in Sources */,
 				4FF895B82ACED16E00F50DA4 /* CardRepresentable.swift in Sources */,
 				645319EC2ADD7639007FB0AC /* PopUpView.swift in Sources */,
@@ -564,6 +571,7 @@
 				DD57DF882AD49A04009B9272 /* DataStorage.swift in Sources */,
 				DD6D187C2AB88B33004B02AA /* ConfigurationView.swift in Sources */,
 				4FBC46F82AD43C4400BB1CE1 /* Fonts.swift in Sources */,
+				DD84A4682ADEC5DC00BD0801 /* WebSocketMock.swift in Sources */,
 				DD6D187A2AB88B26004B02AA /* StoreView.swift in Sources */,
 				DD6D18802AB88DA3004B02AA /* ProfileView.swift in Sources */,
 				DD6D18712AB8857A004B02AA /* UserButtonView.swift in Sources */,
