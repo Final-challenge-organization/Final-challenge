@@ -19,8 +19,8 @@ struct MaybeGameView: View {
     @State var cardSelected: Card? = nil
     @State var isTapped: Bool = false
     @State var isPresentedGame: Bool
-    @State private var showAlertWinner: Bool = false
-    @State private var showAlertLost: Bool = false
+    @State var showAlertWinner: Bool = false
+    @State var showAlertLost: Bool = false
     @State private var duoConditionalALert: Bool = false
 
     @Environment(\.dismiss) private var dismiss
@@ -32,96 +32,105 @@ struct MaybeGameView: View {
                 .ignoresSafeArea()
             ZStack {
 
-                }
-                VStack{
-                    Spacer()
-//                    ProgressView("Sua Vida:", value: Double(websocket.myPlayerReference.life), total: 30)
-//                        .progressViewStyle(GaugeProgressStyle())
-//                        .frame(width: 90, height: 90)
+            }
+            VStack{
+                Spacer()
+                //                    ProgressView("Sua Vida:", value: Double(websocket.myPlayerReference.life), total: 30)
+                //                        .progressViewStyle(GaugeProgressStyle())
+                //                        .frame(width: 90, height: 90)
 
 
-                    ZStack {
-                        Image("deck_comprar")
-                            .offset(x: -250, y: 10)
-                        HStack(spacing: -50) {
-                            Spacer()
-                            ForEach(Array(websocket.myPlayerReference.handCards.enumerated()), id: \.element.id) {
-                                (index , card) in
-                                CardRepresentable(
-                                    isYourTurn: websocket.myPlayerReference.isYourTurn,
-                                    isReaction: websocket.myPlayerReference.isReaction,
-                                    card: card) {
-                                        self.cardSelected = card
-                                        withAnimation {
-                                            self.isTapped.toggle()
-                                        }
+                ZStack {
+                    Image("deck_comprar")
+                        .offset(x: -250, y: 10)
+                    HStack(spacing: -50) {
+                        Spacer()
+                        ForEach(Array(websocket.myPlayerReference.handCards.enumerated()), id: \.element.id) {
+                            (index , card) in
+                            CardRepresentable(
+                                isYourTurn: websocket.myPlayerReference.isYourTurn,
+                                isReaction: websocket.myPlayerReference.isReaction,
+                                card: card) {
+                                    self.cardSelected = card
+                                    withAnimation {
+                                        self.isTapped.toggle()
                                     }
-                                    .frame(maxHeight: 150)
-                                    .scaledToFit()
-                                    .offset(y: (index == 0 || index == 2) ? 0 : -15)
-                                    .offset(y: cardSelected == card && isTapped ? -55 : 0)
-                                    .rotationEffect(Angle(degrees: index == 0 ? -5 : (index == 2 ? 5 : 0)))
-                                    .zIndex(index == 2 ? 1 : 0) // Coloca a carta do meio na frente
+                                }
+                                .frame(maxHeight: 150)
+                                .scaledToFit()
+                                .offset(y: (index == 0 || index == 2) ? 0 : -15)
+                                .offset(y: cardSelected == card && isTapped ? -55 : 0)
+                                .rotationEffect(Angle(degrees: index == 0 ? -5 : (index == 2 ? 5 : 0)))
+                                .zIndex(index == 2 ? 1 : 0) // Coloca a carta do meio na frente
 
-                            }
-                            .transition(.move(edge: .top))
-                            Spacer()
                         }
-                        .animation(.easeInOut, value: websocket.myPlayerReference.handCards.count)
-                        .offset(y: 90)
-                        .ignoresSafeArea()
+                        .transition(.move(edge: .top))
+                        Spacer()
+                    }
+                    .animation(.easeInOut, value: websocket.myPlayerReference.handCards.count)
+                    .offset(y: 90)
+                    .ignoresSafeArea()
 
-                        if websocket.myPlayerReference.isYourTurn {
-                            Button {
-                                websocket.sendCard(with: cardSelected)
-                                self.isTapped = false
-                            } label: {
-                                Image("button_descarte")
-                                    .frame(maxWidth: 40, maxHeight: 40)
-                                    .scaledToFit()
-                            }
-                            .offset(x: 250, y: 10)
-                            .disabled(!isTapped)
+                    if websocket.myPlayerReference.isYourTurn {
+                        Button {
+                            websocket.sendCard(with: cardSelected)
+                            self.isTapped = false
+                        } label: {
+                            Image("button_descarte")
+                                .frame(maxWidth: 40, maxHeight: 40)
+                                .scaledToFit()
                         }
+                        .offset(x: 250, y: 10)
+                        .disabled(!isTapped)
                     }
-//                    !isPresentedGame && !websocket.winner ? buttonDismiss : nil
                 }
+            }
 
-                .overlay{
-                    ForEach(Array(websocket.connectedPlayers.enumerated()), id: \.element.id) { index, player in
-                        if websocket.myPlayerReference == player {
-                            generatePlayerLayout(for: index, players: websocket.connectedPlayers)
-                        }
+            .overlay{
+                ForEach(Array(websocket.connectedPlayers.enumerated()), id: \.element.id) { index, player in
+                    if websocket.myPlayerReference == player {
+                        generatePlayerLayout(for: index, players: websocket.connectedPlayers)
                     }
-                .onChange(of: websocket.isGameOver) { newValue in
-                    print("O jogador \(websocket.myPlayerReference.name) perdeu a partida")
-                    isPresentedGame = false
-                    showAlertLost = true
-                    if showAlertLost && !showAlertWinner {
-                        duoConditionalALert = true
-                    }
-                    UserDefaults.standard.set(isPresentedGame, forKey: "isPresentedGame")
                 }
-                .onChange(of: websocket.winner) { newValue in
-                    print("O jogador \(websocket.myPlayerReference.name) venceu a partida")
-                    showAlertWinner = true
+            }
+            .onChange(of: websocket.isGameOver) { newValue in
+                print("O jogador \(websocket.myPlayerReference.name) perdeu a partida")
 
+                showAlertLost = true
+                print("perdeu : \(showAlertLost) ganhou : \(showAlertWinner)")
+                isPresentedGame = false
 
+                UserDefaults.standard.set(showAlertLost, forKey: "lost")
+                if showAlertLost && !showAlertWinner {
+                    duoConditionalALert = true
                 }
+                UserDefaults.standard.set(isPresentedGame, forKey: "isPresentedGame")
+            }
+            .onChange(of: websocket.winner) { newValue in
+                print("O jogador \(websocket.myPlayerReference.name) venceu a partida")
+                showAlertWinner = true
+                print("perdeu : \(showAlertLost) ganhou : \(showAlertWinner)")
 
+                UserDefaults.standard.set(showAlertWinner, forKey: "win")
             }
             .alert(isPresented: $duoConditionalALert) {
                 Alert(title: Text((showAlertLost && showAlertWinner) ? "Venceu" : "Perdeu"),
-                      message: Text((showAlertLost && showAlertWinner) ? "Você venceu a partida" : "Você perdeu a partida!!" ),
+                      message: Text((showAlertLost && showAlertWinner) ? "Você venceu a partida!!" : "Você perdeu a partida!!" ),
                       dismissButton: .default(Text("Tela Inicial"), action: {
+                    websocket.winner = false
                     dismiss()
                 }))
+            }
+            .onAppear {
+                showAlertLost = false
+                showAlertWinner = false
             }
 
         }
         .navigationBarBackButtonHidden(true)
-    }
 
+    }
+    
     func generatePlayerLayout(for index: Int, players: [PlayerClient]) -> some View {
 
         let firstPlayerIndex = (index) % players.count
@@ -137,22 +146,22 @@ struct MaybeGameView: View {
         var viewPersonas: some View {
             VStack {
                 PersonasView(cards: thirdPlayer.handCards,
-                                                         namePerson: thirdPlayer.name,
-                                                         lifePerson: (thirdPlayer.life <= 0) ? 0 : thirdPlayer.life,
-                                                         index: (players.count < 3) ? 5 : 2)
+                             namePerson: thirdPlayer.name,
+                             lifePerson: (thirdPlayer.life <= 0) ? 0 : thirdPlayer.life,
+                             index: (players.count < 3) ? 5 : 2)
 
                 HStack {
                     PersonasView(cards: secondPlayer.handCards,
-                                                             namePerson: secondPlayer.name,
-                                                             lifePerson: (secondPlayer.life <= 0) ? 0 : secondPlayer.life,
-                                                             index: (players.count < 2) ? 5 : 1)
+                                 namePerson: secondPlayer.name,
+                                 lifePerson: (secondPlayer.life <= 0) ? 0 : secondPlayer.life,
+                                 index: (players.count < 2) ? 5 : 1)
 
                     Spacer()
                     PersonasView(cards: lastPlayer.handCards, namePerson: lastPlayer.name,
-                                                             lifePerson: (lastPlayer.life <= 0) ? 0 : lastPlayer.life,
-                                                             index: (players.count < 4) ? 5 : 3)
+                                 lifePerson: (lastPlayer.life <= 0) ? 0 : lastPlayer.life,
+                                 index: (players.count < 4) ? 5 : 3)
 
-                        .offset(y:15)
+                    .offset(y:15)
                 }
                 PersonasView(cards: firstPlayer.handCards,
                              namePerson: firstPlayer.name,
