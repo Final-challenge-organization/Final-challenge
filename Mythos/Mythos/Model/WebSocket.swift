@@ -11,6 +11,8 @@ class WebSocket: ObservableObject, WebSocketProtocol {
     @Published var isGameOver: Bool? = nil
     @Published var connectedPlayers: [PlayerClient] = []
     @Published var cardsPlayed: [Card] = []
+    private let serverIp = "143.110.157.204:8080"
+
     private var myID = UUID()
     var isAllPlayersConnecteds: Bool {
         return (connectedPlayers.count == 4) ? true : false
@@ -49,7 +51,7 @@ class WebSocket: ObservableObject, WebSocketProtocol {
     }
 
     internal func verifyNumberOfRoom() {
-        guard let url = URL(string: "http://143.110.157.204:8080/verifyRoom") else {return}
+        guard let url = URL(string: "http://\(serverIp)/verifyRoom") else {return}
         let request = URLRequest(url: url)
         httpTask = URLSession.shared.dataTask(with: request, completionHandler: { data , response, error in
             guard let data = data else {
@@ -65,8 +67,12 @@ class WebSocket: ObservableObject, WebSocketProtocol {
         httpTask?.resume()
     }
 
+    func verifyServerConnection() {
+
+    }
+
     internal func connect(_ roomNumber: Int) {
-        guard let url = URL(string: "ws://143.110.157.204:8080/websocket/\(roomNumber)") else { return } // ajeitar a porta
+        guard let url = URL(string: "ws://\(serverIp)/websocket/\(roomNumber)") else { return } // ajeitar a porta
         let request = URLRequest(url: url)
         webSocketTask = URLSession.shared.webSocketTask(with: request)
         webSocketTask?.resume()

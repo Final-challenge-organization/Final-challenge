@@ -14,7 +14,7 @@ struct WaitingRoomView: View {
     @State var isReady = false
 
     @State private var opacity: Double  = 0
-    @State private var bool: Bool = true
+    @State private var isAnimated: Bool = true
     
     @State var isPresentedWaiting: Bool
 
@@ -79,25 +79,28 @@ struct WaitingRoomView: View {
                 ForEach(Array(websocket.connectedPlayers.enumerated()), id: \.element.name) { (index, player) in
                     if index == websocket.connectedPlayers.count - 1 {
                         ConnectedPlayersView(name: player.name)
-                            .scaleEffect(bool ? 1 : 0)
-                            .transition(.move(edge: .trailing))
+                            .scaleEffect(isAnimated ? 1 : 0)
+//                            .transition(.move(edge: .trailing))
                             .onAppear {
-                                bool = false
+                                isAnimated = false
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
                                     withAnimation{
-                                        if !bool {
-                                            bool = true
+                                        if !isAnimated {
+                                            isAnimated = true
                                         }
                                     }
                                 }
                             }
                     } else {
                         ConnectedPlayersView(name: player.name)
+                            .transition(.move(edge: .trailing))
                     }
                 }
+                .animation(.linear, value: websocket.connectedPlayers)
 
             }
         }
+
     }
 }
 
