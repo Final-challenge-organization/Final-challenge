@@ -13,11 +13,13 @@
 //
 
 import SwiftUI
+import CoreHaptics
 
 struct MaybeGameView: View {
     @EnvironmentObject var websocket: WebSocket
     @State var cardSelected: Card? = nil
     @State var isTapped: Bool = false
+    
     @State var isPresentedGame: Bool
 
     @Environment(\.dismiss) private var dismiss
