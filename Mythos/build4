@@ -17,14 +17,14 @@ BUILD_IDENTIFIER=Narely.Mythos
 ## BUILD
 #xcodebuild -project POC-websocketClientSide.xcodeproj -scheme POC-websocketClientSide -destination 'platform=iOS Simulator,name=iPhone 12 A 16.4,OS=16.4'
 
-APPBUILD=`find /Users/ciceronascimento/Library/Developer/Xcode/DerivedData/Mythos-*/Build/Products/Debug-iphonesimulator -type d -name "Mythos.app" -print | head -n 1`
+APPBUILD=`find /Users/narelylima/Library/Developer/Xcode/DerivedData/Mythos-*/Build/Products/Debug-iphonesimulator -type d -name "Mythos.app" -print | head -n 1`
 echo $APPBUILD
 
 ## OPEN SIMULATORS
-IPHONE12_A_16=7117430B-9BA1-4BBD-B452-C1C3D00DB6CA
-IPHONE12_B_16=547DB4F7-CE79-43C3-ACED-4294AB5377D0
-IPHONE12_A_16_4=5BF0C18D-4FA8-4812-BB05-52B26E749B70
-IPHONE12_B_16_4=1ED92328-709B-48B4-A4D1-AD9C0E32DE3E
+IPHONE12_A_16=6A6CB0CE-524D-4BA2-A734-8DE5F9FE7B01
+IPHONE12_B_16=3F643426-211B-42DE-8F53-2105F0F59D8E
+IPHONE12_A_16_4=A62C1104-155F-44F4-ACCD-E7BBC244DBF9
+IPHONE12_B_16_4=1BF0E6378-A871-4352-885E-D312089FB9A9
 
 echo "Start simulators"
 
@@ -32,7 +32,7 @@ echo $APPBUILD
 echo $BUILD_IDENTIFIER
 echo $IPHONE12_A_16
 
-/Users/ciceronascimento/Documents/ADA/Final-challenge/Mythos/build1 $APPBUILD $BUILD_IDENTIFIER $IPHONE12_A_16 &
-/Users/ciceronascimento/Documents/ADA/Final-challenge/Mythos/build1 $APPBUILD $BUILD_IDENTIFIER $IPHONE12_B_16 &
-/Users/ciceronascimento/Documents/ADA/Final-challenge/Mythos/build1 $APPBUILD $BUILD_IDENTIFIER $IPHONE12_A_16_4
+/Users/narelylima/Documents/iOS/Final-challenge/Mythos/build1 $APPBUILD $BUILD_IDENTIFIER $IPHONE12_A_16 &
+/Users/narelylima/Documents/iOS/Final-challenge/Mythos/build1 $APPBUILD $BUILD_IDENTIFIER $IPHONE12_B_16 &
+/Users/narelylima/Documents/iOS/Final-challenge/Mythos/build1 $APPBUILD $BUILD_IDENTIFIER $IPHONE12_A_16_4
 # ./build1 $APPBUILD $BUILD_IDENTIFIER $IPHONE12_B_16_4

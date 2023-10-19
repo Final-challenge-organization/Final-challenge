@@ -159,7 +159,26 @@ struct PersonasView_Previews: PreviewProvider {
         let namePerson: String = "Sarinha"
         let lifePerson = 30
         let index = 2
-        @State var cards: [Card] = [Card(id: 1234, name: "Teste1", type: .action, damage: 5),Card(id: 34343, name: "Teste2", type: .action, damage: 2), Card(id: 243342, name: "Teste3", type: .reaction, damage: 1)]
+        @State var cards: [Card] = [
+            Card(id: 1234,
+                 name: "Teste1",
+                 type: .action(.damage),
+                 damage: 5,
+                 effect: "TESTANDO",
+                 description: "testando"),
+            Card(id: 34343,
+                 name: "Teste2",
+                 type: .action(.damage),
+                 damage: 2,
+                 effect: "TESTANDO",
+                 description: "testando"),
+            Card(id: 243342,
+                 name: "Teste3",
+                 type: .reaction,
+                 damage: 1,
+                 effect: "TESTANDO",
+                 description: "testando")
+        ]
         PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index)
     }
 }

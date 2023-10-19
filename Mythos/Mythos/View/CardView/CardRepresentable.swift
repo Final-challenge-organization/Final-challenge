@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import CoreHaptics
 
 struct CardRepresentable: View {
+
+    @State private var engine: CHHapticEngine?
+
     var isYourTurn : Bool
     var isReaction: Bool
     var card: Card
@@ -16,7 +20,7 @@ struct CardRepresentable: View {
     var body: some View {
 
         GeometryReader { geo in
-            if card.type == .action {
+            if (card.type == .action(.damage)) || (card.type == .action(.block)) {
                 Image("actionCard")
                     .resizable()
                     .scaledToFit()
@@ -36,6 +40,9 @@ struct CardRepresentable: View {
                     .onTapGesture {
                         if (isYourTurn && !isReaction) {
                             onTap()
+                            prepareHaptics()
+                            complexSuccess()
+//                            simpleTouch()
                         }
                     }
             }
@@ -59,19 +66,69 @@ struct CardRepresentable: View {
                     .onTapGesture {
                         if (isYourTurn || isReaction) {
                             onTap()
+                            prepareHaptics()
+                            complexSuccess()
                         }
+
                     }
             }
         }
 
     }
+
+    func simpleTouch() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+    }
+
+    func prepareHaptics() {
+        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
+
+        do {
+            engine = try CHHapticEngine()
+            try engine?.start()
+        } catch {
+            print("There was an error creating the engine: \(error.localizedDescription)")
+        }
+    }
+
+    func complexSuccess() {
+        // make sure that the device supports haptics
+        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
+        var events = [CHHapticEvent]()
+
+        // create one intense, sharp tap
+        let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 10)
+        let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 1)
+        let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: 0)
+        events.append(event)
+
+        // convert those events into a pattern and play it immediately
+        do {
+            let pattern = try CHHapticPattern(events: events, parameters: [])
+            let player = try engine?.makePlayer(with: pattern)
+
+            try player?.start(atTime: 0)
+            print("Playing pattern...")
+        } catch {
+            print("Failed to play pattern: \(error.localizedDescription).")
+        }
+    }
+    
+
 }
 
 struct CardRepresentable_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            CardRepresentable(isYourTurn: true, isReaction: true, card: Card(id: 0, name: "", type: .action, damage: 10), onTap: {})
-                .frame(width: 200, height: 250)
+            CardRepresentable(
+                isYourTurn: true,
+                isReaction: false,
+                card: Card(id: 0, name: "", type: .reaction, damage: 0, effect: "", description: "")
+            ) {
+                print("haptic...")
+            }
+            .frame(width: 200, height: 250)
 //            CardRepresentable(isYourTurn: true, isReaction: true, card: Card(id: 0, name: "", type: .reaction, damage: 10), onTap: {})
 //                .frame(width: 200, height: 250)
         }

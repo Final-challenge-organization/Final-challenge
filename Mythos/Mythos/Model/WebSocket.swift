@@ -13,6 +13,7 @@ class WebSocket: ObservableObject, WebSocketProtocol {
     @Published var cardsPlayed: [Card] = []
     private let serverIp = "143.110.157.204:8080"
 
+    @Published var winner: Bool = false
     private var myID = UUID()
     var isAllPlayersConnecteds: Bool {
         return (connectedPlayers.count == 4) ? true : false
@@ -163,9 +164,11 @@ class WebSocket: ObservableObject, WebSocketProtocol {
                             DispatchQueue.main.async {
                                 if decodedContent {
                                     print("Ganhou")
+                                    self.winner = true
                                     self.isGameOver = decodedContent
                                 } else {
                                     print("Perdeu")
+                                    self.winner = false
                                     self.isGameOver = decodedContent
                                 }
                                 self.webSocketTask?.cancel()

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WaitingRoomView: View {
-    @EnvironmentObject var websocket: WebSocket
+    @StateObject var websocket: WebSocket = WebSocket()
     @State var isDisabled = false
     @State private var showNewScreen = false
     @State var isReady = false
@@ -70,7 +70,7 @@ struct WaitingRoomView: View {
             }
         }
 
-        .navigationDestination(isPresented: $isReady, destination: {MaybeGameView(isPresentedGame: true)})
+        .navigationDestination(isPresented: $isReady, destination: {MaybeGameView(isPresentedGame: true).environmentObject(websocket)})
     }
 
     var playersConnected: some View {
