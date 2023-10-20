@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		452CD7562AE21A8D00F4B9C4 /* KillDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452CD7552AE21A8D00F4B9C4 /* KillDeckView.swift */; };
 		459585D02AA610A20039C908 /* MythosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585CF2AA610A20039C908 /* MythosApp.swift */; };
 		459585D42AA610A30039C908 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459585D32AA610A30039C908 /* Assets.xcassets */; };
 		459585D72AA610A30039C908 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459585D62AA610A30039C908 /* Preview Assets.xcassets */; };
@@ -72,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		452CD7552AE21A8D00F4B9C4 /* KillDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KillDeckView.swift; sourceTree = "<group>"; };
 		459585CC2AA610A20039C908 /* Mythos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mythos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		459585CF2AA610A20039C908 /* MythosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythosApp.swift; sourceTree = "<group>"; };
 		459585D32AA610A30039C908 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				4FF895B72ACED16E00F50DA4 /* CardRepresentable.swift */,
+				452CD7552AE21A8D00F4B9C4 /* KillDeckView.swift */,
 				DD84A4652ADEB7ED00BD0801 /* BackCardView.swift */,
 			);
 			path = CardView;
@@ -528,7 +531,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/Users/luizsena/Desktop/build4\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n./build4\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -553,6 +556,7 @@
 				DD6D187E2AB88B41004B02AA /* InventoryView.swift in Sources */,
 				64FFCE742AA7500E0090566B /* ClientSideView.swift in Sources */,
 				45BCB8082AD5DF2200A11F6E /* PersonasView.swift in Sources */,
+				452CD7562AE21A8D00F4B9C4 /* KillDeckView.swift in Sources */,
 				DD6D18AE2ABDBF93004B02AA /* ConnectedPlayersView.swift in Sources */,
 				64FFCE722AA74C5F0090566B /* WebSocket.swift in Sources */,
 				64D788FC2AB484CC00394078 /* CardNode.swift in Sources */,
@@ -763,7 +767,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mythos/Preview Content\"";
-				DEVELOPMENT_TEAM = PPSYB39C6H;
+				DEVELOPMENT_TEAM = U2M84KZ35U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mythos/Info.plist;

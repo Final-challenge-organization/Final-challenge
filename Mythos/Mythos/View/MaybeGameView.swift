@@ -24,6 +24,7 @@ struct MaybeGameView: View {
     @State var showAlertWinner: Bool = false
     @State var showAlertLost: Bool = false
     @State private var duoConditionalALert: Bool = false
+    @State var lastCardPlayed: Card? = nil
 
     @Environment(\.dismiss) private var dismiss
 
@@ -32,9 +33,6 @@ struct MaybeGameView: View {
             Image("campo")
                 .resizable()
                 .ignoresSafeArea()
-            ZStack {
-
-            }
             VStack{
                 Spacer()
                 //                    ProgressView("Sua Vida:", value: Double(websocket.myPlayerReference.life), total: 30)
@@ -55,7 +53,7 @@ struct MaybeGameView: View {
                                 card: card) {
                                     self.cardSelected = card
                                     withAnimation {
-                                        self.isTapped.toggle()
+                                        self.isTapped = true
                                     }
                                 }
                                 .frame(maxHeight: 150)
@@ -64,7 +62,6 @@ struct MaybeGameView: View {
                                 .offset(y: cardSelected == card && isTapped ? -55 : 0)
                                 .rotationEffect(Angle(degrees: index == 0 ? -5 : (index == 2 ? 5 : 0)))
                                 .zIndex(index == 2 ? 1 : 0) // Coloca a carta do meio na frente
-
                         }
                         .transition(.move(edge: .top))
                         Spacer()
@@ -72,7 +69,6 @@ struct MaybeGameView: View {
                     .animation(.easeInOut, value: websocket.myPlayerReference.handCards.count)
                     .offset(y: 90)
                     .ignoresSafeArea()
-
                     if websocket.myPlayerReference.isYourTurn {
                         Button {
                             websocket.sendCard(with: cardSelected)
@@ -87,7 +83,6 @@ struct MaybeGameView: View {
                     }
                 }
             }
-
             .overlay{
                 ForEach(Array(websocket.connectedPlayers.enumerated()), id: \.element.id) { index, player in
                     if websocket.myPlayerReference == player {
@@ -122,6 +117,9 @@ struct MaybeGameView: View {
                     websocket.winner = false
                     dismiss()
                 }))
+            }
+            .onChange(of: websocket.cardsPlayed) { card in
+                lastCardPlayed = card.last
             }
             .onAppear {
                 showAlertLost = false
@@ -159,6 +157,10 @@ struct MaybeGameView: View {
                                  index: (players.count < 2) ? 5 : 1)
 
                     Spacer()
+                    if (lastCardPlayed != nil) {
+                        KillDeckView(card: lastCardPlayed!)
+                    }
+                    Spacer()
                     PersonasView(cards: lastPlayer.handCards, namePerson: lastPlayer.name,
                                  lifePerson: (lastPlayer.life <= 0) ? 0 : lastPlayer.life,
                                  index: (players.count < 4) ? 5 : 3)
@@ -173,7 +175,6 @@ struct MaybeGameView: View {
         }
         return viewPersonas
     }
-
 }
 
 //struct MaybeGameView_Previews: PreviewProvider {

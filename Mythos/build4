@@ -3,7 +3,7 @@
 ## TERMINATE ALL
 ./terminate4
 
-BUILD_IDENTIFIER=Narely.Mythos
+BUILD_IDENTIFIER=MythosTeam.Mythos
 
 ## CLEAN
 # BUILD_DIR=`find /Users/luizsena/Library/Developer/Xcode/DerivedData/POC-websocketClientSide-*/ -print | head -n 1`
