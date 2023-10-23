@@ -24,7 +24,8 @@ struct MaybeGameView: View {
     @State var showAlertWinner: Bool = false
     @State var showAlertLost: Bool = false
     @State private var duoConditionalALert: Bool = false
-    @State var lastCardPlayed: Card? = nil
+//    @State var lastCardPlayed: Card? = nil
+    @State var killTapped: Bool = false
 
     @Environment(\.dismiss) private var dismiss
 
@@ -59,7 +60,7 @@ struct MaybeGameView: View {
                                 .frame(maxHeight: 150)
                                 .scaledToFit()
                                 .offset(y: (index == 0 || index == 2) ? 0 : -15)
-                                .offset(y: cardSelected == card && isTapped ? -55 : 0)
+                                .offset(y: cardSelected == card && isTapped ? -UIScreen.main.bounds.height/4 : 0)
                                 .rotationEffect(Angle(degrees: index == 0 ? -5 : (index == 2 ? 5 : 0)))
                                 .zIndex(index == 2 ? 1 : 0) // Coloca a carta do meio na frente
                         }
@@ -86,7 +87,7 @@ struct MaybeGameView: View {
             .overlay{
                 ForEach(Array(websocket.connectedPlayers.enumerated()), id: \.element.id) { index, player in
                     if websocket.myPlayerReference == player {
-                        generatePlayerLayout(for: index, players: websocket.connectedPlayers)
+                            generatePlayerLayout(for: index, players: websocket.connectedPlayers)
                     }
                 }
             }
@@ -118,9 +119,11 @@ struct MaybeGameView: View {
                     dismiss()
                 }))
             }
-            .onChange(of: websocket.cardsPlayed) { card in
-                lastCardPlayed = card.last
-            }
+//            .onChange(of: websocket.cardsPlayed) { card in
+//                withAnimation {
+//                    lastCardPlayed = card.last
+//                }
+//            }
             .onAppear {
                 showAlertLost = false
                 showAlertWinner = false
@@ -155,17 +158,25 @@ struct MaybeGameView: View {
                                  namePerson: secondPlayer.name,
                                  lifePerson: (secondPlayer.life <= 0) ? 0 : secondPlayer.life,
                                  index: (players.count < 2) ? 5 : 1)
+                    Spacer()
 
-                    Spacer()
-                    if (lastCardPlayed != nil) {
-                        KillDeckView(card: lastCardPlayed!)
-                    }
-                    Spacer()
                     PersonasView(cards: lastPlayer.handCards, namePerson: lastPlayer.name,
                                  lifePerson: (lastPlayer.life <= 0) ? 0 : lastPlayer.life,
                                  index: (players.count < 4) ? 5 : 3)
 
-                    .offset(y:15)
+                }
+                .overlay {
+                    if (websocket.cardsPlayed.last != nil) {
+                        Button {
+                            withAnimation {
+                                killTapped.toggle()
+                            }
+                        } label: {
+                            KillDeckView(card: websocket.cardsPlayed.last!, killDecktapped: $killTapped)
+                                .scaleEffect(killTapped ? 1.2 : 0.9)
+                                .offset(x: 0, y: 0)
+                        }
+                    }
                 }
                 PersonasView(cards: firstPlayer.handCards,
                              namePerson: firstPlayer.name,
