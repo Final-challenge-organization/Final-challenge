@@ -115,7 +115,6 @@ struct PersonasView: View {
                 VStack{
                     Text(namePerson.description)
                     Circle()
-
                         .foregroundColor(.yellow)
                         .frame(width: 30, height: 30)
                         .overlay {
@@ -128,7 +127,6 @@ struct PersonasView: View {
         if index == 5 {
             VStack(spacing: 0) {
                 VStack {
-
                     Text(namePerson.description)
                     Circle()
                         .foregroundColor(.yellow)
