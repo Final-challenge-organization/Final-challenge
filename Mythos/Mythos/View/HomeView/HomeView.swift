@@ -49,7 +49,7 @@ struct HomeView: View {
                             }
                             .padding(.top, 80)
                         }
-                        .alert(isPresented: $isShowingAlert, content: {Alert(title: Text("VERSÃO BETA"))})
+                        .alert(isPresented: $isShowingAlert, content: {Alert(title: Text("Mythos"), message: Text("By: Luiz Sena, Cicero Nasciemnto, Sarah Madalena, Narely Lima e Carol Nogueira"))})
                     }
                     .frame(width: geo.size.width, height: geo.size.height)
                 }
