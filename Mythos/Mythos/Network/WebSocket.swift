@@ -68,10 +68,6 @@ class WebSocket: ObservableObject, WebSocketProtocol {
         httpTask?.resume()
     }
 
-    func verifyServerConnection() {
-
-    }
-
     internal func connect(_ roomNumber: Int) {
         guard let url = URL(string: "ws://\(serverIp)/websocket/\(roomNumber)") else { return } // ajeitar a porta
         let request = URLRequest(url: url)

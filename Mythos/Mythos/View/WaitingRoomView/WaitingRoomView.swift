@@ -54,14 +54,13 @@ struct WaitingRoomView: View {
         }
         .onChange(of: websocket.isAllPlayersConnecteds) { newValue in
             if newValue {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                     isReady.toggle()
                 }
             }
         }
         .onDisappear {
             isPresentedWaiting = false
-
         }
         .onAppear {
             websocket.connectedPlayers = []
@@ -69,18 +68,14 @@ struct WaitingRoomView: View {
                 dismiss()
             }
         }
-
         .navigationDestination(isPresented: $isReady, destination: {MaybeGameView(isPresentedGame: true).environmentObject(websocket)})
     }
-
     var playersConnected: some View {
         HStack(spacing: 90) {
-            withAnimation(.easeIn){
-                ForEach(Array(websocket.connectedPlayers.enumerated()), id: \.element.name) { (index, player) in
+            ForEach(Array(websocket.connectedPlayers.enumerated()), id: \.element.id) { (index, player) in
                     if index == websocket.connectedPlayers.count - 1 {
                         ConnectedPlayersView(name: player.name)
                             .scaleEffect(isAnimated ? 1 : 0)
-//                            .transition(.move(edge: .trailing))
                             .onAppear {
                                 isAnimated = false
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
@@ -93,14 +88,12 @@ struct WaitingRoomView: View {
                             }
                     } else {
                         ConnectedPlayersView(name: player.name)
-                            .transition(.move(edge: .trailing))
+                            .transition(.opacity)
                     }
                 }
-                .animation(.linear, value: websocket.connectedPlayers)
-
-            }
+            .transition(.opacity)
         }
-
+        .animation(.linear(duration: 2), value: websocket.connectedPlayers)
     }
 }
 
