@@ -13,11 +13,8 @@ struct WaitingRoomView: View {
     @State private var showNewScreen = false
     @State var isReady = false
 
-    @State private var opacity: Double  = 0
     @State private var isAnimated: Bool = true
-    
     @State var isPresentedWaiting: Bool
-
 
     @Environment(\.dismiss) private var dismiss
     
