@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BackCardView: View {
     var body: some View {
-        Image("verso_carta")
+        Image("cardBack")
             .resizable()
             .scaledToFit()
     }

@@ -13,38 +13,12 @@ struct KillDeckView: View {
     @Binding var killDecktapped: Bool
 
     var body: some View {
-        if (card.type == .action(.damage)) || (card.type == .action(.block)) {
-            Image("actionCard")
-                .resizable()
-                .scaledToFit()
-                .rotationEffect(killDecktapped ? Angle(degrees: 0) : Angle(degrees: 90))
-                .overlay(content: {
-                    VStack {
-                        Spacer()
-                        Text("Cause: \(card.damage)")
-                            .font(MyCustomFonts.ConvergenceRegular.font)
-                            .foregroundColor(.white)
-                            .scaledToFill()
-                            .padding(.bottom, 30)
-                    }.rotationEffect(killDecktapped ? Angle(degrees: 0) : Angle(degrees: 90))
-                })
-        }
-        if card.type == .reaction {
-            Image("reactionCard")
-                .resizable()
-                .scaledToFit()
-                .rotationEffect(killDecktapped ? Angle(degrees: 0) : Angle(degrees: 90))
-                .overlay(content: {
-                    VStack {
-                        Spacer()
-                        Text("Defenda: \(card.damage)")
-                            .font(MyCustomFonts.ConvergenceRegular.font)
-                            .foregroundColor(.white)
-                            .scaledToFill()
-                            .padding(.bottom, 30)
-                    }.rotationEffect(killDecktapped ? Angle(degrees: 0) : Angle(degrees: 90))
-                })
-        }
+        CardRepresentable(card: card, onTap: {
+            withAnimation {
+                killDecktapped.toggle()
+            }
+        })
+        .rotationEffect(.degrees(90))
     }
 }
 
