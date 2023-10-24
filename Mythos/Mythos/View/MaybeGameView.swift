@@ -25,7 +25,6 @@ struct MaybeGameView: View {
     @State var showAlertWinner: Bool = false
     @State var showAlertLost: Bool = false
     @State private var duoConditionalALert: Bool = false
-//    @State var lastCardPlayed: Card? = nil
     @State var killTapped: Bool = false
 
     @Environment(\.dismiss) private var dismiss
@@ -37,9 +36,6 @@ struct MaybeGameView: View {
                 .ignoresSafeArea()
             VStack {
                 Spacer()
-                //                    ProgressView("Sua Vida:", value: Double(websocket.myPlayerReference.life), total: 30)
-                //                        .progressViewStyle(GaugeProgressStyle())
-                //                        .frame(width: 90, height: 90)
                 ForEach(Array(websocket.connectedPlayers.enumerated()), id: \.element.id) { index, player in
                     if websocket.myPlayerReference == player {
                             generatePlayerLayout(for: index, players: websocket.connectedPlayers)
@@ -84,7 +80,6 @@ struct MaybeGameView: View {
 
                                     })
                                 )
-
                             }
                             .transition(.move(edge: .top))
                             Spacer()
@@ -124,11 +119,6 @@ struct MaybeGameView: View {
                     dismiss()
                 }))
             }
-//            .onChange(of: websocket.cardsPlayed) { card in
-//                withAnimation {
-//                    lastCardPlayed = card.last
-//                }
-//            }
             .onAppear {
                 showAlertLost = false
                 showAlertWinner = false
@@ -141,7 +131,6 @@ struct MaybeGameView: View {
                     Rectangle()
                         .foregroundColor(.black)
                         .opacity(0.5)
-//                        .fill()
                         .ignoresSafeArea()
 
                     KillDeckView(card: websocket.cardsPlayed.last!, killDecktapped: $killTapped)
