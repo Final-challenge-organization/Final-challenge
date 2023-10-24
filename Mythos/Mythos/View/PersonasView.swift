@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct PersonasView: View {
 
     let cards: [Card]
@@ -20,11 +21,21 @@ struct PersonasView: View {
             VStack {
                 VStack {
                     Text(namePerson.description)
-                    Circle()
+                        .padding(3.8)
                         .foregroundColor(.yellow)
+                        .bold()
+                        .background{
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.black, lineWidth: 1)
+                                .background(RoundedRectangle(cornerRadius: 12).fill(Color(red: 9/255, green: 24/255, blue: 63/255)))
+                        }
+                    Circle()
+                        .foregroundColor(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1)))
                         .frame(width: 30, height: 30)
                         .overlay {
                             Text("\(lifePerson)")
+                                .foregroundColor(.yellow)
+                                .bold()
                         }
                 }
                 HStack(spacing: -35) {
@@ -48,11 +59,21 @@ struct PersonasView: View {
             VStack {
                 VStack {
                     Text(namePerson.description)
-                    Circle()
+                        .padding(3.8)
                         .foregroundColor(.yellow)
+                        .bold()
+                        .background{
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.black, lineWidth: 1)
+                                .background(RoundedRectangle(cornerRadius: 12).fill(Color(red: 9/255, green: 24/255, blue: 63/255)))
+                        }
+                    Circle()
+                        .foregroundColor(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1)))
                         .frame(width: 30, height: 30)
                         .overlay {
                             Text("\(lifePerson)")
+                                .foregroundColor(.yellow)
+                                .bold()
                         }
                 }
                 HStack(spacing: -35) {
@@ -76,11 +97,21 @@ struct PersonasView: View {
             VStack(spacing: 0) {
                 VStack {
                     Text(namePerson.description)
-                    Circle()
+                        .padding(3.8)
                         .foregroundColor(.yellow)
+                        .bold()
+                        .background{
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.black, lineWidth: 1)
+                                .background(RoundedRectangle(cornerRadius: 12).fill(Color(red: 9/255, green: 24/255, blue: 63/255)))
+                        }
+                    Circle()
+                        .foregroundColor(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1)))
                         .frame(width: 30, height: 30)
                         .overlay {
                             Text("\(lifePerson)")
+                                .foregroundColor(.yellow)
+                                .bold()
                         }
                 }
                 .offset(x: 0, y: -75)
@@ -114,25 +145,45 @@ struct PersonasView: View {
                 .frame(maxWidth: 110.51, maxHeight: 177.4)
                 VStack{
                     Text(namePerson.description)
-                    Circle()
+                        .padding(3.8)
                         .foregroundColor(.yellow)
+                        .bold()
+                        .background{
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.black, lineWidth: 1)
+                                .background(RoundedRectangle(cornerRadius: 12).fill(Color(red: 9/255, green: 24/255, blue: 63/255)))
+                        }
+                    Circle()
+                        .foregroundColor(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1)))
                         .frame(width: 30, height: 30)
                         .overlay {
                             Text("\(lifePerson)")
+                                .foregroundColor(.yellow)
+                                .bold()
                         }
                 }
-                    .offset(y: 40)
+                .offset(y: 40)
             }
         }
         if index == 5 {
             VStack(spacing: 0) {
                 VStack {
                     Text(namePerson.description)
-                    Circle()
+                        .padding(3.8)
                         .foregroundColor(.yellow)
+                        .bold()
+                        .background{
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.black, lineWidth: 1)
+                                .background(RoundedRectangle(cornerRadius: 12).fill(Color(red: 9/255, green: 24/255, blue: 63/255)))
+                        }
+                    Circle()
+                        .foregroundColor(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1)))
                         .frame(width: 30, height: 30)
                         .overlay {
                             Text("\(lifePerson)")
+                                .foregroundColor(.yellow)
+                                .bold()
                         }
                 }
                 .offset(x: 0, y: -75)
