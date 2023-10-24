@@ -11,6 +11,8 @@ class WebSocket: ObservableObject, WebSocketProtocol {
     @Published var isGameOver: Bool? = nil
     @Published var connectedPlayers: [PlayerClient] = []
     @Published var cardsPlayed: [Card] = []
+    private let serverIp = "143.110.157.204:8080"
+
     @Published var winner: Bool = false
     private var myID = UUID()
     var isAllPlayersConnecteds: Bool {
@@ -50,7 +52,11 @@ class WebSocket: ObservableObject, WebSocketProtocol {
     }
 
     internal func verifyNumberOfRoom() {
+<<<<<<< HEAD:Mythos/Mythos/Model/WebSocket.swift
         guard let url = URL(string: "http://luiz.local:8080/verifyRoom") else {return}
+=======
+        guard let url = URL(string: "http://\(serverIp)/verifyRoom") else {return}
+>>>>>>> develop:Mythos/Mythos/Network/WebSocket.swift
         let request = URLRequest(url: url)
         httpTask = URLSession.shared.dataTask(with: request, completionHandler: { data , response, error in
             guard let data = data else {
@@ -67,7 +73,11 @@ class WebSocket: ObservableObject, WebSocketProtocol {
     }
 
     internal func connect(_ roomNumber: Int) {
+<<<<<<< HEAD:Mythos/Mythos/Model/WebSocket.swift
         guard let url = URL(string: "ws://luiz.local:8080/websocket/\(roomNumber)") else { return } // ajeitar a porta
+=======
+        guard let url = URL(string: "ws://\(serverIp)/websocket/\(roomNumber)") else { return } // ajeitar a porta
+>>>>>>> develop:Mythos/Mythos/Network/WebSocket.swift
         let request = URLRequest(url: url)
         webSocketTask = URLSession.shared.webSocketTask(with: request)
         webSocketTask?.resume()

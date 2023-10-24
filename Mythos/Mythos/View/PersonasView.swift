@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct PersonasView: View {
 
     let cards: [Card]
@@ -15,15 +16,26 @@ struct PersonasView: View {
     var index: Int
     
     var body: some View {
+        //MARK: - LEFT LOCATION
         if index == 1 {
             VStack {
                 VStack {
                     Text(namePerson.description)
-                    Circle()
+                        .padding(3.8)
                         .foregroundColor(.yellow)
+                        .bold()
+                        .background{
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.black, lineWidth: 1)
+                                .background(RoundedRectangle(cornerRadius: 12).fill(Color(red: 9/255, green: 24/255, blue: 63/255)))
+                        }
+                    Circle()
+                        .foregroundColor(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1)))
                         .frame(width: 30, height: 30)
                         .overlay {
                             Text("\(lifePerson)")
+                                .foregroundColor(.yellow)
+                                .bold()
                         }
                 }
                 HStack(spacing: -35) {
@@ -37,19 +49,31 @@ struct PersonasView: View {
                     .rotation3DEffect(.degrees(10), axis: (x:-40,y:6,z:0))
                     Spacer()
                 }
+                .animation(.easeInOut, value: cards.count)
                 .frame(maxWidth: 110.51, maxHeight: 177.4)
                 .rotation3DEffect(Angle(degrees: 50), axis: (x:-20, y:40, z:-10))
             }
         } else
+        //MARK: - RIGHT LOCATION
         if index == 3 {
             VStack {
                 VStack {
                     Text(namePerson.description)
-                    Circle()
+                        .padding(3.8)
                         .foregroundColor(.yellow)
+                        .bold()
+                        .background{
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.black, lineWidth: 1)
+                                .background(RoundedRectangle(cornerRadius: 12).fill(Color(red: 9/255, green: 24/255, blue: 63/255)))
+                        }
+                    Circle()
+                        .foregroundColor(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1)))
                         .frame(width: 30, height: 30)
                         .overlay {
                             Text("\(lifePerson)")
+                                .foregroundColor(.yellow)
+                                .bold()
                         }
                 }
                 HStack(spacing: -35) {
@@ -61,28 +85,36 @@ struct PersonasView: View {
                     }
                     .transition(.move(edge: .top))
                     .rotation3DEffect(.degrees(-10), axis: (x:40,y:-6,z:0))
-
-
                     Spacer()
                 }
+                .animation(.easeInOut, value: cards.count)
                 .frame(maxWidth: 110.51, maxHeight: 177.4)
                 .rotation3DEffect(Angle(degrees: -50), axis: (x:20, y:40, z:-10))
             }
         }
+        //MARK: - USER LOCATION
         if index == 0 {
             VStack(spacing: 0) {
                 VStack {
-
                     Text(namePerson.description)
-                    Circle()
+                        .padding(3.8)
                         .foregroundColor(.yellow)
+                        .bold()
+                        .background{
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.black, lineWidth: 1)
+                                .background(RoundedRectangle(cornerRadius: 12).fill(Color(red: 9/255, green: 24/255, blue: 63/255)))
+                        }
+                    Circle()
+                        .foregroundColor(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1)))
                         .frame(width: 30, height: 30)
                         .overlay {
                             Text("\(lifePerson)")
+                                .foregroundColor(.yellow)
+                                .bold()
                         }
                 }
                 .offset(x: 0, y: -75)
-
                 HStack(spacing: -35) {
                     Spacer()
                     ForEach(cards, id: \.id) {
@@ -93,9 +125,9 @@ struct PersonasView: View {
                     }
                     Spacer()
                 }
-
             }
         }
+        //MARK: - TOP LOCATION
         if index == 2 {
             VStack(spacing: 0) {
                 HStack(spacing: -35) {
@@ -105,38 +137,56 @@ struct PersonasView: View {
                         BackCardView()
                             .frame(width: 55, height: 115)
                     }
-                    .transition(.move(edge: .top))
+                    .transition(.move(edge: .bottom))
                     Spacer()
                 }
+                .animation(.easeInOut, value: cards.count)
                 .offset(y: 50)
                 .frame(maxWidth: 110.51, maxHeight: 177.4)
                 VStack{
                     Text(namePerson.description)
-                    Circle()
-
+                        .padding(3.8)
                         .foregroundColor(.yellow)
+                        .bold()
+                        .background{
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.black, lineWidth: 1)
+                                .background(RoundedRectangle(cornerRadius: 12).fill(Color(red: 9/255, green: 24/255, blue: 63/255)))
+                        }
+                    Circle()
+                        .foregroundColor(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1)))
                         .frame(width: 30, height: 30)
                         .overlay {
                             Text("\(lifePerson)")
+                                .foregroundColor(.yellow)
+                                .bold()
                         }
                 }
-                    .offset(y: 40)
+                .offset(y: 40)
             }
         }
         if index == 5 {
             VStack(spacing: 0) {
                 VStack {
-
                     Text(namePerson.description)
-                    Circle()
+                        .padding(3.8)
                         .foregroundColor(.yellow)
+                        .bold()
+                        .background{
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.black, lineWidth: 1)
+                                .background(RoundedRectangle(cornerRadius: 12).fill(Color(red: 9/255, green: 24/255, blue: 63/255)))
+                        }
+                    Circle()
+                        .foregroundColor(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1)))
                         .frame(width: 30, height: 30)
                         .overlay {
                             Text("\(lifePerson)")
+                                .foregroundColor(.yellow)
+                                .bold()
                         }
                 }
                 .offset(x: 0, y: -75)
-
                 HStack(spacing: -35) {
                     Spacer()
                     ForEach(cards, id: \.id) {
@@ -147,7 +197,6 @@ struct PersonasView: View {
                     }
                     Spacer()
                 }
-
             }
             .foregroundColor(.clear)
         }
