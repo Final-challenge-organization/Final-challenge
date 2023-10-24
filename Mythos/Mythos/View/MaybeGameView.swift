@@ -154,9 +154,6 @@ struct MaybeGameView: View {
                         .offset(x: 110, y:0)
                 }
             }
-            if isTapped == true {
-                
-            }
         }
         .navigationBarBackButtonHidden(true)
     }
