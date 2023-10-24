@@ -213,6 +213,7 @@
 				4FF895B72ACED16E00F50DA4 /* CardRepresentable.swift */,
 				452CD7552AE21A8D00F4B9C4 /* KillDeckView.swift */,
 				DD84A4652ADEB7ED00BD0801 /* BackCardView.swift */,
+				DD0B37FF2AE808EF007513AD /* CardFocusedView.swift */,
 			);
 			path = CardView;
 			sourceTree = "<group>";
@@ -241,7 +242,6 @@
 				64FFCE732AA7500E0090566B /* ClientSideView.swift */,
 				459585F92AA6143C0039C908 /* GameView.swift */,
 				4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */,
-				DD0B37FF2AE808EF007513AD /* CardFocusedView.swift */,
 				45BCB8072AD5DF2200A11F6E /* PersonasView.swift */,
 				4F51B8BF2AD0D2B8007107B4 /* ParallaxView.swift */,
 				4F51B8BD2AD0B5D7007107B4 /* PopUpCard.swift */,

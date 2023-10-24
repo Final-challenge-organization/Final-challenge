@@ -52,7 +52,6 @@ struct MaybeGameView: View {
                             Spacer()
                             ForEach(Array(websocket.myPlayerReference.handCards.enumerated()), id: \.element.uuid) {
                                 (index , card) in
-                                Button(action: {}, label: {
                                     CardRepresentable(
                                         isYourTurn: websocket.myPlayerReference.isYourTurn,
                                         isReaction: websocket.myPlayerReference.isReaction,
@@ -75,13 +74,13 @@ struct MaybeGameView: View {
                                         .offset(y: cardSelected == card && isTapped ? -80 : 0)
                                         .rotationEffect(Angle(degrees: index == 0 ? -5 : (index == 2 ? 5 : 0)))
                                         .zIndex(index == 2 ? 1 : 0) // Coloca a carta do meio na frente
-                                }).simultaneousGesture(
-                                    LongPressGesture(minimumDuration: 0.1).onEnded({ _ in
-
-                                    })
-                                )
                             }
-                            .transition(.move(edge: .top))
+                            .transition(
+                                .asymmetric(
+                                    insertion: .move(edge: .top),
+                                    removal: .opacity
+                                )
+                            )
                             Spacer()
                         }
                         .animation(.easeInOut, value: websocket.myPlayerReference.handCards.count)
@@ -126,18 +125,7 @@ struct MaybeGameView: View {
 
         }
         .overlay {
-            if killTapped == true {
-                ZStack {
-                    Rectangle()
-                        .foregroundColor(.black)
-                        .opacity(0.5)
-                        .ignoresSafeArea()
 
-                    KillDeckView(card: websocket.cardsPlayed.last!, killDecktapped: $killTapped)
-                        .scaleEffect(0.5)
-                        .offset(x: 110, y:0)
-                }
-            }
             if isTapped == true {
                 ZStack {
                     Rectangle()
@@ -148,7 +136,13 @@ struct MaybeGameView: View {
                     CardFocusedView(card: cardSelected!, isTapped: $isTapped)
                         .scaleEffect(0.5)
                         .offset(x: 0, y: -40)
+                        .onTapGesture {
+                            withAnimation {
+                                isTapped = false
+                            }
+                        }
                 }
+
             }
             if websocket.myPlayerReference.isYourTurn {
                 Button {
@@ -162,6 +156,24 @@ struct MaybeGameView: View {
                 }
                 .offset(x: 250, y: 110)
                 .disabled(!isTapped)
+            }
+            if killTapped == true {
+                ZStack {
+                    Rectangle()
+                        .foregroundColor(.black)
+                        .opacity(0.5)
+                        .ignoresSafeArea()
+
+                    KillDeckView(card: websocket.cardsPlayed.last!, killDecktapped: $killTapped)
+                        .scaleEffect(0.5)
+                        .offset(x: 110, y:0)
+                }
+                .onTapGesture {
+                    withAnimation {
+                        isTapped = false
+                        killTapped = false
+                    }
+                }
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -217,6 +229,7 @@ struct MaybeGameView: View {
                              namePerson: firstPlayer.name,
                              lifePerson: (firstPlayer.life <= 0) ? 0 : firstPlayer.life,
                              index: 0)
+                .offset(x: -130)
             }
         }
         return viewPersonas
