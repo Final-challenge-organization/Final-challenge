@@ -36,60 +36,6 @@ struct MaybeGameView: View {
                 .ignoresSafeArea()
             VStack {
                 Spacer()
-<<<<<<< HEAD
-                //                    ProgressView("Sua Vida:", value: Double(websocket.myPlayerReference.life), total: 30)
-                //                        .progressViewStyle(GaugeProgressStyle())
-                //                        .frame(width: 90, height: 90)
-
-
-                ZStack {
-                    Image("deck_comprar")
-                        .offset(x: -250, y: 10)
-                    HStack(spacing: -50) {
-                        Spacer()
-                        ForEach(Array(websocket.myPlayerReference.handCards.enumerated()), id: \.element.uuid) { (index , card) in
-                            CardRepresentable(
-                                isYourTurn: websocket.myPlayerReference.isYourTurn,
-                                isReaction: websocket.myPlayerReference.isReaction,
-                                card: card) {
-                                    self.cardSelected = card
-                                    withAnimation {
-                                        self.isTapped.toggle()
-                                    }
-                                }
-                                .frame(width: 744/6, height: 1039/6)
-                                .scaledToFit()
-                                .offset(y: (index == 0 || index == 2) ? 0 : -15)
-                                .offset(y: cardSelected == card && isTapped ? -55 : 0)
-                                .rotationEffect(Angle(degrees: index == 0 ? -5 : (index == 2 ? 5 : 0)))
-                                .zIndex(index == 2 ? 1 : 0) // Coloca a carta do meio na frente
-
-                        }
-                        .transition(.move(edge: .top))
-                        Spacer()
-                    }
-                    .animation(.easeInOut, value: websocket.myPlayerReference.handCards.count)
-                    .offset(y: 90)
-                    .ignoresSafeArea()
-
-                    if websocket.myPlayerReference.isYourTurn {
-                        Button {
-                            websocket.sendCard(with: cardSelected)
-                            self.isTapped = false
-                        } label: {
-                            Image("button_descarte")
-                                .frame(maxWidth: 40, maxHeight: 40)
-                                .scaledToFit()
-                        }
-                        .offset(x: 250, y: 10)
-                        .disabled(!isTapped)
-                    }
-                }
-            }
-
-            .overlay{
-=======
->>>>>>> develop
                 ForEach(Array(websocket.connectedPlayers.enumerated()), id: \.element.id) { index, player in
                     if websocket.myPlayerReference == player {
                             generatePlayerLayout(for: index, players: websocket.connectedPlayers)
