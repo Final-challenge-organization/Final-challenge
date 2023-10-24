@@ -19,7 +19,8 @@ struct MaybeGameView: View {
     @EnvironmentObject var websocket: WebSocket
     @State var cardSelected: Card? = nil
     @State var isTapped: Bool = false
-    
+
+    @State var isHold: Bool = false
     @State var isPresentedGame: Bool
     @State var showAlertWinner: Bool = false
     @State var showAlertLost: Bool = false
@@ -55,29 +56,35 @@ struct MaybeGameView: View {
                             Spacer()
                             ForEach(Array(websocket.myPlayerReference.handCards.enumerated()), id: \.element.uuid) {
                                 (index , card) in
-                                CardRepresentable(
-                                    isYourTurn: websocket.myPlayerReference.isYourTurn,
-                                    isReaction: websocket.myPlayerReference.isReaction,
-                                    card: card) {
-                                        if self.isTapped {
+                                Button(action: {}, label: {
+                                    CardRepresentable(
+                                        isYourTurn: websocket.myPlayerReference.isYourTurn,
+                                        isReaction: websocket.myPlayerReference.isReaction,
+                                        card: card) {
+                                            if self.isTapped {
+                                                withAnimation {
+                                                    self.isTapped.toggle()
+                                                    self.killTapped = false
+                                                }
+                                            }
+                                            self.cardSelected = card
                                             withAnimation {
                                                 self.isTapped.toggle()
                                                 self.killTapped = false
                                             }
                                         }
-                                        self.cardSelected = card
-                                        withAnimation {
-                                            self.isTapped.toggle()
-                                            self.killTapped = false
-                                        }
-                                    }
-                                    .frame(maxHeight: 150)
-                                    .scaledToFit()
-                                    .offset(y: (index == 0 || index == 2) ? 0 : -15)
-                                    .offset(y: cardSelected == card && isTapped ? -80 : 0)
-                                    .rotationEffect(Angle(degrees: index == 0 ? -5 : (index == 2 ? 5 : 0)))
-                                    .zIndex(index == 2 ? 1 : 0) // Coloca a carta do meio na frente
-                                
+                                        .frame(maxHeight: 150)
+                                        .scaledToFit()
+                                        .offset(y: (index == 0 || index == 2) ? 0 : -15)
+                                        .offset(y: cardSelected == card && isTapped ? -80 : 0)
+                                        .rotationEffect(Angle(degrees: index == 0 ? -5 : (index == 2 ? 5 : 0)))
+                                        .zIndex(index == 2 ? 1 : 0) // Coloca a carta do meio na frente
+                                }).simultaneousGesture(
+                                    LongPressGesture(minimumDuration: 0.1).onEnded({ _ in
+
+                                    })
+                                )
+
                             }
                             .transition(.move(edge: .top))
                             Spacer()
@@ -85,19 +92,7 @@ struct MaybeGameView: View {
                         .animation(.easeInOut, value: websocket.myPlayerReference.handCards.count)
                         .offset(y: 200)
                         .ignoresSafeArea()
-                        if websocket.myPlayerReference.isYourTurn {
-                            Button {
-                                websocket.sendCard(with: cardSelected)
-                                self.isTapped = false
-                                self.killTapped = false
-                            } label: {
-                                Image("button_descarte")
-                                    .frame(maxWidth: 40, maxHeight: 40)
-                                    .scaledToFit()
-                            }
-                            .offset(x: 250, y: 110)
-                            .disabled(!isTapped)
-                        }
+
                     }
                 }
             }
@@ -153,6 +148,31 @@ struct MaybeGameView: View {
                         .scaleEffect(0.5)
                         .offset(x: 110, y:0)
                 }
+            }
+            if isTapped == true {
+                ZStack {
+                    Rectangle()
+                        .foregroundColor(.black)
+                        .opacity(0.5)
+                        .ignoresSafeArea()
+
+                    CardFocusedView(card: cardSelected!, isTapped: $isTapped)
+                        .scaleEffect(0.5)
+                        .offset(x: 0, y: -40)
+                }
+            }
+            if websocket.myPlayerReference.isYourTurn {
+                Button {
+                    websocket.sendCard(with: cardSelected)
+                    self.isTapped = false
+                    self.killTapped = false
+                } label: {
+                    Image("button_descarte")
+                        .frame(maxWidth: 40, maxHeight: 40)
+                        .scaledToFit()
+                }
+                .offset(x: 250, y: 110)
+                .disabled(!isTapped)
             }
         }
         .navigationBarBackButtonHidden(true)
