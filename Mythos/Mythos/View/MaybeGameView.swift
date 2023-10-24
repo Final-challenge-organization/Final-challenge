@@ -219,7 +219,7 @@ struct MaybeGameView: View {
                             }
                         } label: {
                             KillDeckView(card: websocket.cardsPlayed.last!, killDecktapped: $killTapped)
-                                .scaleEffect(killTapped ? 1.2 : 0.9)
+                                .scaleEffect(killTapped ? 1.2 : 0.7)
                                 .offset(x: killTapped ? 110 : 0, y:0)
                                 .opacity(killTapped ? 0 : 1)
                         }
