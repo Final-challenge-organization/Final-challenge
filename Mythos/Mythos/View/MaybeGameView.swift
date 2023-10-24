@@ -5,13 +5,6 @@
 //  Created by Luiz Sena on 05/10/23.
 //
 
-//
-//  MaybeGameView.swift
-//  POC-websocketClientSide
-//
-//  Created by Luiz Sena on 25/09/23.
-//
-
 import SwiftUI
 import CoreHaptics
 
@@ -20,7 +13,6 @@ struct MaybeGameView: View {
     @State var cardSelected: Card? = nil
     @State var isTapped: Bool = false
 
-    @State var isHold: Bool = false
     @State var isPresentedGame: Bool
     @State var showAlertWinner: Bool = false
     @State var showAlertLost: Bool = false
@@ -50,36 +42,29 @@ struct MaybeGameView: View {
                             .offset(x: -250, y: 110)
                         HStack(spacing: -50) {
                             Spacer()
-                            ForEach(Array(websocket.myPlayerReference.handCards.enumerated()), id: \.element.uuid) {
-                                (index , card) in
-                                Button(action: {}, label: {
-                                    CardRepresentable(
-                                        isYourTurn: websocket.myPlayerReference.isYourTurn,
-                                        isReaction: websocket.myPlayerReference.isReaction,
-                                        card: card) {
-                                            if self.isTapped {
-                                                withAnimation {
-                                                    self.isTapped.toggle()
-                                                    self.killTapped = false
-                                                }
-                                            }
-                                            self.cardSelected = card
+                            ForEach(Array(websocket.myPlayerReference.handCards.enumerated()), id: \.element.uuid) { (index , card) in
+                                CardRepresentable(
+                                    isYourTurn: websocket.myPlayerReference.isYourTurn,
+                                    isReaction: websocket.myPlayerReference.isReaction,
+                                    card: card) {
+                                        if self.isTapped {
                                             withAnimation {
                                                 self.isTapped.toggle()
                                                 self.killTapped = false
                                             }
                                         }
-                                        .frame(maxHeight: 150)
-                                        .scaledToFit()
-                                        .offset(y: (index == 0 || index == 2) ? 0 : -15)
-                                        .offset(y: cardSelected == card && isTapped ? -80 : 0)
-                                        .rotationEffect(Angle(degrees: index == 0 ? -5 : (index == 2 ? 5 : 0)))
-                                        .zIndex(index == 2 ? 1 : 0) // Coloca a carta do meio na frente
-                                }).simultaneousGesture(
-                                    LongPressGesture(minimumDuration: 0.1).onEnded({ _ in
-
-                                    })
-                                )
+                                        self.cardSelected = card
+                                        withAnimation {
+                                            self.isTapped.toggle()
+                                            self.killTapped = false
+                                        }
+                                    }
+                                    .frame(width: 744/7, height: 1039/7)
+                                    .scaledToFit()
+                                    .offset(y: (index == 0 || index == 2) ? 0 : -15)
+                                    .offset(y: cardSelected == card && isTapped ? -80 : 0)
+                                    .rotationEffect(Angle(degrees: index == 0 ? -5 : (index == 2 ? 5 : 0)))
+                                    .zIndex(index == 2 ? 1 : 0) // Coloca a carta do meio na frente
                             }
                             .transition(.move(edge: .top))
                             Spacer()
@@ -87,7 +72,6 @@ struct MaybeGameView: View {
                         .animation(.easeInOut, value: websocket.myPlayerReference.handCards.count)
                         .offset(y: 200)
                         .ignoresSafeArea()
-
                     }
                 }
             }
@@ -126,28 +110,20 @@ struct MaybeGameView: View {
 
         }
         .overlay {
-            if killTapped == true {
-                ZStack {
-                    Rectangle()
-                        .foregroundColor(.black)
-                        .opacity(0.5)
-                        .ignoresSafeArea()
-
-                    KillDeckView(card: websocket.cardsPlayed.last!, killDecktapped: $killTapped)
-                        .scaleEffect(0.5)
-                        .offset(x: 110, y:0)
-                }
-            }
             if isTapped == true {
                 ZStack {
                     Rectangle()
                         .foregroundColor(.black)
                         .opacity(0.5)
                         .ignoresSafeArea()
-
+                        .onTapGesture {
+                            withAnimation {
+                                isTapped = false
+                            }
+                        }
                     CardFocusedView(card: cardSelected!, isTapped: $isTapped)
-                        .scaleEffect(0.5)
-                        .offset(x: 0, y: -40)
+                        .frame(width: 744/4.5, height: 1039/4.5)
+                        .offset(y: -40)
                 }
             }
             if websocket.myPlayerReference.isYourTurn {
@@ -162,6 +138,17 @@ struct MaybeGameView: View {
                 }
                 .offset(x: 250, y: 110)
                 .disabled(!isTapped)
+            }
+            if killTapped == true {
+                ZStack {
+                    Rectangle()
+                        .foregroundColor(.black)
+                        .opacity(0.5)
+                        .ignoresSafeArea()
+                    CardFocusedView(card: websocket.cardsPlayed.last!, isTapped: $killTapped)
+                        .frame(width: 744/4.5, height: 1039/4.5)
+                        .offset(y: -40)
+                }
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -207,8 +194,7 @@ struct MaybeGameView: View {
                             }
                         } label: {
                             KillDeckView(card: websocket.cardsPlayed.last!, killDecktapped: $killTapped)
-                                .scaleEffect(killTapped ? 1.2 : 0.9)
-                                .offset(x: killTapped ? 110 : 0, y:0)
+                                .frame(width: 744/9, height: 1039/9)
                                 .opacity(killTapped ? 0 : 1)
                         }
                     }

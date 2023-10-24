@@ -12,8 +12,8 @@ struct CardRepresentable: View {
 
     @State private var engine: CHHapticEngine?
 
-    var isYourTurn : Bool
-    var isReaction: Bool
+    var isYourTurn : Bool?
+    var isReaction: Bool?
     var card: Card
     var onTap: () -> Void
 
@@ -22,10 +22,10 @@ struct CardRepresentable: View {
         case .action(.damage):
             actionCard
                 .overlay(content: {
-                    (isYourTurn && !isReaction) ? Color.clear : Color.gray.opacity(0.5)
+                    (isYourTurn ?? true && !(isReaction ?? false)) ? Color.clear : Color.gray.opacity(0.5)
                 })
                 .onTapGesture {
-                    if (isYourTurn && !isReaction) {
+                    if (isYourTurn ?? true && !(isReaction ?? false)) {
                         onTap()
                         prepareHaptics()
                         complexSuccess()
@@ -34,10 +34,10 @@ struct CardRepresentable: View {
         case .action(.block):
             actionCard
                 .overlay(content: {
-                    (isYourTurn && !isReaction) ? Color.clear : Color.gray.opacity(0.5)
+                    (isYourTurn ?? true && !(isReaction ?? false)) ? Color.clear : Color.gray.opacity(0.5)
                 })
                 .onTapGesture {
-                    if (isYourTurn && !isReaction) {
+                    if (isYourTurn ?? true && !(isReaction ?? false)) {
                         onTap()
                         prepareHaptics()
                         complexSuccess()
@@ -46,10 +46,10 @@ struct CardRepresentable: View {
         case .reaction:
             reactionCard
                 .overlay(content: {
-                    (isYourTurn || isReaction) ? Color.clear : Color.gray.opacity(0.5)
+                    (isYourTurn ?? true || isReaction ?? true) ? Color.clear : Color.gray.opacity(0.5)
                 })
                 .onTapGesture {
-                    if (isYourTurn || isReaction) {
+                    if (isYourTurn ?? true || isReaction ?? true) {
                         onTap()
                         prepareHaptics()
                         complexSuccess()

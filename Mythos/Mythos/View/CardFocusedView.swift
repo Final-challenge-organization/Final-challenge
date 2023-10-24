@@ -12,51 +12,18 @@ struct CardFocusedView: View {
 
     @Binding var isTapped: Bool
 
-
     var body: some View {
-        if (card.type == .action(.damage)) || (card.type == .action(.block)) {
-            Image("actionCard")
-                .resizable()
-                .scaledToFit()
-                .offset(y: isTapped ? 40 : -40)
-                .opacity(isTapped ? 1 : 0)
-                .overlay(content: {
-                    VStack {
-                        Spacer()
-                        Text("Cause: \(card.damage)")
-                            .font(MyCustomFonts.ConvergenceRegular.font)
-                            .foregroundColor(.white)
-                            .scaledToFill()
-                            .padding(.bottom, 30)
-                    }
-                    .offset(y: isTapped ? 40 : -40)
-                    .opacity(isTapped ? 1 : 0)
-                })
-        }
-        if card.type == .reaction {
-            Image("reactionCard")
-                .resizable()
-                .scaledToFit()
-                .offset(y: isTapped ? 40 : -40)
-                .opacity(isTapped ? 1 : 0)
-                .overlay(content: {
-                    VStack {
-                        Spacer()
-                        Text("Defenda: \(card.damage)")
-                            .font(MyCustomFonts.ConvergenceRegular.font)
-                            .foregroundColor(.white)
-                            .scaledToFill()
-                            .padding(.bottom, 30)
-                    }
-                    .offset(y: isTapped ? 40 : -40)
-                    .opacity(isTapped ? 1 : 0)
-                })
+        CardRepresentable(card: card) {
+            withAnimation {
+                isTapped.toggle()
+            }
         }
     }
 }
 
-//struct CardFocusedView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CardFocusedView()
-//    }
-//}
+struct CardFocusedView_Previews: PreviewProvider {
+    static var previews: some View {
+        CardFocusedView(card: Card(uuid: UUID(), id: 0, name: "aokdoas", imageName: "flechaEncantada", type: .action(.damage), damage: 10, effect: "aokdoaskaosdk", description: "adkadoaskdoaskdoaskdasokdsosd"), isTapped: .constant(false))
+            .frame(width: 400, height: 500)
+    }
+}
