@@ -10,12 +10,18 @@ import SwiftUI
 
 
 enum MyCustomFonts {
-    case ConvergenceRegular
+    case CabinBold
+    case CabinMediumItalic
+    case CeasarDressingRegular
 
     var font: Font {
         switch self {
-        case .ConvergenceRegular:
-            return Font.custom("Convergence-Regular", size: 18)
+        case .CabinMediumItalic:
+            return Font.custom("Cabin-MediumItalic", size: 15)
+        case .CabinBold:
+            return Font.custom("Cabin-Bold", size: 18)
+        case .CeasarDressingRegular:
+            return Font.custom("CaesarDressing", size: 30)
         }
     }
 }

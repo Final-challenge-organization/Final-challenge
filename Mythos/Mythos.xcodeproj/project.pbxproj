@@ -15,12 +15,18 @@
 		459585ED2AA610A30039C908 /* MythosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585EC2AA610A30039C908 /* MythosUITestsLaunchTests.swift */; };
 		459585FA2AA6143C0039C908 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585F92AA6143C0039C908 /* GameView.swift */; };
 		45BCB8082AD5DF2200A11F6E /* PersonasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BCB8072AD5DF2200A11F6E /* PersonasView.swift */; };
+		4F1C34582AE7F3D300FA2E6D /* Cabin-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1C34562AE7F3D300FA2E6D /* Cabin-Bold.ttf */; };
+		4F1C34592AE7F3D300FA2E6D /* Cabin-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1C34562AE7F3D300FA2E6D /* Cabin-Bold.ttf */; };
+		4F1C345A2AE7F3D300FA2E6D /* Cabin-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1C34562AE7F3D300FA2E6D /* Cabin-Bold.ttf */; };
+		4F1C345B2AE7F3D300FA2E6D /* Cabin-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1C34572AE7F3D300FA2E6D /* Cabin-MediumItalic.ttf */; };
+		4F1C345C2AE7F3D300FA2E6D /* Cabin-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1C34572AE7F3D300FA2E6D /* Cabin-MediumItalic.ttf */; };
+		4F1C345D2AE7F3D300FA2E6D /* Cabin-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F1C34572AE7F3D300FA2E6D /* Cabin-MediumItalic.ttf */; };
 		4F4269E62AD0511900A417E5 /* PlayerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4269E52AD0511900A417E5 /* PlayerClient.swift */; };
 		4F51B8BE2AD0B5D7007107B4 /* PopUpCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F51B8BD2AD0B5D7007107B4 /* PopUpCard.swift */; };
 		4F51B8C02AD0D2B8007107B4 /* ParallaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F51B8BF2AD0D2B8007107B4 /* ParallaxView.swift */; };
-		4FBC46F32AD43BC400BB1CE1 /* Convergence-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FBC46F22AD43BBC00BB1CE1 /* Convergence-Regular.ttf */; };
-		4FBC46F42AD43BC500BB1CE1 /* Convergence-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FBC46F22AD43BBC00BB1CE1 /* Convergence-Regular.ttf */; };
-		4FBC46F52AD43BC500BB1CE1 /* Convergence-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FBC46F22AD43BBC00BB1CE1 /* Convergence-Regular.ttf */; };
+		4F642BC42AE6DD7600A4B680 /* CaesarDressing-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F642BC32AE6DD7600A4B680 /* CaesarDressing-Regular.ttf */; };
+		4F642BC52AE6DD7600A4B680 /* CaesarDressing-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F642BC32AE6DD7600A4B680 /* CaesarDressing-Regular.ttf */; };
+		4F642BC62AE6DD7600A4B680 /* CaesarDressing-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F642BC32AE6DD7600A4B680 /* CaesarDressing-Regular.ttf */; };
 		4FBC46F82AD43C4400BB1CE1 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBC46F72AD43C4400BB1CE1 /* Fonts.swift */; };
 		4FBE72A32AB1DF25002165FB /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE72A22AB1DF25002165FB /* Protocols.swift */; };
 		4FF895B62ACED14500F50DA4 /* MaybeGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */; };
@@ -83,10 +89,12 @@
 		459585EC2AA610A30039C908 /* MythosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythosUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		459585F92AA6143C0039C908 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		45BCB8072AD5DF2200A11F6E /* PersonasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonasView.swift; sourceTree = "<group>"; };
+		4F1C34562AE7F3D300FA2E6D /* Cabin-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cabin-Bold.ttf"; sourceTree = "<group>"; };
+		4F1C34572AE7F3D300FA2E6D /* Cabin-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cabin-MediumItalic.ttf"; sourceTree = "<group>"; };
 		4F4269E52AD0511900A417E5 /* PlayerClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerClient.swift; sourceTree = "<group>"; };
 		4F51B8BD2AD0B5D7007107B4 /* PopUpCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCard.swift; sourceTree = "<group>"; };
 		4F51B8BF2AD0D2B8007107B4 /* ParallaxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxView.swift; sourceTree = "<group>"; };
-		4FBC46F22AD43BBC00BB1CE1 /* Convergence-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Convergence-Regular.ttf"; sourceTree = "<group>"; };
+		4F642BC32AE6DD7600A4B680 /* CaesarDressing-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CaesarDressing-Regular.ttf"; sourceTree = "<group>"; };
 		4FBC46F62AD43BF000BB1CE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4FBC46F72AD43C4400BB1CE1 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		4FBE72A22AB1DF25002165FB /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
@@ -216,7 +224,9 @@
 		4FBC46F12AD43BA900BB1CE1 /* ProjectFonts */ = {
 			isa = PBXGroup;
 			children = (
-				4FBC46F22AD43BBC00BB1CE1 /* Convergence-Regular.ttf */,
+				4F642BC32AE6DD7600A4B680 /* CaesarDressing-Regular.ttf */,
+				4F1C34562AE7F3D300FA2E6D /* Cabin-Bold.ttf */,
+				4F1C34572AE7F3D300FA2E6D /* Cabin-MediumItalic.ttf */,
 				4FBC46F72AD43C4400BB1CE1 /* Fonts.swift */,
 			);
 			path = ProjectFonts;
@@ -489,8 +499,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				459585D72AA610A30039C908 /* Preview Assets.xcassets in Resources */,
-				4FBC46F32AD43BC400BB1CE1 /* Convergence-Regular.ttf in Resources */,
+				4F1C345B2AE7F3D300FA2E6D /* Cabin-MediumItalic.ttf in Resources */,
+				4F1C34582AE7F3D300FA2E6D /* Cabin-Bold.ttf in Resources */,
 				459585D42AA610A30039C908 /* Assets.xcassets in Resources */,
+				4F642BC42AE6DD7600A4B680 /* CaesarDressing-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,7 +510,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FBC46F42AD43BC500BB1CE1 /* Convergence-Regular.ttf in Resources */,
+				4F642BC52AE6DD7600A4B680 /* CaesarDressing-Regular.ttf in Resources */,
+				4F1C345C2AE7F3D300FA2E6D /* Cabin-MediumItalic.ttf in Resources */,
+				4F1C34592AE7F3D300FA2E6D /* Cabin-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,7 +520,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FBC46F52AD43BC500BB1CE1 /* Convergence-Regular.ttf in Resources */,
+				4F642BC62AE6DD7600A4B680 /* CaesarDressing-Regular.ttf in Resources */,
+				4F1C345D2AE7F3D300FA2E6D /* Cabin-MediumItalic.ttf in Resources */,
+				4F1C345A2AE7F3D300FA2E6D /* Cabin-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

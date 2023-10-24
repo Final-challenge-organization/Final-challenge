@@ -47,8 +47,7 @@ struct MaybeGameView: View {
                         .offset(x: -250, y: 10)
                     HStack(spacing: -50) {
                         Spacer()
-                        ForEach(Array(websocket.myPlayerReference.handCards.enumerated()), id: \.element.uuid) {
-                            (index , card) in
+                        ForEach(Array(websocket.myPlayerReference.handCards.enumerated()), id: \.element.uuid) { (index , card) in
                             CardRepresentable(
                                 isYourTurn: websocket.myPlayerReference.isYourTurn,
                                 isReaction: websocket.myPlayerReference.isReaction,
@@ -58,7 +57,7 @@ struct MaybeGameView: View {
                                         self.isTapped.toggle()
                                     }
                                 }
-                                .frame(maxHeight: 150)
+                                .frame(width: 744/6, height: 1039/6)
                                 .scaledToFit()
                                 .offset(y: (index == 0 || index == 2) ? 0 : -15)
                                 .offset(y: cardSelected == card && isTapped ? -55 : 0)
