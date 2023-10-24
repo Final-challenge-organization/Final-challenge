@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ConnectedPlayersView: View {
-    var name: String
+    let name: String
     var body: some View {
         VStack {
             Image("backgroundButtonPlayer")
