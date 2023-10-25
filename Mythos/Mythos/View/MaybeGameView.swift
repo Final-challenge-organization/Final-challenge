@@ -147,7 +147,7 @@ struct MaybeGameView: View {
                         .ignoresSafeArea()
                     CardFocusedView(card: websocket.cardsPlayed.last!, isTapped: $killTapped)
                         .frame(width: 744/4.5, height: 1039/4.5)
-                        .offset(y: -40)
+                        .offset(x: 110, y:0)
                 }
             }
         }
@@ -195,6 +195,7 @@ struct MaybeGameView: View {
                         } label: {
                             KillDeckView(card: websocket.cardsPlayed.last!, killDecktapped: $killTapped)
                                 .frame(width: 744/9, height: 1039/9)
+                                .offset(x: killTapped ? 110 : 0, y:0)
                                 .opacity(killTapped ? 0 : 1)
                         }
                     }
