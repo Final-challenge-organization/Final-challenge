@@ -18,7 +18,7 @@ struct KillDeckView: View {
                 killDecktapped.toggle()
             }
         })
-        .rotationEffect(.degrees(90))
+        .rotationEffect(killDecktapped ? Angle(degrees: 0) : Angle(degrees: 90))
     }
 }
 

@@ -107,9 +107,9 @@ struct MaybeGameView: View {
                 showAlertLost = false
                 showAlertWinner = false
             }
-
         }
         .overlay {
+            //MARK: - Mais detalhes cartas da mão
             if isTapped == true {
                 ZStack {
                     Rectangle()
@@ -122,10 +122,11 @@ struct MaybeGameView: View {
                             }
                         }
                     CardFocusedView(card: cardSelected!, isTapped: $isTapped)
-                        .frame(width: 744/4.5, height: 1039/4.5)
-                        .offset(y: -40)
+                        .frame(width: 744/3.5, height: 1039/3.5)
+                        .offset(y: -20)
                 }
             }
+            //MARK: - Botão jogar cartas
             if websocket.myPlayerReference.isYourTurn {
                 Button {
                     websocket.sendCard(with: cardSelected)
@@ -139,6 +140,7 @@ struct MaybeGameView: View {
                 .offset(x: 250, y: 110)
                 .disabled(!isTapped)
             }
+            //MARK: - Clique da Carta Cemitério
             if killTapped == true {
                 ZStack {
                     Rectangle()
@@ -146,8 +148,8 @@ struct MaybeGameView: View {
                         .opacity(0.5)
                         .ignoresSafeArea()
                     CardFocusedView(card: websocket.cardsPlayed.last!, isTapped: $killTapped)
-                        .frame(width: 744/4.5, height: 1039/4.5)
-                        .offset(x: 110, y:0)
+                        .frame(width: 744/3.5, height: 1039/3.5)
+                        .offset(x: 130, y:0)
                 }
             }
         }
