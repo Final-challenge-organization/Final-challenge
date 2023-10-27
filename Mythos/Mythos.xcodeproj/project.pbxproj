@@ -41,6 +41,9 @@
 		DD0B38002AE808EF007513AD /* CardFocusedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B37FF2AE808EF007513AD /* CardFocusedView.swift */; };
 		DD0B380A2AEC3818007513AD /* UserCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B38092AEC3818007513AD /* UserCardsView.swift */; };
 		DD0B380E2AEC3C42007513AD /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B380D2AEC3C42007513AD /* CardViewModel.swift */; };
+		DD0B38112AEC4152007513AD /* CardHighlightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B38102AEC4152007513AD /* CardHighlightsView.swift */; };
+		DD0B38132AEC44A6007513AD /* SendCardButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B38122AEC44A6007513AD /* SendCardButtonView.swift */; };
+		DD0B38152AEC513D007513AD /* PlayerLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B38142AEC513D007513AD /* PlayerLayoutView.swift */; };
 		DD57DF862AD428D3009B9272 /* ButtonConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD57DF852AD428D3009B9272 /* ButtonConnect.swift */; };
 		DD57DF882AD49A04009B9272 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD57DF872AD49A04009B9272 /* DataStorage.swift */; };
 		DD6D18662AB8784F004B02AA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18652AB8784F004B02AA /* HomeView.swift */; };
@@ -112,6 +115,9 @@
 		DD0B37FF2AE808EF007513AD /* CardFocusedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFocusedView.swift; sourceTree = "<group>"; };
 		DD0B38092AEC3818007513AD /* UserCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardsView.swift; sourceTree = "<group>"; };
 		DD0B380D2AEC3C42007513AD /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		DD0B38102AEC4152007513AD /* CardHighlightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHighlightsView.swift; sourceTree = "<group>"; };
+		DD0B38122AEC44A6007513AD /* SendCardButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCardButtonView.swift; sourceTree = "<group>"; };
+		DD0B38142AEC513D007513AD /* PlayerLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLayoutView.swift; sourceTree = "<group>"; };
 		DD57DF852AD428D3009B9272 /* ButtonConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonConnect.swift; sourceTree = "<group>"; };
 		DD57DF872AD49A04009B9272 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		DD6D18652AB8784F004B02AA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -281,8 +287,10 @@
 		DD0B38022AEC29C2007513AD /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				DD0B380F2AEC4076007513AD /* Highlights */,
 				DD0B38052AEC2CD4007513AD /* Players */,
 				4FBC46F02AD4226600BB1CE1 /* Card */,
+				DD0B38122AEC44A6007513AD /* SendCardButtonView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -308,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				45BCB8072AD5DF2200A11F6E /* PersonasView.swift */,
+				DD0B38142AEC513D007513AD /* PlayerLayoutView.swift */,
 			);
 			path = Players;
 			sourceTree = "<group>";
@@ -328,6 +337,14 @@
 				DD57DF872AD49A04009B9272 /* DataStorage.swift */,
 			);
 			path = Persistence;
+			sourceTree = "<group>";
+		};
+		DD0B380F2AEC4076007513AD /* Highlights */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B38102AEC4152007513AD /* CardHighlightsView.swift */,
+			);
+			path = Highlights;
 			sourceTree = "<group>";
 		};
 		DD6D18692AB88221004B02AA /* Components */ = {
@@ -635,10 +652,12 @@
 				DD0B380E2AEC3C42007513AD /* CardViewModel.swift in Sources */,
 				DD6D18782AB88A8D004B02AA /* StoreButtonView.swift in Sources */,
 				DD6D18662AB8784F004B02AA /* HomeView.swift in Sources */,
+				DD0B38152AEC513D007513AD /* PlayerLayoutView.swift in Sources */,
 				4FBE72A32AB1DF25002165FB /* Protocols.swift in Sources */,
 				64FFCE782AA8B0A80090566B /* DataWrapper.swift in Sources */,
 				DD6D18682AB87872004B02AA /* WaitingRoomView.swift in Sources */,
 				DD6D187E2AB88B41004B02AA /* InventoryView.swift in Sources */,
+				DD0B38112AEC4152007513AD /* CardHighlightsView.swift in Sources */,
 				45BCB8082AD5DF2200A11F6E /* PersonasView.swift in Sources */,
 				452CD7562AE21A8D00F4B9C4 /* KillDeckView.swift in Sources */,
 				DD6D18AE2ABDBF93004B02AA /* ConnectedPlayersView.swift in Sources */,
@@ -651,6 +670,7 @@
 				4F51B8BE2AD0B5D7007107B4 /* PopUpCard.swift in Sources */,
 				DD6D18762AB889F2004B02AA /* ConfigButtonView.swift in Sources */,
 				459585FA2AA6143C0039C908 /* GameView.swift in Sources */,
+				DD0B38132AEC44A6007513AD /* SendCardButtonView.swift in Sources */,
 				459585D02AA610A20039C908 /* MythosApp.swift in Sources */,
 				DD57DF882AD49A04009B9272 /* DataStorage.swift in Sources */,
 				DD6D187C2AB88B33004B02AA /* ConfigurationView.swift in Sources */,

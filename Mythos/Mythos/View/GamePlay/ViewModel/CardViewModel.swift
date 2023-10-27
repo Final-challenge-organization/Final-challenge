@@ -11,4 +11,5 @@ class CardViewModel: ObservableObject {
     @Published var cardSelected: Card? = nil
     @Published var isTapped: Bool = false
     @Published var killTapped: Bool = false
+    
 }
