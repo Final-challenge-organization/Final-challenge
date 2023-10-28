@@ -15,7 +15,7 @@ struct CardFocusedView: View {
     var body: some View {
         CardRepresentable(card: card) {
             withAnimation {
-                isTapped.toggle()
+                isTapped = false
             }
         }
     }
