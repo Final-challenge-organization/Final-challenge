@@ -10,7 +10,7 @@ import CoreHaptics
 
 struct MaybeGameView: View {
     @EnvironmentObject var websocket: WebSocket
-    @ObservedObject var cardVM = CardViewModel()
+    @ObservedObject private var cardVM = CardViewModel()
 
     @Environment(\.dismiss) private var dismiss
 
@@ -18,6 +18,7 @@ struct MaybeGameView: View {
     @State var showAlertWinner: Bool = false
     @State var showAlertLost: Bool = false
     @State private var duoConditionalALert: Bool = false
+    
 
     var body: some View {
         ZStack {
@@ -30,7 +31,9 @@ struct MaybeGameView: View {
             }
             .overlay {
                 VStack {
-                    UserCardsView(cardVM: cardVM)
+                    HStack {
+                        UserCardsView(cardVM: cardVM)
+                    }
                 }
             }
             .onChange(of: websocket.isGameOver) { newValue in
@@ -54,10 +57,6 @@ struct MaybeGameView: View {
                     websocket.winner = false
                     dismiss()
                 }))
-            }
-            .onAppear {
-                showAlertLost = false
-                showAlertWinner = false
             }
         }
         .overlay {

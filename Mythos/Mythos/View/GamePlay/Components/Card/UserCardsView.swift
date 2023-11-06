@@ -12,6 +12,8 @@ struct UserCardsView: View {
 
     @ObservedObject var cardVM: CardViewModel
 
+    @State var isShowingYourTurn: Bool = true
+
     var body: some View {
         ZStack {
             Image("deck_comprar")
@@ -48,6 +50,20 @@ struct UserCardsView: View {
             .animation(.easeInOut, value: websocket.myPlayerReference.handCards.count)
             .offset(y: 200)
             .ignoresSafeArea()
+            
+            if websocket.turnPlayer == "Seu Turno" && isShowingYourTurn {
+                Text("Sua vez!!")
+                    .font(.largeTitle)
+                    .opacity(1)
+                    .animation(.easeInOut(duration: 1))
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            withAnimation {
+                                isShowingYourTurn = false
+                            }
+                        }
+                    }
+            }
         }
     }
 }
