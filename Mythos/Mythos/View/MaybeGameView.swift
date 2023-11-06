@@ -181,18 +181,20 @@ struct MaybeGameView: View {
                 PersonasView(cards: thirdPlayer.handCards,
                              namePerson: thirdPlayer.name,
                              lifePerson: (thirdPlayer.life <= 0) ? 0 : thirdPlayer.life,
-                             index: (players.count < 3) ? 5 : 2)
-
+                             index: (players.count < 3) ? 5 : 2,
+                             isYourTurn: thirdPlayer.isYourTurn)
                 HStack {
                     PersonasView(cards: secondPlayer.handCards,
                                  namePerson: secondPlayer.name,
                                  lifePerson: (secondPlayer.life <= 0) ? 0 : secondPlayer.life,
-                                 index: (players.count < 2) ? 5 : 1)
+                                 index: (players.count < 2) ? 5 : 1,
+                                 isYourTurn: secondPlayer.isYourTurn)
                     Spacer()
 
                     PersonasView(cards: lastPlayer.handCards, namePerson: lastPlayer.name,
                                  lifePerson: (lastPlayer.life <= 0) ? 0 : lastPlayer.life,
-                                 index: (players.count < 4) ? 5 : 3)
+                                 index: (players.count < 4) ? 5 : 3,
+                                 isYourTurn: lastPlayer.isYourTurn)
 
                 }
                 .overlay {
@@ -212,7 +214,8 @@ struct MaybeGameView: View {
                 PersonasView(cards: firstPlayer.handCards,
                              namePerson: firstPlayer.name,
                              lifePerson: (firstPlayer.life <= 0) ? 0 : firstPlayer.life,
-                             index: 0)
+                             index: 0,
+                             isYourTurn: firstPlayer.isYourTurn)
             }
         }
         return viewPersonas

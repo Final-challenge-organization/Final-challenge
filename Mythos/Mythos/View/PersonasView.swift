@@ -26,6 +26,7 @@ struct PersonasView: View {
     let namePerson: String
     let lifePerson: Int
     var index: Int
+    let isYourTurn: Bool
 
     var body: some View {
         //MARK: - LEFT LOCATION
@@ -44,8 +45,8 @@ struct PersonasView: View {
                             }
 
                         Circle()
-                            .foregroundColor(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1)))
-                            .frame(width: 30, height: 30)
+                            .strokeBorder(isYourTurn ? .green : .clear, lineWidth: 2)
+                            .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: 30, height: 30)
                             .overlay {
                                 Text("\(lifePerson)")
                                     .foregroundColor(.yellow)
@@ -79,7 +80,6 @@ struct PersonasView: View {
             VStack(spacing: -10) {
                 VStack {
                     HStack {
-
                         Text(namePerson.description)
                             .padding(3.8)
                             .foregroundColor(.yellow)
@@ -90,7 +90,8 @@ struct PersonasView: View {
                                     .background(RoundedRectangle(cornerRadius: 12).fill(Color(red: 9/255, green: 24/255, blue: 63/255)))
                             }
                         Circle()
-                            .foregroundColor(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1)))
+                            .strokeBorder(isYourTurn ? .green : .clear, lineWidth: 2)
+                            .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))
                             .frame(width: 30, height: 30)
                             .overlay {
                                 Text("\(lifePerson)")
@@ -135,8 +136,8 @@ struct PersonasView: View {
                                     .background(RoundedRectangle(cornerRadius: 12).fill(Color(red: 9/255, green: 24/255, blue: 63/255)))
                             }
                         Circle()
-                            .foregroundColor(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1)))
-                            .frame(width: 30, height: 30)
+                            .strokeBorder(isYourTurn ? .green : .clear, lineWidth: 2)
+                            .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: 30, height: 30)
                             .overlay {
                                 Text("\(lifePerson)")
                                     .foregroundColor(.yellow)
@@ -196,8 +197,8 @@ struct PersonasView: View {
                                     .background(RoundedRectangle(cornerRadius: 12).fill(Color(red: 9/255, green: 24/255, blue: 63/255)))
                             }
                         Circle()
-                            .foregroundColor(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1)))
-                            .frame(width: 30, height: 30)
+                            .strokeBorder(isYourTurn ? .green : .clear, lineWidth: 2)
+                            .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: 30, height: 30)
                             .overlay {
                                 Text("\(lifePerson)")
                                     .foregroundColor(.yellow)
@@ -214,6 +215,8 @@ struct PersonasView: View {
                     Text(namePerson.description)
                         .padding(3.8)
                     Circle()
+                        .strokeBorder(isYourTurn ? .green : .clear, lineWidth: 2)
+                        .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))
                         .frame(width: 30, height: 30)
                         .overlay {
                             Text("\(lifePerson)")
