@@ -18,6 +18,7 @@ struct MaybeGameView: View {
     @State var showAlertLost: Bool = false
     @State private var duoConditionalALert: Bool = false
     @State var killTapped: Bool = false
+    @State var isShowingYourTurn: Bool = true
 
     @Environment(\.dismiss) private var dismiss
 
@@ -72,6 +73,20 @@ struct MaybeGameView: View {
                         .animation(.easeInOut, value: websocket.myPlayerReference.handCards.count)
                         .offset(y: 200)
                         .ignoresSafeArea()
+
+                        if websocket.turnPlayer == "Seu Turno" && isShowingYourTurn {
+                            Text("Sua vez!!")
+                                .font(.largeTitle)
+                                .opacity(1)
+                                .animation(.easeInOut(duration: 1))
+                                .onAppear {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                        withAnimation {
+                                            isShowingYourTurn = false
+                                        }
+                                    }
+                                }
+                        }
                     }
                 }
             }
@@ -103,11 +118,6 @@ struct MaybeGameView: View {
                     dismiss()
                 }))
             }
-            .onAppear {
-                showAlertLost = false
-                showAlertWinner = false
-            }
-
         }
         .overlay {
             if isTapped == true {

@@ -51,6 +51,7 @@ struct PersonasView: View {
                                     .foregroundColor(.yellow)
                                     .bold()
                             }
+                        
                     }
                     Triangle()
                         .fill(Color(red: 9/255, green: 24/255, blue: 63/255))
