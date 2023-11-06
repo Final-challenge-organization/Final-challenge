@@ -36,10 +36,14 @@
 		64C04C102AD436BD00894EF9 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C04C0F2AD436BD00894EF9 /* PlayerView.swift */; };
 		64D788FC2AB484CC00394078 /* CardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D788FB2AB484CC00394078 /* CardNode.swift */; };
 		64FFCE722AA74C5F0090566B /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE712AA74C5F0090566B /* WebSocket.swift */; };
-		64FFCE742AA7500E0090566B /* ClientSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE732AA7500E0090566B /* ClientSideView.swift */; };
 		64FFCE762AA76B010090566B /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE752AA76B010090566B /* Card.swift */; };
 		64FFCE782AA8B0A80090566B /* DataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FFCE772AA8B0A80090566B /* DataWrapper.swift */; };
 		DD0B38002AE808EF007513AD /* CardFocusedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B37FF2AE808EF007513AD /* CardFocusedView.swift */; };
+		DD0B380A2AEC3818007513AD /* UserCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B38092AEC3818007513AD /* UserCardsView.swift */; };
+		DD0B380E2AEC3C42007513AD /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B380D2AEC3C42007513AD /* CardViewModel.swift */; };
+		DD0B38112AEC4152007513AD /* CardHighlightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B38102AEC4152007513AD /* CardHighlightsView.swift */; };
+		DD0B38132AEC44A6007513AD /* SendCardButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B38122AEC44A6007513AD /* SendCardButtonView.swift */; };
+		DD0B38152AEC513D007513AD /* PlayerLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B38142AEC513D007513AD /* PlayerLayoutView.swift */; };
 		DD57DF862AD428D3009B9272 /* ButtonConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD57DF852AD428D3009B9272 /* ButtonConnect.swift */; };
 		DD57DF882AD49A04009B9272 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD57DF872AD49A04009B9272 /* DataStorage.swift */; };
 		DD6D18662AB8784F004B02AA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18652AB8784F004B02AA /* HomeView.swift */; };
@@ -106,10 +110,14 @@
 		64C04C0F2AD436BD00894EF9 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		64D788FB2AB484CC00394078 /* CardNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNode.swift; sourceTree = "<group>"; };
 		64FFCE712AA74C5F0090566B /* WebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
-		64FFCE732AA7500E0090566B /* ClientSideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSideView.swift; sourceTree = "<group>"; };
 		64FFCE752AA76B010090566B /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		64FFCE772AA8B0A80090566B /* DataWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataWrapper.swift; sourceTree = "<group>"; };
 		DD0B37FF2AE808EF007513AD /* CardFocusedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFocusedView.swift; sourceTree = "<group>"; };
+		DD0B38092AEC3818007513AD /* UserCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardsView.swift; sourceTree = "<group>"; };
+		DD0B380D2AEC3C42007513AD /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		DD0B38102AEC4152007513AD /* CardHighlightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHighlightsView.swift; sourceTree = "<group>"; };
+		DD0B38122AEC44A6007513AD /* SendCardButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCardButtonView.swift; sourceTree = "<group>"; };
+		DD0B38142AEC513D007513AD /* PlayerLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLayoutView.swift; sourceTree = "<group>"; };
 		DD57DF852AD428D3009B9272 /* ButtonConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonConnect.swift; sourceTree = "<group>"; };
 		DD57DF872AD49A04009B9272 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		DD6D18652AB8784F004B02AA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -126,7 +134,7 @@
 		DD6D187F2AB88DA3004B02AA /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		DD6D18A92ABDBF0A004B02AA /* CustomToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToolbarView.swift; sourceTree = "<group>"; };
 		DD6D18AB2ABDBF37004B02AA /* BackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonView.swift; sourceTree = "<group>"; };
-		DD6D18AD2ABDBF93004B02AA /* ConnectedPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConnectedPlayersView.swift; path = Mythos/View/WaitingRoomView/ConnectedPlayersView.swift; sourceTree = SOURCE_ROOT; };
+		DD6D18AD2ABDBF93004B02AA /* ConnectedPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConnectedPlayersView.swift; path = Mythos/View/WaitingRoom/ConnectedPlayersView.swift; sourceTree = SOURCE_ROOT; };
 		DD84A4652ADEB7ED00BD0801 /* BackCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackCardView.swift; sourceTree = "<group>"; };
 		DD84A4692ADEC8A300BD0801 /* WebSocketProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,11 +187,10 @@
 		459585CE2AA610A20039C908 /* Mythos */ = {
 			isa = PBXGroup;
 			children = (
-				DDB60D872AE698CE0071AA73 /* Network */,
+				DD0B38062AEC2D59007513AD /* Data */,
 				4FBC46F62AD43BF000BB1CE1 /* Info.plist */,
 				4FBC46F12AD43BA900BB1CE1 /* ProjectFonts */,
 				64FFCE792AA8B45F0090566B /* View */,
-				64FFCE7A2AA8B4750090566B /* Model */,
 				459585D32AA610A30039C908 /* Assets.xcassets */,
 				459585D52AA610A30039C908 /* Preview Content */,
 			);
@@ -215,14 +222,16 @@
 			path = MythosUITests;
 			sourceTree = "<group>";
 		};
-		4FBC46F02AD4226600BB1CE1 /* CardView */ = {
+		4FBC46F02AD4226600BB1CE1 /* Card */ = {
 			isa = PBXGroup;
 			children = (
 				4FF895B72ACED16E00F50DA4 /* CardRepresentable.swift */,
 				452CD7552AE21A8D00F4B9C4 /* KillDeckView.swift */,
 				DD84A4652ADEB7ED00BD0801 /* BackCardView.swift */,
+				DD0B37FF2AE808EF007513AD /* CardFocusedView.swift */,
+				DD0B38092AEC3818007513AD /* UserCardsView.swift */,
 			);
-			path = CardView;
+			path = Card;
 			sourceTree = "<group>";
 		};
 		4FBC46F12AD43BA900BB1CE1 /* ProjectFonts */ = {
@@ -239,20 +248,15 @@
 		64FFCE792AA8B45F0090566B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4FBC46F02AD4226600BB1CE1 /* CardView */,
+				DD0B38012AEC2900007513AD /* GamePlay */,
 				DD6D18722AB88940004B02AA /* HUD */,
-				DD6D18892AB8926C004B02AA /* ProfileView */,
-				DD6D18882AB89249004B02AA /* InventoryView */,
-				DD6D18872AB8923D004B02AA /* ConfigurationView */,
-				DD6D18852AB8919A004B02AA /* StoreView */,
-				DD6D18832AB8917B004B02AA /* WaitingRoomView */,
-				DD6D18812AB8913C004B02AA /* HomeView */,
+				DD6D18892AB8926C004B02AA /* Profile */,
+				DD6D18882AB89249004B02AA /* Inventory */,
+				DD6D18872AB8923D004B02AA /* Configuration */,
+				DD6D18852AB8919A004B02AA /* Store */,
+				DD6D18832AB8917B004B02AA /* WaitingRoom */,
+				DD6D18812AB8913C004B02AA /* Home */,
 				459585CF2AA610A20039C908 /* MythosApp.swift */,
-				64FFCE732AA7500E0090566B /* ClientSideView.swift */,
-				459585F92AA6143C0039C908 /* GameView.swift */,
-				4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */,
-				DD0B37FF2AE808EF007513AD /* CardFocusedView.swift */,
-				45BCB8072AD5DF2200A11F6E /* PersonasView.swift */,
 				4F51B8BF2AD0D2B8007107B4 /* ParallaxView.swift */,
 				4F51B8BD2AD0B5D7007107B4 /* PopUpCard.swift */,
 				64D788FB2AB484CC00394078 /* CardNode.swift */,
@@ -268,6 +272,79 @@
 				64FFCE752AA76B010090566B /* Card.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DD0B38012AEC2900007513AD /* GamePlay */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B38042AEC29F5007513AD /* ViewModel */,
+				DD0B38032AEC29EA007513AD /* View */,
+				DD0B38022AEC29C2007513AD /* Components */,
+			);
+			path = GamePlay;
+			sourceTree = "<group>";
+		};
+		DD0B38022AEC29C2007513AD /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B380F2AEC4076007513AD /* Highlights */,
+				DD0B38052AEC2CD4007513AD /* Players */,
+				4FBC46F02AD4226600BB1CE1 /* Card */,
+				DD0B38122AEC44A6007513AD /* SendCardButtonView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DD0B38032AEC29EA007513AD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				459585F92AA6143C0039C908 /* GameView.swift */,
+				4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD0B38042AEC29F5007513AD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B380D2AEC3C42007513AD /* CardViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DD0B38052AEC2CD4007513AD /* Players */ = {
+			isa = PBXGroup;
+			children = (
+				45BCB8072AD5DF2200A11F6E /* PersonasView.swift */,
+				DD0B38142AEC513D007513AD /* PlayerLayoutView.swift */,
+			);
+			path = Players;
+			sourceTree = "<group>";
+		};
+		DD0B38062AEC2D59007513AD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B38072AEC2D7A007513AD /* Persistence */,
+				64FFCE7A2AA8B4750090566B /* Model */,
+				DDB60D872AE698CE0071AA73 /* Network */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		DD0B38072AEC2D7A007513AD /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				DD57DF872AD49A04009B9272 /* DataStorage.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		DD0B380F2AEC4076007513AD /* Highlights */ = {
+			isa = PBXGroup;
+			children = (
+				DD0B38102AEC4152007513AD /* CardHighlightsView.swift */,
+			);
+			path = Highlights;
 			sourceTree = "<group>";
 		};
 		DD6D18692AB88221004B02AA /* Components */ = {
@@ -300,17 +377,16 @@
 			path = HUD;
 			sourceTree = "<group>";
 		};
-		DD6D18812AB8913C004B02AA /* HomeView */ = {
+		DD6D18812AB8913C004B02AA /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				DD57DF872AD49A04009B9272 /* DataStorage.swift */,
 				DD6D18652AB8784F004B02AA /* HomeView.swift */,
 				DD6D18692AB88221004B02AA /* Components */,
 			);
-			path = HomeView;
+			path = Home;
 			sourceTree = "<group>";
 		};
-		DD6D18832AB8917B004B02AA /* WaitingRoomView */ = {
+		DD6D18832AB8917B004B02AA /* WaitingRoom */ = {
 			isa = PBXGroup;
 			children = (
 				DD6D18842AB8918C004B02AA /* Components */,
@@ -318,7 +394,7 @@
 				DD57DF852AD428D3009B9272 /* ButtonConnect.swift */,
 				DD6D18AD2ABDBF93004B02AA /* ConnectedPlayersView.swift */,
 			);
-			path = WaitingRoomView;
+			path = WaitingRoom;
 			sourceTree = "<group>";
 		};
 		DD6D18842AB8918C004B02AA /* Components */ = {
@@ -328,13 +404,13 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		DD6D18852AB8919A004B02AA /* StoreView */ = {
+		DD6D18852AB8919A004B02AA /* Store */ = {
 			isa = PBXGroup;
 			children = (
 				DD6D18792AB88B26004B02AA /* StoreView.swift */,
 				DD6D18862AB891A3004B02AA /* Components */,
 			);
-			path = StoreView;
+			path = Store;
 			sourceTree = "<group>";
 		};
 		DD6D18862AB891A3004B02AA /* Components */ = {
@@ -344,32 +420,32 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		DD6D18872AB8923D004B02AA /* ConfigurationView */ = {
+		DD6D18872AB8923D004B02AA /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
 				DD6D188A2AB89280004B02AA /* Components */,
 				DD6D187B2AB88B33004B02AA /* ConfigurationView.swift */,
 				64C04C0F2AD436BD00894EF9 /* PlayerView.swift */,
 			);
-			path = ConfigurationView;
+			path = Configuration;
 			sourceTree = "<group>";
 		};
-		DD6D18882AB89249004B02AA /* InventoryView */ = {
+		DD6D18882AB89249004B02AA /* Inventory */ = {
 			isa = PBXGroup;
 			children = (
 				DD6D188B2AB89288004B02AA /* Components */,
 				DD6D187D2AB88B41004B02AA /* InventoryView.swift */,
 			);
-			path = InventoryView;
+			path = Inventory;
 			sourceTree = "<group>";
 		};
-		DD6D18892AB8926C004B02AA /* ProfileView */ = {
+		DD6D18892AB8926C004B02AA /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				DD6D188C2AB89291004B02AA /* Components */,
 				DD6D187F2AB88DA3004B02AA /* ProfileView.swift */,
 			);
-			path = ProfileView;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		DD6D188A2AB89280004B02AA /* Components */ = {
@@ -555,7 +631,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/Users/narelylima/Documents/Build/./build4\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n./build4\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -566,19 +642,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD6D186B2AB88352004B02AA /* PlayButtonView.swift in Sources */,
+				DD0B380A2AEC3818007513AD /* UserCardsView.swift in Sources */,
 				64C04C102AD436BD00894EF9 /* PlayerView.swift in Sources */,
 				4F51B8C02AD0D2B8007107B4 /* ParallaxView.swift in Sources */,
 				DD84A46A2ADEC8A300BD0801 /* WebSocketProtocol.swift in Sources */,
 				DD6D18742AB8898E004B02AA /* CoinsView.swift in Sources */,
 				DD6D186F2AB88506004B02AA /* InventoryButtonView.swift in Sources */,
 				64FFCE762AA76B010090566B /* Card.swift in Sources */,
+				DD0B380E2AEC3C42007513AD /* CardViewModel.swift in Sources */,
 				DD6D18782AB88A8D004B02AA /* StoreButtonView.swift in Sources */,
 				DD6D18662AB8784F004B02AA /* HomeView.swift in Sources */,
+				DD0B38152AEC513D007513AD /* PlayerLayoutView.swift in Sources */,
 				4FBE72A32AB1DF25002165FB /* Protocols.swift in Sources */,
 				64FFCE782AA8B0A80090566B /* DataWrapper.swift in Sources */,
 				DD6D18682AB87872004B02AA /* WaitingRoomView.swift in Sources */,
 				DD6D187E2AB88B41004B02AA /* InventoryView.swift in Sources */,
-				64FFCE742AA7500E0090566B /* ClientSideView.swift in Sources */,
+				DD0B38112AEC4152007513AD /* CardHighlightsView.swift in Sources */,
 				45BCB8082AD5DF2200A11F6E /* PersonasView.swift in Sources */,
 				452CD7562AE21A8D00F4B9C4 /* KillDeckView.swift in Sources */,
 				DD6D18AE2ABDBF93004B02AA /* ConnectedPlayersView.swift in Sources */,
@@ -591,6 +670,7 @@
 				4F51B8BE2AD0B5D7007107B4 /* PopUpCard.swift in Sources */,
 				DD6D18762AB889F2004B02AA /* ConfigButtonView.swift in Sources */,
 				459585FA2AA6143C0039C908 /* GameView.swift in Sources */,
+				DD0B38132AEC44A6007513AD /* SendCardButtonView.swift in Sources */,
 				459585D02AA610A20039C908 /* MythosApp.swift in Sources */,
 				DD57DF882AD49A04009B9272 /* DataStorage.swift in Sources */,
 				DD6D187C2AB88B33004B02AA /* ConfigurationView.swift in Sources */,
