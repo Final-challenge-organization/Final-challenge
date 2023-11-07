@@ -30,10 +30,8 @@ struct MaybeGameView: View {
                 PlayerLayoutView(cardVM: cardVM)
             }
             .overlay {
-                VStack {
-                    HStack {
-                        UserCardsView(cardVM: cardVM)
-                    }
+                HStack {
+                    UserCardsView(cardVM: cardVM)
                 }
             }
             .onChange(of: websocket.isGameOver) { newValue in

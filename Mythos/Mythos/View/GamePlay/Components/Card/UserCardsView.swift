@@ -63,6 +63,18 @@ struct UserCardsView: View {
                             }
                         }
                     }
+            } else if websocket.turnPlayer != "Seu Turno" {
+               Text("")
+                    .font(.largeTitle)
+                    .opacity(1)
+                    .animation(.easeInOut(duration: 1))
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            withAnimation {
+                                isShowingYourTurn = true
+                            }
+                        }
+                    }
             }
         }
     }

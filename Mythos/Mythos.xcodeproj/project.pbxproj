@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		452CD7562AE21A8D00F4B9C4 /* KillDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452CD7552AE21A8D00F4B9C4 /* KillDeckView.swift */; };
+		45414F5E2AFA66E4008D0F22 /* GameTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45414F5D2AFA66E4008D0F22 /* GameTutorial.swift */; };
 		459585D02AA610A20039C908 /* MythosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585CF2AA610A20039C908 /* MythosApp.swift */; };
 		459585D42AA610A30039C908 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459585D32AA610A30039C908 /* Assets.xcassets */; };
 		459585D72AA610A30039C908 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459585D62AA610A30039C908 /* Preview Assets.xcassets */; };
@@ -84,6 +85,7 @@
 
 /* Begin PBXFileReference section */
 		452CD7552AE21A8D00F4B9C4 /* KillDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KillDeckView.swift; sourceTree = "<group>"; };
+		45414F5D2AFA66E4008D0F22 /* GameTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTutorial.swift; sourceTree = "<group>"; };
 		459585CC2AA610A20039C908 /* Mythos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mythos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		459585CF2AA610A20039C908 /* MythosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythosApp.swift; sourceTree = "<group>"; };
 		459585D32AA610A30039C908 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -164,6 +166,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45414F5C2AFA66C4008D0F22 /* GameTutorial */ = {
+			isa = PBXGroup;
+			children = (
+				45414F5D2AFA66E4008D0F22 /* GameTutorial.swift */,
+			);
+			path = GameTutorial;
+			sourceTree = "<group>";
+		};
 		459585C32AA610A20039C908 = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +258,7 @@
 		64FFCE792AA8B45F0090566B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				45414F5C2AFA66C4008D0F22 /* GameTutorial */,
 				DD0B38012AEC2900007513AD /* GamePlay */,
 				DD6D18722AB88940004B02AA /* HUD */,
 				DD6D18892AB8926C004B02AA /* Profile */,
@@ -643,6 +654,7 @@
 			files = (
 				DD6D186B2AB88352004B02AA /* PlayButtonView.swift in Sources */,
 				DD0B380A2AEC3818007513AD /* UserCardsView.swift in Sources */,
+				45414F5E2AFA66E4008D0F22 /* GameTutorial.swift in Sources */,
 				64C04C102AD436BD00894EF9 /* PlayerView.swift in Sources */,
 				4F51B8C02AD0D2B8007107B4 /* ParallaxView.swift in Sources */,
 				DD84A46A2ADEC8A300BD0801 /* WebSocketProtocol.swift in Sources */,
