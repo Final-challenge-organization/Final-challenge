@@ -11,7 +11,7 @@ class WebSocket: ObservableObject, WebSocketProtocol {
     @Published var isGameOver: Bool? = nil
     @Published var connectedPlayers: [PlayerClient] = []
     @Published var cardsPlayed: [Card] = []
-    private let serverIp = "143.110.157.204:8080"
+    private let serverIp = "mythos.fly.dev"
 //    private let serverIp = "luiz.local:8080"
     @Published var winner: Bool = false
     private var myID = UUID()
