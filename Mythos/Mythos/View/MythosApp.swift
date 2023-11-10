@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct MythosApp: App {
+    @StateObject private var viewModel = GKPlayerViewModel()
+
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            NavigationStack {
+                HomeView(vm: viewModel)
+                    .overlay {
+                        if !viewModel.isAutenticated {
+                           LodingView()
+                        }
+                    }
+            }
         }
     }
 }
