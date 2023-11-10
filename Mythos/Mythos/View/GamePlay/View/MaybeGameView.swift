@@ -10,7 +10,7 @@ import CoreHaptics
 
 struct MaybeGameView: View {
     @EnvironmentObject var websocket: WebSocket
-    @ObservedObject private var cardVM = CardViewModel()
+    @StateObject private var cardVM = CardViewModel()
 
     @Environment(\.dismiss) private var dismiss
 
