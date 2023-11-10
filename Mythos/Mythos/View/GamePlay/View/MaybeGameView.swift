@@ -10,7 +10,7 @@ import CoreHaptics
 
 struct MaybeGameView: View {
     @EnvironmentObject var websocket: WebSocket
-    @ObservedObject private var cardVM = CardViewModel()
+    @StateObject private var cardVM = CardViewModel()
 
     @Environment(\.dismiss) private var dismiss
 
@@ -30,10 +30,8 @@ struct MaybeGameView: View {
                 PlayerLayoutView(cardVM: cardVM)
             }
             .overlay {
-                VStack {
-                    HStack {
-                        UserCardsView(cardVM: cardVM)
-                    }
+                HStack {
+                    UserCardsView(cardVM: cardVM)
                 }
             }
             .onChange(of: websocket.isGameOver) { newValue in
