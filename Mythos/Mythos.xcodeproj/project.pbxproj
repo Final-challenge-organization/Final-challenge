@@ -65,6 +65,7 @@
 		DD6D18AE2ABDBF93004B02AA /* ConnectedPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D18AD2ABDBF93004B02AA /* ConnectedPlayersView.swift */; };
 		DD84A4662ADEB7ED00BD0801 /* BackCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD84A4652ADEB7ED00BD0801 /* BackCardView.swift */; };
 		DD84A46A2ADEC8A300BD0801 /* WebSocketProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD84A4692ADEC8A300BD0801 /* WebSocketProtocol.swift */; };
+		DDB6D5102AFD214A0080DCE9 /* TurnIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6D50F2AFD214A0080DCE9 /* TurnIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,7 @@
 		DD6D18AD2ABDBF93004B02AA /* ConnectedPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConnectedPlayersView.swift; path = Mythos/View/WaitingRoom/ConnectedPlayersView.swift; sourceTree = SOURCE_ROOT; };
 		DD84A4652ADEB7ED00BD0801 /* BackCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackCardView.swift; sourceTree = "<group>"; };
 		DD84A4692ADEC8A300BD0801 /* WebSocketProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketProtocol.swift; sourceTree = "<group>"; };
+		DDB6D50F2AFD214A0080DCE9 /* TurnIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -387,6 +389,7 @@
 				DD6D18A92ABDBF0A004B02AA /* CustomToolbarView.swift */,
 				DD6D18772AB88A8D004B02AA /* StoreButtonView.swift */,
 				DD6D18AB2ABDBF37004B02AA /* BackButtonView.swift */,
+				DDB6D50F2AFD214A0080DCE9 /* TurnIndicatorView.swift */,
 			);
 			path = HUD;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 		DD6D18812AB8913C004B02AA /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DDB6D5112AFD22510080DCE9 /* ViewModel */,
 				DD6D18652AB8784F004B02AA /* HomeView.swift */,
 				DD6D18692AB88221004B02AA /* Components */,
 			);
@@ -492,6 +496,13 @@
 				4FBE72A22AB1DF25002165FB /* Protocols.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		DDB6D5112AFD22510080DCE9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -645,7 +656,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/Users/narelylima/Documents/Build/./build4\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n#./build4\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -686,6 +697,7 @@
 				DD6D18762AB889F2004B02AA /* ConfigButtonView.swift in Sources */,
 				459585FA2AA6143C0039C908 /* GameView.swift in Sources */,
 				DD0B38132AEC44A6007513AD /* SendCardButtonView.swift in Sources */,
+				DDB6D5102AFD214A0080DCE9 /* TurnIndicatorView.swift in Sources */,
 				459585D02AA610A20039C908 /* MythosApp.swift in Sources */,
 				64D8FB0C2AFA69A600D75468 /* AutenticatedView.swift in Sources */,
 				DD57DF882AD49A04009B9272 /* DataStorage.swift in Sources */,

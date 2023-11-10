@@ -214,14 +214,6 @@ struct PersonasView: View {
                 VStack {
                     Text(namePerson.description)
                         .padding(3.8)
-                    Circle()
-                        .strokeBorder(isYourTurn ? .green : .clear, lineWidth: 2)
-                        .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))
-                        .frame(width: 30, height: 30)
-                        .overlay {
-                            Text("\(lifePerson)")
-                                .bold()
-                        }
                 }
                 .offset(x: 0, y: -75)
                 HStack(spacing: -35) {

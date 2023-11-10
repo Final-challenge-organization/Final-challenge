@@ -52,10 +52,7 @@ struct UserCardsView: View {
             .ignoresSafeArea()
             
             if websocket.turnPlayer == "Seu Turno" && isShowingYourTurn {
-                Text("Sua vez!!")
-                    .font(.largeTitle)
-                    .opacity(1)
-                    .animation(.easeInOut(duration: 1))
+                TurnIndicatorView()
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                             withAnimation {
@@ -64,7 +61,7 @@ struct UserCardsView: View {
                         }
                     }
             } else if websocket.turnPlayer != "Seu Turno" {
-               Text("")
+                Text("")
                     .font(.largeTitle)
                     .opacity(1)
                     .animation(.easeInOut(duration: 1))
