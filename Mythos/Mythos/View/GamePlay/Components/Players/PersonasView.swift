@@ -235,34 +235,34 @@ struct PersonasView: View {
     }
 }
 
-//struct PersonasView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let namePerson: String = "Sarinha"
-//        let lifePerson = 30
-//        let index = 0
-//        @State var cards: [Card] = [
-//            Card(id: 1234,
-//                 name: "Teste1",
-//                 type: .action(.damage), imageName: <#String#>,
-//                 damage: 5,
-//                 effect: "TESTANDO",
-//                 description: "testando"),
-//            Card(id: 34343,
-//                 name: "Teste2",
-//                 type: .action(.damage),
-//                 damage: 2,
-//                 effect: "TESTANDO",
-//                 description: "testando"),
-//            Card(id: 243342,
-//                 name: "Teste3",
-//                 type: .reaction,
-//                 damage: 1,
-//                 effect: "TESTANDO",
-//                 description: "testando")
-//        ]
-//        PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index)
-//    }
-//}
+struct PersonasView_Previews: PreviewProvider {
+    static var previews: some View {
+        let namePerson: String = "Sarinha"
+        let lifePerson = 30
+        let index = 0
+        @State var cards: [Card] = [
+            Card(id: 1234,
+                 name: "Teste1",
+                 imageName: "olharDeCiclope", type: .action(.damage),
+                 damage: 5,
+                 effect: "TESTANDO",
+                 description: "testando"),
+            Card(id: 34343,
+                 name: "Teste2",
+                 imageName: "olharDeCiclope", type: .action(.damage),
+                 damage: 2,
+                 effect: "TESTANDO",
+                 description: "testando"),
+            Card(id: 243342,
+                 name: "Teste3",
+                 imageName: "escudoDeJustica", type: .reaction,
+                 damage: 1,
+                 effect: "TESTANDO",
+                 description: "testando")
+        ]
+        PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index, isYourTurn: (1 != 0))
+    }
+}
 
 protocol MaybeGameViewPersonaViewDelegate {
     func updatePersonaViewLife(with life: String)
