@@ -64,6 +64,7 @@ struct PersonasView: View {
                     ForEach(cards, id: \.id) {
                         card in
                         BackCardView()
+                            .border(isYourTurn ? .green : .clear, width: 2)
                             .frame(width: 55, height: 115)
                     }
                     .transition(.move(edge: .top))
@@ -109,6 +110,7 @@ struct PersonasView: View {
                     ForEach(cards, id: \.id) {
                         card in
                         BackCardView()
+                            .border(isYourTurn ? .green : .clear, width: 2)
                             .frame(width: 55, height: 115)
                     }
                     .transition(.move(edge: .top))
@@ -172,6 +174,7 @@ struct PersonasView: View {
                     ForEach(cards, id: \.id) {
                         card in
                         BackCardView()
+                            .border(isYourTurn ? .green : .clear, width: 2)
                             .frame(width: 55, height: 115)
                     }
                     .transition(.move(edge: .bottom))

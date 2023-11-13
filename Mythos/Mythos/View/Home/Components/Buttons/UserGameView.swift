@@ -10,25 +10,29 @@ import GameKit
 
 struct UserGameView: View {
 
-//    let localPlayer = GKLocalPlayer.local
     @ObservedObject var vm: GKPlayerViewModel
 
     var body: some View {
-        
-                ZStack{
-                    Rectangle()
-                            .fill(Color.yellow)
-                           .frame(width: 128, height: 58)
-                           .overlay(
-                            Text(vm.username)
-                                .foregroundColor(.black)
-                           )
-                    Image("profile")
-                        .resizable()
-                        .frame(width: 65, height: 58)
-                        .padding(.trailing, 190)
-
-                }
+        ZStack {
+            HStack(spacing: 0) {
+                Image(uiImage: vm.imagePlayer)
+                    .resizable()
+                    .frame(width: 58, height: 58)
+                    .scaledToFit()
+                Rectangle()
+                    .fill(Color(red: 252/255, green: 170/255, blue: 0/255))
+                    .frame(width: 168, height: 58)
+                    .overlay(
+                        Text(vm.username)
+                            .padding([.leading, .trailing])
+                            .font(MyCustomFonts.CeasarDressingRegular.font)
+                            .foregroundColor(Color.init(red: 60/255, green: 25/255, blue: 1/255))
+                            .minimumScaleFactor(0.01)
+                            .lineLimit(0)
+                    )
+            }
+        }
+        .border(Color(red: 84/255, green: 46/255, blue: 15/255), width: 2)
     }
 }
 
