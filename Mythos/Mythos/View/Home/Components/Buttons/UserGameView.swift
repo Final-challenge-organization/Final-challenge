@@ -25,6 +25,7 @@ struct UserGameView: View {
                     .overlay(
                         Text(vm.username)
                             .padding([.leading, .trailing])
+                            .tracking(1)
                             .font(MyCustomFonts.CeasarDressingRegular.font)
                             .foregroundColor(Color.init(red: 60/255, green: 25/255, blue: 1/255))
                             .minimumScaleFactor(0.01)
