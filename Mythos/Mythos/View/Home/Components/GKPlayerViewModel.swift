@@ -29,10 +29,19 @@ class GKPlayerViewModel: ObservableObject {
                 self.username = localPlayer.alias
                 self.dataStorage.changeUserName(username: self.username)
                 self.dataStorage.saveUserName()
-                localPlayer.loadPhoto(for: GKPlayer.PhotoSize.normal, withCompletionHandler: { image, error in
+                localPlayer.loadPhoto(for: GKPlayer.PhotoSize.small, withCompletionHandler: { image, error in
                     self.imagePlayer = image ?? UIImage(named: "profile")!
+                    self.saveImage(image: self.imagePlayer)
                 })
             }
+//            self.saveImage(image: self.imagePlayer)
         }
     }
+
+    func saveImage(image: UIImage) {
+        dataStorage.changeUserImage(image: image)
+        dataStorage.saveUserImage()
+        dataStorage.loadUserImage()
+    }
+//    ws.send(DataWrapper(playerID: UUID(), contentType: .imageToServer, content: image?.pngData() ?? Data()))
 }
