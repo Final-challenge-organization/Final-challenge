@@ -12,6 +12,9 @@ class GKPlayerViewModel: ObservableObject {
     private var localPlayer: GKLocalPlayer = GKLocalPlayer()
     @Published var isAutenticated: Bool = false
     @Published var username: String = "Desconhecido"
+    @Published var imagePlayer: UIImage = UIImage()
+
+    private let dataStorage = DataStorage()
 
     func authentication() {
         if !isAutenticated {
@@ -24,9 +27,12 @@ class GKPlayerViewModel: ObservableObject {
                 self.localPlayer = localPlayer
                 self.isAutenticated = localPlayer.isAuthenticated
                 self.username = localPlayer.alias
-            
+                self.dataStorage.changeUserName(username: self.username)
+                self.dataStorage.saveUserName()
+                localPlayer.loadPhoto(for: GKPlayer.PhotoSize.normal, withCompletionHandler: { image, error in
+                    self.imagePlayer = image ?? UIImage(named: "profile")!
+                })
             }
         }
-
     }
 }

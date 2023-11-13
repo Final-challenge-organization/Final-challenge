@@ -64,6 +64,7 @@ struct PersonasView: View {
                     ForEach(cards, id: \.id) {
                         card in
                         BackCardView()
+                            .border(isYourTurn ? .green : .clear, width: 2)
                             .frame(width: 55, height: 115)
                     }
                     .transition(.move(edge: .top))
@@ -109,6 +110,7 @@ struct PersonasView: View {
                     ForEach(cards, id: \.id) {
                         card in
                         BackCardView()
+                            .border(isYourTurn ? .green : .clear, width: 2)
                             .frame(width: 55, height: 115)
                     }
                     .transition(.move(edge: .top))
@@ -172,6 +174,7 @@ struct PersonasView: View {
                     ForEach(cards, id: \.id) {
                         card in
                         BackCardView()
+                            .border(isYourTurn ? .green : .clear, width: 2)
                             .frame(width: 55, height: 115)
                     }
                     .transition(.move(edge: .bottom))
@@ -214,14 +217,6 @@ struct PersonasView: View {
                 VStack {
                     Text(namePerson.description)
                         .padding(3.8)
-                    Circle()
-                        .strokeBorder(isYourTurn ? .green : .clear, lineWidth: 2)
-                        .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))
-                        .frame(width: 30, height: 30)
-                        .overlay {
-                            Text("\(lifePerson)")
-                                .bold()
-                        }
                 }
                 .offset(x: 0, y: -75)
                 HStack(spacing: -35) {
@@ -240,34 +235,34 @@ struct PersonasView: View {
     }
 }
 
-//struct PersonasView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let namePerson: String = "Sarinha"
-//        let lifePerson = 30
-//        let index = 0
-//        @State var cards: [Card] = [
-//            Card(id: 1234,
-//                 name: "Teste1",
-//                 type: .action(.damage), imageName: <#String#>,
-//                 damage: 5,
-//                 effect: "TESTANDO",
-//                 description: "testando"),
-//            Card(id: 34343,
-//                 name: "Teste2",
-//                 type: .action(.damage),
-//                 damage: 2,
-//                 effect: "TESTANDO",
-//                 description: "testando"),
-//            Card(id: 243342,
-//                 name: "Teste3",
-//                 type: .reaction,
-//                 damage: 1,
-//                 effect: "TESTANDO",
-//                 description: "testando")
-//        ]
-//        PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index)
-//    }
-//}
+struct PersonasView_Previews: PreviewProvider {
+    static var previews: some View {
+        let namePerson: String = "Sarinha"
+        let lifePerson = 30
+        let index = 0
+        @State var cards: [Card] = [
+            Card(id: 1234,
+                 name: "Teste1",
+                 imageName: "olharDeCiclope", type: .action(.damage),
+                 damage: 5,
+                 effect: "TESTANDO",
+                 description: "testando"),
+            Card(id: 34343,
+                 name: "Teste2",
+                 imageName: "olharDeCiclope", type: .action(.damage),
+                 damage: 2,
+                 effect: "TESTANDO",
+                 description: "testando"),
+            Card(id: 243342,
+                 name: "Teste3",
+                 imageName: "escudoDeJustica", type: .reaction,
+                 damage: 1,
+                 effect: "TESTANDO",
+                 description: "testando")
+        ]
+        PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index, isYourTurn: (1 != 0))
+    }
+}
 
 protocol MaybeGameViewPersonaViewDelegate {
     func updatePersonaViewLife(with life: String)
