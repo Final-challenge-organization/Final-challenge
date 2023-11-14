@@ -34,7 +34,6 @@ class GKPlayerViewModel: ObservableObject {
                     self.saveImage(image: self.imagePlayer)
                 })
             }
-//            self.saveImage(image: self.imagePlayer)
         }
     }
 
@@ -43,5 +42,4 @@ class GKPlayerViewModel: ObservableObject {
         dataStorage.saveUserImage()
         dataStorage.loadUserImage()
     }
-//    ws.send(DataWrapper(playerID: UUID(), contentType: .imageToServer, content: image?.pngData() ?? Data()))
 }

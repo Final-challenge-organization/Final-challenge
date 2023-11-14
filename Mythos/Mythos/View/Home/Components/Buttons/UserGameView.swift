@@ -17,7 +17,6 @@ struct UserGameView: View {
     var body: some View {
         ZStack {
             HStack(spacing: 0) {
-                //                Image(uiImage: vm.imagePlayer)
                 Image(uiImage: dataStorage.getUserImage())
                     .resizable()
                     .frame(width: 58, height: 58)
