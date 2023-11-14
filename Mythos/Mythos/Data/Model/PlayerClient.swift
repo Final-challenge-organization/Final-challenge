@@ -15,10 +15,10 @@ struct PlayerClient: Codable, Datable, Equatable {
     var isYourTurn: Bool
     var isReaction: Bool
     var handCards: [Card]
+    let image: Data
 
     func toData() -> Data {
         try! JSONEncoder().encode(self)
     }
 }
-
 

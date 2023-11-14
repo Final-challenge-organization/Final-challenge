@@ -16,8 +16,6 @@ struct UserCardsView: View {
 
     var body: some View {
         ZStack {
-            Image("deck_comprar")
-                .offset(x: -250, y: 110)
             HStack(spacing: -50) {
                 Spacer()
                 ForEach(Array(websocket.myPlayerReference.handCards.enumerated()), id: \.element.uuid) { (index , card) in

@@ -41,6 +41,10 @@ class DataStorage {
         return userName
     }
 
+    func getUserImageData() -> Data {
+        return userImage.jpegData(compressionQuality: 0.01)!
+    }
+
     func getUserImage() -> UIImage {
         loadUserImage()
         return userImage
