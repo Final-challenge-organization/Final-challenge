@@ -100,13 +100,13 @@ struct PersonasView: View {
                         .overlay {
                             Circle()
                                 .strokeBorder(isYourTurn ? .green : .clear, lineWidth: 4)
-                                .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: -30, height: -30)
+                                .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: 30, height: 30)
                                 .overlay {
                                     Text("\(lifePerson)")
                                         .foregroundColor(.yellow)
                                         .bold()
                                 }
-                                .offset(x: -25, y:25)
+                                .offset(x: 25, y: -25)
                         }
                     Triangle()
                         .fill(Color(red: 9/255, green: 24/255, blue: 63/255))
