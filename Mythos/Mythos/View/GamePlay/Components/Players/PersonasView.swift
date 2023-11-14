@@ -35,11 +35,7 @@ struct PersonasView: View {
         //MARK: - LEFT LOCATION
         if index == 1 {
             VStack(spacing: 10) {
-                HStack (spacing: -3){
-                    Triangle()
-                        .fill(Color(red: 9/255, green: 24/255, blue: 63/255))
-                        .frame(width: 25, height: 10)
-                        .rotationEffect(Angle(degrees:270))
+                VStack (spacing: 5){
                     Image(uiImage: UIImage(data: image) ?? UIImage())
                         .resizable()
                         .cornerRadius(10)
@@ -61,8 +57,12 @@ struct PersonasView: View {
                                         .foregroundColor(.yellow)
                                         .bold()
                                 }
-                                .offset(x: 25, y:25)
+                                .offset(x: -25, y: -25)
                         }
+                    Triangle()
+                        .fill(Color(red: 9/255, green: 24/255, blue: 63/255))
+                        .frame(width: 25, height: 10)
+                        .rotationEffect(Angle(degrees:180))
                 }
                 HStack(spacing: -35) {
                     Spacer()
@@ -84,7 +84,7 @@ struct PersonasView: View {
         //MARK: - RIGHT LOCATION
         if index == 3 {
             VStack(spacing: 10) {
-                HStack (spacing: -3) {
+                VStack (spacing: 5) {
                     Image(uiImage: UIImage(data: image) ?? UIImage())
                         .resizable()
                         .cornerRadius(10)
@@ -100,7 +100,7 @@ struct PersonasView: View {
                         .overlay {
                             Circle()
                                 .strokeBorder(isYourTurn ? .green : .clear, lineWidth: 4)
-                                .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: 30, height: 30)
+                                .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: -30, height: -30)
                                 .overlay {
                                     Text("\(lifePerson)")
                                         .foregroundColor(.yellow)
@@ -111,7 +111,7 @@ struct PersonasView: View {
                     Triangle()
                         .fill(Color(red: 9/255, green: 24/255, blue: 63/255))
                         .frame(width: 25, height: 10)
-                        .rotationEffect(Angle(degrees:90))
+                        .rotationEffect(Angle(degrees:180))
                 }
                 HStack(spacing: -35) {
                     Spacer()
@@ -250,110 +250,111 @@ struct PersonasView: View {
     }
 }
 
-//struct PersonasView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let namePerson: String = "Charlingtonglaevionbeecheknavare dos Anjos Mendonça "
-//        let lifePerson = 30
-//        Group {
-//            let index = 0
-//            @State var cards: [Card] = [
-//                Card(id: 1234,
-//                     name: "Teste1",
-//                     imageName: "olharDeCiclope", type: .action(.damage),
-//                     damage: 5,
-//                     effect: "TESTANDO",
-//                     description: "testando"),
-//                Card(id: 34343,
-//                     name: "Teste2",
-//                     imageName: "olharDeCiclope", type: .action(.damage),
-//                     damage: 2,
-//                     effect: "TESTANDO",
-//                     description: "testando"),
-//                Card(id: 243342,
-//                     name: "Teste3",
-//                     imageName: "escudoDeJustica", type: .reaction,
-//                     damage: 1,
-//                     effect: "TESTANDO",
-//                     description: "testando")
-//            ]
-//            PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index, isYourTurn: (1 != 0))
-//        }
-//        .previewDisplayName("USER LOCATION")
-//        Group {
-//            let index = 1
-//            @State var cards: [Card] = [
-//                Card(id: 1234,
-//                     name: "Teste1",
-//                     imageName: "olharDeCiclope", type: .action(.damage),
-//                     damage: 5,
-//                     effect: "TESTANDO",
-//                     description: "testando"),
-//                Card(id: 34343,
-//                     name: "Teste2",
-//                     imageName: "olharDeCiclope", type: .action(.damage),
-//                     damage: 2,
-//                     effect: "TESTANDO",
-//                     description: "testando"),
-//                Card(id: 243342,
-//                     name: "Teste3",
-//                     imageName: "escudoDeJustica", type: .reaction,
-//                     damage: 1,
-//                     effect: "TESTANDO",
-//                     description: "testando")
-//            ]
-//            PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index, isYourTurn: (1 != 0))
-//        }.previewDisplayName("LEFT LOCATION")
-//        Group {
-//            let index = 2
-//            @State var cards: [Card] = [
-//                Card(id: 1234,
-//                     name: "Teste1",
-//                     imageName: "olharDeCiclope", type: .action(.damage),
-//                     damage: 5,
-//                     effect: "TESTANDO",
-//                     description: "testando"),
-//                Card(id: 34343,
-//                     name: "Teste2",
-//                     imageName: "olharDeCiclope", type: .action(.damage),
-//                     damage: 2,
-//                     effect: "TESTANDO",
-//                     description: "testando"),
-//                Card(id: 243342,
-//                     name: "Teste3",
-//                     imageName: "escudoDeJustica", type: .reaction,
-//                     damage: 1,
-//                     effect: "TESTANDO",
-//                     description: "testando")
-//            ]
-//            PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index, isYourTurn: (1 != 0))
-//        }.previewDisplayName("TOP LOCATION")
-//        Group {
-//            let index = 3
-//            @State var cards: [Card] = [
-//                Card(id: 1234,
-//                     name: "Teste1",
-//                     imageName: "olharDeCiclope", type: .action(.damage),
-//                     damage: 5,
-//                     effect: "TESTANDO",
-//                     description: "testando"),
-//                Card(id: 34343,
-//                     name: "Teste2",
-//                     imageName: "olharDeCiclope", type: .action(.damage),
-//                     damage: 2,
-//                     effect: "TESTANDO",
-//                     description: "testando"),
-//                Card(id: 243342,
-//                     name: "Teste3",
-//                     imageName: "escudoDeJustica", type: .reaction,
-//                     damage: 1,
-//                     effect: "TESTANDO",
-//                     description: "testando")
-//            ]
-//            PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index, isYourTurn: (1 != 0))
-//        }.previewDisplayName("RIGHT LOCATION")
-//    }
-//}
-//
+struct PersonasView_Previews: PreviewProvider {
+    static var previews: some View {
+        let namePerson: String = "Charlingtonglaevionbeecheknavare dos Anjos Mendonça "
+        let lifePerson = 30
+        let image = "sara"
+        Group {
+            let index = 0
+            @State var cards: [Card] = [
+                Card(id: 1234,
+                     name: "Teste1",
+                     imageName: "olharDeCiclope", type: .action(.damage),
+                     damage: 5,
+                     effect: "TESTANDO",
+                     description: "testando"),
+                Card(id: 34343,
+                     name: "Teste2",
+                     imageName: "olharDeCiclope", type: .action(.damage),
+                     damage: 2,
+                     effect: "TESTANDO",
+                     description: "testando"),
+                Card(id: 243342,
+                     name: "Teste3",
+                     imageName: "escudoDeJustica", type: .reaction,
+                     damage: 1,
+                     effect: "TESTANDO",
+                     description: "testando")
+            ]
+            PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index, isYourTurn: (1 != 0), image: UIImage(named: image)!.pngData()!)
+        }
+        .previewDisplayName("USER LOCATION")
+        Group {
+            let index = 1
+            @State var cards: [Card] = [
+                Card(id: 1234,
+                     name: "Teste1",
+                     imageName: "olharDeCiclope", type: .action(.damage),
+                     damage: 5,
+                     effect: "TESTANDO",
+                     description: "testando"),
+                Card(id: 34343,
+                     name: "Teste2",
+                     imageName: "olharDeCiclope", type: .action(.damage),
+                     damage: 2,
+                     effect: "TESTANDO",
+                     description: "testando"),
+                Card(id: 243342,
+                     name: "Teste3",
+                     imageName: "escudoDeJustica", type: .reaction,
+                     damage: 1,
+                     effect: "TESTANDO",
+                     description: "testando")
+            ]
+            PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index, isYourTurn: (1 != 0), image: UIImage(named: image)!.pngData()!)
+        }.previewDisplayName("LEFT LOCATION")
+        Group {
+            let index = 2
+            @State var cards: [Card] = [
+                Card(id: 1234,
+                     name: "Teste1",
+                     imageName: "olharDeCiclope", type: .action(.damage),
+                     damage: 5,
+                     effect: "TESTANDO",
+                     description: "testando"),
+                Card(id: 34343,
+                     name: "Teste2",
+                     imageName: "olharDeCiclope", type: .action(.damage),
+                     damage: 2,
+                     effect: "TESTANDO",
+                     description: "testando"),
+                Card(id: 243342,
+                     name: "Teste3",
+                     imageName: "escudoDeJustica", type: .reaction,
+                     damage: 1,
+                     effect: "TESTANDO",
+                     description: "testando")
+            ]
+            PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index, isYourTurn: (1 != 0), image: UIImage(named: image)!.pngData()!)
+        }.previewDisplayName("TOP LOCATION")
+        Group {
+            let index = 3
+            @State var cards: [Card] = [
+                Card(id: 1234,
+                     name: "Teste1",
+                     imageName: "olharDeCiclope", type: .action(.damage),
+                     damage: 5,
+                     effect: "TESTANDO",
+                     description: "testando"),
+                Card(id: 34343,
+                     name: "Teste2",
+                     imageName: "olharDeCiclope", type: .action(.damage),
+                     damage: 2,
+                     effect: "TESTANDO",
+                     description: "testando"),
+                Card(id: 243342,
+                     name: "Teste3",
+                     imageName: "escudoDeJustica", type: .reaction,
+                     damage: 1,
+                     effect: "TESTANDO",
+                     description: "testando")
+            ]
+            PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index, isYourTurn: (1 != 0), image: UIImage(named: image)!.pngData()!)
+        }.previewDisplayName("RIGHT LOCATION")
+    }
+}
+
 protocol MaybeGameViewPersonaViewDelegate {
     func updatePersonaViewLife(with life: String)
 }
