@@ -31,7 +31,8 @@
 		4F642BC62AE6DD7600A4B680 /* CaesarDressing-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F642BC32AE6DD7600A4B680 /* CaesarDressing-Regular.ttf */; };
 		4FBC46F82AD43C4400BB1CE1 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBC46F72AD43C4400BB1CE1 /* Fonts.swift */; };
 		4FBE72A32AB1DF25002165FB /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE72A22AB1DF25002165FB /* Protocols.swift */; };
-		4FF895B62ACED14500F50DA4 /* MaybeGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */; };
+		4FDC7D5A2B039DC400F40465 /* CardStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDC7D592B039DC400F40465 /* CardStackView.swift */; };
+		4FF895B62ACED14500F50DA4 /* GameViewSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF895B52ACED14500F50DA4 /* GameViewSwiftUI.swift */; };
 		4FF895B82ACED16E00F50DA4 /* CardRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF895B72ACED16E00F50DA4 /* CardRepresentable.swift */; };
 		645319EC2ADD7639007FB0AC /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645319EB2ADD7639007FB0AC /* PopUpView.swift */; };
 		64C04C102AD436BD00894EF9 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C04C0F2AD436BD00894EF9 /* PlayerView.swift */; };
@@ -110,7 +111,8 @@
 		4FBC46F62AD43BF000BB1CE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4FBC46F72AD43C4400BB1CE1 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		4FBE72A22AB1DF25002165FB /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaybeGameView.swift; sourceTree = "<group>"; };
+		4FDC7D592B039DC400F40465 /* CardStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStackView.swift; sourceTree = "<group>"; };
+		4FF895B52ACED14500F50DA4 /* GameViewSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewSwiftUI.swift; sourceTree = "<group>"; };
 		4FF895B72ACED16E00F50DA4 /* CardRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepresentable.swift; sourceTree = "<group>"; };
 		645319EB2ADD7639007FB0AC /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		64C04C0F2AD436BD00894EF9 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		459585C32AA610A20039C908 = {
 			isa = PBXGroup;
 			children = (
+				4FDC7D592B039DC400F40465 /* CardStackView.swift */,
 				459585CE2AA610A20039C908 /* Mythos */,
 				459585DF2AA610A30039C908 /* MythosTests */,
 				459585E92AA610A30039C908 /* MythosUITests */,
@@ -318,7 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				459585F92AA6143C0039C908 /* GameView.swift */,
-				4FF895B52ACED14500F50DA4 /* MaybeGameView.swift */,
+				4FF895B52ACED14500F50DA4 /* GameViewSwiftUI.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -654,7 +657,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# /Users/narelylima/Documents/Build/./build4\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# /Users/luizsena/Desktop/./build4\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -673,6 +676,7 @@
 				DD84A46A2ADEC8A300BD0801 /* WebSocketProtocol.swift in Sources */,
 				DD6D18742AB8898E004B02AA /* CoinsView.swift in Sources */,
 				DD6D186F2AB88506004B02AA /* InventoryButtonView.swift in Sources */,
+				4FDC7D5A2B039DC400F40465 /* CardStackView.swift in Sources */,
 				64FFCE762AA76B010090566B /* Card.swift in Sources */,
 				DD0B380E2AEC3C42007513AD /* CardViewModel.swift in Sources */,
 				DD6D18782AB88A8D004B02AA /* StoreButtonView.swift in Sources */,
@@ -710,7 +714,7 @@
 				DD57DF862AD428D3009B9272 /* ButtonConnect.swift in Sources */,
 				64D8FB162AFBCD7300D75468 /* LoadingView.swift in Sources */,
 				DD6D18AC2ABDBF37004B02AA /* BackButtonView.swift in Sources */,
-				4FF895B62ACED14500F50DA4 /* MaybeGameView.swift in Sources */,
+				4FF895B62ACED14500F50DA4 /* GameViewSwiftUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

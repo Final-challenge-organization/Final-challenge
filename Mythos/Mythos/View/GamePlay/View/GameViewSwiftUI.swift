@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreHaptics
 
-struct MaybeGameView: View {
+struct GameViewSwiftUI: View {
     @EnvironmentObject var websocket: WebSocket
     @StateObject private var cardVM = CardViewModel()
 
@@ -25,6 +25,9 @@ struct MaybeGameView: View {
             Image("campo")
                 .resizable()
                 .ignoresSafeArea()
+//            KillDeckView(card: websocket.cardsPlayed.last!, killDecktapped: .constant(false))
+            CardStackView(card: websocket.cardsPlayed.last)
+                .frame(width: 100, height: 140)
             VStack {
                 Spacer()
                 PlayerLayoutView(cardVM: cardVM)
