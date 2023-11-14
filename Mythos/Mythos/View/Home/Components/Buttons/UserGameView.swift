@@ -12,10 +12,12 @@ struct UserGameView: View {
 
     @ObservedObject var vm: GKPlayerViewModel
 
+    private let dataStorage = DataStorage()
+
     var body: some View {
         ZStack {
             HStack(spacing: 0) {
-                Image(uiImage: vm.imagePlayer)
+                Image(uiImage: dataStorage.getUserImage())
                     .resizable()
                     .frame(width: 58, height: 58)
                     .scaledToFit()

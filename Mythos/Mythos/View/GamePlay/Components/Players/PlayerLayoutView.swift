@@ -35,12 +35,12 @@ struct PlayerLayoutView: View {
         let lastPlayer = players[lastPlayerIndex]
 
         var viewPersonas: some View {
-            VStack {
+            VStack(alignment: .center) {
                 PersonasView(cards: thirdPlayer.handCards,
                              namePerson: thirdPlayer.name,
                              lifePerson: (thirdPlayer.life <= 0) ? 0 : thirdPlayer.life,
                              index: (players.count < 3) ? 5 : 2,
-                             isYourTurn: thirdPlayer.isYourTurn
+                             isYourTurn: thirdPlayer.isYourTurn, image: thirdPlayer.image
                              )
 
                 HStack {
@@ -48,13 +48,13 @@ struct PlayerLayoutView: View {
                                  namePerson: secondPlayer.name,
                                  lifePerson: (secondPlayer.life <= 0) ? 0 : secondPlayer.life,
                                  index: (players.count < 2) ? 5 : 1,
-                                 isYourTurn: secondPlayer.isYourTurn)
+                                 isYourTurn: secondPlayer.isYourTurn, image: secondPlayer.image)
                     Spacer()
 
                     PersonasView(cards: lastPlayer.handCards, namePerson: lastPlayer.name,
                                  lifePerson: (lastPlayer.life <= 0) ? 0 : lastPlayer.life,
                                  index: (players.count < 4) ? 5 : 3,
-                                 isYourTurn: lastPlayer.isYourTurn)
+                                 isYourTurn: lastPlayer.isYourTurn, image: lastPlayer.image)
 
                 }
                 .overlay {
@@ -76,7 +76,7 @@ struct PlayerLayoutView: View {
                              namePerson: firstPlayer.name,
                              lifePerson: (firstPlayer.life <= 0) ? 0 : firstPlayer.life,
                              index: 0,
-                             isYourTurn: firstPlayer.isYourTurn)
+                             isYourTurn: firstPlayer.isYourTurn, image: firstPlayer.image)
             }
         }
         return viewPersonas
