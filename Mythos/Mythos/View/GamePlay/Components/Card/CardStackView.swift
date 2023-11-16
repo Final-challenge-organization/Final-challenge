@@ -9,13 +9,14 @@ import SwiftUI
 
 struct CardStackView: View {
     let card: Card?
+    @Binding var tapped: Bool
     var body: some View {
         RoundedRectangle(cornerRadius: 12)
             .stroke(style: .init(lineWidth: 3, dash: [10]))
             .overlay {
                 if let card = card {
                     CardRepresentable(card: card) {
-                        print()
+                        tapped = true
                     }
                 }
             }
@@ -25,9 +26,9 @@ struct CardStackView: View {
 
 struct CardStackView_Previews: PreviewProvider {
     static var previews: some View {
-        CardStackView(card: Card(id: 0, name: "opa", imageName: "sandaliaAladas", type: .reaction, damage: 0, effect: "AAA", description: "AAAAAAA"))
+        CardStackView(card: Card(id: 0, name: "opa", imageName: "sandaliaAladas", type: .reaction, damage: 0, effect: "AAA", description: "AAAAAAA"), tapped: .constant(false))
             .previewDisplayName("with card")
-        CardStackView(card: nil)
+        CardStackView(card: nil, tapped: .constant(false))
             .previewDisplayName("nil value of card")
     }
 }

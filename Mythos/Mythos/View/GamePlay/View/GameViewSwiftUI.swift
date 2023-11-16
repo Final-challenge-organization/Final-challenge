@@ -26,7 +26,7 @@ struct GameViewSwiftUI: View {
                 .resizable()
                 .ignoresSafeArea()
             GeometryReader { proxy in
-                CardStackView(card: websocket.cardsPlayed.last)
+                CardStackView(card: websocket.cardsPlayed.last, tapped: $cardVM.killTapped)
                     .frame(width: 100, height: 140)
                     .background {
                         Image("playCardsBackground")
