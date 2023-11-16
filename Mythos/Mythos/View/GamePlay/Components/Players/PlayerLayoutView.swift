@@ -57,21 +57,21 @@ struct PlayerLayoutView: View {
                                  isYourTurn: lastPlayer.isYourTurn, image: lastPlayer.image)
 
                 }
-                .overlay {
-                    if (websocket.cardsPlayed.last != nil) {
-                        Button {
-                            withAnimation {
-                                cardVM.killTapped.toggle()
-                                cardVM.isTapped = false
-                            }
-                        } label: {
-                            KillDeckView(card: websocket.cardsPlayed.last!, killDecktapped: $cardVM.killTapped)
-                                .frame(width: 744/9, height: 1039/9)
-                                .offset(x: cardVM.killTapped ? 110 : 0, y:0)
-                                .opacity(cardVM.killTapped ? 0 : 1)
-                        }
-                    }
-                }
+//                .overlay {
+//                    if (websocket.cardsPlayed.last != nil) {
+//                        Button {
+//                            withAnimation {
+//                                cardVM.killTapped.toggle()
+//                                cardVM.isTapped = false
+//                            }
+//                        } label: {
+//                            KillDeckView(card: websocket.cardsPlayed.last!, killDecktapped: $cardVM.killTapped)
+//                                .frame(width: 744/9, height: 1039/9)
+//                                .offset(x: cardVM.killTapped ? 110 : 0, y:0)
+//                                .opacity(cardVM.killTapped ? 0 : 1)
+//                        }
+//                    }
+//                }
                 PersonasView(cards: firstPlayer.handCards,
                              namePerson: firstPlayer.name,
                              lifePerson: (firstPlayer.life <= 0) ? 0 : firstPlayer.life,

@@ -174,6 +174,8 @@ class WebSocket: ObservableObject, WebSocketProtocol {
                             }
                         }
                         print(decodedData.contentType)
+                    case .imageToClient:
+                        print(decodedData.contentType)
                     default:
                         print("default")
                     }
