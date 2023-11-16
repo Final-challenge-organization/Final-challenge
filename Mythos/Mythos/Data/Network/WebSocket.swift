@@ -76,10 +76,12 @@ class WebSocket: ObservableObject, WebSocketProtocol {
         receiveMessage()
         let dataStorage = DataStorage()
         dataStorage.loadUserName()
+        dataStorage.loadUserImage()
         let playerName = dataStorage.getUserName()
+        let playerImage = dataStorage.getUserImageData()
 
         self.sendData(DataWrapper(playerID: UUID(), contentType: .sendUserNameToServer, content: playerName.toData()))
-        self.sendData(DataWrapper(playerID: UUID(), contentType: .imageToServer, content: Data()))
+        self.sendData(DataWrapper(playerID: UUID(), contentType: .imageToServer, content: playerImage))
     }
 
     // é preciso melhorar essa funcao a cargo de quando houver disconnect ele nao continuar de forma recursiva

@@ -16,8 +16,6 @@ struct UserCardsView: View {
 
     var body: some View {
         ZStack {
-            Image("deck_comprar")
-                .offset(x: -250, y: 110)
             HStack(spacing: -50) {
                 Spacer()
                 ForEach(Array(websocket.myPlayerReference.handCards.enumerated()), id: \.element.uuid) { (index , card) in
@@ -52,10 +50,7 @@ struct UserCardsView: View {
             .ignoresSafeArea()
             
             if websocket.turnPlayer == "Seu Turno" && isShowingYourTurn {
-                Text("Sua vez!!")
-                    .font(.largeTitle)
-                    .opacity(1)
-                    .animation(.easeInOut(duration: 1))
+                TurnIndicatorView()
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                             withAnimation {
@@ -64,7 +59,7 @@ struct UserCardsView: View {
                         }
                     }
             } else if websocket.turnPlayer != "Seu Turno" {
-               Text("")
+                Text("")
                     .font(.largeTitle)
                     .opacity(1)
                     .animation(.easeInOut(duration: 1))
