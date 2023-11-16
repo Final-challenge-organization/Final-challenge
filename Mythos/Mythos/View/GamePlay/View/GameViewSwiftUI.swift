@@ -39,14 +39,11 @@ struct GameViewSwiftUI: View {
                         cardVM.graveyardPosition = CGPoint(x: proxy.size.width/2, y: proxy.size.height/2)
                     }
             }
+
+            UserCardsView(cardVM: cardVM)
             VStack {
                 Spacer()
                 PlayerLayoutView(cardVM: cardVM)
-            }
-            .overlay {
-                HStack {
-                    UserCardsView(cardVM: cardVM)
-                }
             }
             .onChange(of: websocket.isGameOver) { newValue in
                 showAlertLost = true

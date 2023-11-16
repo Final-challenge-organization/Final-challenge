@@ -35,7 +35,7 @@ struct UserGameView: View {
                     )
             }
         }
-        .border(Color(red: 84/255, green: 46/255, blue: 15/255), width: 2)
+        .border(Color(red: 84/255, green: 46/255, blue: 15/255).opacity(0.35), width: 2)
     }
 }
 

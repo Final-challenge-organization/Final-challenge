@@ -88,6 +88,12 @@ struct UserCardsView: View {
                 }
             }
             .animation(.easeInOut, value: websocket.myPlayerReference.handCards.count)
+            .onAppear {
+                cardVM.baseCardLocation = CGPoint(x: proxy.size.width/2, y: proxy.size.height/1.25)
+                for i in 0...(cardVM.cardLocations.count-1) {
+                    cardVM.cardLocations[i] = CGPoint(x: proxy.size.width/2, y: proxy.size.height/1.25)
+                }
+            }
             .onChange(of: proxy.size) { newValue in
                 cardVM.baseCardLocation = CGPoint(x: newValue.width/2, y: newValue.height/1.25)
                 for i in 0...(cardVM.cardLocations.count-1) {
