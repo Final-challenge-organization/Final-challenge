@@ -25,9 +25,20 @@ struct GameViewSwiftUI: View {
             Image("campo")
                 .resizable()
                 .ignoresSafeArea()
-//            KillDeckView(card: websocket.cardsPlayed.last!, killDecktapped: .constant(false))
-            CardStackView(card: websocket.cardsPlayed.last)
-                .frame(width: 100, height: 140)
+            GeometryReader { proxy in
+                CardStackView(card: websocket.cardsPlayed.last)
+                    .frame(width: 100, height: 140)
+                    .background {
+                        Image("playCardsBackground")
+                            .resizable()
+                            .frame(width: 100, height: 140)
+                            .scaledToFill()
+                    }
+                    .position(x: proxy.size.width/2, y: proxy.size.height/2)
+                    .onAppear {
+                        cardVM.graveyardPosition = CGPoint(x: proxy.size.width/2, y: proxy.size.height/2)
+                    }
+            }
             VStack {
                 Spacer()
                 PlayerLayoutView(cardVM: cardVM)
@@ -70,10 +81,10 @@ struct GameViewSwiftUI: View {
                         }
                     }
             }
-            //MARK: - Botão jogar cartas
-            if websocket.myPlayerReference.isYourTurn {
-                SendCardButtonView(cardVM: cardVM)
-            }
+//            //MARK: - Botão jogar cartas
+//            if websocket.myPlayerReference.isYourTurn {
+//                SendCardButtonView(cardVM: cardVM)
+//            }
             //MARK: - Clique da Carta Cemitério
             if cardVM.killTapped == true {
                 CardHighlightsView(cardVM: cardVM, offSetValuex: 130, offSetValuey: 0, card: websocket.cardsPlayed.last!)

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		452CD7562AE21A8D00F4B9C4 /* KillDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452CD7552AE21A8D00F4B9C4 /* KillDeckView.swift */; };
 		45414F5E2AFA66E4008D0F22 /* GameTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45414F5D2AFA66E4008D0F22 /* GameTutorial.swift */; };
 		459585D02AA610A20039C908 /* MythosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585CF2AA610A20039C908 /* MythosApp.swift */; };
 		459585D42AA610A30039C908 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459585D32AA610A30039C908 /* Assets.xcassets */; };
@@ -90,7 +89,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		452CD7552AE21A8D00F4B9C4 /* KillDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KillDeckView.swift; sourceTree = "<group>"; };
 		45414F5D2AFA66E4008D0F22 /* GameTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTutorial.swift; sourceTree = "<group>"; };
 		459585CC2AA610A20039C908 /* Mythos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mythos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		459585CF2AA610A20039C908 /* MythosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythosApp.swift; sourceTree = "<group>"; };
@@ -189,7 +187,6 @@
 		459585C32AA610A20039C908 = {
 			isa = PBXGroup;
 			children = (
-				4FDC7D592B039DC400F40465 /* CardStackView.swift */,
 				459585CE2AA610A20039C908 /* Mythos */,
 				459585DF2AA610A30039C908 /* MythosTests */,
 				459585E92AA610A30039C908 /* MythosUITests */,
@@ -249,7 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				4FF895B72ACED16E00F50DA4 /* CardRepresentable.swift */,
-				452CD7552AE21A8D00F4B9C4 /* KillDeckView.swift */,
+				4FDC7D592B039DC400F40465 /* CardStackView.swift */,
 				DD84A4652ADEB7ED00BD0801 /* BackCardView.swift */,
 				DD0B37FF2AE808EF007513AD /* CardFocusedView.swift */,
 				DD0B38092AEC3818007513AD /* UserCardsView.swift */,
@@ -668,7 +665,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# /Users/luizsena/Desktop/./build4\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#/Users/luizsena/Desktop/./build4\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -700,7 +697,6 @@
 				64D8FB142AFBC93500D75468 /* GKPlayerViewModel.swift in Sources */,
 				DD0B38112AEC4152007513AD /* CardHighlightsView.swift in Sources */,
 				45BCB8082AD5DF2200A11F6E /* PersonasView.swift in Sources */,
-				452CD7562AE21A8D00F4B9C4 /* KillDeckView.swift in Sources */,
 				DD6D18AE2ABDBF93004B02AA /* ConnectedPlayersView.swift in Sources */,
 				64FFCE722AA74C5F0090566B /* WebSocket.swift in Sources */,
 				64D788FC2AB484CC00394078 /* CardNode.swift in Sources */,

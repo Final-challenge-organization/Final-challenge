@@ -10,8 +10,8 @@ import SwiftUI
 struct CardStackView: View {
     let card: Card?
     var body: some View {
-        RoundedRectangle(cornerRadius: 0)
-            .stroke(style: .init(lineWidth: 5))
+        RoundedRectangle(cornerRadius: 12)
+            .stroke(style: .init(lineWidth: 3, dash: [10]))
             .overlay {
                 if let card = card {
                     CardRepresentable(card: card) {
@@ -19,7 +19,7 @@ struct CardStackView: View {
                     }
                 }
             }
-            .rotationEffect(.degrees(90))
+//            .rotationEffect(.degrees(90))
     }
 }
 

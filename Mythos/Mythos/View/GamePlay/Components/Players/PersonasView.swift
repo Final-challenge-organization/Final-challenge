@@ -165,7 +165,7 @@ struct PersonasView: View {
                             }
                     }
                 }
-                .offset(x: 180, y: 30)
+                .offset(x: 180)
                 HStack(spacing: -35) {
                     Spacer()
                     ForEach(cards, id: \.id) {
