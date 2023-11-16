@@ -22,7 +22,10 @@ struct CardHighlightsView: View {
                 .opacity(0.5)
                 .ignoresSafeArea()
                 .onTapGesture {
-                    cardVM.killTapped = false
+                    withAnimation {
+                        cardVM.killTapped = false
+                        cardVM.isTapped = false
+                    }
                 }
             CardFocusedView(card: card, isTapped: $cardVM.killTapped)
                 .frame(width: 744/3.5, height: 1039/3.5)

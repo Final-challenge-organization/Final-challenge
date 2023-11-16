@@ -16,7 +16,9 @@ struct CardStackView: View {
             .overlay {
                 if let card = card {
                     CardRepresentable(card: card) {
-                        tapped = true
+                        withAnimation {
+                            tapped = true
+                        }
                     }
                 }
             }

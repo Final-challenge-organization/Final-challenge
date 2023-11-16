@@ -19,16 +19,9 @@ struct UserCardsView: View {
             ZStack {
                 ForEach(Array(websocket.myPlayerReference.handCards.enumerated()), id: \.element.uuid) { (index , card) in
                     CardRepresentable(isYourTurn: websocket.myPlayerReference.isYourTurn, isReaction: websocket.myPlayerReference.isReaction, card: card) {
-                        if self.cardVM.isTapped {
-                            withAnimation {
-                                self.cardVM.isTapped.toggle()
-                                self.cardVM.killTapped = false
-                            }
-                        }
-                        self.cardVM.cardSelected = card
+                        cardVM.cardSelected = card
                         withAnimation {
-                            self.cardVM.isTapped.toggle()
-                            self.cardVM.killTapped = false
+                            cardVM.isTapped = true
                         }
                     }
                     .frame(width: 744/7, height: 1039/7)
