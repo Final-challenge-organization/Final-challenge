@@ -13,7 +13,6 @@
 		452BD8CC2AFD0A96001868ED /* UserCardsTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BD8CB2AFD0A96001868ED /* UserCardsTutorial.swift */; };
 		452BD8CE2AFD13E9001868ED /* TutorialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BD8CD2AFD13E9001868ED /* TutorialModel.swift */; };
 		452BD8D02AFD1969001868ED /* SendButtonTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BD8CF2AFD1969001868ED /* SendButtonTutorial.swift */; };
-		452CD7562AE21A8D00F4B9C4 /* KillDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452CD7552AE21A8D00F4B9C4 /* KillDeckView.swift */; };
 		45414F5E2AFA66E4008D0F22 /* GameTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45414F5D2AFA66E4008D0F22 /* GameTutorial.swift */; };
 		4565F44A2B02EAF200F0E8AE /* DescriptionTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565F4492B02EAF200F0E8AE /* DescriptionTutorial.swift */; };
 		459585D02AA610A20039C908 /* MythosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585CF2AA610A20039C908 /* MythosApp.swift */; };
@@ -97,7 +96,6 @@
 		452BD8CB2AFD0A96001868ED /* UserCardsTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardsTutorial.swift; sourceTree = "<group>"; };
 		452BD8CD2AFD13E9001868ED /* TutorialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialModel.swift; sourceTree = "<group>"; };
 		452BD8CF2AFD1969001868ED /* SendButtonTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendButtonTutorial.swift; sourceTree = "<group>"; };
-		452CD7552AE21A8D00F4B9C4 /* KillDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KillDeckView.swift; sourceTree = "<group>"; };
 		45414F5D2AFA66E4008D0F22 /* GameTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTutorial.swift; sourceTree = "<group>"; };
 		4565F4492B02EAF200F0E8AE /* DescriptionTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTutorial.swift; sourceTree = "<group>"; };
 		459585CC2AA610A20039C908 /* Mythos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mythos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -265,7 +263,6 @@
 			isa = PBXGroup;
 			children = (
 				4FF895B72ACED16E00F50DA4 /* CardRepresentable.swift */,
-				452CD7552AE21A8D00F4B9C4 /* KillDeckView.swift */,
 				DD84A4652ADEB7ED00BD0801 /* BackCardView.swift */,
 				DD0B37FF2AE808EF007513AD /* CardFocusedView.swift */,
 				DD0B38092AEC3818007513AD /* UserCardsView.swift */,
@@ -702,7 +699,6 @@
 				DD6D187E2AB88B41004B02AA /* InventoryView.swift in Sources */,
 				DD0B38112AEC4152007513AD /* CardHighlightsView.swift in Sources */,
 				45BCB8082AD5DF2200A11F6E /* PersonasView.swift in Sources */,
-				452CD7562AE21A8D00F4B9C4 /* KillDeckView.swift in Sources */,
 				DD6D18AE2ABDBF93004B02AA /* ConnectedPlayersView.swift in Sources */,
 				64FFCE722AA74C5F0090566B /* WebSocket.swift in Sources */,
 				64D788FC2AB484CC00394078 /* CardNode.swift in Sources */,
