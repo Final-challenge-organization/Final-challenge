@@ -8,9 +8,9 @@
 import SwiftUI
 import CoreHaptics
 
-struct MaybeGameView: View {
+struct GameViewSwiftUI: View {
     @EnvironmentObject var websocket: WebSocket
-    @ObservedObject private var cardVM = CardViewModel()
+    @StateObject private var cardVM = CardViewModel()
 
     @Environment(\.dismiss) private var dismiss
 
@@ -25,14 +25,25 @@ struct MaybeGameView: View {
             Image("campo")
                 .resizable()
                 .ignoresSafeArea()
+            GeometryReader { proxy in
+                CardStackView(card: websocket.cardsPlayed.last, tapped: $cardVM.killTapped)
+                    .frame(width: 100, height: 140)
+                    .background {
+                        Image("playCardsBackground")
+                            .resizable()
+                            .frame(width: 100, height: 140)
+                            .scaledToFill()
+                    }
+                    .position(x: proxy.size.width/2, y: proxy.size.height/2)
+                    .onAppear {
+                        cardVM.graveyardPosition = CGPoint(x: proxy.size.width/2, y: proxy.size.height/2)
+                    }
+            }
+
+            UserCardsView(cardVM: cardVM)
             VStack {
                 Spacer()
                 PlayerLayoutView(cardVM: cardVM)
-            }
-            .overlay {
-                HStack {
-                    UserCardsView(cardVM: cardVM)
-                }
             }
             .onChange(of: websocket.isGameOver) { newValue in
                 showAlertLost = true
@@ -67,10 +78,10 @@ struct MaybeGameView: View {
                         }
                     }
             }
-            //MARK: - Botão jogar cartas
-            if websocket.myPlayerReference.isYourTurn {
-                SendCardButtonView(cardVM: cardVM)
-            }
+//            //MARK: - Botão jogar cartas
+//            if websocket.myPlayerReference.isYourTurn {
+//                SendCardButtonView(cardVM: cardVM)
+//            }
             //MARK: - Clique da Carta Cemitério
             if cardVM.killTapped == true {
                 CardHighlightsView(cardVM: cardVM, offSetValuex: 130, offSetValuey: 0, card: websocket.cardsPlayed.last!)

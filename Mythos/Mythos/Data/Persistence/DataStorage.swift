@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 class DataStorage {
     private var userName: String = ""
+    private var userImage: UIImage = UIImage()
     let taskKey = "taskKey"
 
     let localStorage = UserDefaults()
@@ -24,13 +26,41 @@ class DataStorage {
         }
     }
 
+    func changeUserImage(image: UIImage) {
+        userImage = image
+    }
+
+    func saveUserImage() {
+        let encoder = JSONEncoder()
+        if let encodedData = try? encoder.encode(userImage.pngData()) {
+            localStorage.set(encodedData, forKey: "imageKey")
+        }
+    }
+
     func getUserName() -> String {
         return userName
     }
 
+    func getUserImageData() -> Data {
+        return userImage.jpegData(compressionQuality: 0.01)!
+    }
+
+    func getUserImage() -> UIImage {
+        loadUserImage()
+        return userImage
+    }
+
+    func loadUserImage() {
+        guard let userDefaultData = localStorage.object(forKey: "imageKey") as? Data else {return}
+        if let decodedImage = try?
+            JSONDecoder().decode(Data.self, from:
+                                    userDefaultData) {
+            userImage = UIImage(data: decodedImage)!
+        }
+    }
+
     func loadUserName() {
         guard let userDefaultData = localStorage.object(forKey: taskKey) as? Data else {return}
-
         if let decodedName = try? JSONDecoder().decode(String.self, from: userDefaultData) {
             userName = decodedName
         }

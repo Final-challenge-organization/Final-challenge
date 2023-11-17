@@ -19,7 +19,7 @@ class WebSocket: ObservableObject, WebSocketProtocol {
         return (connectedPlayers.count == 4) ? true : false
     }
     var turnPlayer: String {
-        let player = self.connectedPlayers.first {$0.isYourTurn == true} ?? PlayerClient(id: UUID(), name: "ANONIMO", deck: [], life: 2, isYourTurn: false, isReaction: false, handCards: [])
+        let player = self.connectedPlayers.first {$0.isYourTurn == true} ?? PlayerClient(id: UUID(), name: "ANONIMO", deck: [], life: 2, isYourTurn: false, isReaction: false, handCards: [], image: Data())
         if player.id == self.myID {
             return "Seu Turno"
         } else {
@@ -27,7 +27,7 @@ class WebSocket: ObservableObject, WebSocketProtocol {
         }
     }
     var myPlayerReference: PlayerClient {
-        return connectedPlayers.first { $0.id == self.myID} ?? PlayerClient(id: UUID(), name: "ANONIMO", deck: [], life: 2, isYourTurn: false, isReaction: false, handCards: [])
+        return connectedPlayers.first { $0.id == self.myID} ?? PlayerClient(id: UUID(), name: "ANONIMO", deck: [], life: 2, isYourTurn: false, isReaction: false, handCards: [], image: Data())
     }
 
     private var contentTypeCardReference: ContentType {
@@ -76,9 +76,12 @@ class WebSocket: ObservableObject, WebSocketProtocol {
         receiveMessage()
         let dataStorage = DataStorage()
         dataStorage.loadUserName()
+        dataStorage.loadUserImage()
         let playerName = dataStorage.getUserName()
+        let playerImage = dataStorage.getUserImageData()
 
         self.sendData(DataWrapper(playerID: UUID(), contentType: .sendUserNameToServer, content: playerName.toData()))
+        self.sendData(DataWrapper(playerID: UUID(), contentType: .imageToServer, content: playerImage))
     }
 
     // é preciso melhorar essa funcao a cargo de quando houver disconnect ele nao continuar de forma recursiva
@@ -170,6 +173,8 @@ class WebSocket: ObservableObject, WebSocketProtocol {
                                 self.webSocketTask?.cancel()
                             }
                         }
+                        print(decodedData.contentType)
+                    case .imageToClient:
                         print(decodedData.contentType)
                     default:
                         print("default")

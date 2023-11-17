@@ -27,43 +27,49 @@ struct PersonasView: View {
     let lifePerson: Int
     var index: Int
     let isYourTurn: Bool
+    let image: Data
+
+    private let dataStorage = DataStorage()
 
     var body: some View {
         //MARK: - LEFT LOCATION
         if index == 1 {
-            VStack(spacing: -10) {
-                VStack {
-                    HStack {
-                        Text(namePerson.description)
-                            .padding(3.8)
-                            .foregroundColor(.yellow)
-                            .bold()
-                            .background {
-                                RoundedRectangle(cornerRadius: 12)
-                                    .stroke(Color.black, lineWidth: 1)
-                                    .background(RoundedRectangle(cornerRadius: 12).fill(Color(red: 9/255, green: 24/255, blue: 63/255)))
-                            }
+            VStack(spacing: 10) {
+                VStack (spacing: 5){
+                    Image(uiImage: UIImage(data: image) ?? UIImage())
+                        .resizable()
+                        .cornerRadius(10)
+                        .frame(width: 52, height: 52)
+                        .scaledToFit()
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(lineWidth: 4)
+                                .frame(width: 52, height: 52)
+                                .foregroundColor(isYourTurn ? .green : .clear)
 
-                        Circle()
-                            .strokeBorder(isYourTurn ? .green : .clear, lineWidth: 2)
-                            .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: 30, height: 30)
-                            .overlay {
-                                Text("\(lifePerson)")
-                                    .foregroundColor(.yellow)
-                                    .bold()
-                            }
-                        
-                    }
+                        }
+                        .overlay {
+                            Circle()
+                                .strokeBorder(isYourTurn ? .green : .clear, lineWidth: 4)
+                                .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: 30, height: 30)
+                                .overlay {
+                                    Text("\(lifePerson)")
+                                        .foregroundColor(.yellow)
+                                        .bold()
+                                }
+                                .offset(x: -25, y: -25)
+                        }
                     Triangle()
                         .fill(Color(red: 9/255, green: 24/255, blue: 63/255))
-                        .frame(width: 35, height: 20)
-                        .rotationEffect(Angle(degrees: 180))
+                        .frame(width: 25, height: 10)
+                        .rotationEffect(Angle(degrees:180))
                 }
                 HStack(spacing: -35) {
                     Spacer()
                     ForEach(cards, id: \.id) {
                         card in
                         BackCardView()
+                            .border(isYourTurn ? .green : .clear, width: 2)
                             .frame(width: 55, height: 115)
                     }
                     .transition(.move(edge: .top))
@@ -77,38 +83,42 @@ struct PersonasView: View {
         } else
         //MARK: - RIGHT LOCATION
         if index == 3 {
-            VStack(spacing: -10) {
-                VStack {
-                    HStack {
-                        Text(namePerson.description)
-                            .padding(3.8)
-                            .foregroundColor(.yellow)
-                            .bold()
-                            .background{
-                                RoundedRectangle(cornerRadius: 12)
-                                    .stroke(Color.black, lineWidth: 1)
-                                    .background(RoundedRectangle(cornerRadius: 12).fill(Color(red: 9/255, green: 24/255, blue: 63/255)))
-                            }
-                        Circle()
-                            .strokeBorder(isYourTurn ? .green : .clear, lineWidth: 2)
-                            .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))
-                            .frame(width: 30, height: 30)
-                            .overlay {
-                                Text("\(lifePerson)")
-                                    .foregroundColor(.yellow)
-                                    .bold()
-                            }
-                    }
+            VStack(spacing: 10) {
+                VStack (spacing: 5) {
+                    Image(uiImage: UIImage(data: image) ?? UIImage())
+                        .resizable()
+                        .cornerRadius(10)
+                        .frame(width: 52, height: 52)
+                        .scaledToFit()
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(lineWidth: 4)
+                                .frame(width: 52, height: 52)
+                                .foregroundColor(isYourTurn ? .green : .clear)
+
+                        }
+                        .overlay {
+                            Circle()
+                                .strokeBorder(isYourTurn ? .green : .clear, lineWidth: 4)
+                                .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: 30, height: 30)
+                                .overlay {
+                                    Text("\(lifePerson)")
+                                        .foregroundColor(.yellow)
+                                        .bold()
+                                }
+                                .offset(x: 25, y: -25)
+                        }
                     Triangle()
                         .fill(Color(red: 9/255, green: 24/255, blue: 63/255))
-                        .frame(width: 35, height: 20)
-                        .rotationEffect(Angle(degrees: 180))
+                        .frame(width: 25, height: 10)
+                        .rotationEffect(Angle(degrees:180))
                 }
                 HStack(spacing: -35) {
                     Spacer()
                     ForEach(cards, id: \.id) {
                         card in
                         BackCardView()
+                            .border(isYourTurn ? .green : .clear, width: 2)
                             .frame(width: 55, height: 115)
                     }
                     .transition(.move(edge: .top))
@@ -123,35 +133,39 @@ struct PersonasView: View {
         //MARK: - USER LOCATION
         if index == 0 {
             VStack(spacing: 0) {
-                VStack {
-
-                    HStack {
-                        Text(namePerson.description)
-                            .padding(3.8)
-                            .foregroundColor(.yellow)
-                            .bold()
-                            .background{
-                                RoundedRectangle(cornerRadius: 12)
-                                    .stroke(Color.black, lineWidth: 1)
-                                    .background(RoundedRectangle(cornerRadius: 12).fill(Color(red: 9/255, green: 24/255, blue: 63/255)))
-                            }
-                        Circle()
-                            .strokeBorder(isYourTurn ? .green : .clear, lineWidth: 2)
-                            .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: 30, height: 30)
-                            .overlay {
-                                Text("\(lifePerson)")
-                                    .foregroundColor(.yellow)
-                                    .bold()
-                            }
-                    }
-//                    .offset(y: -75)
+                HStack (spacing: -10) {
                     Triangle()
                         .fill(Color(red: 9/255, green: 24/255, blue: 63/255))
-                        .frame(width: 35, height: 20)
-                        .rotationEffect(Angle(degrees: 180))
-//                        .offset(y: -75)
+                        .frame(width: 45, height: 12)
+                        .rotationEffect(Angle(degrees: 270))
+//                        .offset(y:0)
+                    VStack {
+                        Image(uiImage: dataStorage.getUserImage())
+                            .resizable()
+                            .cornerRadius(10)
+                            .frame(width: 72, height: 72)
+                            .scaledToFit()
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(lineWidth: 4)
+                                    .frame(width: 72, height: 72)
+                                    .foregroundColor(isYourTurn ? .green : .clear)
+
+                            }
+                            .overlay {
+                                Circle()
+                                    .strokeBorder(isYourTurn ? .green : .clear, lineWidth: 4)
+                                    .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: 30, height: 30)
+                                    .overlay {
+                                        Text("\(lifePerson)")
+                                            .foregroundColor(.yellow)
+                                            .bold()
+                                    }
+                                    .offset(x: 35, y:-35)
+                            }
+                    }
                 }
-                .offset(y: -40)
+                .offset(x: 180)
                 HStack(spacing: -35) {
                     Spacer()
                     ForEach(cards, id: \.id) {
@@ -166,47 +180,51 @@ struct PersonasView: View {
         }
         //MARK: - TOP LOCATION
         if index == 2 {
-            VStack(spacing: 0) {
+            ZStack {
+                VStack (spacing: 5) {
+                    Triangle()
+                        .fill(Color(red: 9/255, green: 24/255, blue: 63/255))
+                        .frame(width: 25, height: 10)
+                        .rotationEffect(Angle(degrees: 0))
+                    Image(uiImage: UIImage(data: image) ?? UIImage())
+                        .resizable()
+                        .cornerRadius(10)
+                        .frame(width: 52, height: 52)
+                        .scaledToFit()
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(lineWidth: 4)
+                                .frame(width: 52, height: 52)
+                                .foregroundColor(isYourTurn ? .green : .clear)
+
+                        }
+                        .overlay {
+                            Circle()
+                                .strokeBorder(isYourTurn ? .green : .clear, lineWidth: 4)
+                                .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: 30, height: 30)
+                                .overlay {
+                                    Text("\(lifePerson)")
+                                        .foregroundColor(.yellow)
+                                        .bold()
+                                }
+                                .offset(x: -25, y:25)
+                        }
+                }
+                .offset(x: -100, y: 10)
                 HStack(spacing: -35) {
                     Spacer()
                     ForEach(cards, id: \.id) {
                         card in
                         BackCardView()
+                            .border(isYourTurn ? .green : .clear, width: 2)
                             .frame(width: 55, height: 115)
                     }
                     .transition(.move(edge: .bottom))
                     Spacer()
                 }
                 .animation(.easeInOut, value: cards.count)
-                .offset(y: 50)
+                .offset(y: 10)
                 .frame(maxWidth: 110.51, maxHeight: 177.4)
-                VStack {
-                    Triangle()
-                        .fill(Color(red: 9/255, green: 24/255, blue: 63/255))
-                        .frame(width: 35, height: 20)
-                        .rotationEffect(Angle(degrees: 0))
-                        .offset(y: 40)
-                    HStack {
-                        Text(namePerson.description)
-                            .padding(3.8)
-                            .foregroundColor(.yellow)
-                            .bold()
-                            .background{
-                                RoundedRectangle(cornerRadius: 12)
-                                    .stroke(Color.black, lineWidth: 1)
-                                    .background(RoundedRectangle(cornerRadius: 12).fill(Color(red: 9/255, green: 24/255, blue: 63/255)))
-                            }
-                        Circle()
-                            .strokeBorder(isYourTurn ? .green : .clear, lineWidth: 2)
-                            .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: 30, height: 30)
-                            .overlay {
-                                Text("\(lifePerson)")
-                                    .foregroundColor(.yellow)
-                                    .bold()
-                            }
-                    }
-                    .offset(y: 40)
-                }
             }
         }
         if index == 5 {
@@ -214,14 +232,6 @@ struct PersonasView: View {
                 VStack {
                     Text(namePerson.description)
                         .padding(3.8)
-                    Circle()
-                        .strokeBorder(isYourTurn ? .green : .clear, lineWidth: 2)
-                        .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))
-                        .frame(width: 30, height: 30)
-                        .overlay {
-                            Text("\(lifePerson)")
-                                .bold()
-                        }
                 }
                 .offset(x: 0, y: -75)
                 HStack(spacing: -35) {
@@ -240,34 +250,110 @@ struct PersonasView: View {
     }
 }
 
-//struct PersonasView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let namePerson: String = "Sarinha"
-//        let lifePerson = 30
-//        let index = 0
-//        @State var cards: [Card] = [
-//            Card(id: 1234,
-//                 name: "Teste1",
-//                 type: .action(.damage), imageName: <#String#>,
-//                 damage: 5,
-//                 effect: "TESTANDO",
-//                 description: "testando"),
-//            Card(id: 34343,
-//                 name: "Teste2",
-//                 type: .action(.damage),
-//                 damage: 2,
-//                 effect: "TESTANDO",
-//                 description: "testando"),
-//            Card(id: 243342,
-//                 name: "Teste3",
-//                 type: .reaction,
-//                 damage: 1,
-//                 effect: "TESTANDO",
-//                 description: "testando")
-//        ]
-//        PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index)
-//    }
-//}
+struct PersonasView_Previews: PreviewProvider {
+    static var previews: some View {
+        let namePerson: String = "Charlingtonglaevionbeecheknavare dos Anjos Mendonça "
+        let lifePerson = 30
+        let image = "sara"
+        Group {
+            let index = 0
+            @State var cards: [Card] = [
+                Card(id: 1234,
+                     name: "Teste1",
+                     imageName: "olharDeCiclope", type: .action(.damage),
+                     damage: 5,
+                     effect: "TESTANDO",
+                     description: "testando"),
+                Card(id: 34343,
+                     name: "Teste2",
+                     imageName: "olharDeCiclope", type: .action(.damage),
+                     damage: 2,
+                     effect: "TESTANDO",
+                     description: "testando"),
+                Card(id: 243342,
+                     name: "Teste3",
+                     imageName: "escudoDeJustica", type: .reaction,
+                     damage: 1,
+                     effect: "TESTANDO",
+                     description: "testando")
+            ]
+            PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index, isYourTurn: (1 != 0), image: UIImage(named: image)!.pngData()!)
+        }
+        .previewDisplayName("USER LOCATION")
+        Group {
+            let index = 1
+            @State var cards: [Card] = [
+                Card(id: 1234,
+                     name: "Teste1",
+                     imageName: "olharDeCiclope", type: .action(.damage),
+                     damage: 5,
+                     effect: "TESTANDO",
+                     description: "testando"),
+                Card(id: 34343,
+                     name: "Teste2",
+                     imageName: "olharDeCiclope", type: .action(.damage),
+                     damage: 2,
+                     effect: "TESTANDO",
+                     description: "testando"),
+                Card(id: 243342,
+                     name: "Teste3",
+                     imageName: "escudoDeJustica", type: .reaction,
+                     damage: 1,
+                     effect: "TESTANDO",
+                     description: "testando")
+            ]
+            PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index, isYourTurn: (1 != 0), image: UIImage(named: image)!.pngData()!)
+        }.previewDisplayName("LEFT LOCATION")
+        Group {
+            let index = 2
+            @State var cards: [Card] = [
+                Card(id: 1234,
+                     name: "Teste1",
+                     imageName: "olharDeCiclope", type: .action(.damage),
+                     damage: 5,
+                     effect: "TESTANDO",
+                     description: "testando"),
+                Card(id: 34343,
+                     name: "Teste2",
+                     imageName: "olharDeCiclope", type: .action(.damage),
+                     damage: 2,
+                     effect: "TESTANDO",
+                     description: "testando"),
+                Card(id: 243342,
+                     name: "Teste3",
+                     imageName: "escudoDeJustica", type: .reaction,
+                     damage: 1,
+                     effect: "TESTANDO",
+                     description: "testando")
+            ]
+            PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index, isYourTurn: (1 != 0), image: UIImage(named: image)!.pngData()!)
+        }.previewDisplayName("TOP LOCATION")
+        Group {
+            let index = 3
+            @State var cards: [Card] = [
+                Card(id: 1234,
+                     name: "Teste1",
+                     imageName: "olharDeCiclope", type: .action(.damage),
+                     damage: 5,
+                     effect: "TESTANDO",
+                     description: "testando"),
+                Card(id: 34343,
+                     name: "Teste2",
+                     imageName: "olharDeCiclope", type: .action(.damage),
+                     damage: 2,
+                     effect: "TESTANDO",
+                     description: "testando"),
+                Card(id: 243342,
+                     name: "Teste3",
+                     imageName: "escudoDeJustica", type: .reaction,
+                     damage: 1,
+                     effect: "TESTANDO",
+                     description: "testando")
+            ]
+            PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index, isYourTurn: (1 != 0), image: UIImage(named: image)!.pngData()!)
+        }.previewDisplayName("RIGHT LOCATION")
+    }
+}
 
 protocol MaybeGameViewPersonaViewDelegate {
     func updatePersonaViewLife(with life: String)

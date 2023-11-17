@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct HomeView: View {
+
+    @ObservedObject var gameCenterVM: GKPlayerViewModel
+
     //Desligar animações de navegação
-    init(){
+    init(vm: GKPlayerViewModel){
+        self.gameCenterVM = vm
         UINavigationBar.setAnimationsEnabled(false)
     }
     @State private var isShowingAlert = false
@@ -17,7 +21,6 @@ struct HomeView: View {
 
     var body: some View {
         GeometryReader { geo in
-            NavigationStack {
                 ScrollView {
                     ZStack {
                         Image("backgroundHome")
@@ -26,8 +29,8 @@ struct HomeView: View {
                             .ignoresSafeArea()
                         VStack(alignment: .leading) {
                             HStack(alignment: .top) {
-                                UserButtonView()
-                                    .frame(width: geo.size.width/4,
+                                UserGameView(vm: gameCenterVM)
+                                    .frame(width: geo.size.width/3,
                                            height: geo.size.height/6)
                                 Spacer()
                                 Button(action: {isShowingAlert.toggle()}, label: {ConfigButtonView()})
@@ -64,14 +67,20 @@ struct HomeView: View {
                     .frame(width: geo.size.width, height: geo.size.height)
                 }
                 .scrollDisabled(true)
-            }
+
         }
+        .onAppear {
+            gameCenterVM.authentication()
+        }
+        .onChange(of: gameCenterVM.isAutenticated, perform: { newValue in
+            print(newValue)
+        })
         .ignoresSafeArea()
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView().previewInterfaceOrientation(.landscapeLeft)
+        HomeView(vm: GKPlayerViewModel()).previewInterfaceOrientation(.landscapeLeft)
     }
 }
