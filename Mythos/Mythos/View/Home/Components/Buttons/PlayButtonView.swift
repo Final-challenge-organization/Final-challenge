@@ -23,16 +23,16 @@ struct PlayButtonView: View {
                     .degrees(motion != nil ? Double(motion!.gravity.x * 50) : 0),
                     axis: (x: 0, y: 1, z: 0))
         }
-        .onAppear {
-            if motionManager.isDeviceMotionAvailable {
-                self.motionManager.deviceMotionUpdateInterval = 1.0/60
-                self.motionManager.startDeviceMotionUpdates(to: OperationQueue.main) { (data, error) in
-                    if let validData = data {
-                        self.motion = validData
-                    }
-                }
-            }
-        }
+//        .onAppear {
+//            if motionManager.isDeviceMotionAvailable {
+//                self.motionManager.deviceMotionUpdateInterval = 1.0/60
+//                self.motionManager.startDeviceMotionUpdates(to: OperationQueue.main) { (data, error) in
+//                    if let validData = data {
+//                        self.motion = validData
+//                    }
+//                }
+//            }
+//        }
     }
 }
 

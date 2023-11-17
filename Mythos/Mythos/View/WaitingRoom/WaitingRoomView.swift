@@ -25,6 +25,7 @@ struct WaitingRoomView: View {
                 HStack {
                     Text("Esperando jogadores...")
                         .bold()
+                        .opacity(isDisabled ? 1 : 0)
                 }
                 Spacer()
                 playersConnected
