@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		452BD8C62AFD06D3001868ED /* PlayerLayoutTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BD8C52AFD06D3001868ED /* PlayerLayoutTutorial.swift */; };
+		452BD8C82AFD07B3001868ED /* PlayersMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BD8C72AFD07B3001868ED /* PlayersMock.swift */; };
+		452BD8CA2AFD07CD001868ED /* CardsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BD8C92AFD07CD001868ED /* CardsMock.swift */; };
+		452BD8CC2AFD0A96001868ED /* UserCardsTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BD8CB2AFD0A96001868ED /* UserCardsTutorial.swift */; };
+		452BD8CE2AFD13E9001868ED /* TutorialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BD8CD2AFD13E9001868ED /* TutorialModel.swift */; };
+		452BD8D02AFD1969001868ED /* SendButtonTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BD8CF2AFD1969001868ED /* SendButtonTutorial.swift */; };
 		452CD7562AE21A8D00F4B9C4 /* KillDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452CD7552AE21A8D00F4B9C4 /* KillDeckView.swift */; };
 		45414F5E2AFA66E4008D0F22 /* GameTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45414F5D2AFA66E4008D0F22 /* GameTutorial.swift */; };
+		4565F44A2B02EAF200F0E8AE /* DescriptionTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565F4492B02EAF200F0E8AE /* DescriptionTutorial.swift */; };
 		459585D02AA610A20039C908 /* MythosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585CF2AA610A20039C908 /* MythosApp.swift */; };
 		459585D42AA610A30039C908 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459585D32AA610A30039C908 /* Assets.xcassets */; };
 		459585D72AA610A30039C908 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459585D62AA610A30039C908 /* Preview Assets.xcassets */; };
@@ -84,8 +91,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		452BD8C52AFD06D3001868ED /* PlayerLayoutTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLayoutTutorial.swift; sourceTree = "<group>"; };
+		452BD8C72AFD07B3001868ED /* PlayersMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersMock.swift; sourceTree = "<group>"; };
+		452BD8C92AFD07CD001868ED /* CardsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsMock.swift; sourceTree = "<group>"; };
+		452BD8CB2AFD0A96001868ED /* UserCardsTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardsTutorial.swift; sourceTree = "<group>"; };
+		452BD8CD2AFD13E9001868ED /* TutorialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialModel.swift; sourceTree = "<group>"; };
+		452BD8CF2AFD1969001868ED /* SendButtonTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendButtonTutorial.swift; sourceTree = "<group>"; };
 		452CD7552AE21A8D00F4B9C4 /* KillDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KillDeckView.swift; sourceTree = "<group>"; };
 		45414F5D2AFA66E4008D0F22 /* GameTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTutorial.swift; sourceTree = "<group>"; };
+		4565F4492B02EAF200F0E8AE /* DescriptionTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTutorial.swift; sourceTree = "<group>"; };
 		459585CC2AA610A20039C908 /* Mythos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mythos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		459585CF2AA610A20039C908 /* MythosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythosApp.swift; sourceTree = "<group>"; };
 		459585D32AA610A30039C908 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -169,7 +183,13 @@
 		45414F5C2AFA66C4008D0F22 /* GameTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				45BFC5782B039FA300D14072 /* TutorialMocks */,
 				45414F5D2AFA66E4008D0F22 /* GameTutorial.swift */,
+				452BD8CD2AFD13E9001868ED /* TutorialModel.swift */,
+				452BD8C52AFD06D3001868ED /* PlayerLayoutTutorial.swift */,
+				452BD8CB2AFD0A96001868ED /* UserCardsTutorial.swift */,
+				4565F4492B02EAF200F0E8AE /* DescriptionTutorial.swift */,
+				452BD8CF2AFD1969001868ED /* SendButtonTutorial.swift */,
 			);
 			path = GameTutorial;
 			sourceTree = "<group>";
@@ -230,6 +250,15 @@
 				459585EC2AA610A30039C908 /* MythosUITestsLaunchTests.swift */,
 			);
 			path = MythosUITests;
+			sourceTree = "<group>";
+		};
+		45BFC5782B039FA300D14072 /* TutorialMocks */ = {
+			isa = PBXGroup;
+			children = (
+				452BD8C92AFD07CD001868ED /* CardsMock.swift */,
+				452BD8C72AFD07B3001868ED /* PlayersMock.swift */,
+			);
+			path = TutorialMocks;
 			sourceTree = "<group>";
 		};
 		4FBC46F02AD4226600BB1CE1 /* Card */ = {
@@ -642,7 +671,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/Users/narelylima/Documents/Build/./build4\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#/Users/narelylima/Documents/Build/./build4\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -655,6 +684,7 @@
 				DD6D186B2AB88352004B02AA /* PlayButtonView.swift in Sources */,
 				DD0B380A2AEC3818007513AD /* UserCardsView.swift in Sources */,
 				45414F5E2AFA66E4008D0F22 /* GameTutorial.swift in Sources */,
+				452BD8CC2AFD0A96001868ED /* UserCardsTutorial.swift in Sources */,
 				64C04C102AD436BD00894EF9 /* PlayerView.swift in Sources */,
 				4F51B8C02AD0D2B8007107B4 /* ParallaxView.swift in Sources */,
 				DD84A46A2ADEC8A300BD0801 /* WebSocketProtocol.swift in Sources */,
@@ -664,6 +694,7 @@
 				DD0B380E2AEC3C42007513AD /* CardViewModel.swift in Sources */,
 				DD6D18782AB88A8D004B02AA /* StoreButtonView.swift in Sources */,
 				DD6D18662AB8784F004B02AA /* HomeView.swift in Sources */,
+				452BD8C62AFD06D3001868ED /* PlayerLayoutTutorial.swift in Sources */,
 				DD0B38152AEC513D007513AD /* PlayerLayoutView.swift in Sources */,
 				4FBE72A32AB1DF25002165FB /* Protocols.swift in Sources */,
 				64FFCE782AA8B0A80090566B /* DataWrapper.swift in Sources */,
@@ -682,16 +713,21 @@
 				4F51B8BE2AD0B5D7007107B4 /* PopUpCard.swift in Sources */,
 				DD6D18762AB889F2004B02AA /* ConfigButtonView.swift in Sources */,
 				459585FA2AA6143C0039C908 /* GameView.swift in Sources */,
+				452BD8C82AFD07B3001868ED /* PlayersMock.swift in Sources */,
 				DD0B38132AEC44A6007513AD /* SendCardButtonView.swift in Sources */,
 				459585D02AA610A20039C908 /* MythosApp.swift in Sources */,
+				452BD8CE2AFD13E9001868ED /* TutorialModel.swift in Sources */,
 				DD57DF882AD49A04009B9272 /* DataStorage.swift in Sources */,
+				452BD8D02AFD1969001868ED /* SendButtonTutorial.swift in Sources */,
 				DD6D187C2AB88B33004B02AA /* ConfigurationView.swift in Sources */,
 				4FBC46F82AD43C4400BB1CE1 /* Fonts.swift in Sources */,
+				452BD8CA2AFD07CD001868ED /* CardsMock.swift in Sources */,
 				DD6D187A2AB88B26004B02AA /* StoreView.swift in Sources */,
 				DD6D18802AB88DA3004B02AA /* ProfileView.swift in Sources */,
 				DD0B38002AE808EF007513AD /* CardFocusedView.swift in Sources */,
 				DD6D18712AB8857A004B02AA /* UserButtonView.swift in Sources */,
 				4F4269E62AD0511900A417E5 /* PlayerClient.swift in Sources */,
+				4565F44A2B02EAF200F0E8AE /* DescriptionTutorial.swift in Sources */,
 				DD57DF862AD428D3009B9272 /* ButtonConnect.swift in Sources */,
 				DD6D18AC2ABDBF37004B02AA /* BackButtonView.swift in Sources */,
 				4FF895B62ACED14500F50DA4 /* MaybeGameView.swift in Sources */,

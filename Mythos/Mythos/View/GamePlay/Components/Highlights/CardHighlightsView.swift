@@ -14,17 +14,31 @@ struct CardHighlightsView: View {
     var offSetValuex: CGFloat
     var offSetValuey: CGFloat
     var card: Card
+    var showDescription: Bool = false
 
     var body: some View {
         ZStack {
-            Rectangle()
-                .foregroundColor(.black)
-                .opacity(0.5)
-                .ignoresSafeArea()
-            CardFocusedView(card: card, isTapped: $cardVM.killTapped)
-                .frame(width: 744/3.5, height: 1039/3.5)
-                .offset(x: offSetValuex, y:offSetValuey)
+            background
+            cards
+            showDescription ? description : nil
         }
+    }
+
+    var background: some View {
+        Rectangle()
+            .foregroundColor(.black)
+            .opacity(0.5)
+            .ignoresSafeArea()
+    }
+    var cards: some View {
+        CardFocusedView(card: card, isTapped: $cardVM.killTapped)
+            .frame(width: 744/3.5, height: 1039/3.5)
+            .offset(x: offSetValuex, y: offSetValuey)
+    }
+    var description: some View {
+        DescriptionTutorial(description: cardVM.description)
+            .frame(width: UIScreen.main.bounds.width/3, height: UIScreen.main.bounds.height/1.8)
+            .position(x: UIScreen.main.bounds.width/6.5, y: UIScreen.main.bounds.height/1.5)
     }
 }
 

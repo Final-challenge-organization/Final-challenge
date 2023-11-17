@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct KillDeckView: View {
-
+    
     var card: Card
     @Binding var killDecktapped: Bool
-
+    
     var body: some View {
         CardRepresentable(card: card, onTap: {
             withAnimation {
@@ -21,9 +21,3 @@ struct KillDeckView: View {
         .rotationEffect(killDecktapped ? Angle(degrees: 0) : Angle(degrees: 90))
     }
 }
-
-//struct KillDeckView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        KillDeckView()
-//    }
-//}

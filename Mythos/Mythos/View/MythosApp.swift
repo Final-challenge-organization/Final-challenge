@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct MythosApp: App {
+
+    
     var body: some Scene {
         WindowGroup {
             HomeView()

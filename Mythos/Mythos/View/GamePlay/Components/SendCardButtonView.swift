@@ -13,7 +13,6 @@ struct SendCardButtonView: View {
 
     @EnvironmentObject var websocket: WebSocket
 
-
     var body: some View {
         Button {
             websocket.sendCard(with: cardVM.cardSelected)
