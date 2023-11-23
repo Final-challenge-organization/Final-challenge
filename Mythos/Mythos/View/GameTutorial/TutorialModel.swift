@@ -18,7 +18,7 @@ class TutorialModel: ObservableObject {
     private var myID = UUID()
 
     var turnPlayer: String {
-        let player = self.connectedPlayers.first {$0.isYourTurn == true} ?? PlayerClient(id: UUID(), name: "ANONIMO", deck: [], life: 2, isYourTurn: false, isReaction: false, handCards: [])
+        let player = self.connectedPlayers.first {$0.isYourTurn == true} ?? PlayerClient(id: UUID(), name: "ANONIMO", deck: [], life: 2, isYourTurn: false, isReaction: false, handCards: [], image: Data())
         switch player.name {
         case "Jogador 1":
             return "Seu Turno"

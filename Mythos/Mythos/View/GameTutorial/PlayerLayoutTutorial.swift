@@ -36,7 +36,7 @@ struct PlayerLayoutTutorial: View {
                              namePerson: thirdPlayer.name,
                              lifePerson: (thirdPlayer.life <= 0) ? 0 : thirdPlayer.life,
                              index: (players.count < 3) ? 5 : 2,
-                             isYourTurn: thirdPlayer.isYourTurn
+                             isYourTurn: thirdPlayer.isYourTurn, image: Data()
                              )
 
                 HStack {
@@ -44,35 +44,35 @@ struct PlayerLayoutTutorial: View {
                                  namePerson: secondPlayer.name,
                                  lifePerson: (secondPlayer.life <= 0) ? 0 : secondPlayer.life,
                                  index: (players.count < 2) ? 5 : 1,
-                                 isYourTurn: secondPlayer.isYourTurn)
+                                 isYourTurn: secondPlayer.isYourTurn, image: Data())
                     Spacer()
 
                     PersonasView(cards: lastPlayer.handCards, namePerson: lastPlayer.name,
                                  lifePerson: (lastPlayer.life <= 0) ? 0 : lastPlayer.life,
                                  index: (players.count < 4) ? 5 : 3,
-                                 isYourTurn: lastPlayer.isYourTurn)
+                                 isYourTurn: lastPlayer.isYourTurn, image: Data())
 
                 }
-                .overlay {
-                    if (tutorialM.cardsPlayed.last != nil) {
-                        Button {
-                            withAnimation {
-                                cardVM.killTapped.toggle()
-                                cardVM.isTapped = false
-                            }
-                        } label: {
-                            KillDeckView(card: tutorialM.cardsPlayed.last!, killDecktapped: $cardVM.killTapped)
-                                .frame(width: 744/9, height: 1039/9)
-                                .offset(x: cardVM.killTapped ? 110 : 0, y:0)
-                                .opacity(cardVM.killTapped ? 0 : 1)
-                        }
-                    }
-                }
+//                .overlay {
+//                    if (tutorialM.cardsPlayed.last != nil) {
+//                        Button {
+//                            withAnimation {
+//                                cardVM.killTapped.toggle()
+//                                cardVM.isTapped = false
+//                            }
+//                        } label: {
+//                            KillDeckView(card: tutorialM.cardsPlayed.last!, killDecktapped: $cardVM.killTapped)
+//                                .frame(width: 744/9, height: 1039/9)
+//                                .offset(x: cardVM.killTapped ? 110 : 0, y:0)
+//                                .opacity(cardVM.killTapped ? 0 : 1)
+//                        }
+//                    }
+//                }
                 PersonasView(cards: firstPlayer.handCards,
                              namePerson: firstPlayer.name,
                              lifePerson: (firstPlayer.life <= 0) ? 0 : firstPlayer.life,
                              index: 0,
-                             isYourTurn: firstPlayer.isYourTurn)
+                             isYourTurn: firstPlayer.isYourTurn, image: Data())
             }
         }
         return viewPersonas

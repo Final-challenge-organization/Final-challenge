@@ -28,7 +28,7 @@ struct CardStackView: View {
 
 struct CardStackView_Previews: PreviewProvider {
     static var previews: some View {
-        CardStackView(card: Card(id: 0, name: "opa", imageName: "sandaliaAladas", type: .reaction, damage: 0, effect: "AAA", description: "AAAAAAA"), tapped: .constant(false))
+        CardStackView(card: Card(id: 0, name: "opa", imageName: "sandaliaAladas", type: .reaction, damage: 0, effect: "AAA", description: "AAAAAAA",descTutorial: "teste"), tapped: .constant(false))
             .previewDisplayName("with card")
         CardStackView(card: nil, tapped: .constant(false))
             .previewDisplayName("nil value of card")
