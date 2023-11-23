@@ -36,16 +36,16 @@ struct PlayButtonView: View {
 
                 }
         }
-        .onAppear {
-            if motionManager.isDeviceMotionAvailable {
-                self.motionManager.deviceMotionUpdateInterval = 1.0/60
-                self.motionManager.startDeviceMotionUpdates(to: OperationQueue.main) { (data, error) in
-                    if let validData = data {
-                        self.motion = validData
-                    }
-                }
-            }
-        }
+//        .onAppear {
+//            if motionManager.isDeviceMotionAvailable {
+//                self.motionManager.deviceMotionUpdateInterval = 1.0/60
+//                self.motionManager.startDeviceMotionUpdates(to: OperationQueue.main) { (data, error) in
+//                    if let validData = data {
+//                        self.motion = validData
+//                    }
+//                }
+//            }
+//        }
     }
 }
 
