@@ -17,7 +17,9 @@ struct CustomToolbarView: View {
                 ZStack{
 
                     Text("Sala de espera")
-                        .foregroundColor(.black)
+                        .tracking(3)
+                        .font(MyCustomFonts.CeasarDressingRegular.font)
+//                        .foregroundColor(.black)
                 }
                 Spacer()
                 ConfigButtonView()
