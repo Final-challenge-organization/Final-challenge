@@ -10,7 +10,7 @@ import SwiftUI
 struct ConfigButtonView: View {
     var body: some View {
         Image(systemName: "info.circle")
-            .foregroundColor(.black)
+            .foregroundColor(.clear)
             .padding()
     }
 }

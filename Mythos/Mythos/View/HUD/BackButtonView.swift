@@ -13,7 +13,7 @@ struct BackButtonView: View {
             Image(systemName: "chevron.backward")
                 .resizable()
                 .scaledToFit()
-                .foregroundColor(.black)
+                .foregroundColor(.clear)
         }
     }
 }
