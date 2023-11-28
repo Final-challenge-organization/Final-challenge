@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "verso_carta.png",
+      "filename" : "cardBack.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
