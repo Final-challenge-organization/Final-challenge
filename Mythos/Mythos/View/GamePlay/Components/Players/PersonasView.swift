@@ -45,12 +45,12 @@ struct PersonasView: View {
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(lineWidth: 4)
                                 .frame(width: 52, height: 52)
-                                .foregroundColor(isYourTurn ? .green : .clear)
+                                .foregroundColor(isYourTurn ? Color("selectedPlayerColor") : .clear)
 
                         }
                         .overlay {
                             Circle()
-                                .strokeBorder(isYourTurn ? .green : .clear, lineWidth: 4)
+                                .strokeBorder(isYourTurn ? Color("selectedPlayerColor") : .clear, lineWidth: 4)
                                 .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: 30, height: 30)
                                 .overlay {
                                     Text("\(lifePerson)")
@@ -69,7 +69,7 @@ struct PersonasView: View {
                     ForEach(cards, id: \.id) {
                         card in
                         BackCardView()
-                            .border(isYourTurn ? .green : .clear, width: 2)
+                            .border(isYourTurn ? Color("selectedPlayerColor") : .clear, width: 2)
                             .frame(width: 55, height: 115)
                     }
                     .transition(.move(edge: .top))
@@ -94,12 +94,12 @@ struct PersonasView: View {
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(lineWidth: 4)
                                 .frame(width: 52, height: 52)
-                                .foregroundColor(isYourTurn ? .green : .clear)
+                                .foregroundColor(isYourTurn ? Color("selectedPlayerColor") : .clear)
 
                         }
                         .overlay {
                             Circle()
-                                .strokeBorder(isYourTurn ? .green : .clear, lineWidth: 4)
+                                .strokeBorder(isYourTurn ? Color("selectedPlayerColor") : .clear, lineWidth: 4)
                                 .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: 30, height: 30)
                                 .overlay {
                                     Text("\(lifePerson)")
@@ -118,7 +118,7 @@ struct PersonasView: View {
                     ForEach(cards, id: \.id) {
                         card in
                         BackCardView()
-                            .border(isYourTurn ? .green : .clear, width: 2)
+                            .border(isYourTurn ? Color("selectedPlayerColor") : .clear, width: 2)
                             .frame(width: 55, height: 115)
                     }
                     .transition(.move(edge: .top))
@@ -149,12 +149,12 @@ struct PersonasView: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(lineWidth: 4)
                                     .frame(width: 72, height: 72)
-                                    .foregroundColor(isYourTurn ? .green : .clear)
+                                    .foregroundColor(isYourTurn ? Color("selectedPlayerColor") : .clear)
 
                             }
                             .overlay {
                                 Circle()
-                                    .strokeBorder(isYourTurn ? .green : .clear, lineWidth: 4)
+                                    .strokeBorder(isYourTurn ? Color("selectedPlayerColor") : .clear, lineWidth: 4)
                                     .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: 30, height: 30)
                                     .overlay {
                                         Text("\(lifePerson)")
@@ -195,12 +195,12 @@ struct PersonasView: View {
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(lineWidth: 4)
                                 .frame(width: 52, height: 52)
-                                .foregroundColor(isYourTurn ? .green : .clear)
+                                .foregroundColor(isYourTurn ? Color("selectedPlayerColor") : .clear)
 
                         }
                         .overlay {
                             Circle()
-                                .strokeBorder(isYourTurn ? .green : .clear, lineWidth: 4)
+                                .strokeBorder(isYourTurn ? Color("selectedPlayerColor") : .clear, lineWidth: 4)
                                 .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: 30, height: 30)
                                 .overlay {
                                     Text("\(lifePerson)")
@@ -216,7 +216,7 @@ struct PersonasView: View {
                     ForEach(cards, id: \.id) {
                         card in
                         BackCardView()
-                            .border(isYourTurn ? .green : .clear, width: 2)
+                            .border(isYourTurn ? Color("selectedPlayerColor") : .clear, width: 2)
                             .frame(width: 55, height: 115)
                     }
                     .transition(.move(edge: .bottom))
