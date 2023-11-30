@@ -12,7 +12,13 @@ struct CardStackView: View {
     @Binding var tapped: Bool
     var body: some View {
         RoundedRectangle(cornerRadius: 12)
-            .stroke(style: .init(lineWidth: 3, dash: [10]))
+            .stroke(style: .init(lineWidth: 0, dash: [10]))
+            .background {
+                Image("playCardsBackground")
+                    .resizable()
+                    .frame(width: 100, height: 140)
+                    .scaledToFill()
+            }
             .overlay {
                 if let card = card {
                     CardRepresentable(card: card) {

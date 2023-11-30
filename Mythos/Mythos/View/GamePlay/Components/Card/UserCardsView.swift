@@ -25,6 +25,7 @@ struct UserCardsView: View {
                         }
                     }
                     .frame(width: 744/7, height: 1039/7)
+                    .shadow(color: .brown.opacity(0.7), radius: 10)
                     .position(cardVM.cardLocationForIndex(index: index))
                     .offset(y: cardVM.cardSelected == card && cardVM.isTapped ? -80 : 0)
                     .offset((index == 0 && !cardVM.isDragging) ? CGSize(width: -80, height: 0) : CGSize(width: 0, height: 0))
