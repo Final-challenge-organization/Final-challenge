@@ -74,6 +74,7 @@ struct PersonasView: View {
                     }
                     .transition(.move(edge: .top))
                     .rotation3DEffect(.degrees(10), axis: (x:-40,y:6,z:0))
+                    .shadow(color: .brown.opacity(0.7), radius: 10)
                     Spacer()
                 }
                 .animation(.easeInOut, value: cards.count)
@@ -123,6 +124,7 @@ struct PersonasView: View {
                     }
                     .transition(.move(edge: .top))
                     .rotation3DEffect(.degrees(-10), axis: (x:40,y:-6,z:0))
+                    .shadow(color: .brown.opacity(0.7), radius: 10)
                     Spacer()
                 }
                 .animation(.easeInOut, value: cards.count)
@@ -220,6 +222,7 @@ struct PersonasView: View {
                             .frame(width: 55, height: 115)
                     }
                     .transition(.move(edge: .bottom))
+                    .shadow(color: .brown.opacity(0.7), radius: 10)
                     Spacer()
                 }
                 .animation(.easeInOut, value: cards.count)
