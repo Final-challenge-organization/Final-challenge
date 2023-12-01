@@ -27,12 +27,20 @@ struct GameViewSwiftUI: View {
                 .ignoresSafeArea()
             GeometryReader { proxy in
                 CardStackView(card: websocket.cardsPlayed.last, tapped: $cardVM.killTapped)
-                    .frame(width: 100, height: 140)
+                    .rotationEffect(.degrees(90))
+                    .frame(width: 140, height: 100)
+
                     .background {
-                        Image("playCardsBackground")
-                            .resizable()
-                            .frame(width: 100, height: 140)
-                            .scaledToFill()
+                        ZStack {
+                            Image("playCardsBackground")
+                                .resizable()
+                                .frame(width: 140, height: 100)
+                                .scaledToFill()
+
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(style: .init(lineWidth: 3, dash: [10]))
+                                
+                        }
                     }
                     .position(x: proxy.size.width/2, y: proxy.size.height/2)
                     .onAppear {
