@@ -21,7 +21,7 @@ struct CardRepresentable: View {
 
     var body: some View {
         switch card.type {
-        case .action(.damage):
+        case .action(.damage), .action(.damageToPrevious):
             CardRepresentableCustom(imageName: "action", card: card)
                 .overlay(content: {
                     if !isPresentedTutorial {
