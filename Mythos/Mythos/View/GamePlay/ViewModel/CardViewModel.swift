@@ -36,7 +36,7 @@ class CardViewModel: ObservableObject {
 
     func isAbleToDrag(card: Card, isYourTurn: Bool, isReaction: Bool) -> Bool {
         switch card.type {
-        case .action(.damage):
+        case .action(.damage), .action(.damageToPrevious):
             return (isYourTurn && !(isReaction))
         case .action(.block):
             return (isYourTurn  && !(isReaction))

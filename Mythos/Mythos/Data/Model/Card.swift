@@ -31,6 +31,7 @@ enum CardType: Codable, Equatable {
 enum CardActionType: Codable, Equatable {
     case block
     case damage
+    case damageToPrevious
 }
 
 
