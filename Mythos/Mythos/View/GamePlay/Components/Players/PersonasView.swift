@@ -263,22 +263,25 @@ struct PersonasView_Previews: PreviewProvider {
                      imageName: "olharDeCiclope", type: .action(.damage),
                      damage: 5,
                      effect: "TESTANDO",
-                     description: "testando",
-                     descTutorial: "testando"),
+                     description: "testando"
+
+                    ),
                 Card(id: 34343,
                      name: "Teste2",
                      imageName: "olharDeCiclope", type: .action(.damage),
                      damage: 2,
                      effect: "TESTANDO",
-                     description: "testando",
-                     descTutorial: "testando"),
+                     description: "testando"
+
+                    ),
                 Card(id: 243342,
                      name: "Teste3",
                      imageName: "escudoDeJustica", type: .reaction,
                      damage: 1,
                      effect: "TESTANDO",
-                     description: "testando",
-                     descTutorial: "testando")
+                     description: "testando"
+//                     descTutorial: "testando"
+                    )
             ]
             PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index, isYourTurn: (1 != 0), image: UIImage(named: image)!.pngData()!)
         }
@@ -291,22 +294,22 @@ struct PersonasView_Previews: PreviewProvider {
                      imageName: "olharDeCiclope", type: .action(.damage),
                      damage: 5,
                      effect: "TESTANDO",
-                     description: "testando",
-                     descTutorial: "testando"),
+                     description: "testando"
+                    ),
                 Card(id: 34343,
                      name: "Teste2",
                      imageName: "olharDeCiclope", type: .action(.damage),
                      damage: 2,
                      effect: "TESTANDO",
-                     description: "testando",
-                     descTutorial: "testando"),
+                     description: "testando"
+                    ),
                 Card(id: 243342,
                      name: "Teste3",
                      imageName: "escudoDeJustica", type: .reaction,
                      damage: 1,
                      effect: "TESTANDO",
-                     description: "testando",
-                     descTutorial: "testando")
+                     description: "testando"
+                    )
             ]
             PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index, isYourTurn: (1 != 0), image: UIImage(named: image)!.pngData()!)
         }.previewDisplayName("LEFT LOCATION")
@@ -318,22 +321,22 @@ struct PersonasView_Previews: PreviewProvider {
                      imageName: "olharDeCiclope", type: .action(.damage),
                      damage: 5,
                      effect: "TESTANDO",
-                     description: "testando",
-                     descTutorial: "testando"),
+                     description: "testando"
+                    ),
                 Card(id: 34343,
                      name: "Teste2",
                      imageName: "olharDeCiclope", type: .action(.damage),
                      damage: 2,
                      effect: "TESTANDO",
-                     description: "testando",
-                     descTutorial: "testando"),
+                     description: "testando"
+                    ),
                 Card(id: 243342,
                      name: "Teste3",
                      imageName: "escudoDeJustica", type: .reaction,
                      damage: 1,
                      effect: "TESTANDO",
-                     description: "testando",
-                     descTutorial: "testando")
+                     description: "testando"
+                    )
             ]
             PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index, isYourTurn: (1 != 0), image: UIImage(named: image)!.pngData()!)
         }.previewDisplayName("TOP LOCATION")
@@ -345,22 +348,22 @@ struct PersonasView_Previews: PreviewProvider {
                      imageName: "olharDeCiclope", type: .action(.damage),
                      damage: 5,
                      effect: "TESTANDO",
-                     description: "testando",
-                     descTutorial: "testando"),
+                     description: "testando"
+                    ),
                 Card(id: 34343,
                      name: "Teste2",
                      imageName: "olharDeCiclope", type: .action(.damage),
                      damage: 2,
                      effect: "TESTANDO",
-                     description: "testando",
-                     descTutorial: "testando"),
+                     description: "testando"
+                    ),
                 Card(id: 243342,
                      name: "Teste3",
                      imageName: "escudoDeJustica", type: .reaction,
                      damage: 1,
                      effect: "TESTANDO",
-                     description: "testando",
-                     descTutorial: "testando")
+                     description: "testando"
+                    )
             ]
             PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index, isYourTurn: (1 != 0), image: UIImage(named: image)!.pngData()!)
         }.previewDisplayName("RIGHT LOCATION")

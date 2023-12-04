@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		452BD8C62AFD06D3001868ED /* PlayerLayoutTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BD8C52AFD06D3001868ED /* PlayerLayoutTutorial.swift */; };
 		452BD8C82AFD07B3001868ED /* PlayersMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BD8C72AFD07B3001868ED /* PlayersMock.swift */; };
 		452BD8CA2AFD07CD001868ED /* CardsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BD8C92AFD07CD001868ED /* CardsMock.swift */; };
-		452BD8CC2AFD0A96001868ED /* UserCardsTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BD8CB2AFD0A96001868ED /* UserCardsTutorial.swift */; };
 		452BD8CE2AFD13E9001868ED /* TutorialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BD8CD2AFD13E9001868ED /* TutorialModel.swift */; };
-		452BD8D02AFD1969001868ED /* SendButtonTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452BD8CF2AFD1969001868ED /* SendButtonTutorial.swift */; };
-		45414F5E2AFA66E4008D0F22 /* GameTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45414F5D2AFA66E4008D0F22 /* GameTutorial.swift */; };
 		4565F44A2B02EAF200F0E8AE /* DescriptionTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4565F4492B02EAF200F0E8AE /* DescriptionTutorial.swift */; };
+		458287B02B16263800EF8FEE /* TutorialDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458287AF2B16263800EF8FEE /* TutorialDescription.swift */; };
+		458287B22B17A31600EF8FEE /* CardRepresentableCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458287B12B17A31600EF8FEE /* CardRepresentableCustom.swift */; };
 		459585D02AA610A20039C908 /* MythosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459585CF2AA610A20039C908 /* MythosApp.swift */; };
 		459585D42AA610A30039C908 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459585D32AA610A30039C908 /* Assets.xcassets */; };
 		459585D72AA610A30039C908 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459585D62AA610A30039C908 /* Preview Assets.xcassets */; };
@@ -54,7 +52,6 @@
 		DD0B380A2AEC3818007513AD /* UserCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B38092AEC3818007513AD /* UserCardsView.swift */; };
 		DD0B380E2AEC3C42007513AD /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B380D2AEC3C42007513AD /* CardViewModel.swift */; };
 		DD0B38112AEC4152007513AD /* CardHighlightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B38102AEC4152007513AD /* CardHighlightsView.swift */; };
-		DD0B38132AEC44A6007513AD /* SendCardButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B38122AEC44A6007513AD /* SendCardButtonView.swift */; };
 		DD0B38152AEC513D007513AD /* PlayerLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B38142AEC513D007513AD /* PlayerLayoutView.swift */; };
 		DD57DF862AD428D3009B9272 /* ButtonConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD57DF852AD428D3009B9272 /* ButtonConnect.swift */; };
 		DD57DF882AD49A04009B9272 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD57DF872AD49A04009B9272 /* DataStorage.swift */; };
@@ -96,14 +93,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		452BD8C52AFD06D3001868ED /* PlayerLayoutTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLayoutTutorial.swift; sourceTree = "<group>"; };
 		452BD8C72AFD07B3001868ED /* PlayersMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersMock.swift; sourceTree = "<group>"; };
 		452BD8C92AFD07CD001868ED /* CardsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsMock.swift; sourceTree = "<group>"; };
-		452BD8CB2AFD0A96001868ED /* UserCardsTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardsTutorial.swift; sourceTree = "<group>"; };
 		452BD8CD2AFD13E9001868ED /* TutorialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialModel.swift; sourceTree = "<group>"; };
-		452BD8CF2AFD1969001868ED /* SendButtonTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendButtonTutorial.swift; sourceTree = "<group>"; };
-		45414F5D2AFA66E4008D0F22 /* GameTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTutorial.swift; sourceTree = "<group>"; };
 		4565F4492B02EAF200F0E8AE /* DescriptionTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTutorial.swift; sourceTree = "<group>"; };
+		458287AF2B16263800EF8FEE /* TutorialDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialDescription.swift; sourceTree = "<group>"; };
+		458287B12B17A31600EF8FEE /* CardRepresentableCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepresentableCustom.swift; sourceTree = "<group>"; };
 		459585CC2AA610A20039C908 /* Mythos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mythos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		459585CF2AA610A20039C908 /* MythosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MythosApp.swift; sourceTree = "<group>"; };
 		459585D32AA610A30039C908 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -142,7 +137,6 @@
 		DD0B38092AEC3818007513AD /* UserCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardsView.swift; sourceTree = "<group>"; };
 		DD0B380D2AEC3C42007513AD /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		DD0B38102AEC4152007513AD /* CardHighlightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHighlightsView.swift; sourceTree = "<group>"; };
-		DD0B38122AEC44A6007513AD /* SendCardButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCardButtonView.swift; sourceTree = "<group>"; };
 		DD0B38142AEC513D007513AD /* PlayerLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLayoutView.swift; sourceTree = "<group>"; };
 		DD57DF852AD428D3009B9272 /* ButtonConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonConnect.swift; sourceTree = "<group>"; };
 		DD57DF872AD49A04009B9272 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
@@ -195,12 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				45BFC5782B039FA300D14072 /* TutorialMocks */,
-				45414F5D2AFA66E4008D0F22 /* GameTutorial.swift */,
 				452BD8CD2AFD13E9001868ED /* TutorialModel.swift */,
-				452BD8C52AFD06D3001868ED /* PlayerLayoutTutorial.swift */,
-				452BD8CB2AFD0A96001868ED /* UserCardsTutorial.swift */,
 				4565F4492B02EAF200F0E8AE /* DescriptionTutorial.swift */,
-				452BD8CF2AFD1969001868ED /* SendButtonTutorial.swift */,
 			);
 			path = GameTutorial;
 			sourceTree = "<group>";
@@ -279,6 +269,7 @@
 				4FF895B72ACED16E00F50DA4 /* CardRepresentable.swift */,
 				4FDC7D592B039DC400F40465 /* CardStackView.swift */,
 				DD84A4652ADEB7ED00BD0801 /* BackCardView.swift */,
+				458287B12B17A31600EF8FEE /* CardRepresentableCustom.swift */,
 				DD0B37FF2AE808EF007513AD /* CardFocusedView.swift */,
 				DD0B38092AEC3818007513AD /* UserCardsView.swift */,
 			);
@@ -342,7 +333,6 @@
 				DD0B380F2AEC4076007513AD /* Highlights */,
 				DD0B38052AEC2CD4007513AD /* Players */,
 				4FBC46F02AD4226600BB1CE1 /* Card */,
-				DD0B38122AEC44A6007513AD /* SendCardButtonView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -430,6 +420,7 @@
 				DD6D18772AB88A8D004B02AA /* StoreButtonView.swift */,
 				DD6D18AB2ABDBF37004B02AA /* BackButtonView.swift */,
 				DDB6D50F2AFD214A0080DCE9 /* TurnIndicatorView.swift */,
+				458287AF2B16263800EF8FEE /* TutorialDescription.swift */,
 			);
 			path = HUD;
 			sourceTree = "<group>";
@@ -708,8 +699,6 @@
 			files = (
 				DD6D186B2AB88352004B02AA /* PlayButtonView.swift in Sources */,
 				DD0B380A2AEC3818007513AD /* UserCardsView.swift in Sources */,
-				45414F5E2AFA66E4008D0F22 /* GameTutorial.swift in Sources */,
-				452BD8CC2AFD0A96001868ED /* UserCardsTutorial.swift in Sources */,
 				64C04C102AD436BD00894EF9 /* PlayerView.swift in Sources */,
 				4F51B8C02AD0D2B8007107B4 /* ParallaxView.swift in Sources */,
 				64D8FB0E2AFA6AB300D75468 /* AchivmenteGameCenter.swift in Sources */,
@@ -721,7 +710,6 @@
 				DD0B380E2AEC3C42007513AD /* CardViewModel.swift in Sources */,
 				DD6D18782AB88A8D004B02AA /* StoreButtonView.swift in Sources */,
 				DD6D18662AB8784F004B02AA /* HomeView.swift in Sources */,
-				452BD8C62AFD06D3001868ED /* PlayerLayoutTutorial.swift in Sources */,
 				DD0B38152AEC513D007513AD /* PlayerLayoutView.swift in Sources */,
 				4FBE72A32AB1DF25002165FB /* Protocols.swift in Sources */,
 				64FFCE782AA8B0A80090566B /* DataWrapper.swift in Sources */,
@@ -734,6 +722,7 @@
 				64FFCE722AA74C5F0090566B /* WebSocket.swift in Sources */,
 				64D788FC2AB484CC00394078 /* CardNode.swift in Sources */,
 				DD84A4662ADEB7ED00BD0801 /* BackCardView.swift in Sources */,
+				458287B02B16263800EF8FEE /* TutorialDescription.swift in Sources */,
 				DD6D18AA2ABDBF0A004B02AA /* CustomToolbarView.swift in Sources */,
 				64D8FB122AFBC26900D75468 /* UserGameView.swift in Sources */,
 				4FF895B82ACED16E00F50DA4 /* CardRepresentable.swift in Sources */,
@@ -742,12 +731,10 @@
 				DD6D18762AB889F2004B02AA /* ConfigButtonView.swift in Sources */,
 				459585FA2AA6143C0039C908 /* GameView.swift in Sources */,
 				452BD8C82AFD07B3001868ED /* PlayersMock.swift in Sources */,
-				DD0B38132AEC44A6007513AD /* SendCardButtonView.swift in Sources */,
 				DDB6D5102AFD214A0080DCE9 /* TurnIndicatorView.swift in Sources */,
 				459585D02AA610A20039C908 /* MythosApp.swift in Sources */,
 				452BD8CE2AFD13E9001868ED /* TutorialModel.swift in Sources */,
 				DD57DF882AD49A04009B9272 /* DataStorage.swift in Sources */,
-				452BD8D02AFD1969001868ED /* SendButtonTutorial.swift in Sources */,
 				DD6D187C2AB88B33004B02AA /* ConfigurationView.swift in Sources */,
 				4FBC46F82AD43C4400BB1CE1 /* Fonts.swift in Sources */,
 				452BD8CA2AFD07CD001868ED /* CardsMock.swift in Sources */,
@@ -759,6 +746,7 @@
 				4565F44A2B02EAF200F0E8AE /* DescriptionTutorial.swift in Sources */,
 				DD57DF862AD428D3009B9272 /* ButtonConnect.swift in Sources */,
 				64D8FB162AFBCD7300D75468 /* LoadingView.swift in Sources */,
+				458287B22B17A31600EF8FEE /* CardRepresentableCustom.swift in Sources */,
 				DD6D18AC2ABDBF37004B02AA /* BackButtonView.swift in Sources */,
 				4FF895B62ACED14500F50DA4 /* GameViewSwiftUI.swift in Sources */,
 			);

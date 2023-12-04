@@ -17,7 +17,7 @@ struct HomeView: View {
         UINavigationBar.setAnimationsEnabled(false)
     }
     @State private var isShowingAlert = false
-    @StateObject var tutorialM: TutorialModel = TutorialModel()
+    @StateObject var tutorialModel: TutorialModel = TutorialModel()
 
     var body: some View {
         GeometryReader { geo in
@@ -47,7 +47,7 @@ struct HomeView: View {
                                                height: geo.size.height/1.9)
                                 })
                                 Spacer()
-                                NavigationLink(destination: GameTutorial().environmentObject(tutorialM),
+                                NavigationLink(destination: GameViewSwiftUI(isPresentedGame: false, isPresentTutorial: true).environmentObject(tutorialModel),
                                                label: {
                                     PlayButtonView(textButton: "Iniciar \n Tutorial")
                                         .shadow(radius: 10)

@@ -23,7 +23,7 @@ struct CardFocusedView: View {
 
 struct CardFocusedView_Previews: PreviewProvider {
     static var previews: some View {
-        CardFocusedView(card: Card(uuid: UUID(), id: 0, name: "aokdoas", imageName: "flechaEncantada", type: .action(.damage), damage: 10, effect: "aokdoaskaosdk", description: "adkadoaskdoaskdoaskdasokdsosd", descTutorial: "fsdf"), isTapped: .constant(false))
+        CardFocusedView(card: Card(uuid: UUID(), id: 0, name: "aokdoas", imageName: "flechaEncantada", type: .action(.damage), damage: 10, effect: "aokdoaskaosdk", description: "adkadoaskdoaskdoaskdasokdsosd"), isTapped: .constant(false))
             .frame(width: 400, height: 500)
     }
 }

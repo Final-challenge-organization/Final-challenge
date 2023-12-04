@@ -16,7 +16,6 @@ struct Card: Codable, Datable, Equatable {
     let damage: Int
     let effect: String
     let description: String
-    let descTutorial: String
 
     func toData() -> Data {
         return try! JSONEncoder().encode(self)

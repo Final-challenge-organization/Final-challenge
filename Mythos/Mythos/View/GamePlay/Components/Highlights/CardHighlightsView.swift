@@ -19,8 +19,10 @@ struct CardHighlightsView: View {
     var body: some View {
         ZStack {
             background
-            cards
-            showDescription ? description : nil
+            HStack(alignment: .top) {
+                cards
+                showDescription ? description : nil
+            }
         }
     }
 
@@ -29,16 +31,21 @@ struct CardHighlightsView: View {
             .foregroundColor(.black)
             .opacity(0.5)
             .ignoresSafeArea()
+            .onTapGesture {
+                withAnimation {
+                    cardVM.killTapped = false
+                    cardVM.isTapped = false
+                }
+            }
     }
     var cards: some View {
         CardFocusedView(card: card, isTapped: $cardVM.killTapped)
             .frame(width: 744/3.5, height: 1039/3.5)
-            .offset(x: offSetValuex, y: offSetValuey)
+//            .offset(x: offSetValuex, y: offSetValuey)
     }
     var description: some View {
-        DescriptionTutorial(description: cardVM.description)
+        DescriptionTutorial(description: card.description)
             .frame(width: UIScreen.main.bounds.width/3, height: UIScreen.main.bounds.height/1.8)
-            .position(x: UIScreen.main.bounds.width/6.5, y: UIScreen.main.bounds.height/1.5)
     }
 }
 

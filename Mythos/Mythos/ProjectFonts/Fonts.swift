@@ -13,6 +13,7 @@ enum MyCustomFonts {
     case CabinBold
     case CabinMediumItalic
     case CeasarDressingRegular
+    case CeasarDressingSmall
 
     var font: Font {
         switch self {
@@ -22,6 +23,9 @@ enum MyCustomFonts {
             return Font.custom("Cabin-Bold", size: 18)
         case .CeasarDressingRegular:
             return Font.custom("CaesarDressing", size: 30)
+        case .CeasarDressingSmall:
+            return Font.custom("CaesarDressing", size: 20)
+
         }
     }
 }
