@@ -14,15 +14,13 @@ struct CardStackView: View {
     @State private var isOpaque = false
     var body: some View {
         RoundedRectangle(cornerRadius: 12)
-            .foregroundColor(.clear)
-
-//            .stroke(style: .init(lineWidth: 0, dash: [10]))
-//            .background {
-//                Image("playCardsBackground")
-//                    .resizable()
-//                    .frame(width: 100, height: 140)
-//                    .scaledToFill()
-//            }
+            .stroke(style: .init(lineWidth: 0, dash: [10]))
+            .background {
+                Image("playCardsBackground")
+                    .resizable()
+                    .frame(width: 100, height: 140)
+                    .scaledToFill()
+            }
             .overlay {
                 if let card = card {
                     CardRepresentable(card: card) {
