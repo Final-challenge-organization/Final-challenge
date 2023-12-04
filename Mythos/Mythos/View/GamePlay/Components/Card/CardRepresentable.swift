@@ -19,7 +19,7 @@ struct CardRepresentable: View {
 
     var body: some View {
         switch card.type {
-        case .action(.damage):
+        case .action(.damage), .action(.damageToPrevious):
             actionCard
                 .overlay(content: {
                     (isYourTurn ?? true && !(isReaction ?? false)) ? Color.clear : Color.gray.opacity(0.5)
