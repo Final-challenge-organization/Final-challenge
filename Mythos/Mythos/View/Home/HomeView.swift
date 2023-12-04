@@ -17,6 +17,8 @@ struct HomeView: View {
         UINavigationBar.setAnimationsEnabled(false)
     }
     @State private var isShowingAlert = false
+    @StateObject var tutorialModel: TutorialModel = TutorialModel()
+
     var body: some View {
         GeometryReader { geo in
                 ScrollView {
@@ -39,7 +41,15 @@ struct HomeView: View {
                                 Spacer()
                                 NavigationLink(destination: WaitingRoomView(isPresentedWaiting: true),
                                                label: {
-                                    PlayButtonView()
+                                    PlayButtonView(textButton: "Iniciar \n Batalha")
+                                        .shadow(radius: 10)
+                                        .frame(width: geo.size.width/5,
+                                               height: geo.size.height/1.9)
+                                })
+                                Spacer()
+                                NavigationLink(destination: GameViewSwiftUI(isPresentedGame: false, isPresentTutorial: true).environmentObject(tutorialModel),
+                                               label: {
+                                    PlayButtonView(textButton: "Iniciar \n Tutorial")
                                         .shadow(radius: 10)
                                         .frame(width: geo.size.width/5,
                                                height: geo.size.height/1.9)

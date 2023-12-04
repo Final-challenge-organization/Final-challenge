@@ -66,7 +66,7 @@ struct WaitingRoomView: View {
                 dismiss()
             }
         }
-        .navigationDestination(isPresented: $isReady, destination: {GameViewSwiftUI(isPresentedGame: true).environmentObject(websocket)})
+        .navigationDestination(isPresented: $isReady, destination: {GameViewSwiftUI(isPresentedGame: true, isPresentTutorial: false).environmentObject(websocket)})
     }
     var playersConnected: some View {
         HStack(spacing: 90) {
