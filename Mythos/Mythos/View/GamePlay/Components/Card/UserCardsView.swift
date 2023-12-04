@@ -90,7 +90,7 @@ struct UserCardsView: View {
                             })
                     )
                 }
-                .transition(.move(edge: .top))
+                .transition(.opacity)
                 if isGameView {
                     if websocket.turnPlayer == "Seu Turno" && isShowingYourTurn {
                         TurnIndicatorView(turnDesc: "Sua vez!!", showName: true)
