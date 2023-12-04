@@ -54,9 +54,8 @@ struct UserCardsView: View {
                                 }
                             })
                     )
-//                    .disabled(true)
                 }
-                .transition(.move(edge: .top))
+                .transition(.opacity)
 
                 if websocket.turnPlayer == "Seu Turno" && isShowingYourTurn {
                     TurnIndicatorView()
