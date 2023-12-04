@@ -10,142 +10,104 @@ import CoreHaptics
 
 struct CardRepresentable: View {
 
+    @EnvironmentObject var tutorialModel: TutorialModel
     @State private var engine: CHHapticEngine?
 
     var isYourTurn : Bool?
     var isReaction: Bool?
     var card: Card
+    var isPresentedTutorial: Bool = false
     var onTap: () -> Void
 
     var body: some View {
         switch card.type {
         case .action(.damage):
-            actionCard
+            CardRepresentableCustom(imageName: "action", card: card)
                 .overlay(content: {
-                    (isYourTurn ?? true && !(isReaction ?? false)) ? Color.clear : Color.gray.opacity(0.5)
+                    if !isPresentedTutorial {
+                        (isYourTurn ?? true && !(isReaction ?? false)) ? Color.clear : Color.gray.opacity(0.5)
+                    } else {
+                        if tutorialModel.matchNumberTutorial == 1 {
+                            isYourTurn! ? Color.clear : Color.gray.opacity(0.5)
+                        } else {
+                            isYourTurn! ? Color.gray.opacity(0.5) : Color.clear
+                        }
+                    }
                 })
                 .onTapGesture {
-                    if (isYourTurn ?? true && !(isReaction ?? false)) {
-                        onTap()
-                        prepareHaptics()
-                        complexSuccess()
+                    if !isPresentedTutorial {
+                        if (isYourTurn ?? true && !(isReaction ?? false)) {
+                            onTap()
+                            prepareHaptics()
+                            complexSuccess()
+                        }
+                    } else {
+                        if tutorialModel.matchNumberTutorial == 1 {
+                            if (isYourTurn ?? true && !(isReaction ?? false)) {
+                                onTap()
+                                prepareHaptics()
+                                complexSuccess()
+                            }
+                        }
                     }
                 }
         case .action(.block):
-            actionCard
+            CardRepresentableCustom(imageName: "action", card: card)
                 .overlay(content: {
-                    (isYourTurn ?? true && !(isReaction ?? false)) ? Color.clear : Color.gray.opacity(0.5)
+                    if !isPresentedTutorial {
+                        ((isYourTurn ?? true && !(isReaction ?? false)) ? Color.clear : Color.gray.opacity(0.5))
+                    } else {
+                        if tutorialModel.matchNumberTutorial == 2 {
+                            isYourTurn! ? Color.clear : Color.gray.opacity(0.5)
+                        } else {
+                            isYourTurn! ? Color.gray.opacity(0.5) : Color.clear
+                        }
+                    }
                 })
                 .onTapGesture {
-                    if (isYourTurn ?? true && !(isReaction ?? false)) {
-                        onTap()
-                        prepareHaptics()
-                        complexSuccess()
+                    if !isPresentedTutorial {
+                        if (isYourTurn ?? true && !(isReaction ?? false)) {
+                            onTap()
+                            prepareHaptics()
+                            complexSuccess()
+                        }
+                    } else {
+                        if tutorialModel.matchNumberTutorial == 2 {
+                            if (isYourTurn ?? true && !(isReaction ?? false)) {
+                                onTap()
+                                prepareHaptics()
+                                complexSuccess()
+                            }
+                        }
                     }
                 }
         case .reaction:
-            reactionCard
+            CardRepresentableCustom(imageName: "reaction", card: card)
                 .overlay(content: {
-                    (isYourTurn ?? true || isReaction ?? true) ? Color.clear : Color.gray.opacity(0.5)
+                    if !isPresentedTutorial {
+                        (isYourTurn ?? true || isReaction ?? true) ? Color.clear : Color.gray.opacity(0.5)
+                    } else {
+                        if tutorialModel.matchNumberTutorial == 3 {
+                            isYourTurn! ? Color.clear : Color.gray.opacity(0.5)
+                        } else {
+                            isYourTurn! ? Color.gray.opacity(0.5) : Color.clear
+                        }
+                    }
                 })
                 .onTapGesture {
-                    if (isYourTurn ?? true || isReaction ?? true) {
-                        onTap()
-                        prepareHaptics()
-                        complexSuccess()
-                    }
-                }
-        }
-    }
-
-
-    var actionCard: some View {
-        GeometryReader { geo in
-            Image("action")
-                .resizable()
-                .overlay {
-                    ZStack {
-                        VStack {
-                            Text(card.name)
-                                .font(MyCustomFonts.CeasarDressingRegular.font)
-                                .foregroundColor(Color("cardTitleColor"))
-                                .minimumScaleFactor(0.01)
-                                .lineLimit(0)
-                                .padding([.leading, .trailing], geo.size.width/8)
-                                .padding(.top, geo.size.height/40)
-                                Spacer()
+                    if !isPresentedTutorial {
+                        if (isYourTurn ?? true || !(isReaction ?? true)) {
+                            onTap()
+                            prepareHaptics()
+                            complexSuccess()
                         }
-                        VStack {
-                            Image(card.imageName)
-                                .resizable()
-                                .frame(width: geo.size.width/1.5, height:  geo.size.width/1.5)
-                                .scaledToFit()
-                                .padding(.bottom, geo.size.height/3.5)
-                        }
-                        VStack(spacing: 0) {
-                            Spacer()
-                            Text(card.effect)
-                                .font(MyCustomFonts.CabinBold.font)
-                                .multilineTextAlignment(.center)
-                                .minimumScaleFactor(0.01)
-                                .foregroundColor(.white)
-                                .lineLimit(2)
-                                .padding([.leading, .trailing], geo.size.width/8)
-                                .frame(width: geo.size.width, height: geo.size.height/10)
-                            Text(card.description)
-                                .font(MyCustomFonts.CabinMediumItalic.font)
-                                .minimumScaleFactor(0.01)
-                                .multilineTextAlignment(.center)
-                                .foregroundColor(Color("cardDescriptionColor"))
-                                .padding([.leading, .trailing])
-                                .frame(width: geo.size.width, height: geo.size.height/6.2)
-                                .padding(.bottom, geo.size.height/14)
-                        }
-                    }
-                }
-        }
-    }
-    var reactionCard: some View {
-        GeometryReader { geo in
-            Image("reaction")
-                .resizable()
-                .overlay {
-                    ZStack {
-                        VStack {
-                            Text(card.name)
-                                .font(MyCustomFonts.CeasarDressingRegular.font)
-                                .foregroundColor(Color("cardTitleColor"))
-                                .minimumScaleFactor(0.01)
-                                .lineLimit(0)
-                                .padding([.leading, .trailing], geo.size.width/8)
-                                .padding(.top, geo.size.height/40)
-                                Spacer()
-                        }
-                        VStack {
-                            Image(card.imageName)
-                                .resizable()
-                                .frame(width: geo.size.width/1.5, height:  geo.size.width/1.5)
-                                .scaledToFit()
-                                .padding(.bottom, geo.size.height/3.5)
-                        }
-                        VStack(spacing: 0) {
-                            Spacer()
-                            Text(card.effect)
-                                .font(MyCustomFonts.CabinBold.font)
-                                .multilineTextAlignment(.center)
-                                .minimumScaleFactor(0.01)
-                                .foregroundColor(.white)
-                                .lineLimit(2)
-                                .padding([.leading, .trailing], geo.size.width/8)
-                                .frame(width: geo.size.width, height: geo.size.height/10)
-                            Text(card.description)
-                                .font(MyCustomFonts.CabinMediumItalic.font)
-                                .minimumScaleFactor(0.01)
-                                .multilineTextAlignment(.center)
-                                .foregroundColor(Color("cardDescriptionColor"))
-                                .padding([.leading, .trailing])
-                                .frame(width: geo.size.width, height: geo.size.height/6.2)
-                                .padding(.bottom, geo.size.height/14)
+                    } else {
+                        if tutorialModel.matchNumberTutorial == 3 {
+                            if (isYourTurn ?? true || !(isReaction ?? true)) {
+                                onTap()
+                                prepareHaptics()
+                                complexSuccess()
+                            }
                         }
                     }
                 }
@@ -206,7 +168,7 @@ struct CardRepresentable_Previews: PreviewProvider {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(arr, id: \.id) { card in
-                        CardRepresentable(isYourTurn: true, isReaction: false, card: card) {
+                        CardRepresentable(isYourTurn: true, isReaction: false, card: card, isPresentedTutorial: false) {
                             print()
                         }
                         .frame(width: 744/5, height: 1039/5)

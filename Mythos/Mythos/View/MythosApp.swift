@@ -11,6 +11,7 @@ import SwiftUI
 struct MythosApp: App {
     @StateObject private var viewModel = GKPlayerViewModel()
 
+    
     var body: some Scene {
         WindowGroup {
             NavigationStack {

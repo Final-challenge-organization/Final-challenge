@@ -12,6 +12,8 @@ class CardViewModel: ObservableObject {
     @Published var cardSelected: Card? = nil
     @Published var isTapped: Bool = false
     @Published var killTapped: Bool = false
+    @Published var description: String = ""
+    
     @Published var graveyardPosition: CGPoint = CGPoint(x: UIScreen.main.bounds.size.width/2, y: UIScreen.main.bounds.size.height/2)
     @Published var cardLocations: [CGPoint] = [CGPoint(), CGPoint(), CGPoint()]
     @Published var isDragging: Bool = false
