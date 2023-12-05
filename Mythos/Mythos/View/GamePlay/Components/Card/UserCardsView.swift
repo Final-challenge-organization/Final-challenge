@@ -40,6 +40,7 @@ struct UserCardsView: View {
                                     if cardVM.isAbleToDrag(card: card, isYourTurn: websocket.myPlayerReference.isYourTurn, isReaction: websocket.myPlayerReference.isReaction) {
                                         cardVM.cardLocations[index] = changedValue.location
                                         cardVM.isDragging = true
+                                        cardVM.feedbackPositionIdentifier(currentLocation: changedValue.location)
                                     }
                                 }
                             })
