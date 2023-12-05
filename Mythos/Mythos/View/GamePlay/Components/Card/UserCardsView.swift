@@ -43,6 +43,7 @@ struct UserCardsView: View {
                                         if cardVM.isAbleToDrag(card: card, isYourTurn: websocket.myPlayerReference.isYourTurn, isReaction: websocket.myPlayerReference.isReaction) {
                                             cardVM.cardLocations[index] = changedValue.location
                                             cardVM.isDragging = true
+                                            cardVM.feedbackPositionIdentifier(currentLocation: changedValue.location)
                                         }
                                     } else {
                                         if tutorialModel.matchNumberTutorial == 1 && playersMock[0].isYourTurn && card.type == .action(.damage) {
