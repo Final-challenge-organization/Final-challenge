@@ -41,6 +41,8 @@ struct PersonasView: View {
     let isYourTurn: Bool
     let image: Data
 
+    @State var newLife: Int = 0
+
     @State var isDamaged: Bool = false
     @State var animationAttempts: Int = 0
 
@@ -69,7 +71,7 @@ struct PersonasView: View {
                                 .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))
                                 .frame(width: 30, height: 30)
                                 .overlay {
-                                    Text("\(lifePerson)")
+                                    Text("\(newLife)")
                                         .foregroundColor(.yellow)
 
                                         .font(MyCustomFonts.CeasarDressingRegular.font)
@@ -104,6 +106,9 @@ struct PersonasView: View {
                 .frame(maxWidth: 110.51, maxHeight: 177.4)
                 .rotation3DEffect(Angle(degrees: 50), axis: (x:-20, y:40, z:-10))
             }
+            .onAppear {
+                newLife = lifePerson
+            }
             .onChange(of: lifePerson) { newValue in
                 withAnimation(.interpolatingSpring(stiffness: 350, damping: 5, initialVelocity: 10)) {
                     self.animationAttempts += 1
@@ -113,6 +118,7 @@ struct PersonasView: View {
                     withAnimation(.smooth) {
                         isDamaged = false
                     }
+                    self.newLife = newValue
                 })
             }
         } else
@@ -138,7 +144,7 @@ struct PersonasView: View {
                                 .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))
                                 .frame(width: 30, height: 30)
                                 .overlay {
-                                    Text("\(lifePerson)")
+                                    Text("\(newLife)")
                                         .foregroundColor(.yellow)
                                         .font(MyCustomFonts.CeasarDressingRegular.font)
                                         .scaleEffect(isDamaged ? 5 : 0.6)
@@ -172,6 +178,9 @@ struct PersonasView: View {
                 .frame(maxWidth: 110.51, maxHeight: 177.4)
                 .rotation3DEffect(Angle(degrees: -50), axis: (x:20, y:40, z:-10))
             }
+            .onAppear {
+                newLife = lifePerson
+            }
             .onChange(of: lifePerson) { newValue in
                 withAnimation(.interpolatingSpring(stiffness: 350, damping: 5, initialVelocity: 10)) {
                     self.animationAttempts += 1
@@ -182,6 +191,7 @@ struct PersonasView: View {
                     withAnimation(.smooth){
                         isDamaged = false
                     }
+                    self.newLife = newValue
                 })
             }
         }
@@ -212,7 +222,7 @@ struct PersonasView: View {
                                     .strokeBorder(isYourTurn ? Color("selectedPlayerColor") : .clear, lineWidth: 4)
                                     .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: 30, height: 30)
                                     .overlay {
-                                        Text("\(lifePerson)")
+                                        Text("\(newLife)")
                                             .foregroundColor(.yellow)
                                             .font(MyCustomFonts.CeasarDressingRegular.font)
                                             .scaleEffect(isDamaged ? 5 : 0.6)
@@ -238,6 +248,9 @@ struct PersonasView: View {
                     Spacer()
                 }
             }
+            .onAppear {
+                newLife = lifePerson
+            }
             .onChange(of: lifePerson) { newValue in
 //                self.isDamaged.toggle()
                 withAnimation(.interpolatingSpring(stiffness: 350, damping: 5, initialVelocity: 10)) {
@@ -251,6 +264,7 @@ struct PersonasView: View {
                     withAnimation(.smooth) {
                         isDamaged = false
                     }
+                    self.newLife = newValue
                 })
             }
         }
@@ -279,7 +293,7 @@ struct PersonasView: View {
                                 .strokeBorder(isYourTurn ? Color("selectedPlayerColor") : .clear, lineWidth: 4)
                                 .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: 30, height: 30)
                                 .overlay {
-                                    Text("\(lifePerson)")
+                                    Text("\(newLife)")
                                         .foregroundColor(.yellow)
                                         .font(MyCustomFonts.CeasarDressingRegular.font)
                                         .scaleEffect(isDamaged ? 5 : 0.6)
@@ -309,6 +323,9 @@ struct PersonasView: View {
                 .offset(y: 10)
                 .frame(maxWidth: 110.51, maxHeight: 177.4)
             }
+            .onAppear {
+                newLife = lifePerson
+            }
             .onChange(of: lifePerson) { newValue in
                 withAnimation(.interpolatingSpring(stiffness: 350, damping: 5, initialVelocity: 10)) {
                     self.animationAttempts += 1
@@ -319,6 +336,7 @@ struct PersonasView: View {
                     withAnimation(.smooth) {
                         isDamaged = false
                     }
+                    self.newLife = newValue
                 })
             }
         }
