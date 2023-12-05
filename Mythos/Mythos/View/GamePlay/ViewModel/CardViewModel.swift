@@ -18,6 +18,9 @@ class CardViewModel: ObservableObject {
     @Published var cardLocations: [CGPoint] = [CGPoint(), CGPoint(), CGPoint()]
     @Published var isDragging: Bool = false
     @Published var baseCardLocation: CGPoint = CGPoint()
+
+    var makeFeedback: Bool = false
+
     var sendCard: (() -> ())?
 
 
@@ -29,6 +32,24 @@ class CardViewModel: ObservableObject {
         } else {
             print("NADA AINDA")
         }
+    }
+
+
+    func feedbackPositionIdentifier(currentLocation: CGPoint) {
+        if (abs(self.graveyardPosition.x - currentLocation.x) < 65) && (abs(self.graveyardPosition.y - currentLocation.y) < 75) {
+            if makeFeedback {
+                print("BATEU")
+                feedBackPosition()
+            }
+        }
+        else {
+            makeFeedback = true
+        }
+    }
+
+    func feedBackPosition() {
+        UIImpactFeedbackGenerator(style: .soft).impactOccurred(intensity: 40)
+        makeFeedback = false
     }
 
 

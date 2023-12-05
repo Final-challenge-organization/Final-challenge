@@ -20,6 +20,18 @@ struct Triangle: Shape {
     }
 }
 
+struct Shake: GeometryEffect {
+    var amount: CGFloat = 10
+    var shakesPerUnit = 1
+    var animatableData: CGFloat
+
+    func effectValue(size: CGSize) -> ProjectionTransform {
+        ProjectionTransform(CGAffineTransform(translationX:
+            amount * sin(animatableData * .pi * CGFloat(shakesPerUnit)),
+            y: 0))
+    }
+}
+
 struct PersonasView: View {
 
     let cards: [Card]
@@ -28,6 +40,11 @@ struct PersonasView: View {
     var index: Int
     let isYourTurn: Bool
     let image: Data
+
+    @State var newLife: Int = 0
+
+    @State var isDamaged: Bool = false
+    @State var animationAttempts: Int = 0
 
     private let dataStorage = DataStorage()
 
@@ -51,12 +68,19 @@ struct PersonasView: View {
                         .overlay {
                             Circle()
                                 .strokeBorder(isYourTurn ? Color("selectedPlayerColor") : .clear, lineWidth: 4)
-                                .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: 30, height: 30)
+                                .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))
+                                .frame(width: 30, height: 30)
                                 .overlay {
-                                    Text("\(lifePerson)")
+                                    Text("\(newLife)")
                                         .foregroundColor(.yellow)
-                                        .bold()
+
+                                        .font(MyCustomFonts.CeasarDressingRegular.font)
+                                        .scaleEffect(isDamaged ? 5 : 0.6)
+                                        .minimumScaleFactor(0.1)
+                                        .opacity(isDamaged ? 0 : 1)
                                 }
+                                .scaleEffect(isDamaged ? 5 : 1)
+                                .opacity(isDamaged ? 0 : 1)
                                 .offset(x: -25, y: -25)
                         }
                     Triangle()
@@ -64,6 +88,7 @@ struct PersonasView: View {
                         .frame(width: 25, height: 10)
                         .rotationEffect(Angle(degrees:180))
                 }
+                .modifier(Shake(animatableData: CGFloat(animationAttempts)))
                 HStack(spacing: -35) {
                     Spacer()
                     ForEach(cards, id: \.id) {
@@ -80,6 +105,21 @@ struct PersonasView: View {
                 .animation(.easeInOut, value: cards.count)
                 .frame(maxWidth: 110.51, maxHeight: 177.4)
                 .rotation3DEffect(Angle(degrees: 50), axis: (x:-20, y:40, z:-10))
+            }
+            .onAppear {
+                newLife = lifePerson
+            }
+            .onChange(of: lifePerson) { newValue in
+                withAnimation(.interpolatingSpring(stiffness: 350, damping: 5, initialVelocity: 10)) {
+                    self.animationAttempts += 1
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                    isDamaged = true
+                    withAnimation(.smooth) {
+                        isDamaged = false
+                    }
+                    self.newLife = newValue
+                })
             }
         } else
         //MARK: - RIGHT LOCATION
@@ -101,12 +141,18 @@ struct PersonasView: View {
                         .overlay {
                             Circle()
                                 .strokeBorder(isYourTurn ? Color("selectedPlayerColor") : .clear, lineWidth: 4)
-                                .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: 30, height: 30)
+                                .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))
+                                .frame(width: 30, height: 30)
                                 .overlay {
-                                    Text("\(lifePerson)")
+                                    Text("\(newLife)")
                                         .foregroundColor(.yellow)
-                                        .bold()
+                                        .font(MyCustomFonts.CeasarDressingRegular.font)
+                                        .scaleEffect(isDamaged ? 5 : 0.6)
+                                        .minimumScaleFactor(0.1)
+                                        .opacity(isDamaged ? 0 : 1)
                                 }
+                                .scaleEffect(isDamaged ? 5 : 1)
+                                .opacity(isDamaged ? 0 : 1)
                                 .offset(x: 25, y: -25)
                         }
                     Triangle()
@@ -114,6 +160,7 @@ struct PersonasView: View {
                         .frame(width: 25, height: 10)
                         .rotationEffect(Angle(degrees:180))
                 }
+                .modifier(Shake(animatableData: CGFloat(animationAttempts)))
                 HStack(spacing: -35) {
                     Spacer()
                     ForEach(cards, id: \.id) {
@@ -131,6 +178,22 @@ struct PersonasView: View {
                 .frame(maxWidth: 110.51, maxHeight: 177.4)
                 .rotation3DEffect(Angle(degrees: -50), axis: (x:20, y:40, z:-10))
             }
+            .onAppear {
+                newLife = lifePerson
+            }
+            .onChange(of: lifePerson) { newValue in
+                withAnimation(.interpolatingSpring(stiffness: 350, damping: 5, initialVelocity: 10)) {
+                    self.animationAttempts += 1
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                    isDamaged = true
+
+                    withAnimation(.smooth){
+                        isDamaged = false
+                    }
+                    self.newLife = newValue
+                })
+            }
         }
         //MARK: - USER LOCATION
         if index == 0 {
@@ -140,7 +203,7 @@ struct PersonasView: View {
                         .fill(Color(red: 9/255, green: 24/255, blue: 63/255))
                         .frame(width: 45, height: 12)
                         .rotationEffect(Angle(degrees: 270))
-//                        .offset(y:0)
+                    //                        .offset(y:0)
                     VStack {
                         Image(uiImage: dataStorage.getUserImage())
                             .resizable()
@@ -159,14 +222,20 @@ struct PersonasView: View {
                                     .strokeBorder(isYourTurn ? Color("selectedPlayerColor") : .clear, lineWidth: 4)
                                     .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: 30, height: 30)
                                     .overlay {
-                                        Text("\(lifePerson)")
+                                        Text("\(newLife)")
                                             .foregroundColor(.yellow)
-                                            .bold()
+                                            .font(MyCustomFonts.CeasarDressingRegular.font)
+                                            .scaleEffect(isDamaged ? 5 : 0.6)
+                                            .minimumScaleFactor(0.1)
+                                            .opacity(isDamaged ? 0 : 1)
                                     }
+                                    .scaleEffect(isDamaged ? 5 : 1)
+                                    .opacity(isDamaged ? 0 : 1)
                                     .offset(x: 35, y:-35)
                             }
                     }
                 }
+                .modifier(Shake(animatableData: CGFloat(animationAttempts)))
                 .offset(x: 180)
                 HStack(spacing: -35) {
                     Spacer()
@@ -178,6 +247,25 @@ struct PersonasView: View {
                     }
                     Spacer()
                 }
+            }
+            .onAppear {
+                newLife = lifePerson
+            }
+            .onChange(of: lifePerson) { newValue in
+//                self.isDamaged.toggle()
+                withAnimation(.interpolatingSpring(stiffness: 350, damping: 5, initialVelocity: 10)) {
+                    self.animationAttempts += 1
+                }
+                let generator = UINotificationFeedbackGenerator()
+                generator.prepare()
+                generator.notificationOccurred(.error)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                    isDamaged = true
+                    withAnimation(.smooth) {
+                        isDamaged = false
+                    }
+                    self.newLife = newValue
+                })
             }
         }
         //MARK: - TOP LOCATION
@@ -205,13 +293,19 @@ struct PersonasView: View {
                                 .strokeBorder(isYourTurn ? Color("selectedPlayerColor") : .clear, lineWidth: 4)
                                 .background(Circle().fill(Color(UIColor.init(red: 9/255, green: 24/255, blue: 63/255, alpha: 1))))                            .frame(width: 30, height: 30)
                                 .overlay {
-                                    Text("\(lifePerson)")
+                                    Text("\(newLife)")
                                         .foregroundColor(.yellow)
-                                        .bold()
+                                        .font(MyCustomFonts.CeasarDressingRegular.font)
+                                        .scaleEffect(isDamaged ? 5 : 0.6)
+                                        .minimumScaleFactor(0.1)
+                                        .opacity(isDamaged ? 0 : 1)
                                 }
+                                .scaleEffect(isDamaged ? 5 : 1)
+                                .opacity(isDamaged ? 0 : 1)
                                 .offset(x: -25, y:25)
                         }
                 }
+                .modifier(Shake(animatableData: CGFloat(animationAttempts)))
                 .offset(x: -100, y: 10)
                 HStack(spacing: -35) {
                     Spacer()
@@ -228,6 +322,22 @@ struct PersonasView: View {
                 .animation(.easeInOut, value: cards.count)
                 .offset(y: 10)
                 .frame(maxWidth: 110.51, maxHeight: 177.4)
+            }
+            .onAppear {
+                newLife = lifePerson
+            }
+            .onChange(of: lifePerson) { newValue in
+                withAnimation(.interpolatingSpring(stiffness: 350, damping: 5, initialVelocity: 10)) {
+                    self.animationAttempts += 1
+                }
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                    isDamaged = true
+                    withAnimation(.smooth) {
+                        isDamaged = false
+                    }
+                    self.newLife = newValue
+                })
             }
         }
         if index == 5 {
@@ -256,7 +366,7 @@ struct PersonasView: View {
 struct PersonasView_Previews: PreviewProvider {
     static var previews: some View {
         let namePerson: String = "Charlingtonglaevionbeecheknavare dos Anjos Mendonça "
-        let lifePerson = 30
+        let lifePerson = 29
         let image = "sara"
         Group {
             let index = 0
@@ -283,7 +393,7 @@ struct PersonasView_Previews: PreviewProvider {
                      damage: 1,
                      effect: "TESTANDO",
                      description: "testando"
-//                     descTutorial: "testando"
+                     //                     descTutorial: "testando"
                     )
             ]
             PersonasView(cards: cards, namePerson: namePerson, lifePerson: lifePerson, index: index, isYourTurn: (1 != 0), image: UIImage(named: image)!.pngData()!)
